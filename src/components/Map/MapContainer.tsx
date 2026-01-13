@@ -22,8 +22,8 @@ function MapController({ blocoSelecionado }: { blocoSelecionado: Bloco | null })
 
   useEffect(() => {
     if (blocoSelecionado) {
-      map.flyTo([blocoSelecionado.lat, blocoSelecionado.lng], 15, {
-        duration: 0.8,
+      map.flyTo([blocoSelecionado.lat, blocoSelecionado.lng], 16, {
+        duration: 1.5,
       });
     }
   }, [blocoSelecionado, map]);

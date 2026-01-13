@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { MapView } from './components/Map';
@@ -7,6 +7,8 @@ import { DateDistributionChart } from './components/Stats';
 import { useBlocos, useFilters, useCameras, useCamerasProximas } from './hooks';
 import type { Bloco } from './types/bloco';
 import { Loader2, AlertCircle, RefreshCw } from 'lucide-react';
+
+const TOUR_DURATION_SECONDS = 10;
 
 function App() {
   const { blocos, loading, error, usandoMock, recarregar } = useBlocos();
@@ -21,6 +23,14 @@ function App() {
 
   const [blocoSelecionado, setBlocoSelecionado] = useState<Bloco | null>(null);
 
+  // Estado do Tour
+  const [tourAtivo, setTourAtivo] = useState(false);
+  const [tourIndex, setTourIndex] = useState(0);
+  const [tourBloco, setTourBloco] = useState<Bloco | null>(null);
+  const [tempoRestante, setTempoRestante] = useState(TOUR_DURATION_SECONDS);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const countdownRef = useRef<NodeJS.Timeout | null>(null);
+
   // Filtrar câmeras próximas ao bloco selecionado (raio de 300m)
   const camerasProximas = useCamerasProximas(todasCameras, blocoSelecionado, 300);
 
@@ -31,6 +41,92 @@ function App() {
   const handleCloseDetail = useCallback(() => {
     setBlocoSelecionado(null);
   }, []);
+
+  // Limpar timers do tour
+  const limparTimers = useCallback(() => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+    if (countdownRef.current) {
+      clearInterval(countdownRef.current);
+      countdownRef.current = null;
+    }
+  }, []);
+
+  // Iniciar tour
+  const handleTourStart = useCallback(() => {
+    if (blocosFiltrados.length === 0) return;
+
+    limparTimers();
+    setTourAtivo(true);
+    setTourIndex(0);
+    setTourBloco(blocosFiltrados[0]);
+    setBlocoSelecionado(blocosFiltrados[0]);
+    setTempoRestante(TOUR_DURATION_SECONDS);
+  }, [blocosFiltrados, limparTimers]);
+
+  // Parar tour
+  const handleTourStop = useCallback(() => {
+    limparTimers();
+    setTourAtivo(false);
+    setTourBloco(null);
+    setTempoRestante(TOUR_DURATION_SECONDS);
+  }, [limparTimers]);
+
+  // Próximo bloco do tour
+  const handleTourNext = useCallback(() => {
+    if (!tourAtivo || blocosFiltrados.length === 0) return;
+
+    limparTimers();
+    const nextIndex = (tourIndex + 1) % blocosFiltrados.length;
+    setTourIndex(nextIndex);
+    setTourBloco(blocosFiltrados[nextIndex]);
+    setBlocoSelecionado(blocosFiltrados[nextIndex]);
+    setTempoRestante(TOUR_DURATION_SECONDS);
+  }, [tourAtivo, tourIndex, blocosFiltrados, limparTimers]);
+
+  // Efeito para controlar o tour automático
+  useEffect(() => {
+    if (!tourAtivo || blocosFiltrados.length === 0) return;
+
+    // Timer para próximo bloco
+    timerRef.current = setTimeout(() => {
+      handleTourNext();
+    }, TOUR_DURATION_SECONDS * 1000);
+
+    // Countdown
+    countdownRef.current = setInterval(() => {
+      setTempoRestante(prev => Math.max(0, prev - 1));
+    }, 1000);
+
+    return () => {
+      limparTimers();
+    };
+  }, [tourAtivo, tourIndex, blocosFiltrados.length, handleTourNext, limparTimers]);
+
+  // Resetar countdown quando muda de bloco
+  useEffect(() => {
+    if (tourAtivo) {
+      setTempoRestante(TOUR_DURATION_SECONDS);
+    }
+  }, [tourIndex, tourAtivo]);
+
+  // Parar tour se os blocos filtrados mudarem
+  useEffect(() => {
+    if (tourAtivo && blocosFiltrados.length === 0) {
+      handleTourStop();
+    }
+  }, [blocosFiltrados.length, tourAtivo, handleTourStop]);
+
+  // Estado do tour para passar ao Header
+  const tourState = {
+    ativo: tourAtivo,
+    index: tourIndex,
+    bloco: tourBloco,
+    tempoRestante,
+    totalBlocos: blocosFiltrados.length,
+  };
 
   if (loading) {
     return (
@@ -50,6 +146,10 @@ function App() {
         <Header
           estatisticas={estatisticas}
           totalBlocosOriginal={blocos.length}
+          tourState={tourState}
+          onTourStart={handleTourStart}
+          onTourStop={handleTourStop}
+          onTourNext={handleTourNext}
         />
       </div>
 

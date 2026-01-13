@@ -1,13 +1,32 @@
-import { Music, Users, Route, MapPin } from 'lucide-react';
-import type { Estatisticas } from '../../types/bloco';
+import { Music, Users, Route, MapPin, Play, Square, SkipForward } from 'lucide-react';
+import type { Bloco, Estatisticas } from '../../types/bloco';
 import { formatarNumero } from '../../utils/formatters';
+
+interface TourState {
+  ativo: boolean;
+  index: number;
+  bloco: Bloco | null;
+  tempoRestante: number;
+  totalBlocos: number;
+}
 
 interface HeaderProps {
   estatisticas: Estatisticas;
   totalBlocosOriginal: number;
+  tourState: TourState;
+  onTourStart: () => void;
+  onTourStop: () => void;
+  onTourNext: () => void;
 }
 
-export function Header({ estatisticas, totalBlocosOriginal }: HeaderProps) {
+export function Header({
+  estatisticas,
+  totalBlocosOriginal,
+  tourState,
+  onTourStart,
+  onTourStop,
+  onTourNext,
+}: HeaderProps) {
   const isFiltered = estatisticas.totalBlocos !== totalBlocosOriginal;
 
   return (
@@ -32,7 +51,7 @@ export function Header({ estatisticas, totalBlocosOriginal }: HeaderProps) {
           </p>
         </div>
 
-        {/* Stats Pills - Direita */}
+        {/* Stats Pills + Tour - Direita */}
         <div className="flex items-center gap-3 flex-shrink-0">
           <StatPill
             icon={<MapPin size={14} />}
@@ -61,6 +80,58 @@ export function Header({ estatisticas, totalBlocosOriginal }: HeaderProps) {
             subValue={`${Math.round((estatisticas.parados / (estatisticas.totalBlocos || 1)) * 100)}%`}
             color="pink"
           />
+
+          {/* Separador */}
+          <div className="w-px h-10 bg-white/10" />
+
+          {/* Botão Tour */}
+          {!tourState.ativo ? (
+            <button
+              onClick={onTourStart}
+              disabled={estatisticas.totalBlocos === 0}
+              className="flex items-center gap-2 px-4 py-2 bg-cor-accent-green/20 text-cor-accent-green border border-cor-accent-green/30 rounded-lg hover:bg-cor-accent-green/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              title="Iniciar tour automático pelos blocos"
+            >
+              <Play size={16} />
+              <span className="font-semibold text-sm">Tour</span>
+            </button>
+          ) : (
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-cor-accent-green/10 border border-cor-accent-green/30 rounded-lg">
+              {/* Info do tour */}
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-cor-accent-green rounded-full animate-pulse" />
+                <div className="flex flex-col">
+                  <span className="text-[10px] text-white/60">
+                    {tourState.index + 1}/{tourState.totalBlocos}
+                  </span>
+                  <span className="text-xs font-semibold text-cor-accent-green max-w-[100px] truncate" title={tourState.bloco?.nome}>
+                    {tourState.bloco?.nome || 'Carregando...'}
+                  </span>
+                </div>
+              </div>
+
+              {/* Tempo restante */}
+              <div className="flex items-center gap-1 px-2 py-1 bg-white/5 rounded">
+                <span className="text-xs text-white/70 font-mono">{tourState.tempoRestante}s</span>
+              </div>
+
+              {/* Botões de controle */}
+              <button
+                onClick={onTourNext}
+                className="p-1.5 hover:bg-white/10 rounded transition-colors"
+                title="Próximo bloco"
+              >
+                <SkipForward size={14} className="text-white/70" />
+              </button>
+              <button
+                onClick={onTourStop}
+                className="p-1.5 hover:bg-cor-accent-pink/20 rounded transition-colors"
+                title="Parar tour"
+              >
+                <Square size={14} className="text-cor-accent-pink" />
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </header>
