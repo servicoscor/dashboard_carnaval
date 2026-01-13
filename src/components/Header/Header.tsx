@@ -11,27 +11,29 @@ export function Header({ estatisticas, totalBlocosOriginal }: HeaderProps) {
   const isFiltered = estatisticas.totalBlocos !== totalBlocosOriginal;
 
   return (
-    <header className="bg-cor-bg-secondary border-b border-white/10 px-6 py-4">
+    <header className="bg-cor-bg-secondary border-b border-white/10 px-6 py-3 relative">
       <div className="flex items-center justify-between">
-        {/* Logo e Titulo */}
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cor-accent-orange to-cor-accent-pink flex items-center justify-center">
-              <Music className="text-white" size={24} />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-white">
-                Carnaval Rio 2026
-              </h1>
-              <p className="text-xs text-white/50">
-                Dashboard de Blocos - COR JARVIS
-              </p>
-            </div>
-          </div>
+        {/* Logo COR - Esquerda */}
+        <div className="flex items-center gap-3 flex-shrink-0">
+          <img
+            src="/data/RIOPREFEITURA COR horizontal monocromatica branco.png"
+            alt="COR - Centro de Operacoes Rio"
+            className="h-10 w-auto"
+          />
         </div>
 
-        {/* Stats Pills */}
-        <div className="flex items-center gap-3">
+        {/* Titulo Central */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+          <h1 className="text-2xl font-bold text-white tracking-wide">
+            Carnaval Rio 2026
+          </h1>
+          <p className="text-xs text-white/50">
+            Dashboard de Blocos - JARVIS Municipal
+          </p>
+        </div>
+
+        {/* Stats Pills - Direita */}
+        <div className="flex items-center gap-3 flex-shrink-0">
           <StatPill
             icon={<MapPin size={14} />}
             label="Blocos"
