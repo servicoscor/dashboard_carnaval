@@ -1,0 +1,93 @@
+import { Calendar, MapPinned, Route } from 'lucide-react';
+import type { Filtros } from '../../types/bloco';
+import { SUBPREFEITURAS, TIPOS_APRESENTACAO } from '../../utils/constants';
+
+interface FiltersProps {
+  filtros: Filtros;
+  onFiltrosChange: (filtros: Filtros) => void;
+  datasDisponiveis: string[];
+}
+
+export function Filters({
+  filtros,
+  onFiltrosChange,
+  datasDisponiveis,
+}: FiltersProps) {
+  const updateFiltro = <K extends keyof Filtros>(key: K, value: Filtros[K]) => {
+    onFiltrosChange({ ...filtros, [key]: value });
+  };
+
+  return (
+    <div className="space-y-4">
+      {/* Filtro por Data */}
+      <div>
+        <label className="flex items-center gap-2 text-xs font-medium text-white/70 mb-1.5 uppercase tracking-wide">
+          <Calendar size={12} />
+          Data
+        </label>
+        <select
+          value={filtros.data}
+          onChange={(e) => updateFiltro('data', e.target.value)}
+          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cor-accent-orange/50 focus:border-cor-accent-orange/50 transition-all cursor-pointer appearance-none"
+        >
+          <option value="todos" className="bg-cor-bg-secondary">Todas as datas</option>
+          {datasDisponiveis.map((data) => (
+            <option key={data} value={data} className="bg-cor-bg-secondary">
+              {new Date(data + 'T12:00:00').toLocaleDateString('pt-BR', {
+                weekday: 'short',
+                day: '2-digit',
+                month: '2-digit',
+              })}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Filtro por Subprefeitura */}
+      <div>
+        <label className="flex items-center gap-2 text-xs font-medium text-white/70 mb-1.5 uppercase tracking-wide">
+          <MapPinned size={12} />
+          Subprefeitura
+        </label>
+        <select
+          value={filtros.subprefeitura}
+          onChange={(e) => updateFiltro('subprefeitura', e.target.value)}
+          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cor-accent-orange/50 focus:border-cor-accent-orange/50 transition-all cursor-pointer appearance-none"
+        >
+          <option value="todos" className="bg-cor-bg-secondary">Todas</option>
+          {SUBPREFEITURAS.map((sub) => (
+            <option key={sub} value={sub} className="bg-cor-bg-secondary">
+              {sub}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Filtro por Tipo */}
+      <div>
+        <label className="flex items-center gap-2 text-xs font-medium text-white/70 mb-1.5 uppercase tracking-wide">
+          <Route size={12} />
+          Tipo de Apresentacao
+        </label>
+        <select
+          value={filtros.tipo}
+          onChange={(e) => updateFiltro('tipo', e.target.value as Filtros['tipo'])}
+          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cor-accent-orange/50 focus:border-cor-accent-orange/50 transition-all cursor-pointer appearance-none"
+        >
+          {Object.entries(TIPOS_APRESENTACAO).map(([key, label]) => (
+            <option key={key} value={key} className="bg-cor-bg-secondary">
+              {label}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Info sobre percursos */}
+      <div className="pt-2 border-t border-white/10">
+        <p className="text-xs text-white/50 text-center">
+          Clique em um bloco para ver seu percurso no mapa
+        </p>
+      </div>
+    </div>
+  );
+}

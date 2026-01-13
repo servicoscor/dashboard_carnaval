@@ -1,0 +1,7277 @@
+[
+  {
+    "nomeBloco": "UNIDOS DE SANTA BÁRBARA",
+    "bairro": "ENGENHO DE DENTRO",
+    "percurso": [
+      {
+        "lat": -22.89059938749943,
+        "lng": -43.289888828306275,
+        "rua": "Rua Sales Guimarães"
+      },
+      {
+        "lat": -22.89057680654084,
+        "lng": -43.289937631736045,
+        "rua": "Rua Sales Guimarães (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO - ABERTURA DO PRÉ CARNAVAL DE MADUREIRA COM AS ÁGUAS DE CHEIRO",
+    "bairro": "MADUREIRA              ",
+    "percurso": [
+      {
+        "lat": -22.87125895899014,
+        "lng": -43.34119134176102,
+        "rua": "Rua Soares Caldeira (início)"
+      },
+      {
+        "lat": -22.870780044190504,
+        "lng": -43.34052450663512,
+        "rua": "Rua Soares Caldeira"
+      },
+      {
+        "lat": -22.870780044190504,
+        "lng": -43.34052450663512,
+        "rua": "Rua Soares Caldeira"
+      },
+      {
+        "lat": -22.870547726475948,
+        "lng": -43.34020016601476,
+        "rua": "Rua Soares Caldeira (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "20 DE OURO DO MESTRE ODILON",
+    "bairro": "ZUMBI",
+    "percurso": [
+      {
+        "lat": -22.820044114296508,
+        "lng": -43.17787714748114,
+        "rua": "Estrada do Rio Jequia (início)"
+      },
+      {
+        "lat": -22.819821314212337,
+        "lng": -43.177883520466935,
+        "rua": "Estrada do Rio Jequia"
+      },
+      {
+        "lat": -22.825184186295452,
+        "lng": -43.17128448712755,
+        "rua": "Rua Maldonado"
+      },
+      {
+        "lat": -22.825546083936853,
+        "lng": -43.16946302371691,
+        "rua": "Praça Iaia Garcia"
+      },
+      {
+        "lat": -22.824955448069154,
+        "lng": -43.16989212520543,
+        "rua": "Praça Iaia Garcia (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "B. C INDEPENDENTE DO MORRO DO PINTO",
+    "bairro": "SANTO CRISTO",
+    "percurso": [
+      {
+        "lat": -22.90503486499285,
+        "lng": -43.20335130881265,
+        "rua": "Rua Farnese (início)"
+      },
+      {
+        "lat": -22.904375188395285,
+        "lng": -43.203183373851665,
+        "rua": "Rua Farnese"
+      },
+      {
+        "lat": -22.905619674579683,
+        "lng": -43.20544423964847,
+        "rua": "Rua Saldanha Marinho"
+      },
+      {
+        "lat": -22.90136473870938,
+        "lng": -43.20408890874856,
+        "rua": "Rua Sara"
+      },
+      {
+        "lat": -22.902430817618043,
+        "lng": -43.20278215348938,
+        "rua": "Rua Carlos Gomes"
+      },
+      {
+        "lat": -22.903345626278213,
+        "lng": -43.20335105200202,
+        "rua": "Rua Deolinda"
+      },
+      {
+        "lat": -22.903472193210163,
+        "lng": -43.20298833221731,
+        "rua": "Rua Antonio Jose"
+      },
+      {
+        "lat": -22.903537317647665,
+        "lng": -43.20310142304337,
+        "rua": "Rua Monte Alverne"
+      },
+      {
+        "lat": -22.904498143285302,
+        "lng": -43.20339551830887,
+        "rua": "Rua Mariano Procópio"
+      },
+      {
+        "lat": -22.904375188395285,
+        "lng": -43.203183373851665,
+        "rua": "Rua Farnese"
+      },
+      {
+        "lat": -22.904375188395285,
+        "lng": -43.203183373851665,
+        "rua": "Rua Farnese (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CHÁ DA ALICE",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.90405412076334,
+        "lng": -43.17458588890834,
+        "rua": "Rua Primeiro de Março (início)"
+      },
+      {
+        "lat": -22.903509625829088,
+        "lng": -43.1750133941202,
+        "rua": "Rua Primeiro de Março"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DA LEXA",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.90405412076334,
+        "lng": -43.17458588890834,
+        "rua": "Rua Primeiro de Março (início)"
+      },
+      {
+        "lat": -22.903509625829088,
+        "lng": -43.1750133941202,
+        "rua": "Rua Primeiro de Março"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO SÓ CAMINHA",
+    "bairro": "HUMAITÁ                ",
+    "percurso": [
+      {
+        "lat": -22.952891918833192,
+        "lng": -43.196559928083595,
+        "rua": "Largo dos Leões (início)"
+      },
+      {
+        "lat": -22.952701094550278,
+        "lng": -43.196463680774706,
+        "rua": "Largo dos Leões"
+      },
+      {
+        "lat": -22.954690247876947,
+        "lng": -43.19654583516873,
+        "rua": "Rua Marques"
+      },
+      {
+        "lat": -22.95437274553955,
+        "lng": -43.19561753664754,
+        "rua": "Rua Capistrano de Abreu"
+      },
+      {
+        "lat": -22.952701094550278,
+        "lng": -43.196463680774706,
+        "rua": "Largo dos Leões"
+      },
+      {
+        "lat": -22.952701094550278,
+        "lng": -43.196463680774706,
+        "rua": "Largo dos Leões (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "CALA A BOCA & DANÇA ",
+    "bairro": "FREGUESIA (JACAREPAGUÁ)",
+    "percurso": [
+      {
+        "lat": -22.935678393172473,
+        "lng": -43.342131304402876,
+        "rua": "Rua Xingu (início)"
+      },
+      {
+        "lat": -22.93607788853937,
+        "lng": -43.34197834432485,
+        "rua": "Rua Xingu"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO NEM MUDA NEM SAI DE CIMA",
+    "bairro": "TIJUCA",
+    "percurso": [
+      {
+        "lat": -22.921451988520513,
+        "lng": -43.235845716138215,
+        "rua": "Avenida Maracanã (início)"
+      },
+      {
+        "lat": -22.921531417529437,
+        "lng": -43.236005830470596,
+        "rua": "Avenida Maracanã"
+      },
+      {
+        "lat": -22.93106738386933,
+        "lng": -43.24713534605536,
+        "rua": "Rua Garibaldi"
+      },
+      {
+        "lat": -22.932301313861807,
+        "lng": -43.24302597767666,
+        "rua": "Rua Pinto Guedes"
+      },
+      {
+        "lat": -22.921531417529437,
+        "lng": -43.236005830470596,
+        "rua": "Avenida Maracanã"
+      },
+      {
+        "lat": -22.921531417529437,
+        "lng": -43.236005830470596,
+        "rua": "Avenida Maracanã (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "VOU TREINAR E VOLTO JÁ",
+    "bairro": "TIJUCA",
+    "percurso": [
+      {
+        "lat": -22.915819444354785,
+        "lng": -43.21845044624752,
+        "rua": "Rua Campos Sales"
+      },
+      {
+        "lat": -22.915777169596886,
+        "lng": -43.222179950772244,
+        "rua": "Rua Mariz e Barros"
+      },
+      {
+        "lat": -22.917723434397832,
+        "lng": -43.218831213471304,
+        "rua": "Rua Afonso Pena"
+      },
+      {
+        "lat": -22.917723434397832,
+        "lng": -43.218831213471304,
+        "rua": "Rua Afonso Pena"
+      },
+      {
+        "lat": -22.917723434397832,
+        "lng": -43.218831213471304,
+        "rua": "Rua Afonso Pena (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO FOLIÕES DO RIO",
+    "bairro": "JARDIM GUANABARA       ",
+    "percurso": [
+      {
+        "lat": -22.818642096029695,
+        "lng": -43.200405915351276,
+        "rua": "Praça Jerusalém (início)"
+      },
+      {
+        "lat": -22.818830996638976,
+        "lng": -43.201195906778075,
+        "rua": "Praça Jerusalém"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "SPANTA NENÉM",
+    "bairro": "LAGOA",
+    "percurso": [
+      {
+        "lat": -22.96522958544814,
+        "lng": -43.2035443142658,
+        "rua": "Avenida Epitácio Pessoa (início)"
+      },
+      {
+        "lat": -22.96420257297192,
+        "lng": -43.203681051232955,
+        "rua": "Avenida Epitácio Pessoa"
+      },
+      {
+        "lat": -22.97882183523699,
+        "lng": -43.21776212011462,
+        "rua": "Avenida Borges de Medeiros"
+      },
+      {
+        "lat": -22.97882183523699,
+        "lng": -43.21776212011462,
+        "rua": "Avenida Borges de Medeiros (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DA GOLD VEM COM O GIGANTE",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.90405412076334,
+        "lng": -43.17458588890834,
+        "rua": "Rua Primeiro de Março (início)"
+      },
+      {
+        "lat": -22.903509625829088,
+        "lng": -43.1750133941202,
+        "rua": "Rua Primeiro de Março"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "PIRANHAS DO BDS",
+    "bairro": "SANTO CRISTO",
+    "percurso": [
+      {
+        "lat": -22.904975889583334,
+        "lng": -43.20302339328754,
+        "rua": "Travessa Silva Baião (início)"
+      },
+      {
+        "lat": -22.9042990726244,
+        "lng": -43.20294395558066,
+        "rua": "Travessa Silva Baião"
+      },
+      {
+        "lat": -22.905619674579683,
+        "lng": -43.20544423964847,
+        "rua": "Rua Saldanha Marinho"
+      },
+      {
+        "lat": -22.90136473870938,
+        "lng": -43.20408890874856,
+        "rua": "Rua Sara"
+      },
+      {
+        "lat": -22.902430817618043,
+        "lng": -43.20278215348938,
+        "rua": "Rua Carlos Gomes"
+      },
+      {
+        "lat": -22.901922788744088,
+        "lng": -43.20002437126251,
+        "rua": "Rua Vidal de Negreiros"
+      },
+      {
+        "lat": -22.90505083024826,
+        "lng": -43.20197696567067,
+        "rua": "Rua Nabuco de Freitas"
+      },
+      {
+        "lat": -22.9042990726244,
+        "lng": -43.20294395558066,
+        "rua": "Travessa Silva Baião"
+      },
+      {
+        "lat": -22.904375188395285,
+        "lng": -43.203183373851665,
+        "rua": "Travessa Silva Baião (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "ACADÊMICOS DO ENGENHO DE DENTRO",
+    "bairro": "ENGENHO DE DENTRO",
+    "percurso": [
+      {
+        "lat": -22.904446880624427,
+        "lng": -43.2988906411374,
+        "rua": "Rua Venâncio Ribeiro (início)"
+      },
+      {
+        "lat": -22.90597875608779,
+        "lng": -43.29928173844823,
+        "rua": "Rua Venâncio Ribeiro"
+      },
+      {
+        "lat": -22.904401294575276,
+        "lng": -43.29811260515986,
+        "rua": "Rua Borja Reis"
+      },
+      {
+        "lat": -22.904446880624427,
+        "lng": -43.2988906411374,
+        "rua": "Rua Borja Reis (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO TECNOMACUMBA",
+    "bairro": "SAÚDE",
+    "percurso": [
+      {
+        "lat": -22.897203305851008,
+        "lng": -43.182412909668486,
+        "rua": "Avenida Venezuela"
+      },
+      {
+        "lat": -22.897203305851008,
+        "lng": -43.182412909668486,
+        "rua": "Avenida Venezuela"
+      },
+      {
+        "lat": -22.897545695016515,
+        "lng": -43.1838316491677,
+        "rua": "Rua Sacadura Cabral"
+      },
+      {
+        "lat": -22.89781876059787,
+        "lng": -43.1840937654133,
+        "rua": "Largo de São Francisco da Prainha"
+      },
+      {
+        "lat": -22.897545695016515,
+        "lng": -43.1838316491677,
+        "rua": "Rua Sacadura Cabral"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO GORDELICIA ",
+    "bairro": "PIEDADE                ",
+    "percurso": [
+      {
+        "lat": -22.890030819934445,
+        "lng": -43.30966423746192,
+        "rua": "Rua Bernardino de Campos (início)"
+      },
+      {
+        "lat": -22.889647421849663,
+        "lng": -43.30923959140272,
+        "rua": "Rua Bernardino de Campos"
+      },
+      {
+        "lat": -22.887280400835646,
+        "lng": -43.30418618171925,
+        "rua": "Rua João Pinheiro"
+      },
+      {
+        "lat": -22.887280400835646,
+        "lng": -43.30418618171925,
+        "rua": "Rua João Pinheiro"
+      },
+      {
+        "lat": -22.886895732264435,
+        "lng": -43.30407165890462,
+        "rua": "Rua João Pinheiro (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "MISTURA DE SANTA",
+    "bairro": "SANTA TERESA",
+    "percurso": [
+      {
+        "lat": -22.922698275263844,
+        "lng": -43.186747492352396,
+        "rua": "Rua Aprazível (início)"
+      },
+      {
+        "lat": -22.922580770447876,
+        "lng": -43.18698209663725,
+        "rua": "Rua Aprazível"
+      },
+      {
+        "lat": -22.924834339887017,
+        "lng": -43.188093033758946,
+        "rua": "Rua Leopoldo Froes"
+      },
+      {
+        "lat": -22.924166706331185,
+        "lng": -43.187339931686495,
+        "rua": "Rua Leopoldo Froes (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "METCOM WOD",
+    "bairro": "GRAJAÚ",
+    "percurso": [
+      {
+        "lat": -22.91906057565413,
+        "lng": -43.2661748405887,
+        "rua": "Avenida Julio Furtado (início)"
+      },
+      {
+        "lat": -22.91855783544053,
+        "lng": -43.26638383664955,
+        "rua": "Avenida Julio Furtado"
+      },
+      {
+        "lat": -22.91855783544053,
+        "lng": -43.26638383664955,
+        "rua": "Avenida Julio Furtado"
+      },
+      {
+        "lat": -22.91855783544053,
+        "lng": -43.26638383664955,
+        "rua": "Avenida Julio Furtado"
+      },
+      {
+        "lat": -22.91821269958056,
+        "lng": -43.26653461405336,
+        "rua": "Avenida Julio Furtado (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "FALA MEU LOURO.",
+    "bairro": "SANTO CRISTO",
+    "percurso": [
+      {
+        "lat": -22.901180421314844,
+        "lng": -43.20015348960694,
+        "rua": "Rua Waldemar Dutra (início)"
+      },
+      {
+        "lat": -22.900447673917867,
+        "lng": -43.200658457765826,
+        "rua": "Rua Waldemar Dutra"
+      },
+      {
+        "lat": -22.887792273418462,
+        "lng": -43.548778610197424,
+        "rua": "Rua América Dourada"
+      },
+      {
+        "lat": -22.900447673917867,
+        "lng": -43.200658457765826,
+        "rua": "Rua Waldemar Dutra"
+      },
+      {
+        "lat": -22.89949814466002,
+        "lng": -43.20130295421593,
+        "rua": "Rua Waldemar Dutra (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "S.P.D. - SAMBA PRA DEUS",
+    "bairro": "BARRA DA TIJUCA",
+    "percurso": [
+      {
+        "lat": -23.02064001381962,
+        "lng": -43.440178330160094,
+        "rua": "Avenida Lúcio Costa (início)"
+      },
+      {
+        "lat": -23.021561393444436,
+        "lng": -43.444031610588475,
+        "rua": "Avenida Lúcio Costa"
+      },
+      {
+        "lat": -23.021561393444436,
+        "lng": -43.444031610588475,
+        "rua": "Avenida Lúcio Costa"
+      },
+      {
+        "lat": -23.02248232347542,
+        "lng": -43.447550032422605,
+        "rua": "Avenida Lúcio Costa (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "PEGA REX!",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.901869823650415,
+        "lng": -43.174912815065234,
+        "rua": "Rua do Mercado (início)"
+      },
+      {
+        "lat": -22.90265605798923,
+        "lng": -43.17431500808664,
+        "rua": "Rua do Mercado"
+      },
+      {
+        "lat": -22.90357690792201,
+        "lng": -43.17805858247524,
+        "rua": "Rua do Ouvidor"
+      },
+      {
+        "lat": -22.90366361836991,
+        "lng": -43.178194182038524,
+        "rua": "Rua do Ouvidor (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "AMIGOS DA BARRA",
+    "bairro": "BARRA DA TIJUCA",
+    "percurso": [
+      {
+        "lat": -23.02064001381962,
+        "lng": -43.440178330160094,
+        "rua": "Avenida Lúcio Costa (início)"
+      },
+      {
+        "lat": -23.021561393444436,
+        "lng": -43.444031610588475,
+        "rua": "Avenida Lúcio Costa"
+      },
+      {
+        "lat": -23.021561393444436,
+        "lng": -43.444031610588475,
+        "rua": "Avenida Lúcio Costa"
+      },
+      {
+        "lat": -23.02248232347542,
+        "lng": -43.447550032422605,
+        "rua": "Avenida Lúcio Costa (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO ME ESQUECE",
+    "bairro": "JARDIM BOTÂNICO        ",
+    "percurso": [
+      {
+        "lat": -22.965346280794563,
+        "lng": -43.22759068744621,
+        "rua": "Rua Pacheco Leão (início)"
+      },
+      {
+        "lat": -22.9654117882729,
+        "lng": -43.22705287961067,
+        "rua": "Rua Pacheco Leão"
+      },
+      {
+        "lat": -22.963607559302122,
+        "lng": -43.216896235584706,
+        "rua": "Rua Jardim Botânico"
+      },
+      {
+        "lat": -22.963607559302122,
+        "lng": -43.216896235584706,
+        "rua": "Rua Jardim Botânico (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "SERAQABRE?",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.90405412076334,
+        "lng": -43.17458588890834,
+        "rua": "Rua Primeiro de Março (início)"
+      },
+      {
+        "lat": -22.903509625829088,
+        "lng": -43.1750133941202,
+        "rua": "Rua Primeiro de Março"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "ASSOCIAÇÃO BLOCO CARNAVALESCO CORAÇÃO DAS MENINAS",
+    "bairro": "GAMBOA",
+    "percurso": [
+      {
+        "lat": -22.89785150448944,
+        "lng": -43.197411573237595,
+        "rua": "Rua da Gambôa (início)"
+      },
+      {
+        "lat": -22.89775941755035,
+        "lng": -43.197378691939505,
+        "rua": "Rua da Gambôa"
+      },
+      {
+        "lat": -22.89713453374474,
+        "lng": -43.181746478632355,
+        "rua": "Rua Sacadura Cabral"
+      },
+      {
+        "lat": -22.897175851563322,
+        "lng": -43.1818355186919,
+        "rua": "Rua Sacadura Cabral (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DAS GAMBAS",
+    "bairro": "RIO COMPRIDO",
+    "percurso": [
+      {
+        "lat": -22.92125672346188,
+        "lng": -43.20874001722222,
+        "rua": "Rua Aristides Lobo (início)"
+      },
+      {
+        "lat": -22.922542355083095,
+        "lng": -43.20901723885107,
+        "rua": "Rua Aristides Lobo"
+      },
+      {
+        "lat": -22.92075422332872,
+        "lng": -43.208968117948736,
+        "rua": "Travessa Antônio Pedro Galiazzi"
+      },
+      {
+        "lat": -22.922542355083095,
+        "lng": -43.20901723885107,
+        "rua": "Rua Aristides Lobo"
+      },
+      {
+        "lat": -22.923014029530687,
+        "lng": -43.20864242690492,
+        "rua": "Rua Aristides Lobo (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "SE CAIR EU COMO",
+    "bairro": "FREGUESIA (ILHA DO GOVERNADOR)",
+    "percurso": [
+      {
+        "lat": -22.793961147226536,
+        "lng": -43.17590142573398,
+        "rua": "Avenida Paranapuã (início)"
+      },
+      {
+        "lat": -22.79402033736228,
+        "lng": -43.17556549651093,
+        "rua": "Avenida Paranapuã"
+      },
+      {
+        "lat": -22.838633591814048,
+        "lng": -43.25346134350959,
+        "rua": "Rua Guanabara da Praia de Ramos"
+      },
+      {
+        "lat": -22.838633591814048,
+        "lng": -43.25346134350959,
+        "rua": "Rua Guanabara da Praia de Ramos"
+      },
+      {
+        "lat": -22.838932565903537,
+        "lng": -43.25290287206468,
+        "rua": "Rua Guanabara da Praia de Ramos (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "ENSAIO TÉCNICO DO MULTIBLOCO",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.912026005429205,
+        "lng": -43.19275612605624,
+        "rua": "Rua do Senado (início)"
+      },
+      {
+        "lat": -22.911772735949388,
+        "lng": -43.1921611026468,
+        "rua": "Rua do Senado"
+      },
+      {
+        "lat": -22.911772735949388,
+        "lng": -43.1921611026468,
+        "rua": "Rua do Senado"
+      },
+      {
+        "lat": -22.91138424602221,
+        "lng": -43.19128853634578,
+        "rua": "Rua do Senado (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "G.R.B.C TURMA DO GATO FUTEBOL E SAMBA",
+    "bairro": "PILARES                ",
+    "percurso": [
+      {
+        "lat": -22.883139886298295,
+        "lng": -43.2941048391114,
+        "rua": "Rua Djalma Dutra (início)"
+      },
+      {
+        "lat": -22.88409405446361,
+        "lng": -43.295942443737054,
+        "rua": "Rua Djalma Dutra"
+      },
+      {
+        "lat": -22.88409405446361,
+        "lng": -43.295942443737054,
+        "rua": "Rua Djalma Dutra"
+      },
+      {
+        "lat": -22.88477101662511,
+        "lng": -43.29718046488059,
+        "rua": "Rua Djalma Dutra (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO MOLHA O PÉ DAS OITO",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.841713398578307,
+        "lng": -43.24912376208089,
+        "rua": "Beco São José (início)"
+      },
+      {
+        "lat": -22.841935641165186,
+        "lng": -43.24888310125361,
+        "rua": "Beco São José"
+      },
+      {
+        "lat": -22.904751600405785,
+        "lng": -43.17736530595342,
+        "rua": "Rua Rodrigo Silva"
+      },
+      {
+        "lat": -22.904001188994883,
+        "lng": -43.17448259175705,
+        "rua": "Rua da Assembléia"
+      },
+      {
+        "lat": -22.903912052636187,
+        "lng": -43.17580272199065,
+        "rua": "Rua do Carmo"
+      },
+      {
+        "lat": -22.841935641165186,
+        "lng": -43.24888310125361,
+        "rua": "Beco São José"
+      },
+      {
+        "lat": -22.904751600405785,
+        "lng": -43.17736530595342,
+        "rua": "Rua Rodrigo Silva"
+      },
+      {
+        "lat": -22.904751600405785,
+        "lng": -43.17736530595342,
+        "rua": "Rua Rodrigo Silva (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "ZONA MENTAL",
+    "bairro": "BANGU",
+    "percurso": [
+      {
+        "lat": -22.915560471075903,
+        "lng": -43.380675625676304,
+        "rua": "Rua Tenente Sidnei Gonçalves (início)"
+      },
+      {
+        "lat": -22.915274450544494,
+        "lng": -43.380821035866475,
+        "rua": "Rua Tenente Sidnei Gonçalves"
+      },
+      {
+        "lat": -22.915274450544494,
+        "lng": -43.380821035866475,
+        "rua": "Rua Tenente Sidnei Gonçalves"
+      },
+      {
+        "lat": -22.871681685065315,
+        "lng": -43.45080757778578,
+        "rua": "Rua Figueiredo Camargo"
+      },
+      {
+        "lat": -22.915274450544494,
+        "lng": -43.380821035866475,
+        "rua": "Rua Tenente Sidnei Gonçalves"
+      },
+      {
+        "lat": -22.91523782222835,
+        "lng": -43.381074967729646,
+        "rua": "Rua Tenente Sidnei Gonçalves (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "VILA MIMOSA- EU TAMBÉM  TENHO C*",
+    "bairro": "PRAÇA DA BANDEIRA",
+    "percurso": [
+      {
+        "lat": -22.90853056898609,
+        "lng": -43.217588124718375,
+        "rua": "Rua Sotero dos Reis (início)"
+      },
+      {
+        "lat": -22.908454498122758,
+        "lng": -43.21701301179929,
+        "rua": "Rua Sotero dos Reis"
+      },
+      {
+        "lat": -22.909018608120824,
+        "lng": -43.21561841609021,
+        "rua": "Rua Hilário Ribeiro"
+      },
+      {
+        "lat": -22.909502382795797,
+        "lng": -43.21533295352032,
+        "rua": "Rua Lopes de Sousa"
+      },
+      {
+        "lat": -22.908454498122758,
+        "lng": -43.21701301179929,
+        "rua": "Rua Sotero dos Reis"
+      },
+      {
+        "lat": -22.908454498122758,
+        "lng": -43.21701301179929,
+        "rua": "Rua Sotero dos Reis (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO ROLADO",
+    "bairro": "MARACANÃ",
+    "percurso": [
+      {
+        "lat": -22.91633208883437,
+        "lng": -43.23415326473861,
+        "rua": "Praça Niterói (início)"
+      },
+      {
+        "lat": -22.915896222031943,
+        "lng": -43.234718968934374,
+        "rua": "Praça Niterói"
+      },
+      {
+        "lat": -22.915896222031943,
+        "lng": -43.234718968934374,
+        "rua": "Praça Niterói"
+      },
+      {
+        "lat": -22.915896222031943,
+        "lng": -43.234718968934374,
+        "rua": "Praça Niterói"
+      },
+      {
+        "lat": -22.915802364757145,
+        "lng": -43.234832437688524,
+        "rua": "Praça Niterói (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO URUBUZADA",
+    "bairro": "TIJUCA",
+    "percurso": [
+      {
+        "lat": -22.91816350254632,
+        "lng": -43.219883632400304,
+        "rua": "Rua Martins Pena (início)"
+      },
+      {
+        "lat": -22.917964642335058,
+        "lng": -43.21943704006073,
+        "rua": "Rua Martins Pena"
+      },
+      {
+        "lat": -22.915819444354785,
+        "lng": -43.21845044624752,
+        "rua": "Rua Campos Sales"
+      },
+      {
+        "lat": -22.915777169596886,
+        "lng": -43.222179950772244,
+        "rua": "Rua Mariz e Barros"
+      },
+      {
+        "lat": -22.917723434397832,
+        "lng": -43.218831213471304,
+        "rua": "Rua Afonso Pena"
+      },
+      {
+        "lat": -22.917964642335058,
+        "lng": -43.21943704006073,
+        "rua": "Rua Martins Pena"
+      },
+      {
+        "lat": -22.917723434397832,
+        "lng": -43.218831213471304,
+        "rua": "Rua Martins Pena (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DO E.C.J.G ",
+    "bairro": "JARDIM GUANABARA       ",
+    "percurso": [
+      {
+        "lat": -22.818642096029695,
+        "lng": -43.200405915351276,
+        "rua": "Praça Jerusalém (início)"
+      },
+      {
+        "lat": -22.818830996638976,
+        "lng": -43.201195906778075,
+        "rua": "Praça Jerusalém"
+      },
+      {
+        "lat": -22.817757360497502,
+        "lng": -43.19729716333209,
+        "rua": "Rua Henrique Lacombe"
+      },
+      {
+        "lat": -22.817222530842308,
+        "lng": -43.197373175015734,
+        "rua": "Rua Henrique Lacombe (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "CEU NA TERRA",
+    "bairro": "SANTA TERESA",
+    "percurso": [
+      {
+        "lat": -22.875879366281836,
+        "lng": -43.58433111609997,
+        "rua": "Rua Tancredo Neves"
+      },
+      {
+        "lat": -22.875784621474192,
+        "lng": -43.58498839892254,
+        "rua": "Rua Tancredo Neves (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BUTANO NA BURETA",
+    "bairro": "PRAÇA DA BANDEIRA",
+    "percurso": [
+      {
+        "lat": -22.889213268446674,
+        "lng": -43.25891445286254,
+        "rua": "Beco 125"
+      },
+      {
+        "lat": -22.889242301985455,
+        "lng": -43.258816602123105,
+        "rua": "Beco 125 (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "INFANTIL SÁ PEREIRA",
+    "bairro": "BOTAFOGO               ",
+    "percurso": [
+      {
+        "lat": -22.954690247876947,
+        "lng": -43.19654583516873,
+        "rua": "Rua Capistrano de Abreu (início)"
+      },
+      {
+        "lat": -22.95437274553955,
+        "lng": -43.19561753664754,
+        "rua": "Rua Capistrano de Abreu"
+      },
+      {
+        "lat": -22.83482257598413,
+        "lng": -43.33303102132031,
+        "rua": "Travessa Humaitá"
+      },
+      {
+        "lat": -22.877870278084735,
+        "lng": -43.448606105244295,
+        "rua": "Rua Professor Clemente Ferreira"
+      },
+      {
+        "lat": -22.952701094550278,
+        "lng": -43.196463680774706,
+        "rua": "Largo dos Leões"
+      },
+      {
+        "lat": -22.95437274553955,
+        "lng": -43.19561753664754,
+        "rua": "Rua Capistrano de Abreu"
+      },
+      {
+        "lat": -22.95437274553955,
+        "lng": -43.19561753664754,
+        "rua": "Rua Capistrano de Abreu (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "IMAGINOU? AGORA AMASSA",
+    "bairro": "LEBLON",
+    "percurso": [
+      {
+        "lat": -22.980415333337525,
+        "lng": -43.222198607544726,
+        "rua": "Rua Jose Linhares (início)"
+      },
+      {
+        "lat": -22.980556560590838,
+        "lng": -43.222165646560555,
+        "rua": "Rua Jose Linhares"
+      },
+      {
+        "lat": -22.980556560590838,
+        "lng": -43.222165646560555,
+        "rua": "Rua Jose Linhares"
+      },
+      {
+        "lat": -22.984376462485884,
+        "lng": -43.22313400429327,
+        "rua": "Avenida Ataulfo de Paiva"
+      },
+      {
+        "lat": -22.983851209627545,
+        "lng": -43.21992029845523,
+        "rua": "Rua Carlos Gois"
+      },
+      {
+        "lat": -22.983851209627545,
+        "lng": -43.21992029845523,
+        "rua": "Rua Carlos Gois (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "IH, É CARNAVAL!",
+    "bairro": "URCA",
+    "percurso": [
+      {
+        "lat": -22.95436526198877,
+        "lng": -43.16757332397361,
+        "rua": "Avenida Pasteur (início)"
+      },
+      {
+        "lat": -22.95430299550111,
+        "lng": -43.16772540314404,
+        "rua": "Avenida Pasteur"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "LAVOU TA LIMPO",
+    "bairro": "PRAÇA SECA             ",
+    "percurso": [
+      {
+        "lat": -22.897030376383736,
+        "lng": -43.35162223298753,
+        "rua": "Rua Candido Benício (início)"
+      },
+      {
+        "lat": -22.897186757112994,
+        "lng": -43.35175553037267,
+        "rua": "Rua Candido Benício"
+      },
+      {
+        "lat": -22.896961039769817,
+        "lng": -43.35907031250709,
+        "rua": "Rua Florianópolis"
+      },
+      {
+        "lat": -22.897166575611312,
+        "lng": -43.358270760503245,
+        "rua": "Rua Florianópolis (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO BUNDA RACHADA",
+    "bairro": "RAMOS                  ",
+    "percurso": [
+      {
+        "lat": -22.85734498344726,
+        "lng": -43.25525094884003,
+        "rua": "Rua Romero Zander (início)"
+      },
+      {
+        "lat": -22.856958411295327,
+        "lng": -43.253887083454245,
+        "rua": "Rua Romero Zander"
+      },
+      {
+        "lat": -22.856958411295327,
+        "lng": -43.253887083454245,
+        "rua": "Rua Romero Zander"
+      },
+      {
+        "lat": -22.855671902412066,
+        "lng": -43.25236537413528,
+        "rua": "Rua Romero Zander (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "S.C.R. BLOCO XUPA MAS NÃO BABA",
+    "bairro": "LARANJEIRAS            ",
+    "percurso": [
+      {
+        "lat": -22.935741698634633,
+        "lng": -43.19389383773787,
+        "rua": "Rua Alice (início)"
+      },
+      {
+        "lat": -22.93522901673636,
+        "lng": -43.193114022956216,
+        "rua": "Rua Alice"
+      },
+      {
+        "lat": -22.93522901673636,
+        "lng": -43.193114022956216,
+        "rua": "Rua Alice"
+      },
+      {
+        "lat": -22.93644453676644,
+        "lng": -43.190089654837315,
+        "rua": "Rua Alice (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "CONFRARIA DA BEBIDINHA",
+    "bairro": "ABOLIÇÃO",
+    "percurso": [
+      {
+        "lat": -22.88562126780011,
+        "lng": -43.29796543303146,
+        "rua": "Travessa Coari (início)"
+      },
+      {
+        "lat": -22.885245935096776,
+        "lng": -43.297209370607376,
+        "rua": "Travessa Coari"
+      },
+      {
+        "lat": -22.890464034056812,
+        "lng": -43.29432749458202,
+        "rua": "Rua da Abolição"
+      },
+      {
+        "lat": -22.890200017100895,
+        "lng": -43.2945370466024,
+        "rua": "Rua da Abolição (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "B.C BATUKE DE CIATA",
+    "bairro": "SAÚDE",
+    "percurso": [
+      {
+        "lat": -22.896875046437035,
+        "lng": -43.18515529605003,
+        "rua": "Rua Tia Ciata (início)"
+      },
+      {
+        "lat": -22.896281900256838,
+        "lng": -43.18511577533767,
+        "rua": "Rua Tia Ciata"
+      },
+      {
+        "lat": -22.897545695016515,
+        "lng": -43.1838316491677,
+        "rua": "Rua Sacadura Cabral"
+      },
+      {
+        "lat": -22.897545695016515,
+        "lng": -43.1838316491677,
+        "rua": "Rua Sacadura Cabral"
+      },
+      {
+        "lat": -22.897545695016515,
+        "lng": -43.1838316491677,
+        "rua": "Rua Sacadura Cabral"
+      },
+      {
+        "lat": -22.896281900256838,
+        "lng": -43.18511577533767,
+        "rua": "Rua Tia Ciata"
+      },
+      {
+        "lat": -22.89628839735628,
+        "lng": -43.18511836150936,
+        "rua": "Rua Tia Ciata (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DO BALDE SULACAP",
+    "bairro": "JARDIM SULACAP         ",
+    "percurso": [
+      {
+        "lat": -22.88780379227631,
+        "lng": -43.39196598255074,
+        "rua": "Rua Antonio de Mendonça (início)"
+      },
+      {
+        "lat": -22.888359944268753,
+        "lng": -43.39207670753931,
+        "rua": "Rua Antonio de Mendonça"
+      },
+      {
+        "lat": -22.889149171252203,
+        "lng": -43.39394912386983,
+        "rua": "Rua Teófilo Guimarães"
+      },
+      {
+        "lat": -22.88814434105327,
+        "lng": -43.39268625259361,
+        "rua": "Rua Gonçalo Rolemberg"
+      },
+      {
+        "lat": -22.887086971598894,
+        "lng": -43.376422122697086,
+        "rua": "Rua Barbara Heliodora"
+      },
+      {
+        "lat": -22.887927418006296,
+        "lng": -43.39671884589241,
+        "rua": "Rua Teodoro Sampaio"
+      },
+      {
+        "lat": -22.89133055824064,
+        "lng": -43.400345568213375,
+        "rua": "Rua Maria Graham"
+      },
+      {
+        "lat": -22.890472079499627,
+        "lng": -43.4000256527492,
+        "rua": "Praça Nuno Roland"
+      },
+      {
+        "lat": -22.89133055824064,
+        "lng": -43.400345568213375,
+        "rua": "Rua Maria Graham"
+      },
+      {
+        "lat": -22.887927418006296,
+        "lng": -43.39671884589241,
+        "rua": "Rua Teodoro Sampaio"
+      },
+      {
+        "lat": -22.887086971598894,
+        "lng": -43.376422122697086,
+        "rua": "Rua Barbara Heliodora"
+      },
+      {
+        "lat": -22.88672011890925,
+        "lng": -43.396361958803155,
+        "rua": "Rua Guilherme Francisco Cruz"
+      },
+      {
+        "lat": -22.887087033764846,
+        "lng": -43.396118004306466,
+        "rua": "Rua Olímpio de Castro"
+      },
+      {
+        "lat": -22.888359944268753,
+        "lng": -43.39207670753931,
+        "rua": "Rua Antonio de Mendonça"
+      },
+      {
+        "lat": -22.88861693111638,
+        "lng": -43.39212709481636,
+        "rua": "Rua Antonio de Mendonça (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO AMIGOS DA ESQUINA",
+    "bairro": "ENCANTADO",
+    "percurso": [
+      {
+        "lat": -22.897764137595093,
+        "lng": -43.302737986580446,
+        "rua": "Rua Pernambuco (início)"
+      },
+      {
+        "lat": -22.897695659437318,
+        "lng": -43.302983906042165,
+        "rua": "Rua Pernambuco"
+      },
+      {
+        "lat": -22.899520079151934,
+        "lng": -43.29855080891446,
+        "rua": "Praça Rio Grande do Norte"
+      },
+      {
+        "lat": -22.909413470159212,
+        "lng": -43.5880584755756,
+        "rua": "Rua Doutor Herculano Leal Carneiro"
+      },
+      {
+        "lat": -22.897695659437318,
+        "lng": -43.302983906042165,
+        "rua": "Rua Pernambuco"
+      },
+      {
+        "lat": -22.897630760279732,
+        "lng": -43.30323959747604,
+        "rua": "Rua Pernambuco (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "FUZUÊ... SÓ ALEGRIA PRA VOCÊ!!",
+    "bairro": "HIGIENÓPOLIS",
+    "percurso": [
+      {
+        "lat": -22.877565346046428,
+        "lng": -43.264022291229324,
+        "rua": "Rua Tamiarana (início)"
+      },
+      {
+        "lat": -22.877978539235805,
+        "lng": -43.26417483410142,
+        "rua": "Rua Tamiarana"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO ALEGRIA DO SAPÊ",
+    "bairro": "BENTO RIBEIRO",
+    "percurso": [
+      {
+        "lat": -22.859071762043797,
+        "lng": -43.3568209992921,
+        "rua": "Rua Camoropim (início)"
+      },
+      {
+        "lat": -22.85920687729671,
+        "lng": -43.35570318533727,
+        "rua": "Rua Camoropim"
+      },
+      {
+        "lat": -22.977864179340173,
+        "lng": -43.64094873234647,
+        "rua": "Rua Sapezal"
+      },
+      {
+        "lat": -22.97786422853794,
+        "lng": -43.64108992112211,
+        "rua": "Rua Sapezal (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO H ROMEU PINTO",
+    "bairro": "REALENGO",
+    "percurso": [
+      {
+        "lat": -22.88323385768219,
+        "lng": -43.42879891179398,
+        "rua": "Rua da Gazela (início)"
+      },
+      {
+        "lat": -22.88327407667327,
+        "lng": -43.428761026496986,
+        "rua": "Rua da Gazela"
+      },
+      {
+        "lat": -22.883788114021232,
+        "lng": -43.42753263926671,
+        "rua": "Rua do Basalto"
+      },
+      {
+        "lat": -22.883501868601897,
+        "lng": -43.42650740408187,
+        "rua": "Rua do Esquilo"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DA FAVORITA",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.90405412076334,
+        "lng": -43.17458588890834,
+        "rua": "Rua Primeiro de Março (início)"
+      },
+      {
+        "lat": -22.903509625829088,
+        "lng": -43.1750133941202,
+        "rua": "Rua Primeiro de Março"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "CARNAECO - BLOCO DO KING",
+    "bairro": "BARRA DA TIJUCA",
+    "percurso": [
+      {
+        "lat": -23.02064001381962,
+        "lng": -43.440178330160094,
+        "rua": "Avenida Lúcio Costa (início)"
+      },
+      {
+        "lat": -23.021561393444436,
+        "lng": -43.444031610588475,
+        "rua": "Avenida Lúcio Costa"
+      },
+      {
+        "lat": -23.021561393444436,
+        "lng": -43.444031610588475,
+        "rua": "Avenida Lúcio Costa"
+      },
+      {
+        "lat": -23.02248232347542,
+        "lng": -43.447550032422605,
+        "rua": "Avenida Lúcio Costa (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BC.PINTO SARADO",
+    "bairro": "SANTO CRISTO",
+    "percurso": [
+      {
+        "lat": -22.84812523296023,
+        "lng": -43.52920594875624,
+        "rua": "Rua Jussara (início)"
+      },
+      {
+        "lat": -22.848076990395697,
+        "lng": -43.52909005528199,
+        "rua": "Rua Jussara"
+      },
+      {
+        "lat": -22.90136473870938,
+        "lng": -43.20408890874856,
+        "rua": "Rua Sara"
+      },
+      {
+        "lat": -22.887792273418462,
+        "lng": -43.548778610197424,
+        "rua": "Rua América Dourada"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "SIMPATIA É QUASE AMOR",
+    "bairro": "IPANEMA",
+    "percurso": [
+      {
+        "lat": -22.98690811988434,
+        "lng": -43.19880817693476,
+        "rua": "Rua Teixeira de Melo (início)"
+      },
+      {
+        "lat": -22.986776481776438,
+        "lng": -43.198769247861456,
+        "rua": "Rua Teixeira de Melo"
+      },
+      {
+        "lat": -22.98217777934142,
+        "lng": -43.213365300461604,
+        "rua": "Avenida Henrique Dumont"
+      },
+      {
+        "lat": -22.98217777934142,
+        "lng": -43.213365300461604,
+        "rua": "Avenida Henrique Dumont (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BANDA HADDOCK",
+    "bairro": "TIJUCA",
+    "percurso": [
+      {
+        "lat": -22.918915694393096,
+        "lng": -43.21343127118873,
+        "rua": "Rua Haddock Lobo (início)"
+      },
+      {
+        "lat": -22.91872991188005,
+        "lng": -43.213124815839855,
+        "rua": "Rua Haddock Lobo"
+      },
+      {
+        "lat": -22.915819444354785,
+        "lng": -43.21845044624752,
+        "rua": "Rua Campos Sales"
+      },
+      {
+        "lat": -22.9219832681301,
+        "lng": -43.22146998002361,
+        "rua": "Largo da Segunda-Feira Erasmo Carlos"
+      },
+      {
+        "lat": -22.91872991188005,
+        "lng": -43.213124815839855,
+        "rua": "Rua Haddock Lobo"
+      },
+      {
+        "lat": -22.91872991188005,
+        "lng": -43.213124815839855,
+        "rua": "Rua Haddock Lobo (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO O FERVO",
+    "bairro": "ESTÁCIO                ",
+    "percurso": [
+      {
+        "lat": -22.91716439385238,
+        "lng": -43.20603608008703,
+        "rua": "Rua Maia de Lacerda"
+      },
+      {
+        "lat": -22.915607612501606,
+        "lng": -43.20721797184012,
+        "rua": "Rua Sampaio Ferraz"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DA PRACINHA",
+    "bairro": "JARDIM BOTÂNICO        ",
+    "percurso": [
+      {
+        "lat": -22.961464740307115,
+        "lng": -43.217009862556836,
+        "rua": "Praça Pio XI (início)"
+      },
+      {
+        "lat": -22.962011471174776,
+        "lng": -43.21751027495356,
+        "rua": "Praça Pio XI"
+      },
+      {
+        "lat": -22.962011471174776,
+        "lng": -43.21751027495356,
+        "rua": "Praça Pio XI"
+      },
+      {
+        "lat": -22.962011471174776,
+        "lng": -43.21751027495356,
+        "rua": "Praça Pio XI"
+      },
+      {
+        "lat": -22.962011471174776,
+        "lng": -43.21751027495356,
+        "rua": "Praça Pio XI (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BANDA DO TIJUCA TENIS CLUBE",
+    "bairro": "TIJUCA",
+    "percurso": [
+      {
+        "lat": -22.922486529016414,
+        "lng": -43.23022680032668,
+        "rua": "Rua Pareto"
+      },
+      {
+        "lat": -22.913388286240174,
+        "lng": -43.61117070301709,
+        "rua": "Rua Bom Pastor"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "SUVACO DE CRISTO",
+    "bairro": "JARDIM BOTÂNICO        ",
+    "percurso": [
+      {
+        "lat": -22.964159209643075,
+        "lng": -43.217416484288954,
+        "rua": "Rua Jardim Botânico (início)"
+      },
+      {
+        "lat": -22.963607559302122,
+        "lng": -43.216896235584706,
+        "rua": "Rua Jardim Botânico"
+      },
+      {
+        "lat": -22.963607559302122,
+        "lng": -43.216896235584706,
+        "rua": "Rua Jardim Botânico"
+      },
+      {
+        "lat": -22.963607559302122,
+        "lng": -43.216896235584706,
+        "rua": "Rua Jardim Botânico (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO ACORDA E VEM BRINCAR",
+    "bairro": "VILA VALQUEIRE",
+    "percurso": [
+      {
+        "lat": -22.878677974651925,
+        "lng": -43.36372092281383,
+        "rua": "Rua das Dálias (início)"
+      },
+      {
+        "lat": -22.879391103256175,
+        "lng": -43.364483471411184,
+        "rua": "Rua das Dálias"
+      },
+      {
+        "lat": -22.971963273977334,
+        "lng": -43.67655610216451,
+        "rua": "Rua das Verbenas"
+      },
+      {
+        "lat": -22.88283102139338,
+        "lng": -43.36702627336465,
+        "rua": "Rua das Camélias"
+      },
+      {
+        "lat": -22.88283102139338,
+        "lng": -43.36702627336465,
+        "rua": "Rua das Camélias"
+      },
+      {
+        "lat": -22.88288036208831,
+        "lng": -43.367033727964845,
+        "rua": "Rua das Camélias (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DA CHALEIRA DO VIDIGAL",
+    "bairro": "LEBLON",
+    "percurso": [
+      {
+        "lat": -22.98841764539611,
+        "lng": -43.227621503811434,
+        "rua": "Avenida Delfim Moreira (início)"
+      },
+      {
+        "lat": -22.9884742319736,
+        "lng": -43.22774766260756,
+        "rua": "Avenida Delfim Moreira"
+      },
+      {
+        "lat": -22.9884742319736,
+        "lng": -43.22774766260756,
+        "rua": "Avenida Delfim Moreira"
+      },
+      {
+        "lat": -22.9884742319736,
+        "lng": -43.22774766260756,
+        "rua": "Avenida Delfim Moreira (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCÃO DE COPACABANA",
+    "bairro": "COPACABANA             ",
+    "percurso": [
+      {
+        "lat": -22.984586473676487,
+        "lng": -43.18951093959589,
+        "rua": "Avenida Atlantica (início)"
+      },
+      {
+        "lat": -22.98537218086363,
+        "lng": -43.189240635346366,
+        "rua": "Avenida Atlantica"
+      },
+      {
+        "lat": -22.98625076312894,
+        "lng": -43.19229463211796,
+        "rua": "Rua Joaquim Nabuco"
+      },
+      {
+        "lat": -22.98625076312894,
+        "lng": -43.19229463211796,
+        "rua": "Rua Joaquim Nabuco"
+      },
+      {
+        "lat": -22.98537218086363,
+        "lng": -43.189240635346366,
+        "rua": "Avenida Atlantica"
+      },
+      {
+        "lat": -22.98537218086363,
+        "lng": -43.189240635346366,
+        "rua": "Avenida Atlantica (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "RODOPIANDO NO TOMBO DO COPO",
+    "bairro": "RIO COMPRIDO",
+    "percurso": [
+      {
+        "lat": -22.925047773175056,
+        "lng": -43.21146126445324,
+        "rua": "Rua Citiso (início)"
+      },
+      {
+        "lat": -22.92512349992897,
+        "lng": -43.211369506407046,
+        "rua": "Rua Citiso"
+      },
+      {
+        "lat": -22.92512349992897,
+        "lng": -43.211369506407046,
+        "rua": "Rua Citiso"
+      },
+      {
+        "lat": -22.925130194673436,
+        "lng": -43.21133051741878,
+        "rua": "Rua Citiso (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BANDA DA BARRA",
+    "bairro": "BARRA DA TIJUCA",
+    "percurso": [
+      {
+        "lat": -23.02486606060584,
+        "lng": -43.457332086657665,
+        "rua": "Avenida Lúcio Costa (início)"
+      },
+      {
+        "lat": -23.024917585472323,
+        "lng": -43.45748627544882,
+        "rua": "Avenida Lúcio Costa"
+      },
+      {
+        "lat": -23.021561393444436,
+        "lng": -43.444031610588475,
+        "rua": "Avenida Lúcio Costa"
+      },
+      {
+        "lat": -23.02248232347542,
+        "lng": -43.447550032422605,
+        "rua": "Avenida Lúcio Costa (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "GREMIO RECREATIVO E CULTURAL ESPORTIVO E CARNAVALESCO BANDA DO ARRXO",
+    "bairro": "COPACABANA             ",
+    "percurso": [
+      {
+        "lat": -22.984586473676487,
+        "lng": -43.18951093959589,
+        "rua": "Avenida Atlantica (início)"
+      },
+      {
+        "lat": -22.98537218086363,
+        "lng": -43.189240635346366,
+        "rua": "Avenida Atlantica"
+      },
+      {
+        "lat": -22.98537218086363,
+        "lng": -43.189240635346366,
+        "rua": "Avenida Atlantica"
+      },
+      {
+        "lat": -22.98537218086363,
+        "lng": -43.189240635346366,
+        "rua": "Avenida Atlantica (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO FUZUÊ DA ILHA",
+    "bairro": "JARDIM GUANABARA       ",
+    "percurso": [
+      {
+        "lat": -22.816351279898942,
+        "lng": -43.20187394590399,
+        "rua": "Rua Uca (início)"
+      },
+      {
+        "lat": -22.81718889343386,
+        "lng": -43.201652629159916,
+        "rua": "Rua Uca"
+      },
+      {
+        "lat": -22.81718889343386,
+        "lng": -43.201652629159916,
+        "rua": "Rua Uca"
+      },
+      {
+        "lat": -22.81718889343386,
+        "lng": -43.201652629159916,
+        "rua": "Rua Uca"
+      },
+      {
+        "lat": -22.81718889343386,
+        "lng": -43.201652629159916,
+        "rua": "Rua Uca"
+      },
+      {
+        "lat": -22.817792844862023,
+        "lng": -43.20148366952881,
+        "rua": "Rua Uca (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BATUCAR PRA SER FELIZ",
+    "bairro": "FREGUESIA (JACAREPAGUÁ)",
+    "percurso": [
+      {
+        "lat": -22.935385778880274,
+        "lng": -43.3303233421369,
+        "rua": "Estrada dos Três Rios (início)"
+      },
+      {
+        "lat": -22.935113249192792,
+        "lng": -43.32978413123774,
+        "rua": "Estrada dos Três Rios"
+      },
+      {
+        "lat": -22.93607788853937,
+        "lng": -43.34197834432485,
+        "rua": "Rua Xingu"
+      },
+      {
+        "lat": -22.93683620792926,
+        "lng": -43.341721749941264,
+        "rua": "Rua Xingu (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO BIGODINHO ESTICADO",
+    "bairro": "TODOS OS SANTOS",
+    "percurso": [
+      {
+        "lat": -22.89770210975342,
+        "lng": -43.28749703015463,
+        "rua": "Rua Adriano (início)"
+      },
+      {
+        "lat": -22.89801852256156,
+        "lng": -43.28767446090999,
+        "rua": "Rua Adriano"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO FOLIÕES DA ABRACES",
+    "bairro": "COPACABANA             ",
+    "percurso": [
+      {
+        "lat": -22.984586473676487,
+        "lng": -43.18951093959589,
+        "rua": "Avenida Atlantica (início)"
+      },
+      {
+        "lat": -22.98537218086363,
+        "lng": -43.189240635346366,
+        "rua": "Avenida Atlantica"
+      },
+      {
+        "lat": -22.976792707545453,
+        "lng": -43.6417986198908,
+        "rua": "Rua Celidônia"
+      },
+      {
+        "lat": -22.976029337320046,
+        "lng": -43.64179499865392,
+        "rua": "Rua Celidônia (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "MAJORZAO DA TIJUCA",
+    "bairro": "TIJUCA",
+    "percurso": [
+      {
+        "lat": -22.922486529016414,
+        "lng": -43.23022680032668,
+        "rua": "Rua Pareto"
+      },
+      {
+        "lat": -22.913388286240174,
+        "lng": -43.61117070301709,
+        "rua": "Rua Bom Pastor"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "SE NÃO QUISER ME DAR ME EMPRESTA",
+    "bairro": "IPANEMA",
+    "percurso": [
+      {
+        "lat": -22.987853453745032,
+        "lng": -43.1944857850032,
+        "rua": "Avenida Vieira Souto (início)"
+      },
+      {
+        "lat": -22.987370450122075,
+        "lng": -43.196096796061674,
+        "rua": "Avenida Vieira Souto"
+      },
+      {
+        "lat": -22.853894763510898,
+        "lng": -43.56413241116306,
+        "rua": "Rua N"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BANDA DO ANIL",
+    "bairro": "ANIL",
+    "percurso": [
+      {
+        "lat": -22.948402946494657,
+        "lng": -43.3331970785117,
+        "rua": "Estrada da Urucanga (início)"
+      },
+      {
+        "lat": -22.948420521226677,
+        "lng": -43.33310897215421,
+        "rua": "Estrada da Urucanga"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO UNIDOS DA RIBEIRA",
+    "bairro": "RIBEIRA",
+    "percurso": [
+      {
+        "lat": -22.824955448069154,
+        "lng": -43.16989212520543,
+        "rua": "Praça Iaia Garcia (início)"
+      },
+      {
+        "lat": -22.825546083936853,
+        "lng": -43.16946302371691,
+        "rua": "Praça Iaia Garcia"
+      },
+      {
+        "lat": -22.82294008658527,
+        "lng": -43.17115519366744,
+        "rua": "Rua Fernandes da Fonseca"
+      },
+      {
+        "lat": -22.82386662605791,
+        "lng": -43.17077145506427,
+        "rua": "Rua Paramopama"
+      },
+      {
+        "lat": -22.82386662605791,
+        "lng": -43.17077145506427,
+        "rua": "Rua Paramopama"
+      },
+      {
+        "lat": -22.824937035111642,
+        "lng": -43.17001969330784,
+        "rua": "Rua Paramopama (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "CHEGOU PILARES",
+    "bairro": "PILARES                ",
+    "percurso": [
+      {
+        "lat": -22.878588785851928,
+        "lng": -43.29295439564878,
+        "rua": "Rua Soares Meireles (início)"
+      },
+      {
+        "lat": -22.87838694852597,
+        "lng": -43.29272699524355,
+        "rua": "Rua Soares Meireles"
+      },
+      {
+        "lat": -22.87838694852597,
+        "lng": -43.29272699524355,
+        "rua": "Rua Soares Meireles"
+      },
+      {
+        "lat": -22.874446131672094,
+        "lng": -43.2972104752964,
+        "rua": "Avenida João Ribeiro"
+      },
+      {
+        "lat": -22.874446131672094,
+        "lng": -43.2972104752964,
+        "rua": "Avenida João Ribeiro (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "CARIJÓ",
+    "bairro": "FREGUESIA (ILHA DO GOVERNADOR)",
+    "percurso": [
+      {
+        "lat": -22.798998350939332,
+        "lng": -43.18349512118866,
+        "rua": "Avenida Paranapuã (início)"
+      },
+      {
+        "lat": -22.79857514650563,
+        "lng": -43.18366631187974,
+        "rua": "Avenida Paranapuã"
+      },
+      {
+        "lat": -22.795162617206397,
+        "lng": -43.17386307562848,
+        "rua": "Rua Jordão de Oliveira"
+      },
+      {
+        "lat": -22.838633591814048,
+        "lng": -43.25346134350959,
+        "rua": "Rua Guanabara da Praia de Ramos"
+      },
+      {
+        "lat": -22.79857514650563,
+        "lng": -43.18366631187974,
+        "rua": "Avenida Paranapuã"
+      },
+      {
+        "lat": -22.798491845817697,
+        "lng": -43.18370238252448,
+        "rua": "Avenida Paranapuã (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO INFANTIL SEMENTES DO SAMBA I",
+    "bairro": "VILA ISABEL",
+    "percurso": [
+      {
+        "lat": -22.937717769781916,
+        "lng": -43.583518063916685,
+        "rua": "Rua Seis de Setembro (início)"
+      },
+      {
+        "lat": -22.937713221686035,
+        "lng": -43.58333333390962,
+        "rua": "Rua Seis de Setembro"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "GIGANTES DA LIRA",
+    "bairro": "LARANJEIRAS            ",
+    "percurso": [
+      {
+        "lat": -23.005753484909498,
+        "lng": -43.53568603553952,
+        "rua": "Rua Laranjeiras (início)"
+      },
+      {
+        "lat": -23.00653487992194,
+        "lng": -43.536059720495956,
+        "rua": "Rua Laranjeiras"
+      },
+      {
+        "lat": -23.00653487992194,
+        "lng": -43.536059720495956,
+        "rua": "Rua Laranjeiras"
+      },
+      {
+        "lat": -23.00772292589447,
+        "lng": -43.5366099960939,
+        "rua": "Rua Laranjeiras (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO XODÓ DA PIEDADE",
+    "bairro": "PIEDADE                ",
+    "percurso": [
+      {
+        "lat": -22.89072405723511,
+        "lng": -43.305265424867834,
+        "rua": "Rua Leopoldina (início)"
+      },
+      {
+        "lat": -22.890385930244936,
+        "lng": -43.30630895910593,
+        "rua": "Rua Leopoldina"
+      },
+      {
+        "lat": -22.890385930244936,
+        "lng": -43.30630895910593,
+        "rua": "Rua Leopoldina"
+      },
+      {
+        "lat": -22.88994576423448,
+        "lng": -43.30212829387705,
+        "rua": "Rua Mario Carpenter"
+      },
+      {
+        "lat": -22.88994576423448,
+        "lng": -43.30212829387705,
+        "rua": "Rua Mario Carpenter"
+      },
+      {
+        "lat": -22.893216111289238,
+        "lng": -43.30340385657673,
+        "rua": "Rua Angelina"
+      },
+      {
+        "lat": -22.888573187030996,
+        "lng": -43.30162945358998,
+        "rua": "Rua Ernesto Nunes"
+      },
+      {
+        "lat": -22.88700460086562,
+        "lng": -43.3031023143394,
+        "rua": "Rua Ferreira de Sampaio"
+      },
+      {
+        "lat": -22.88611454598569,
+        "lng": -43.30831012111213,
+        "rua": "Avenida Dom Helder Camara"
+      },
+      {
+        "lat": -22.887280400835646,
+        "lng": -43.30418618171925,
+        "rua": "Rua João Pinheiro"
+      },
+      {
+        "lat": -22.887280400835646,
+        "lng": -43.30418618171925,
+        "rua": "Rua João Pinheiro"
+      },
+      {
+        "lat": -22.886895732264435,
+        "lng": -43.30407165890462,
+        "rua": "Rua João Pinheiro (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "CORDÃO DO BOITATÁ",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.90405412076334,
+        "lng": -43.17458588890834,
+        "rua": "Rua Primeiro de Março (início)"
+      },
+      {
+        "lat": -22.903509625829088,
+        "lng": -43.1750133941202,
+        "rua": "Rua Primeiro de Março"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "EMPOLGA ÀS 9",
+    "bairro": "IPANEMA",
+    "percurso": [
+      {
+        "lat": -22.987853453745032,
+        "lng": -43.1944857850032,
+        "rua": "Avenida Vieira Souto (início)"
+      },
+      {
+        "lat": -22.987370450122075,
+        "lng": -43.196096796061674,
+        "rua": "Avenida Vieira Souto"
+      },
+      {
+        "lat": -22.987370450122075,
+        "lng": -43.196096796061674,
+        "rua": "Avenida Vieira Souto"
+      },
+      {
+        "lat": -22.987370450122075,
+        "lng": -43.196096796061674,
+        "rua": "Avenida Vieira Souto (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "VAI TOMAR NO GRAJAÚ",
+    "bairro": "GRAJAÚ",
+    "percurso": [
+      {
+        "lat": -22.922167374159717,
+        "lng": -43.26465408759476,
+        "rua": "Praça Edmundo Rego"
+      },
+      {
+        "lat": -22.922167374159717,
+        "lng": -43.26465408759476,
+        "rua": "Praça Edmundo Rego"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BANDA DA PRAÇA AFONSO PENA",
+    "bairro": "TIJUCA",
+    "percurso": [
+      {
+        "lat": -22.915837075013485,
+        "lng": -43.21844227655024,
+        "rua": "Rua Campos Sales (início)"
+      },
+      {
+        "lat": -22.915819444354785,
+        "lng": -43.21845044624752,
+        "rua": "Rua Campos Sales"
+      },
+      {
+        "lat": -22.915819444354785,
+        "lng": -43.21845044624752,
+        "rua": "Rua Campos Sales"
+      },
+      {
+        "lat": -22.915819444354785,
+        "lng": -43.21845044624752,
+        "rua": "Rua Campos Sales"
+      },
+      {
+        "lat": -22.91552103915426,
+        "lng": -43.21901524955885,
+        "rua": "Rua Pardal Mallet"
+      },
+      {
+        "lat": -22.917723434397832,
+        "lng": -43.218831213471304,
+        "rua": "Rua Afonso Pena"
+      },
+      {
+        "lat": -22.917723434397832,
+        "lng": -43.218831213471304,
+        "rua": "Rua Afonso Pena"
+      },
+      {
+        "lat": -22.917723434397832,
+        "lng": -43.218831213471304,
+        "rua": "Rua Afonso Pena"
+      },
+      {
+        "lat": -22.91872991188005,
+        "lng": -43.213124815839855,
+        "rua": "Rua Haddock Lobo"
+      },
+      {
+        "lat": -22.91872991188005,
+        "lng": -43.213124815839855,
+        "rua": "Rua Haddock Lobo"
+      },
+      {
+        "lat": -22.915819444354785,
+        "lng": -43.21845044624752,
+        "rua": "Rua Campos Sales"
+      },
+      {
+        "lat": -22.915819444354785,
+        "lng": -43.21845044624752,
+        "rua": "Rua Campos Sales"
+      },
+      {
+        "lat": -22.915819444354785,
+        "lng": -43.21845044624752,
+        "rua": "Rua Campos Sales"
+      },
+      {
+        "lat": -22.915373815121963,
+        "lng": -43.218656811367346,
+        "rua": "Rua Campos Sales (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BANDA DO TIO MARCO",
+    "bairro": "QUINTINO BOCAIUVA      ",
+    "percurso": [
+      {
+        "lat": -22.882861717784078,
+        "lng": -43.31171889730819,
+        "rua": "Rua Porto Valter (início)"
+      },
+      {
+        "lat": -22.883207017568974,
+        "lng": -43.31319093709437,
+        "rua": "Rua Porto Valter"
+      },
+      {
+        "lat": -22.882559983083254,
+        "lng": -43.31030235488843,
+        "rua": "Rua Antonio Vargas"
+      },
+      {
+        "lat": -22.88351000673724,
+        "lng": -43.31007918449645,
+        "rua": "Rua Gonçalo Coelho"
+      },
+      {
+        "lat": -22.88479101076399,
+        "lng": -43.308665292743285,
+        "rua": "Rua Sousa Cerqueira"
+      },
+      {
+        "lat": -22.88611454598569,
+        "lng": -43.30831012111213,
+        "rua": "Avenida Dom Helder Camara"
+      },
+      {
+        "lat": -22.88611454598569,
+        "lng": -43.30831012111213,
+        "rua": "Avenida Dom Helder Camara"
+      },
+      {
+        "lat": -22.883207017568974,
+        "lng": -43.31319093709437,
+        "rua": "Rua Porto Valter"
+      },
+      {
+        "lat": -22.882906391400567,
+        "lng": -43.31380439841958,
+        "rua": "Rua Porto Valter (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO    DUS IMPUSSIVI",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.90880723790763,
+        "lng": -43.17879011872686,
+        "rua": "Rua Lélio Gama (início)"
+      },
+      {
+        "lat": -22.910032109608114,
+        "lng": -43.178376069594215,
+        "rua": "Rua Lélio Gama"
+      },
+      {
+        "lat": -22.910032109608114,
+        "lng": -43.178376069594215,
+        "rua": "Rua Lélio Gama"
+      },
+      {
+        "lat": -22.90975226791968,
+        "lng": -43.177739273343114,
+        "rua": "Rua Lélio Gama (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO LOUCURA SUBURBANA",
+    "bairro": "ENGENHO DE DENTRO",
+    "percurso": [
+      {
+        "lat": -22.902174197403447,
+        "lng": -43.296658526175634,
+        "rua": "Rua Ramiro Magalhães (início)"
+      },
+      {
+        "lat": -22.90195253928602,
+        "lng": -43.29745672371736,
+        "rua": "Rua Ramiro Magalhães"
+      },
+      {
+        "lat": -22.90016526071963,
+        "lng": -43.300537128133755,
+        "rua": "Rua Gustavo Riedel"
+      },
+      {
+        "lat": -22.898908061485685,
+        "lng": -43.298493046825335,
+        "rua": "Rua Pernambuco"
+      },
+      {
+        "lat": -22.89955567571959,
+        "lng": -43.298150783778844,
+        "rua": "Rua Barbacena"
+      },
+      {
+        "lat": -22.899976826340794,
+        "lng": -43.29961885630541,
+        "rua": "Rua Ana Leonidia"
+      },
+      {
+        "lat": -22.90016526071963,
+        "lng": -43.300537128133755,
+        "rua": "Rua Gustavo Riedel"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "COBRA SARADA - ESCOLA EDEM",
+    "bairro": "LARANJEIRAS            ",
+    "percurso": [
+      {
+        "lat": -22.931715649204097,
+        "lng": -43.1823975362791,
+        "rua": "Rua Paulo Cesar de Andrade (início)"
+      },
+      {
+        "lat": -22.929787568007814,
+        "lng": -43.1837736944002,
+        "rua": "Rua Paulo Cesar de Andrade"
+      },
+      {
+        "lat": -22.853894763510898,
+        "lng": -43.56413241116306,
+        "rua": "Rua N"
+      },
+      {
+        "lat": -22.93146916147633,
+        "lng": -43.181652065288105,
+        "rua": "Rua Gago Coutinho"
+      },
+      {
+        "lat": -22.93146916147633,
+        "lng": -43.181652065288105,
+        "rua": "Rua Gago Coutinho"
+      },
+      {
+        "lat": -22.931218266521103,
+        "lng": -43.18090070595782,
+        "rua": "Rua Gago Coutinho (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BANDA DA RUA DO MERCADO",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.901869823650415,
+        "lng": -43.174912815065234,
+        "rua": "Rua do Mercado (início)"
+      },
+      {
+        "lat": -22.90265605798923,
+        "lng": -43.17431500808664,
+        "rua": "Rua do Mercado"
+      },
+      {
+        "lat": -22.902845692460705,
+        "lng": -43.17462494871981,
+        "rua": "Praça Quinze de Novembro"
+      },
+      {
+        "lat": -22.90265605798923,
+        "lng": -43.17431500808664,
+        "rua": "Rua do Mercado"
+      },
+      {
+        "lat": -22.90265605798923,
+        "lng": -43.17431500808664,
+        "rua": "Rua do Mercado (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "EMBAIXADORES DA FOLIA",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.906423629118535,
+        "lng": -43.17704245815803,
+        "rua": "Avenida Nilo Peçanha (início)"
+      },
+      {
+        "lat": -22.906423625767424,
+        "lng": -43.177065850695286,
+        "rua": "Avenida Nilo Peçanha"
+      },
+      {
+        "lat": -22.908264838652663,
+        "lng": -43.17463712399601,
+        "rua": "Avenida Graça Aranha"
+      },
+      {
+        "lat": -22.856437576086943,
+        "lng": -43.244730919888816,
+        "rua": "Travessa Santa Luzia"
+      },
+      {
+        "lat": -22.907605086398398,
+        "lng": -43.1757537917339,
+        "rua": "Rua México"
+      },
+      {
+        "lat": -22.906423625767424,
+        "lng": -43.177065850695286,
+        "rua": "Avenida Nilo Peçanha"
+      },
+      {
+        "lat": -22.90639926899253,
+        "lng": -43.17720936985398,
+        "rua": "Avenida Nilo Peçanha (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BANDA CULTURAL DO JILÓ",
+    "bairro": "TIJUCA",
+    "percurso": [
+      {
+        "lat": -22.92476245830551,
+        "lng": -43.23632795865997,
+        "rua": "Rua Pinto de Figueiredo (início)"
+      },
+      {
+        "lat": -22.92472243572974,
+        "lng": -43.236383624314485,
+        "rua": "Rua Pinto de Figueiredo"
+      },
+      {
+        "lat": -22.921531417529437,
+        "lng": -43.236005830470596,
+        "rua": "Avenida Maracanã"
+      },
+      {
+        "lat": -22.92472243572974,
+        "lng": -43.236383624314485,
+        "rua": "Rua Pinto de Figueiredo"
+      },
+      {
+        "lat": -22.924616256623764,
+        "lng": -43.236555805284326,
+        "rua": "Rua Pinto de Figueiredo (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DOS BANCÁRIOS VESTIU UMA CAMISINHA LISTRADA E SAIU POR AÍ",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.908264838652663,
+        "lng": -43.17463712399601,
+        "rua": "Avenida Graça Aranha"
+      },
+      {
+        "lat": -22.907605086398398,
+        "lng": -43.1757537917339,
+        "rua": "Rua México"
+      },
+      {
+        "lat": -22.853894763510898,
+        "lng": -43.56413241116306,
+        "rua": "Rua N"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO VERMELHO E PRETO E COIRMÃOS",
+    "bairro": "PADRE MIGUEL",
+    "percurso": [
+      {
+        "lat": -22.890840320969904,
+        "lng": -43.44569559218628,
+        "rua": "Rua Castelo de Guimarães (início)"
+      },
+      {
+        "lat": -22.891155476949848,
+        "lng": -43.44599549837439,
+        "rua": "Rua Castelo de Guimarães"
+      },
+      {
+        "lat": -22.889676485203225,
+        "lng": -43.4450943797,
+        "rua": "Rua Helianto"
+      },
+      {
+        "lat": -22.889788011810875,
+        "lng": -43.4475170722946,
+        "rua": "Rua Olímpia Esteves"
+      },
+      {
+        "lat": -22.88652086629636,
+        "lng": -43.44370798293713,
+        "rua": "Rua Vila Nova"
+      },
+      {
+        "lat": -22.889676485203225,
+        "lng": -43.4450943797,
+        "rua": "Rua Helianto"
+      },
+      {
+        "lat": -22.891155476949848,
+        "lng": -43.44599549837439,
+        "rua": "Rua Castelo de Guimarães"
+      },
+      {
+        "lat": -22.891452452841538,
+        "lng": -43.44627825255736,
+        "rua": "Rua Castelo de Guimarães (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "ESCORREGA MAS NÃO CAI",
+    "bairro": "SAÚDE",
+    "percurso": [
+      {
+        "lat": -22.897548268207732,
+        "lng": -43.18369825445671,
+        "rua": "Rua Sacadura Cabral (início)"
+      },
+      {
+        "lat": -22.897545695016515,
+        "lng": -43.1838316491677,
+        "rua": "Rua Sacadura Cabral"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO ROLA PREGUIÇOSA TARDA MAS NÃO FALHA",
+    "bairro": "IPANEMA",
+    "percurso": [
+      {
+        "lat": -22.98252815630226,
+        "lng": -43.206993943471026,
+        "rua": "Rua Maria Quitéria (início)"
+      },
+      {
+        "lat": -22.981984264363696,
+        "lng": -43.206954696109456,
+        "rua": "Rua Maria Quitéria"
+      },
+      {
+        "lat": -22.981984264363696,
+        "lng": -43.206954696109456,
+        "rua": "Rua Maria Quitéria"
+      },
+      {
+        "lat": -22.981984264363696,
+        "lng": -43.206954696109456,
+        "rua": "Rua Maria Quitéria (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DAS PIRANHAS DO JEFINHO",
+    "bairro": "PEDRA DE GUARATIBA     ",
+    "percurso": [
+      {
+        "lat": -22.98252815630226,
+        "lng": -43.206993943471026,
+        "rua": "Rua Maria Quitéria (início)"
+      },
+      {
+        "lat": -22.981984264363696,
+        "lng": -43.206954696109456,
+        "rua": "Rua Maria Quitéria"
+      },
+      {
+        "lat": -22.981984264363696,
+        "lng": -43.206954696109456,
+        "rua": "Rua Maria Quitéria (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DAS CARMELITAS (DESFILE)",
+    "bairro": "SANTA TERESA",
+    "percurso": [
+      {
+        "lat": -22.91621719998406,
+        "lng": -43.18113505519679,
+        "rua": "Travessa das Escadinhas de Santa Teresa (início)"
+      },
+      {
+        "lat": -22.91646936516703,
+        "lng": -43.18087033403374,
+        "rua": "Travessa das Escadinhas de Santa Teresa"
+      },
+      {
+        "lat": -22.917791078236906,
+        "lng": -43.18119603128016,
+        "rua": "Rua Dias de Barros"
+      },
+      {
+        "lat": -22.853894763510898,
+        "lng": -43.56413241116306,
+        "rua": "Rua N"
+      },
+      {
+        "lat": -22.85404330439598,
+        "lng": -43.56435211588373,
+        "rua": "Rua N (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "CEU NA TERRA",
+    "bairro": "SANTA TERESA",
+    "percurso": [
+      {
+        "lat": -22.91621719998406,
+        "lng": -43.18113505519679,
+        "rua": "Rua Joaquim Murtinho"
+      },
+      {
+        "lat": -22.91621719998406,
+        "lng": -43.18113505519679,
+        "rua": "Rua Joaquim Murtinho (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "CORDÃO ALEGRIA DA TIJUCA",
+    "bairro": "TIJUCA",
+    "percurso": [
+      {
+        "lat": -22.91872991188005,
+        "lng": -43.213124815839855,
+        "rua": "Rua Haddock Lobo"
+      },
+      {
+        "lat": -22.915819444354785,
+        "lng": -43.21845044624752,
+        "rua": "Rua Campos Sales"
+      },
+      {
+        "lat": -22.915819444354785,
+        "lng": -43.21845044624752,
+        "rua": "Rua Campos Sales"
+      },
+      {
+        "lat": -22.916392307947167,
+        "lng": -43.22697710160981,
+        "rua": "Rua São Francisco Xavier"
+      },
+      {
+        "lat": -22.91872991188005,
+        "lng": -43.213124815839855,
+        "rua": "Rua Haddock Lobo"
+      },
+      {
+        "lat": -22.91872991188005,
+        "lng": -43.213124815839855,
+        "rua": "Rua Haddock Lobo (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "GRBC QUEM ME VIU MENTIU",
+    "bairro": "ZUMBI",
+    "percurso": [
+      {
+        "lat": -22.819508781171635,
+        "lng": -43.17576949184125,
+        "rua": "Praia do Zumbi (início)"
+      },
+      {
+        "lat": -22.819872042006846,
+        "lng": -43.175766502273206,
+        "rua": "Praia do Zumbi"
+      },
+      {
+        "lat": -22.825546083936853,
+        "lng": -43.16946302371691,
+        "rua": "Praça Iaia Garcia"
+      },
+      {
+        "lat": -22.824955448069154,
+        "lng": -43.16989212520543,
+        "rua": "Praça Iaia Garcia (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "CORDÃO DA BOLA PRETA",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.90405412076334,
+        "lng": -43.17458588890834,
+        "rua": "Rua Primeiro de Março (início)"
+      },
+      {
+        "lat": -22.903509625829088,
+        "lng": -43.1750133941202,
+        "rua": "Rua Primeiro de Março"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "MULHERES BRILHANTES ",
+    "bairro": "VILA ISABEL",
+    "percurso": [
+      {
+        "lat": -22.937717769781916,
+        "lng": -43.583518063916685,
+        "rua": "Rua Seis de Setembro (início)"
+      },
+      {
+        "lat": -22.937713221686035,
+        "lng": -43.58333333390962,
+        "rua": "Rua Seis de Setembro"
+      },
+      {
+        "lat": -22.937713221686035,
+        "lng": -43.58333333390962,
+        "rua": "Rua Seis de Setembro"
+      },
+      {
+        "lat": -22.937704079131088,
+        "lng": -43.583193533056715,
+        "rua": "Rua Seis de Setembro (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "GREMIO RECREATIVO BLOCO CARNAVALESCO TIGRE DO MEIER",
+    "bairro": "MÉIER",
+    "percurso": [
+      {
+        "lat": -22.902519784548666,
+        "lng": -43.28147134258305,
+        "rua": "Travessa Miracema (início)"
+      },
+      {
+        "lat": -22.901268527983632,
+        "lng": -43.282570506723076,
+        "rua": "Travessa Miracema"
+      },
+      {
+        "lat": -22.90433746412339,
+        "lng": -43.286693078980065,
+        "rua": "Rua Dias da Cruz"
+      },
+      {
+        "lat": -22.902107698787624,
+        "lng": -43.28715141630075,
+        "rua": "Rua Magalhães Couto"
+      },
+      {
+        "lat": -22.901268527983632,
+        "lng": -43.282570506723076,
+        "rua": "Travessa Miracema"
+      },
+      {
+        "lat": -22.901100621554605,
+        "lng": -43.282434819254036,
+        "rua": "Travessa Miracema (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO ESCANGALHA",
+    "bairro": "JARDIM BOTÂNICO        ",
+    "percurso": [
+      {
+        "lat": -22.965346280794563,
+        "lng": -43.22759068744621,
+        "rua": "Rua Pacheco Leão (início)"
+      },
+      {
+        "lat": -22.9654117882729,
+        "lng": -43.22705287961067,
+        "rua": "Rua Pacheco Leão"
+      },
+      {
+        "lat": -22.963607559302122,
+        "lng": -43.216896235584706,
+        "rua": "Rua Jardim Botânico"
+      },
+      {
+        "lat": -22.963607559302122,
+        "lng": -43.216896235584706,
+        "rua": "Rua Jardim Botânico (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO POMBO CORREIO",
+    "bairro": "VILA ISABEL",
+    "percurso": [
+      {
+        "lat": -22.937717769781916,
+        "lng": -43.583518063916685,
+        "rua": "Rua Seis de Setembro (início)"
+      },
+      {
+        "lat": -22.937713221686035,
+        "lng": -43.58333333390962,
+        "rua": "Rua Seis de Setembro"
+      },
+      {
+        "lat": -22.937713221686035,
+        "lng": -43.58333333390962,
+        "rua": "Rua Seis de Setembro"
+      },
+      {
+        "lat": -22.937713221686035,
+        "lng": -43.58333333390962,
+        "rua": "Rua Seis de Setembro"
+      },
+      {
+        "lat": -22.916666742433154,
+        "lng": -43.24651674387469,
+        "rua": "Rua Rocha Fragoso"
+      },
+      {
+        "lat": -22.91773057198892,
+        "lng": -43.24627379880639,
+        "rua": "Rua Rocha Fragoso (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "TIGRE DO COQUEIRO",
+    "bairro": "PEDRA DE GUARATIBA     ",
+    "percurso": [
+      {
+        "lat": -23.005344101814753,
+        "lng": -43.63532257484122,
+        "rua": "Rua Barros Alarcão (início)"
+      },
+      {
+        "lat": -23.00541818285842,
+        "lng": -43.63511791705321,
+        "rua": "Rua Barros Alarcão"
+      },
+      {
+        "lat": -23.00541818285842,
+        "lng": -43.63511791705321,
+        "rua": "Rua Barros Alarcão"
+      },
+      {
+        "lat": -23.005608195686044,
+        "lng": -43.634797194467424,
+        "rua": "Rua Barros Alarcão (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DO BECO DO RATO",
+    "bairro": "LAPA",
+    "percurso": [
+      {
+        "lat": -22.916066662722034,
+        "lng": -43.17808649974507,
+        "rua": "Rua Joaquim Silva (início)"
+      },
+      {
+        "lat": -22.916089151556967,
+        "lng": -43.17771683197084,
+        "rua": "Rua Joaquim Silva"
+      },
+      {
+        "lat": -22.919395849945438,
+        "lng": -43.17597566263895,
+        "rua": "Avenida Augusto Severo"
+      },
+      {
+        "lat": -22.915273418640034,
+        "lng": -43.17649564908024,
+        "rua": "Beco dos Carmelitas"
+      },
+      {
+        "lat": -22.915064184178508,
+        "lng": -43.17721134238048,
+        "rua": "Rua Morais e Vale"
+      },
+      {
+        "lat": -22.916089151556967,
+        "lng": -43.17771683197084,
+        "rua": "Rua Joaquim Silva"
+      },
+      {
+        "lat": -22.916089151556967,
+        "lng": -43.17771683197084,
+        "rua": "Rua Joaquim Silva (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "CORDÃO DA BOLA LARANJA",
+    "bairro": "CAMPO GRANDE",
+    "percurso": [
+      {
+        "lat": -22.89046732117669,
+        "lng": -43.55746518718355,
+        "rua": "Rua Jerônimo Barbalho (início)"
+      },
+      {
+        "lat": -22.89095341167637,
+        "lng": -43.55736200892129,
+        "rua": "Rua Jerônimo Barbalho"
+      },
+      {
+        "lat": -22.890707227670557,
+        "lng": -43.558191560401646,
+        "rua": "Rua Osvaldo Sento Sé"
+      },
+      {
+        "lat": -22.891075851879986,
+        "lng": -43.55674492423218,
+        "rua": "Rua Soldado Isidro Matoso"
+      },
+      {
+        "lat": -22.890424421428637,
+        "lng": -43.55694363449737,
+        "rua": "Rua Mexiana"
+      },
+      {
+        "lat": -22.89095341167637,
+        "lng": -43.55736200892129,
+        "rua": "Rua Jerônimo Barbalho"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BANDA DE IPANEMA",
+    "bairro": "IPANEMA",
+    "percurso": [
+      {
+        "lat": -22.985981406174144,
+        "lng": -43.196796910216364,
+        "rua": "Rua Gomes Carneiro (início)"
+      },
+      {
+        "lat": -22.985692749289214,
+        "lng": -43.19643576818547,
+        "rua": "Rua Gomes Carneiro"
+      },
+      {
+        "lat": -22.982635244366737,
+        "lng": -43.204871484110356,
+        "rua": "Rua Joana Angélica"
+      },
+      {
+        "lat": -22.796749303089758,
+        "lng": -43.18054053092234,
+        "rua": "Rua General Osorio - PAL 41234"
+      },
+      {
+        "lat": -22.984669729617597,
+        "lng": -43.196898400812124,
+        "rua": "Rua Jangadeiros"
+      },
+      {
+        "lat": -22.984669729617597,
+        "lng": -43.196898400812124,
+        "rua": "Rua Jangadeiros (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "FOGO NA CUECA",
+    "bairro": "COPACABANA             ",
+    "percurso": [
+      {
+        "lat": -22.967326537083494,
+        "lng": -43.18956665332102,
+        "rua": "Praça Edmundo Bitencourt (início)"
+      },
+      {
+        "lat": -22.967620558580485,
+        "lng": -43.18995360106106,
+        "rua": "Praça Edmundo Bitencourt"
+      },
+      {
+        "lat": -22.96642391311813,
+        "lng": -43.19006910560685,
+        "rua": "Rua Décio Vilares"
+      },
+      {
+        "lat": -22.967620558580485,
+        "lng": -43.18995360106106,
+        "rua": "Praça Edmundo Bitencourt"
+      },
+      {
+        "lat": -22.967620558580485,
+        "lng": -43.18995360106106,
+        "rua": "Praça Edmundo Bitencourt (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "SOUL DA GEMA",
+    "bairro": "BARRA DA TIJUCA",
+    "percurso": [
+      {
+        "lat": -23.02064001381962,
+        "lng": -43.440178330160094,
+        "rua": "Avenida Lúcio Costa (início)"
+      },
+      {
+        "lat": -23.021561393444436,
+        "lng": -43.444031610588475,
+        "rua": "Avenida Lúcio Costa"
+      },
+      {
+        "lat": -23.021561393444436,
+        "lng": -43.444031610588475,
+        "rua": "Avenida Lúcio Costa"
+      },
+      {
+        "lat": -23.02248232347542,
+        "lng": -43.447550032422605,
+        "rua": "Avenida Lúcio Costa (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "DNA SUBURBANO",
+    "bairro": "MADUREIRA              ",
+    "percurso": [
+      {
+        "lat": -22.87125895899014,
+        "lng": -43.34119134176102,
+        "rua": "Estrada do Portela (início)"
+      },
+      {
+        "lat": -22.871117522499894,
+        "lng": -43.34138085846641,
+        "rua": "Estrada do Portela"
+      },
+      {
+        "lat": -22.871117522499894,
+        "lng": -43.34138085846641,
+        "rua": "Estrada do Portela"
+      },
+      {
+        "lat": -22.87072382313295,
+        "lng": -43.34188793571475,
+        "rua": "Estrada do Portela (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO SEU KUKA E EU DO GRAJAU",
+    "bairro": "TIJUCA",
+    "percurso": [
+      {
+        "lat": -22.923971432156687,
+        "lng": -43.26281113286914,
+        "rua": "Rua Grajaú"
+      },
+      {
+        "lat": -22.919907273442192,
+        "lng": -43.26144438842243,
+        "rua": "Rua Gurupi"
+      },
+      {
+        "lat": -22.923835709200425,
+        "lng": -43.25917805844606,
+        "rua": "Rua Borda do Mato"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BANDA DO CHOPPINHO DA PAULA FREITAS",
+    "bairro": "COPACABANA             ",
+    "percurso": [
+      {
+        "lat": -22.984586473676487,
+        "lng": -43.18951093959589,
+        "rua": "Avenida Atlantica (início)"
+      },
+      {
+        "lat": -22.98537218086363,
+        "lng": -43.189240635346366,
+        "rua": "Avenida Atlantica"
+      },
+      {
+        "lat": -22.98537218086363,
+        "lng": -43.189240635346366,
+        "rua": "Avenida Atlantica"
+      },
+      {
+        "lat": -22.98537218086363,
+        "lng": -43.189240635346366,
+        "rua": "Avenida Atlantica (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DO SERRAGENS",
+    "bairro": "PAQUETÁ                ",
+    "percurso": [
+      {
+        "lat": -22.7518984919937,
+        "lng": -43.10682249080678,
+        "rua": "Rua Adelaide Alambari (início)"
+      },
+      {
+        "lat": -22.75122580245783,
+        "lng": -43.10668318478976,
+        "rua": "Rua Adelaide Alambari"
+      },
+      {
+        "lat": -22.751109604432585,
+        "lng": -43.10425702692099,
+        "rua": "Rua Alambari Luz"
+      },
+      {
+        "lat": -22.761172883452844,
+        "lng": -43.107494746187804,
+        "rua": "Praça Bom Jesus"
+      },
+      {
+        "lat": -22.761172883452844,
+        "lng": -43.107494746187804,
+        "rua": "Praça Bom Jesus (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "G.R.B.C. ACONTECEU",
+    "bairro": "SANTA TERESA",
+    "percurso": [
+      {
+        "lat": -22.875932070709467,
+        "lng": -43.584082695845886,
+        "rua": "Rua Tancredo Neves (início)"
+      },
+      {
+        "lat": -22.875879366281836,
+        "lng": -43.58433111609997,
+        "rua": "Rua Tancredo Neves"
+      },
+      {
+        "lat": -22.916758016722255,
+        "lng": -43.1909045784514,
+        "rua": "Rua Progresso"
+      },
+      {
+        "lat": -22.917764762325866,
+        "lng": -43.40222615392553,
+        "rua": "Rua Oriente Novo"
+      },
+      {
+        "lat": -22.920999250345243,
+        "lng": -43.189607044911625,
+        "rua": "Rua Aurea"
+      },
+      {
+        "lat": -22.920675829187527,
+        "lng": -43.18964283239596,
+        "rua": "Rua Aurea (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO AMIGOS DA ESQUINA",
+    "bairro": "ENCANTADO",
+    "percurso": [
+      {
+        "lat": -22.897764137595093,
+        "lng": -43.302737986580446,
+        "rua": "Rua Pernambuco (início)"
+      },
+      {
+        "lat": -22.897695659437318,
+        "lng": -43.302983906042165,
+        "rua": "Rua Pernambuco"
+      },
+      {
+        "lat": -22.899520079151934,
+        "lng": -43.29855080891446,
+        "rua": "Praça Rio Grande do Norte"
+      },
+      {
+        "lat": -22.909413470159212,
+        "lng": -43.5880584755756,
+        "rua": "Rua Doutor Herculano Leal Carneiro"
+      },
+      {
+        "lat": -22.897695659437318,
+        "lng": -43.302983906042165,
+        "rua": "Rua Pernambuco"
+      },
+      {
+        "lat": -22.897630760279732,
+        "lng": -43.30323959747604,
+        "rua": "Rua Pernambuco (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DA AMIZADE",
+    "bairro": "SEPETIBA",
+    "percurso": [
+      {
+        "lat": -22.990391245950978,
+        "lng": -43.68886061671882,
+        "rua": "Praia do Recôncavo (início)"
+      },
+      {
+        "lat": -22.98959511597696,
+        "lng": -43.68888408484142,
+        "rua": "Praia do Recôncavo"
+      },
+      {
+        "lat": -22.98959511597696,
+        "lng": -43.68888408484142,
+        "rua": "Praia do Recôncavo"
+      },
+      {
+        "lat": -22.989543352924755,
+        "lng": -43.68914133872367,
+        "rua": "Praia do Recôncavo (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO VERDE E BRANCO DO ZUMBI",
+    "bairro": "ZUMBI",
+    "percurso": [
+      {
+        "lat": -22.822357346867427,
+        "lng": -43.176905794649535,
+        "rua": "Rua Peixoto de Carvalho (início)"
+      },
+      {
+        "lat": -22.82171627006847,
+        "lng": -43.1761794249344,
+        "rua": "Rua Peixoto de Carvalho"
+      },
+      {
+        "lat": -22.819872042006846,
+        "lng": -43.175766502273206,
+        "rua": "Praia do Zumbi"
+      },
+      {
+        "lat": -22.822622882555372,
+        "lng": -43.174772235915974,
+        "rua": "Rua Pojuca"
+      },
+      {
+        "lat": -22.82171627006847,
+        "lng": -43.1761794249344,
+        "rua": "Rua Peixoto de Carvalho"
+      },
+      {
+        "lat": -22.821628275340764,
+        "lng": -43.17608142661188,
+        "rua": "Rua Peixoto de Carvalho (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "B.C. CIGANAS FEITICEIRAS DE OLARIA",
+    "bairro": "OLARIA                 ",
+    "percurso": [
+      {
+        "lat": -22.85441139616724,
+        "lng": -43.270433571864864,
+        "rua": "Rua Paranhos (início)"
+      },
+      {
+        "lat": -22.85483034362536,
+        "lng": -43.26989457268976,
+        "rua": "Rua Paranhos"
+      },
+      {
+        "lat": -22.853737864241463,
+        "lng": -43.27386672337814,
+        "rua": "Rua João Rego"
+      },
+      {
+        "lat": -22.84773835466917,
+        "lng": -43.26974755241148,
+        "rua": "Rua Aurélio Garcindo"
+      },
+      {
+        "lat": -22.847952043122856,
+        "lng": -43.268487208930885,
+        "rua": "Rua Delfim Carlos"
+      },
+      {
+        "lat": -22.84902661247054,
+        "lng": -43.27287610674231,
+        "rua": "Rua Paranapanema"
+      },
+      {
+        "lat": -22.853737864241463,
+        "lng": -43.27386672337814,
+        "rua": "Rua João Rego"
+      },
+      {
+        "lat": -22.853737864241463,
+        "lng": -43.27386672337814,
+        "rua": "Rua João Rego (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DO TAMANCO",
+    "bairro": "PADRE MIGUEL",
+    "percurso": [
+      {
+        "lat": -22.874806913464937,
+        "lng": -43.44951459210114,
+        "rua": "Rua D (início)"
+      },
+      {
+        "lat": -22.8743194708067,
+        "lng": -43.44953683017214,
+        "rua": "Rua D"
+      },
+      {
+        "lat": -22.871681685065315,
+        "lng": -43.45080757778578,
+        "rua": "Rua Figueiredo Camargo"
+      },
+      {
+        "lat": -22.8743194708067,
+        "lng": -43.44953683017214,
+        "rua": "Rua D"
+      },
+      {
+        "lat": -22.87382424220644,
+        "lng": -43.44954646472825,
+        "rua": "Rua D (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO BAMBAS DO CURUZU",
+    "bairro": "SÃO CRISTÓVÃO",
+    "percurso": [
+      {
+        "lat": -22.895492221784597,
+        "lng": -43.23174426537911,
+        "rua": "Rua Curuzu (início)"
+      },
+      {
+        "lat": -22.89517681548546,
+        "lng": -43.23223994159191,
+        "rua": "Rua Curuzu"
+      },
+      {
+        "lat": -22.896179011808695,
+        "lng": -43.229152960479254,
+        "rua": "Rua Alves Montes"
+      },
+      {
+        "lat": -22.897908149683666,
+        "lng": -43.228104187645094,
+        "rua": "Praça Argentina"
+      },
+      {
+        "lat": -22.8965369720199,
+        "lng": -43.230778766714515,
+        "rua": "Rua Tuiuti"
+      },
+      {
+        "lat": -22.89517681548546,
+        "lng": -43.23223994159191,
+        "rua": "Rua Curuzu"
+      },
+      {
+        "lat": -22.894931893180644,
+        "lng": -43.23264146577921,
+        "rua": "Rua Curuzu (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO VINIL SOCIAL DA ABOLIÇÃO",
+    "bairro": "ENGENHO DE DENTRO",
+    "percurso": [
+      {
+        "lat": -22.891426009072106,
+        "lng": -43.2967542677433,
+        "rua": "Rua Afonso Ferreira (início)"
+      },
+      {
+        "lat": -22.891489596174143,
+        "lng": -43.29684499289848,
+        "rua": "Rua Afonso Ferreira"
+      },
+      {
+        "lat": -22.890464034056812,
+        "lng": -43.29432749458202,
+        "rua": "Rua da Abolição"
+      },
+      {
+        "lat": -22.894411820886006,
+        "lng": -43.29552102196159,
+        "rua": "Rua Jose dos Reis"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "MULTIBLOCO",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.91003526422979,
+        "lng": -43.185088482806755,
+        "rua": "Rua dos Inválidos"
+      },
+      {
+        "lat": -22.909840359066497,
+        "lng": -43.18451682290698,
+        "rua": "Rua dos Inválidos (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DO BARBAS",
+    "bairro": "BOTAFOGO               ",
+    "percurso": [
+      {
+        "lat": -22.95567719901181,
+        "lng": -43.1840606670914,
+        "rua": "Rua Arnaldo Quintela (início)"
+      },
+      {
+        "lat": -22.95554146242092,
+        "lng": -43.18375219338202,
+        "rua": "Rua Arnaldo Quintela"
+      },
+      {
+        "lat": -22.965113060423572,
+        "lng": -43.61617935115873,
+        "rua": "Rua Passagem Franca"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "G.R.B.C TURMA DO GATO FUTEBOL E SAMBA",
+    "bairro": "PILARES                ",
+    "percurso": [
+      {
+        "lat": -22.883139886298295,
+        "lng": -43.2941048391114,
+        "rua": "Rua Djalma Dutra (início)"
+      },
+      {
+        "lat": -22.88409405446361,
+        "lng": -43.295942443737054,
+        "rua": "Rua Djalma Dutra"
+      },
+      {
+        "lat": -22.88409405446361,
+        "lng": -43.295942443737054,
+        "rua": "Rua Djalma Dutra"
+      },
+      {
+        "lat": -22.88477101662511,
+        "lng": -43.29718046488059,
+        "rua": "Rua Djalma Dutra (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DO TIO TONHO ",
+    "bairro": "JACAREPAGUÁ",
+    "percurso": [
+      {
+        "lat": -22.953192737654298,
+        "lng": -43.37608822500661,
+        "rua": "Rua Caungula (início)"
+      },
+      {
+        "lat": -22.95313404105091,
+        "lng": -43.37638806646005,
+        "rua": "Rua Caungula"
+      },
+      {
+        "lat": -22.95068157241378,
+        "lng": -43.376311387764964,
+        "rua": "Rua Lobango"
+      },
+      {
+        "lat": -22.952702964931575,
+        "lng": -43.37858117909339,
+        "rua": "Rua Gâmbia"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO RIO2AMORES",
+    "bairro": "BARRA OLÍMPICA",
+    "percurso": [
+      {
+        "lat": -22.972780228368737,
+        "lng": -43.38216133145806,
+        "rua": "Rua Mario Agostinelli (início)"
+      },
+      {
+        "lat": -22.972916160363404,
+        "lng": -43.382201041325025,
+        "rua": "Rua Mario Agostinelli"
+      },
+      {
+        "lat": -22.97299746439697,
+        "lng": -43.384111703004514,
+        "rua": "Rua Alfredo Ceschiatti"
+      },
+      {
+        "lat": -22.971417457139108,
+        "lng": -43.386001618262966,
+        "rua": "Rua Bruno Giorgi"
+      },
+      {
+        "lat": -22.971214475742972,
+        "lng": -43.38628807754801,
+        "rua": "Rua Bruno Giorgi (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "CHORA 10",
+    "bairro": "TIJUCA",
+    "percurso": [
+      {
+        "lat": -22.938648346368065,
+        "lng": -43.25083517341655,
+        "rua": "Travessa Conde de São Miguel (início)"
+      },
+      {
+        "lat": -22.938086476696906,
+        "lng": -43.25106141505642,
+        "rua": "Travessa Conde de São Miguel"
+      },
+      {
+        "lat": -22.921531417529437,
+        "lng": -43.236005830470596,
+        "rua": "Avenida Maracanã"
+      },
+      {
+        "lat": -22.977867124385615,
+        "lng": -43.64848572967458,
+        "rua": "Rua Rafael Fernandes"
+      },
+      {
+        "lat": -22.938086476696906,
+        "lng": -43.25106141505642,
+        "rua": "Travessa Conde de São Miguel"
+      },
+      {
+        "lat": -22.938086476696906,
+        "lng": -43.25106141505642,
+        "rua": "Travessa Conde de São Miguel (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DO CORSO",
+    "bairro": "PAQUETÁ                ",
+    "percurso": [
+      {
+        "lat": -22.763141633110735,
+        "lng": -43.108111212732275,
+        "rua": "Rua Pinheiro Freire (início)"
+      },
+      {
+        "lat": -22.763668447421903,
+        "lng": -43.10762094177278,
+        "rua": "Rua Pinheiro Freire"
+      },
+      {
+        "lat": -22.762193228768172,
+        "lng": -43.107223793002404,
+        "rua": "Rua Furquim Werneck"
+      },
+      {
+        "lat": -22.763668447421903,
+        "lng": -43.10762094177278,
+        "rua": "Rua Pinheiro Freire"
+      },
+      {
+        "lat": -22.76399545421554,
+        "lng": -43.1078531913624,
+        "rua": "Rua Pinheiro Freire (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "CORDÃO DO PRATA PRETA",
+    "bairro": "GAMBOA",
+    "percurso": [
+      {
+        "lat": -22.87343075574259,
+        "lng": -43.53517732641951,
+        "rua": "Travessa Harmonia de Núbia (início)"
+      },
+      {
+        "lat": -22.873490674647304,
+        "lng": -43.53550960560928,
+        "rua": "Travessa Harmonia de Núbia"
+      },
+      {
+        "lat": -22.896861298487238,
+        "lng": -43.19082296717332,
+        "rua": "Rua do Livramento"
+      },
+      {
+        "lat": -22.896861298487238,
+        "lng": -43.19082296717332,
+        "rua": "Rua do Livramento"
+      },
+      {
+        "lat": -22.89726041119741,
+        "lng": -43.19616684690597,
+        "rua": "Rua Rivadávia Corrêa"
+      },
+      {
+        "lat": -22.896170126278903,
+        "lng": -43.19249078614373,
+        "rua": "Rua Pedro Ernesto"
+      },
+      {
+        "lat": -22.896170126278903,
+        "lng": -43.19249078614373,
+        "rua": "Rua Pedro Ernesto"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BANDA DO LIDO COPACABANA",
+    "bairro": "COPACABANA             ",
+    "percurso": [
+      {
+        "lat": -22.984586473676487,
+        "lng": -43.18951093959589,
+        "rua": "Avenida Atlantica (início)"
+      },
+      {
+        "lat": -22.98537218086363,
+        "lng": -43.189240635346366,
+        "rua": "Avenida Atlantica"
+      },
+      {
+        "lat": -22.976792707545453,
+        "lng": -43.6417986198908,
+        "rua": "Rua Celidônia"
+      },
+      {
+        "lat": -22.976029337320046,
+        "lng": -43.64179499865392,
+        "rua": "Rua Celidônia (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "LAMA O BLOCO",
+    "bairro": "SEPETIBA",
+    "percurso": [
+      {
+        "lat": -22.985688458698444,
+        "lng": -43.6611773793079,
+        "rua": "Rua Floresta do Sul (início)"
+      },
+      {
+        "lat": -22.986525812263224,
+        "lng": -43.66215833831222,
+        "rua": "Rua Floresta do Sul"
+      },
+      {
+        "lat": -22.986525812263224,
+        "lng": -43.66215833831222,
+        "rua": "Rua Floresta do Sul"
+      },
+      {
+        "lat": -22.987197650489737,
+        "lng": -43.66293515824222,
+        "rua": "Rua Floresta do Sul (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO TCHETCHECA",
+    "bairro": "ENGENHO DE DENTRO",
+    "percurso": [
+      {
+        "lat": -22.89904301154258,
+        "lng": -43.297988711542054,
+        "rua": "Rua Pernambuco (início)"
+      },
+      {
+        "lat": -22.898908061485685,
+        "lng": -43.298493046825335,
+        "rua": "Rua Pernambuco"
+      },
+      {
+        "lat": -22.90433746412339,
+        "lng": -43.286693078980065,
+        "rua": "Rua Dias da Cruz"
+      },
+      {
+        "lat": -22.90403060389255,
+        "lng": -43.29724138907161,
+        "rua": "Rua Adolfo Bergamini"
+      },
+      {
+        "lat": -22.90403060389255,
+        "lng": -43.29724138907161,
+        "rua": "Rua Adolfo Bergamini"
+      },
+      {
+        "lat": -22.904356610308902,
+        "lng": -43.297343143705234,
+        "rua": "Rua Adolfo Bergamini (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "GRÊMIO RECREATIVO BLOCO CARNAVALESCO MAU MAU DE BANGU",
+    "bairro": "BANGU",
+    "percurso": [
+      {
+        "lat": -22.87817785888321,
+        "lng": -43.47788733146346,
+        "rua": "Rua Minuanos (início)"
+      },
+      {
+        "lat": -22.87834971825264,
+        "lng": -43.47779393753547,
+        "rua": "Rua Minuanos"
+      },
+      {
+        "lat": -22.877662582466083,
+        "lng": -43.47556958251604,
+        "rua": "Rua Imarui"
+      },
+      {
+        "lat": -22.87778807971936,
+        "lng": -43.46942378641757,
+        "rua": "Rua da Fábrica"
+      },
+      {
+        "lat": -22.883874126589475,
+        "lng": -43.46884408025446,
+        "rua": "Rua dos Açudes"
+      },
+      {
+        "lat": -22.882643060461472,
+        "lng": -43.45926887573068,
+        "rua": "Rua Oliveira Ribeiro"
+      },
+      {
+        "lat": -22.885106188728408,
+        "lng": -43.46641735669055,
+        "rua": "Rua Bangu"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO ALEGRIA DO SÃO BENTO ",
+    "bairro": "BANGU",
+    "percurso": [
+      {
+        "lat": -22.857247859560637,
+        "lng": -43.5380332878782,
+        "rua": "Rua Euclides Cristiano Moura (início)"
+      },
+      {
+        "lat": -22.857289571582736,
+        "lng": -43.53741310783994,
+        "rua": "Rua Euclides Cristiano Moura"
+      },
+      {
+        "lat": -22.868017488951214,
+        "lng": -43.463415986948256,
+        "rua": "Estrada Porto Nacional"
+      },
+      {
+        "lat": -22.86825683655067,
+        "lng": -43.456429699979246,
+        "rua": "Rua do Açafrão"
+      },
+      {
+        "lat": -22.871681685065315,
+        "lng": -43.45080757778578,
+        "rua": "Rua Figueiredo Camargo"
+      },
+      {
+        "lat": -22.871681685065315,
+        "lng": -43.45080757778578,
+        "rua": "Rua Figueiredo Camargo"
+      },
+      {
+        "lat": -22.871681685065315,
+        "lng": -43.45080757778578,
+        "rua": "Rua Figueiredo Camargo (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "GRÊMIO RECREATIVO BLOCO ASA TEMPERADA",
+    "bairro": "VARGEM GRANDE",
+    "percurso": [
+      {
+        "lat": -22.969048609402957,
+        "lng": -43.49401880987095,
+        "rua": "Estrada Pacuí (início)"
+      },
+      {
+        "lat": -22.969135902335363,
+        "lng": -43.49249462846715,
+        "rua": "Estrada Pacuí"
+      },
+      {
+        "lat": -22.983687800008543,
+        "lng": -43.49725293869389,
+        "rua": "Praça Vargem Grande"
+      },
+      {
+        "lat": -22.983697203863922,
+        "lng": -43.49724089534508,
+        "rua": "Praça Vargem Grande (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO AREIA",
+    "bairro": "LEBLON",
+    "percurso": [
+      {
+        "lat": -22.98841764539611,
+        "lng": -43.227621503811434,
+        "rua": "Avenida Delfim Moreira (início)"
+      },
+      {
+        "lat": -22.9884742319736,
+        "lng": -43.22774766260756,
+        "rua": "Avenida Delfim Moreira"
+      },
+      {
+        "lat": -22.9884742319736,
+        "lng": -43.22774766260756,
+        "rua": "Avenida Delfim Moreira"
+      },
+      {
+        "lat": -22.9884742319736,
+        "lng": -43.22774766260756,
+        "rua": "Avenida Delfim Moreira (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "GRBC PIRATAS DE PADRE MIGUEL",
+    "bairro": "BANGU",
+    "percurso": [
+      {
+        "lat": -22.869491691160896,
+        "lng": -43.451807636492354,
+        "rua": "Rua do Irere (início)"
+      },
+      {
+        "lat": -22.86944582959826,
+        "lng": -43.451840964317334,
+        "rua": "Rua do Irere"
+      },
+      {
+        "lat": -22.915274450544494,
+        "lng": -43.380821035866475,
+        "rua": "Rua Tenente Sidnei Gonçalves"
+      },
+      {
+        "lat": -22.86944582959826,
+        "lng": -43.451840964317334,
+        "rua": "Rua do Irere"
+      },
+      {
+        "lat": -22.869396185182577,
+        "lng": -43.45186727694179,
+        "rua": "Rua do Irere (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "VOU TE PESCAR",
+    "bairro": "PADRE MIGUEL",
+    "percurso": [
+      {
+        "lat": -22.871681685065315,
+        "lng": -43.45080757778578,
+        "rua": "Rua Figueiredo Camargo"
+      },
+      {
+        "lat": -22.98377318820597,
+        "lng": -43.626447649805066,
+        "rua": "Rua C Dois - PAL 19600"
+      },
+      {
+        "lat": -22.983570454281516,
+        "lng": -43.62617058142787,
+        "rua": "Rua C Dois - PAL 19600 (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BANDA DO BAIRRO DE FÁTIMA",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.91497037741649,
+        "lng": -43.187034040657934,
+        "rua": "Rua Riachuelo"
+      },
+      {
+        "lat": -22.91496958418671,
+        "lng": -43.18682212048866,
+        "rua": "Rua Andre Cavalcanti"
+      },
+      {
+        "lat": -22.91138424602221,
+        "lng": -43.19128853634578,
+        "rua": "Avenida Mem de Sá"
+      },
+      {
+        "lat": -22.91138424602221,
+        "lng": -43.19128853634578,
+        "rua": "Avenida Mem de Sá"
+      },
+      {
+        "lat": -22.912172117586003,
+        "lng": -43.18801400715327,
+        "rua": "Praça Cruz Vermelha"
+      },
+      {
+        "lat": -22.853894763510898,
+        "lng": -43.56413241116306,
+        "rua": "Rua N"
+      },
+      {
+        "lat": -22.911293334074532,
+        "lng": -43.18831160167654,
+        "rua": "Rua Carlos Sampaio"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "G.R.B.C.BADALO DE SANTA TERESA",
+    "bairro": "SANTA TERESA",
+    "percurso": [
+      {
+        "lat": -22.921342557437054,
+        "lng": -43.18943031870967,
+        "rua": "Rua Monte Alegre (início)"
+      },
+      {
+        "lat": -22.921115126919943,
+        "lng": -43.18925211157716,
+        "rua": "Rua Monte Alegre"
+      },
+      {
+        "lat": -22.917764762325866,
+        "lng": -43.40222615392553,
+        "rua": "Rua Oriente Novo"
+      },
+      {
+        "lat": -22.916758016722255,
+        "lng": -43.1909045784514,
+        "rua": "Rua Progresso"
+      },
+      {
+        "lat": -22.875879366281836,
+        "lng": -43.58433111609997,
+        "rua": "Rua Tancredo Neves"
+      },
+      {
+        "lat": -22.875784621474192,
+        "lng": -43.58498839892254,
+        "rua": "Rua Tancredo Neves (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "QUE MERDA É ESSA ?",
+    "bairro": "IPANEMA",
+    "percurso": [
+      {
+        "lat": -22.987370450122075,
+        "lng": -43.196096796061674,
+        "rua": "Avenida Vieira Souto"
+      },
+      {
+        "lat": -22.987370450122075,
+        "lng": -43.196096796061674,
+        "rua": "Avenida Vieira Souto"
+      },
+      {
+        "lat": -22.987370450122075,
+        "lng": -43.196096796061674,
+        "rua": "Avenida Vieira Souto (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "MSS MANGUEIRÃO",
+    "bairro": "SANTA CRUZ",
+    "percurso": [
+      {
+        "lat": -22.933639664922207,
+        "lng": -43.6887217225229,
+        "rua": "Rua Auristela (início)"
+      },
+      {
+        "lat": -22.934290154367826,
+        "lng": -43.68862084084919,
+        "rua": "Rua Auristela"
+      },
+      {
+        "lat": -22.934290154367826,
+        "lng": -43.68862084084919,
+        "rua": "Rua Auristela"
+      },
+      {
+        "lat": -22.934713203936855,
+        "lng": -43.68855621617327,
+        "rua": "Rua Auristela (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "A.R.B.E.C.C. IMPÉRIO DA FOLIA - CATETE",
+    "bairro": "CATETE                 ",
+    "percurso": [
+      {
+        "lat": -22.980424835757407,
+        "lng": -43.668691222287706,
+        "rua": "Rua Gabriel Militão Machado (início)"
+      },
+      {
+        "lat": -22.980090536291602,
+        "lng": -43.66929497084106,
+        "rua": "Rua Gabriel Militão Machado"
+      },
+      {
+        "lat": -22.923719217671483,
+        "lng": -43.17750139001499,
+        "rua": "Rua Pedro Américo"
+      },
+      {
+        "lat": -22.929860159221246,
+        "lng": -43.17951152629248,
+        "rua": "Rua Bento Lisboa"
+      },
+      {
+        "lat": -22.9285815575995,
+        "lng": -43.18338983030141,
+        "rua": "Rua Tavares Bastos"
+      },
+      {
+        "lat": -22.9285815575995,
+        "lng": -43.18338983030141,
+        "rua": "Rua Tavares Bastos (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "GRÊMIO RECREATIVO BLOCO CARNAVALESCO ARRASTÃO DA BARRA DE GUARATIBA",
+    "bairro": "BARRA DE GUARATIBA",
+    "percurso": [
+      {
+        "lat": -23.062306782948216,
+        "lng": -43.565034929228034,
+        "rua": "Travessa da Vendinha (início)"
+      },
+      {
+        "lat": -23.06211499544408,
+        "lng": -43.564691687524764,
+        "rua": "Travessa da Vendinha"
+      },
+      {
+        "lat": -23.06211499544408,
+        "lng": -43.564691687524764,
+        "rua": "Travessa da Vendinha"
+      },
+      {
+        "lat": -23.061964881460337,
+        "lng": -43.56432654691659,
+        "rua": "Travessa da Vendinha (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "G.R.B.C.VERMELHO & BRANCO DA Z-10",
+    "bairro": "CACUIA",
+    "percurso": [
+      {
+        "lat": -22.821297433129885,
+        "lng": -43.17960548293546,
+        "rua": "Rua Alexandre Rosa (início)"
+      },
+      {
+        "lat": -22.8218961187629,
+        "lng": -43.17885988147073,
+        "rua": "Rua Alexandre Rosa"
+      },
+      {
+        "lat": -22.825184186295452,
+        "lng": -43.17128448712755,
+        "rua": "Rua Maldonado"
+      },
+      {
+        "lat": -22.825546083936853,
+        "lng": -43.16946302371691,
+        "rua": "Praça Iaia Garcia"
+      },
+      {
+        "lat": -22.82294008658527,
+        "lng": -43.17115519366744,
+        "rua": "Rua Fernandes da Fonseca"
+      },
+      {
+        "lat": -22.82294008658527,
+        "lng": -43.17115519366744,
+        "rua": "Rua Fernandes da Fonseca"
+      },
+      {
+        "lat": -22.82386662605791,
+        "lng": -43.17077145506427,
+        "rua": "Rua Paramopama"
+      },
+      {
+        "lat": -22.819872042006846,
+        "lng": -43.175766502273206,
+        "rua": "Praia do Zumbi"
+      },
+      {
+        "lat": -22.820110325112932,
+        "lng": -43.1756615302296,
+        "rua": "Praia do Zumbi (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO CABRITO MAMADOR",
+    "bairro": "TAUÁ",
+    "percurso": [
+      {
+        "lat": -22.797661727410294,
+        "lng": -43.192607345919065,
+        "rua": "Estrada do Dendê (início)"
+      },
+      {
+        "lat": -22.797872962971375,
+        "lng": -43.191501403815494,
+        "rua": "Estrada do Dendê"
+      },
+      {
+        "lat": -22.79857514650563,
+        "lng": -43.18366631187974,
+        "rua": "Avenida Paranapuã"
+      },
+      {
+        "lat": -22.797181001146193,
+        "lng": -43.18410866952422,
+        "rua": "Rua Érico Coelho"
+      },
+      {
+        "lat": -22.797872962971375,
+        "lng": -43.191501403815494,
+        "rua": "Estrada do Dendê"
+      },
+      {
+        "lat": -22.798009586372622,
+        "lng": -43.190712803879585,
+        "rua": "Estrada do Dendê (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "GRBC VIRILHA DE MINHOCA",
+    "bairro": "BANGU",
+    "percurso": [
+      {
+        "lat": -22.885879297083775,
+        "lng": -43.465450287061266,
+        "rua": "Rua Fonseca (início)"
+      },
+      {
+        "lat": -22.886378391091704,
+        "lng": -43.46544298001863,
+        "rua": "Rua Fonseca"
+      },
+      {
+        "lat": -22.882430283340582,
+        "lng": -43.453105184181325,
+        "rua": "Rua Oliveira Ribeiro"
+      },
+      {
+        "lat": -22.886378391091704,
+        "lng": -43.46544298001863,
+        "rua": "Rua Fonseca"
+      },
+      {
+        "lat": -22.887015238908365,
+        "lng": -43.46543140233057,
+        "rua": "Rua Fonseca (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO BONECAS DESLUMBRADAS DE OLARIA",
+    "bairro": "OLARIA                 ",
+    "percurso": [
+      {
+        "lat": -22.848990224426856,
+        "lng": -43.265055863950536,
+        "rua": "Rua Antonio Rego"
+      },
+      {
+        "lat": -22.852428118422722,
+        "lng": -43.2652857775502,
+        "rua": "Rua Lígia"
+      },
+      {
+        "lat": -22.852356343034558,
+        "lng": -43.26397074085048,
+        "rua": "Rua Vandenkolk"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO BUDA DA BARRA",
+    "bairro": "BARRA DA TIJUCA",
+    "percurso": [
+      {
+        "lat": -23.02064001381962,
+        "lng": -43.440178330160094,
+        "rua": "Avenida Lúcio Costa (início)"
+      },
+      {
+        "lat": -23.021561393444436,
+        "lng": -43.444031610588475,
+        "rua": "Avenida Lúcio Costa"
+      },
+      {
+        "lat": -23.021561393444436,
+        "lng": -43.444031610588475,
+        "rua": "Avenida Lúcio Costa"
+      },
+      {
+        "lat": -23.021561393444436,
+        "lng": -43.444031610588475,
+        "rua": "Avenida Lúcio Costa"
+      },
+      {
+        "lat": -23.021561393444436,
+        "lng": -43.444031610588475,
+        "rua": "Avenida Lúcio Costa"
+      },
+      {
+        "lat": -23.02248232347542,
+        "lng": -43.447550032422605,
+        "rua": "Avenida Lúcio Costa (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "ARTEIROS DA GLORIA",
+    "bairro": "GLÓRIA                 ",
+    "percurso": [
+      {
+        "lat": -22.917797112617997,
+        "lng": -43.17711021213715,
+        "rua": "Rua da Glória (início)"
+      },
+      {
+        "lat": -22.917193109292192,
+        "lng": -43.17715194665362,
+        "rua": "Rua da Glória"
+      },
+      {
+        "lat": -22.920505055687947,
+        "lng": -43.17671575111583,
+        "rua": "Rua do Catete"
+      },
+      {
+        "lat": -22.92267728694877,
+        "lng": -43.17709164673331,
+        "rua": "Rua Antonio Mendes Campos"
+      },
+      {
+        "lat": -22.917193109292192,
+        "lng": -43.17715194665362,
+        "rua": "Rua da Glória"
+      },
+      {
+        "lat": -22.919395849945438,
+        "lng": -43.17597566263895,
+        "rua": "Avenida Augusto Severo"
+      },
+      {
+        "lat": -22.917193109292192,
+        "lng": -43.17715194665362,
+        "rua": "Rua da Glória"
+      },
+      {
+        "lat": -22.917193109292192,
+        "lng": -43.17715194665362,
+        "rua": "Rua da Glória (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "COROINHA",
+    "bairro": "PEDRA DE GUARATIBA     ",
+    "percurso": [
+      {
+        "lat": -23.005344101814753,
+        "lng": -43.63532257484122,
+        "rua": "Rua Barros Alarcão (início)"
+      },
+      {
+        "lat": -23.00541818285842,
+        "lng": -43.63511791705321,
+        "rua": "Rua Barros Alarcão"
+      },
+      {
+        "lat": -23.00541818285842,
+        "lng": -43.63511791705321,
+        "rua": "Rua Barros Alarcão"
+      },
+      {
+        "lat": -23.005608195686044,
+        "lng": -43.634797194467424,
+        "rua": "Rua Barros Alarcão (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO TOMA UMA",
+    "bairro": "PAQUETÁ                ",
+    "percurso": [
+      {
+        "lat": -22.762193228768172,
+        "lng": -43.107223793002404,
+        "rua": "Rua Furquim Werneck"
+      },
+      {
+        "lat": -22.762162335856672,
+        "lng": -43.107207762213456,
+        "rua": "Rua Furquim Werneck (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO VEM QUE EU TE ABRAÇO",
+    "bairro": "PADRE MIGUEL",
+    "percurso": [
+      {
+        "lat": -22.953269882163372,
+        "lng": -43.60585295682812,
+        "rua": "Travessa C (início)"
+      },
+      {
+        "lat": -22.95354691240402,
+        "lng": -43.6049323345186,
+        "rua": "Travessa C"
+      },
+      {
+        "lat": -22.871681685065315,
+        "lng": -43.45080757778578,
+        "rua": "Rua Figueiredo Camargo"
+      },
+      {
+        "lat": -22.95354691240402,
+        "lng": -43.6049323345186,
+        "rua": "Travessa C"
+      },
+      {
+        "lat": -22.953688241488102,
+        "lng": -43.604371938814936,
+        "rua": "Travessa C (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO PERERECA DO GRAJAÚ",
+    "bairro": "GRAJAÚ",
+    "percurso": [
+      {
+        "lat": -22.919359563375707,
+        "lng": -43.25508559726954,
+        "rua": "Rua Teodoro da Silva"
+      },
+      {
+        "lat": -22.921790033214524,
+        "lng": -43.2574270819331,
+        "rua": "Rua Jose Vicente"
+      },
+      {
+        "lat": -22.92164805640506,
+        "lng": -43.25747839410254,
+        "rua": "Rua Jose Vicente (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO BAMBAS DO CURUZU",
+    "bairro": "SÃO CRISTÓVÃO",
+    "percurso": [
+      {
+        "lat": -22.895492221784597,
+        "lng": -43.23174426537911,
+        "rua": "Rua Curuzu (início)"
+      },
+      {
+        "lat": -22.89517681548546,
+        "lng": -43.23223994159191,
+        "rua": "Rua Curuzu"
+      },
+      {
+        "lat": -22.896179011808695,
+        "lng": -43.229152960479254,
+        "rua": "Rua Alves Montes"
+      },
+      {
+        "lat": -22.897908149683666,
+        "lng": -43.228104187645094,
+        "rua": "Praça Argentina"
+      },
+      {
+        "lat": -22.8965369720199,
+        "lng": -43.230778766714515,
+        "rua": "Rua Tuiuti"
+      },
+      {
+        "lat": -22.89517681548546,
+        "lng": -43.23223994159191,
+        "rua": "Rua Curuzu"
+      },
+      {
+        "lat": -22.894931893180644,
+        "lng": -43.23264146577921,
+        "rua": "Rua Curuzu (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "FREGOBLOCO",
+    "bairro": "FREGUESIA (JACAREPAGUÁ)",
+    "percurso": [
+      {
+        "lat": -22.935385778880274,
+        "lng": -43.3303233421369,
+        "rua": "Estrada dos Três Rios (início)"
+      },
+      {
+        "lat": -22.935113249192792,
+        "lng": -43.32978413123774,
+        "rua": "Estrada dos Três Rios"
+      },
+      {
+        "lat": -22.935113249192792,
+        "lng": -43.32978413123774,
+        "rua": "Estrada dos Três Rios"
+      },
+      {
+        "lat": -22.934829782445963,
+        "lng": -43.32941727294443,
+        "rua": "Estrada dos Três Rios (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "SIMPATIA É QUASE AMOR",
+    "bairro": "IPANEMA",
+    "percurso": [
+      {
+        "lat": -22.98690811988434,
+        "lng": -43.19880817693476,
+        "rua": "Rua Teixeira de Melo (início)"
+      },
+      {
+        "lat": -22.986776481776438,
+        "lng": -43.198769247861456,
+        "rua": "Rua Teixeira de Melo"
+      },
+      {
+        "lat": -22.987370450122075,
+        "lng": -43.196096796061674,
+        "rua": "Avenida Vieira Souto"
+      },
+      {
+        "lat": -22.987370450122075,
+        "lng": -43.196096796061674,
+        "rua": "Avenida Vieira Souto (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "GREMIO RECREATIVO BLOCO CARNAVALESCO PIRANHAS DA SENADOR NABUCO DE VILA ISABEL",
+    "bairro": "VILA ISABEL",
+    "percurso": [
+      {
+        "lat": -22.937717769781916,
+        "lng": -43.583518063916685,
+        "rua": "Rua Seis de Setembro (início)"
+      },
+      {
+        "lat": -22.937713221686035,
+        "lng": -43.58333333390962,
+        "rua": "Rua Seis de Setembro"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "AFOXÉ FILHOS DE GANDHI DO RIO DE JANEIRO",
+    "bairro": "GAMBOA",
+    "percurso": [
+      {
+        "lat": -22.896246938519273,
+        "lng": -43.190389815816154,
+        "rua": "Rua do Livramento (início)"
+      },
+      {
+        "lat": -22.896861298487238,
+        "lng": -43.19082296717332,
+        "rua": "Rua do Livramento"
+      },
+      {
+        "lat": -22.896861298487238,
+        "lng": -43.19082296717332,
+        "rua": "Rua do Livramento"
+      },
+      {
+        "lat": -22.896986175383528,
+        "lng": -43.19086936175324,
+        "rua": "Rua do Livramento (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO AFRO BATIKUM",
+    "bairro": "MADUREIRA              ",
+    "percurso": [
+      {
+        "lat": -22.871117522499894,
+        "lng": -43.34138085846641,
+        "rua": "Estrada do Portela"
+      },
+      {
+        "lat": -22.87072382313295,
+        "lng": -43.34188793571475,
+        "rua": "Estrada do Portela (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO BALANÇO DO PINTO",
+    "bairro": "TIJUCA",
+    "percurso": [
+      {
+        "lat": -22.92476245830551,
+        "lng": -43.23632795865997,
+        "rua": "Rua Pinto de Figueiredo (início)"
+      },
+      {
+        "lat": -22.92472243572974,
+        "lng": -43.236383624314485,
+        "rua": "Rua Pinto de Figueiredo"
+      },
+      {
+        "lat": -22.921531417529437,
+        "lng": -43.236005830470596,
+        "rua": "Avenida Maracanã"
+      },
+      {
+        "lat": -22.92472243572974,
+        "lng": -43.236383624314485,
+        "rua": "Rua Pinto de Figueiredo"
+      },
+      {
+        "lat": -22.924616256623764,
+        "lng": -43.236555805284326,
+        "rua": "Rua Pinto de Figueiredo (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "G.R BANDA DA CONCEIÇÃO",
+    "bairro": "SAÚDE",
+    "percurso": [
+      {
+        "lat": -22.90052537610363,
+        "lng": -43.182001203400205,
+        "rua": "Rua Acre"
+      },
+      {
+        "lat": -22.897855373218263,
+        "lng": -43.1829836208213,
+        "rua": "Rua do Escorrega"
+      },
+      {
+        "lat": -22.898083678186904,
+        "lng": -43.1840329776539,
+        "rua": "Beco João Jose"
+      },
+      {
+        "lat": -22.898558489563808,
+        "lng": -43.183100382016754,
+        "rua": "Rua do Jogo da Bola"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO 442",
+    "bairro": "SAÚDE",
+    "percurso": [
+      {
+        "lat": -22.89759400928793,
+        "lng": -43.184273803870646,
+        "rua": "Largo de São Francisco da Prainha (início)"
+      },
+      {
+        "lat": -22.89781876059787,
+        "lng": -43.1840937654133,
+        "rua": "Largo de São Francisco da Prainha"
+      },
+      {
+        "lat": -22.897545695016515,
+        "lng": -43.1838316491677,
+        "rua": "Rua Sacadura Cabral"
+      },
+      {
+        "lat": -22.853894763510898,
+        "lng": -43.56413241116306,
+        "rua": "Rua N"
+      },
+      {
+        "lat": -22.85404330439598,
+        "lng": -43.56435211588373,
+        "rua": "Rua N (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "CHARANGA TALISMÃ",
+    "bairro": "VILA KOSMOS",
+    "percurso": [
+      {
+        "lat": -22.8571274628937,
+        "lng": -43.309268898959125,
+        "rua": "Avenida Meriti (início)"
+      },
+      {
+        "lat": -22.85666353223681,
+        "lng": -43.30842617445628,
+        "rua": "Avenida Meriti"
+      },
+      {
+        "lat": -22.85666353223681,
+        "lng": -43.30842617445628,
+        "rua": "Avenida Meriti"
+      },
+      {
+        "lat": -22.85555725441125,
+        "lng": -43.30762785481349,
+        "rua": "Avenida Meriti (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "É TUDO OU NADA",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.913158111881206,
+        "lng": -43.18176925892072,
+        "rua": "Rua Lavradio (início)"
+      },
+      {
+        "lat": -22.91257225563622,
+        "lng": -43.182016685546,
+        "rua": "Rua Lavradio"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DAS DIVAS",
+    "bairro": "RECREIO DOS BANDEIRANTES",
+    "percurso": [
+      {
+        "lat": -23.02486606060584,
+        "lng": -43.457332086657665,
+        "rua": "Avenida Lúcio Costa (início)"
+      },
+      {
+        "lat": -23.024917585472323,
+        "lng": -43.45748627544882,
+        "rua": "Avenida Lúcio Costa"
+      },
+      {
+        "lat": -23.024917585472323,
+        "lng": -43.45748627544882,
+        "rua": "Avenida Lúcio Costa"
+      },
+      {
+        "lat": -23.024925647767425,
+        "lng": -43.457510289788324,
+        "rua": "Avenida Lúcio Costa (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "IMPÉRIO DA CRUZADA ",
+    "bairro": "LEBLON",
+    "percurso": [
+      {
+        "lat": -22.98841764539611,
+        "lng": -43.227621503811434,
+        "rua": "Avenida Delfim Moreira (início)"
+      },
+      {
+        "lat": -22.9884742319736,
+        "lng": -43.22774766260756,
+        "rua": "Avenida Delfim Moreira"
+      },
+      {
+        "lat": -22.9884742319736,
+        "lng": -43.22774766260756,
+        "rua": "Avenida Delfim Moreira"
+      },
+      {
+        "lat": -22.9884742319736,
+        "lng": -43.22774766260756,
+        "rua": "Avenida Delfim Moreira (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO TUDO BOM",
+    "bairro": "BANGU",
+    "percurso": [
+      {
+        "lat": -22.87168726094468,
+        "lng": -43.45062011046006,
+        "rua": "Rua Figueiredo Camargo (início)"
+      },
+      {
+        "lat": -22.871681685065315,
+        "lng": -43.45080757778578,
+        "rua": "Rua Figueiredo Camargo"
+      },
+      {
+        "lat": -22.911055350892212,
+        "lng": -43.62224672013486,
+        "rua": "Rua Iberê Gomes"
+      },
+      {
+        "lat": -22.91132543364117,
+        "lng": -43.62251030237061,
+        "rua": "Rua Iberê Gomes (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO PAPO DE CACHAÇA",
+    "bairro": "MÉIER",
+    "percurso": [
+      {
+        "lat": -22.90434540661853,
+        "lng": -43.28654152446921,
+        "rua": "Rua Dias da Cruz (início)"
+      },
+      {
+        "lat": -22.90433746412339,
+        "lng": -43.286693078980065,
+        "rua": "Rua Dias da Cruz"
+      },
+      {
+        "lat": -22.90433746412339,
+        "lng": -43.286693078980065,
+        "rua": "Rua Dias da Cruz"
+      },
+      {
+        "lat": -22.90433746412339,
+        "lng": -43.286693078980065,
+        "rua": "Rua Dias da Cruz"
+      },
+      {
+        "lat": -22.90433746412339,
+        "lng": -43.286693078980065,
+        "rua": "Rua Dias da Cruz (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BANDA POLVO DA ILHA",
+    "bairro": "RIBEIRA",
+    "percurso": [
+      {
+        "lat": -22.824955448069154,
+        "lng": -43.16989212520543,
+        "rua": "Praça Iaia Garcia (início)"
+      },
+      {
+        "lat": -22.825546083936853,
+        "lng": -43.16946302371691,
+        "rua": "Praça Iaia Garcia"
+      },
+      {
+        "lat": -22.825184186295452,
+        "lng": -43.17128448712755,
+        "rua": "Rua Maldonado"
+      },
+      {
+        "lat": -22.82121692157296,
+        "lng": -43.17664003712658,
+        "rua": "Rua Serrão"
+      },
+      {
+        "lat": -22.82171627006847,
+        "lng": -43.1761794249344,
+        "rua": "Rua Peixoto de Carvalho"
+      },
+      {
+        "lat": -22.819872042006846,
+        "lng": -43.175766502273206,
+        "rua": "Praia do Zumbi"
+      },
+      {
+        "lat": -22.82386662605791,
+        "lng": -43.17077145506427,
+        "rua": "Rua Paramopama"
+      },
+      {
+        "lat": -22.825546083936853,
+        "lng": -43.16946302371691,
+        "rua": "Praça Iaia Garcia"
+      },
+      {
+        "lat": -22.824955448069154,
+        "lng": -43.16989212520543,
+        "rua": "Praça Iaia Garcia (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "TIGRE DO COQUEIRO",
+    "bairro": "PEDRA DE GUARATIBA     ",
+    "percurso": [
+      {
+        "lat": -23.005344101814753,
+        "lng": -43.63532257484122,
+        "rua": "Rua Barros Alarcão (início)"
+      },
+      {
+        "lat": -23.00541818285842,
+        "lng": -43.63511791705321,
+        "rua": "Rua Barros Alarcão"
+      },
+      {
+        "lat": -23.00541818285842,
+        "lng": -43.63511791705321,
+        "rua": "Rua Barros Alarcão"
+      },
+      {
+        "lat": -23.005608195686044,
+        "lng": -43.634797194467424,
+        "rua": "Rua Barros Alarcão (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO A ROCHA DA GÁVEA",
+    "bairro": "JARDIM BOTÂNICO        ",
+    "percurso": [
+      {
+        "lat": -22.965346280794563,
+        "lng": -43.22759068744621,
+        "rua": "Rua Pacheco Leão (início)"
+      },
+      {
+        "lat": -22.9654117882729,
+        "lng": -43.22705287961067,
+        "rua": "Rua Pacheco Leão"
+      },
+      {
+        "lat": -22.963607559302122,
+        "lng": -43.216896235584706,
+        "rua": "Rua Jardim Botânico"
+      },
+      {
+        "lat": -22.963607559302122,
+        "lng": -43.216896235584706,
+        "rua": "Rua Jardim Botânico (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO GRILO DE BANGU",
+    "bairro": "BANGU",
+    "percurso": [
+      {
+        "lat": -22.88596412322128,
+        "lng": -43.46815468680835,
+        "rua": "Rua Francisco Franco (início)"
+      },
+      {
+        "lat": -22.88655137788064,
+        "lng": -43.46815057286166,
+        "rua": "Rua Francisco Franco"
+      },
+      {
+        "lat": -22.882430283340582,
+        "lng": -43.453105184181325,
+        "rua": "Rua Oliveira Ribeiro"
+      },
+      {
+        "lat": -22.88415377413171,
+        "lng": -43.463567392130464,
+        "rua": "Rua Silva Cardoso"
+      },
+      {
+        "lat": -22.885106188728408,
+        "lng": -43.46641735669055,
+        "rua": "Rua Bangu"
+      },
+      {
+        "lat": -22.885909522378764,
+        "lng": -43.46640078434431,
+        "rua": "Rua Bangu (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "VEM CÁ MINHA FLOR",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.856437576086943,
+        "lng": -43.244730919888816,
+        "rua": "Travessa Santa Luzia"
+      },
+      {
+        "lat": -22.856437576086943,
+        "lng": -43.244730919888816,
+        "rua": "Travessa Santa Luzia"
+      },
+      {
+        "lat": -22.85640580418642,
+        "lng": -43.24466147064725,
+        "rua": "Travessa Santa Luzia (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BANDA DO RIVIERA",
+    "bairro": "BARRA DA TIJUCA",
+    "percurso": [
+      {
+        "lat": -23.00056673665206,
+        "lng": -43.34045043650753,
+        "rua": "Rua Rosalina Brand (início)"
+      },
+      {
+        "lat": -23.00077674614695,
+        "lng": -43.340621674061026,
+        "rua": "Rua Rosalina Brand"
+      },
+      {
+        "lat": -23.001472669306857,
+        "lng": -43.34274777426697,
+        "rua": "Avenida Celso Kelly"
+      },
+      {
+        "lat": -23.00077674614695,
+        "lng": -43.340621674061026,
+        "rua": "Rua Rosalina Brand"
+      },
+      {
+        "lat": -23.001373105717825,
+        "lng": -43.34063236833184,
+        "rua": "Rua Rosalina Brand (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO PERU SADIO",
+    "bairro": "LEME",
+    "percurso": [
+      {
+        "lat": -22.962463635833824,
+        "lng": -43.16541273134643,
+        "rua": "Avenida Atlantica (início)"
+      },
+      {
+        "lat": -22.962534750604604,
+        "lng": -43.16626757884141,
+        "rua": "Avenida Atlantica"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DA INSANARJ",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.91302481284607,
+        "lng": -43.191305561522924,
+        "rua": "Avenida Henrique Valadares (início)"
+      },
+      {
+        "lat": -22.912655312924763,
+        "lng": -43.19033262422667,
+        "rua": "Avenida Henrique Valadares"
+      },
+      {
+        "lat": -22.911379442700518,
+        "lng": -43.183619582064146,
+        "rua": "Avenida Gomes Freire"
+      },
+      {
+        "lat": -22.910402576054583,
+        "lng": -43.184025736204404,
+        "rua": "Avenida Gomes Freire (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO BAFO DA ONÇA",
+    "bairro": "SANTA TERESA",
+    "percurso": [
+      {
+        "lat": -22.921342557437054,
+        "lng": -43.18943031870967,
+        "rua": "Rua Monte Alegre (início)"
+      },
+      {
+        "lat": -22.921115126919943,
+        "lng": -43.18925211157716,
+        "rua": "Rua Monte Alegre"
+      },
+      {
+        "lat": -22.917764762325866,
+        "lng": -43.40222615392553,
+        "rua": "Rua Oriente Novo"
+      },
+      {
+        "lat": -22.916758016722255,
+        "lng": -43.1909045784514,
+        "rua": "Rua Progresso"
+      },
+      {
+        "lat": -22.875879366281836,
+        "lng": -43.58433111609997,
+        "rua": "Rua Tancredo Neves"
+      },
+      {
+        "lat": -22.875784621474192,
+        "lng": -43.58498839892254,
+        "rua": "Rua Tancredo Neves (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO SECA COPO",
+    "bairro": "PITANGUEIRAS",
+    "percurso": [
+      {
+        "lat": -22.819320086542625,
+        "lng": -43.182655435529966,
+        "rua": "Rua do Monjolo (início)"
+      },
+      {
+        "lat": -22.818577940826074,
+        "lng": -43.18209950462836,
+        "rua": "Rua do Monjolo"
+      },
+      {
+        "lat": -22.819659984352423,
+        "lng": -43.17697172128103,
+        "rua": "Rua Formosa do Zumbi"
+      },
+      {
+        "lat": -22.819821314212337,
+        "lng": -43.177883520466935,
+        "rua": "Estrada do Rio Jequia"
+      },
+      {
+        "lat": -22.818577940826074,
+        "lng": -43.18209950462836,
+        "rua": "Rua do Monjolo"
+      },
+      {
+        "lat": -22.818110618979322,
+        "lng": -43.18179914599789,
+        "rua": "Rua do Monjolo (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "ACABOU AMOR ",
+    "bairro": "TAUÁ",
+    "percurso": [
+      {
+        "lat": -22.794141872732915,
+        "lng": -43.187155874050354,
+        "rua": "Rua Domingos Mondim (início)"
+      },
+      {
+        "lat": -22.794384493773034,
+        "lng": -43.18690693108008,
+        "rua": "Rua Domingos Mondim"
+      },
+      {
+        "lat": -22.794384493773034,
+        "lng": -43.18690693108008,
+        "rua": "Rua Domingos Mondim"
+      },
+      {
+        "lat": -22.79459046838511,
+        "lng": -43.18669957566336,
+        "rua": "Rua Domingos Mondim (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO BALANÇO DO JAMELÃO",
+    "bairro": "GRAJAÚ",
+    "percurso": [
+      {
+        "lat": -22.92892625584031,
+        "lng": -43.25637421167239,
+        "rua": "Rua Rosa e Silva (início)"
+      },
+      {
+        "lat": -22.928510670652503,
+        "lng": -43.25726156398797,
+        "rua": "Rua Rosa e Silva"
+      },
+      {
+        "lat": -22.927083391253163,
+        "lng": -43.2581170235965,
+        "rua": "Rua Caçapava"
+      },
+      {
+        "lat": -22.924521547428455,
+        "lng": -43.25728666486989,
+        "rua": "Rua Uberaba"
+      },
+      {
+        "lat": -22.927083407206574,
+        "lng": -43.25708934902984,
+        "rua": "Rua Botucatu"
+      },
+      {
+        "lat": -22.923393861656155,
+        "lng": -43.25689479087836,
+        "rua": "Largo Verdun"
+      },
+      {
+        "lat": -22.923247906205056,
+        "lng": -43.25678695395017,
+        "rua": "Largo Verdun (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "G.R.B.C. ACONTECEU",
+    "bairro": "SANTA TERESA",
+    "percurso": [
+      {
+        "lat": -22.921133844248065,
+        "lng": -43.18712555441817,
+        "rua": "Rua Paschoal Carlos Magno"
+      },
+      {
+        "lat": -22.921115126919943,
+        "lng": -43.18925211157716,
+        "rua": "Rua Monte Alegre"
+      },
+      {
+        "lat": -22.920999250345243,
+        "lng": -43.189607044911625,
+        "rua": "Rua Aurea"
+      },
+      {
+        "lat": -22.920675829187527,
+        "lng": -43.18964283239596,
+        "rua": "Rua Aurea (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CORRE ATRÁS",
+    "bairro": "LEBLON",
+    "percurso": [
+      {
+        "lat": -22.98841764539611,
+        "lng": -43.227621503811434,
+        "rua": "Avenida Delfim Moreira (início)"
+      },
+      {
+        "lat": -22.9884742319736,
+        "lng": -43.22774766260756,
+        "rua": "Avenida Delfim Moreira"
+      },
+      {
+        "lat": -22.9884742319736,
+        "lng": -43.22774766260756,
+        "rua": "Avenida Delfim Moreira"
+      },
+      {
+        "lat": -22.9884742319736,
+        "lng": -43.22774766260756,
+        "rua": "Avenida Delfim Moreira (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO NOVA GERAÇÃO DO ZUMBI",
+    "bairro": "ZUMBI",
+    "percurso": [
+      {
+        "lat": -22.822357346867427,
+        "lng": -43.176905794649535,
+        "rua": "Rua Peixoto de Carvalho (início)"
+      },
+      {
+        "lat": -22.82171627006847,
+        "lng": -43.1761794249344,
+        "rua": "Rua Peixoto de Carvalho"
+      },
+      {
+        "lat": -22.819821314212337,
+        "lng": -43.177883520466935,
+        "rua": "Estrada do Rio Jequia"
+      },
+      {
+        "lat": -22.825546083936853,
+        "lng": -43.16946302371691,
+        "rua": "Praça Iaia Garcia"
+      },
+      {
+        "lat": -22.82294008658527,
+        "lng": -43.17115519366744,
+        "rua": "Rua Fernandes da Fonseca"
+      },
+      {
+        "lat": -22.82386662605791,
+        "lng": -43.17077145506427,
+        "rua": "Rua Paramopama"
+      },
+      {
+        "lat": -22.82171627006847,
+        "lng": -43.1761794249344,
+        "rua": "Rua Peixoto de Carvalho"
+      },
+      {
+        "lat": -22.821628275340764,
+        "lng": -43.17608142661188,
+        "rua": "Rua Peixoto de Carvalho (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "B.C. CIGANAS FEITICEIRAS DE OLARIA",
+    "bairro": "OLARIA                 ",
+    "percurso": [
+      {
+        "lat": -22.85441139616724,
+        "lng": -43.270433571864864,
+        "rua": "Rua Paranhos (início)"
+      },
+      {
+        "lat": -22.85483034362536,
+        "lng": -43.26989457268976,
+        "rua": "Rua Paranhos"
+      },
+      {
+        "lat": -22.853737864241463,
+        "lng": -43.27386672337814,
+        "rua": "Rua João Rego"
+      },
+      {
+        "lat": -22.84773835466917,
+        "lng": -43.26974755241148,
+        "rua": "Rua Aurélio Garcindo"
+      },
+      {
+        "lat": -22.847952043122856,
+        "lng": -43.268487208930885,
+        "rua": "Rua Delfim Carlos"
+      },
+      {
+        "lat": -22.84902661247054,
+        "lng": -43.27287610674231,
+        "rua": "Rua Paranapanema"
+      },
+      {
+        "lat": -22.853737864241463,
+        "lng": -43.27386672337814,
+        "rua": "Rua João Rego"
+      },
+      {
+        "lat": -22.853737864241463,
+        "lng": -43.27386672337814,
+        "rua": "Rua João Rego (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO VIRTUAL",
+    "bairro": "COPACABANA             ",
+    "percurso": [
+      {
+        "lat": -22.984586473676487,
+        "lng": -43.18951093959589,
+        "rua": "Avenida Atlantica (início)"
+      },
+      {
+        "lat": -22.98537218086363,
+        "lng": -43.189240635346366,
+        "rua": "Avenida Atlantica"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "B.C UNIDOS DO LARGO DA BICA",
+    "bairro": "SANTA CRUZ",
+    "percurso": [
+      {
+        "lat": -22.88921712577331,
+        "lng": -43.5848138148114,
+        "rua": "Rua Benedito Lacerda"
+      },
+      {
+        "lat": -22.88916518730338,
+        "lng": -43.584865628971755,
+        "rua": "Rua Benedito Lacerda (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "COMUNA QUE PARIU!",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.91302481284607,
+        "lng": -43.191305561522924,
+        "rua": "Avenida Henrique Valadares (início)"
+      },
+      {
+        "lat": -22.912655312924763,
+        "lng": -43.19033262422667,
+        "rua": "Avenida Henrique Valadares"
+      },
+      {
+        "lat": -22.910091170021907,
+        "lng": -43.183122348070896,
+        "rua": "Avenida República do Chile"
+      },
+      {
+        "lat": -22.910085645312154,
+        "lng": -43.18308138471372,
+        "rua": "Avenida República do Chile (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BANDA INIMIGOS DA BEBIDA",
+    "bairro": "COCOTÁ",
+    "percurso": [
+      {
+        "lat": -22.802125170424635,
+        "lng": -43.178684253069676,
+        "rua": "Praia do Cocotá (início)"
+      },
+      {
+        "lat": -22.802394097621562,
+        "lng": -43.17891356809741,
+        "rua": "Praia do Cocotá"
+      },
+      {
+        "lat": -22.81105994067058,
+        "lng": -43.17860773735202,
+        "rua": "Rua Altinópolis"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "A BANDA DO LARGO DA SEGUNDA FEIRA",
+    "bairro": "TIJUCA",
+    "percurso": [
+      {
+        "lat": -22.91872991188005,
+        "lng": -43.213124815839855,
+        "rua": "Rua Haddock Lobo"
+      },
+      {
+        "lat": -22.915819444354785,
+        "lng": -43.21845044624752,
+        "rua": "Rua Campos Sales"
+      },
+      {
+        "lat": -22.916392307947167,
+        "lng": -43.22697710160981,
+        "rua": "Rua São Francisco Xavier"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "EMBALO DO ENGENHO NOVO ",
+    "bairro": "MÉIER",
+    "percurso": [
+      {
+        "lat": -22.902313511438354,
+        "lng": -43.281022330821244,
+        "rua": "Rua Manuela Barbosa (início)"
+      },
+      {
+        "lat": -22.902245935623398,
+        "lng": -43.28106022813221,
+        "rua": "Rua Manuela Barbosa"
+      },
+      {
+        "lat": -22.90433746412339,
+        "lng": -43.286693078980065,
+        "rua": "Rua Dias da Cruz"
+      },
+      {
+        "lat": -22.90433746412339,
+        "lng": -43.286693078980065,
+        "rua": "Rua Dias da Cruz (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "GREMIO RECREATIVO BLOCO CARNAVALESCO EMPURRA QUE PEGA DO LEBLON",
+    "bairro": "LEBLON",
+    "percurso": [
+      {
+        "lat": -22.98841764539611,
+        "lng": -43.227621503811434,
+        "rua": "Avenida Delfim Moreira (início)"
+      },
+      {
+        "lat": -22.9884742319736,
+        "lng": -43.22774766260756,
+        "rua": "Avenida Delfim Moreira"
+      },
+      {
+        "lat": -22.9884742319736,
+        "lng": -43.22774766260756,
+        "rua": "Avenida Delfim Moreira"
+      },
+      {
+        "lat": -22.9884742319736,
+        "lng": -43.22774766260756,
+        "rua": "Avenida Delfim Moreira (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "GRBC CARDOSÃO DE LARANJEIRAS",
+    "bairro": "LARANJEIRAS            ",
+    "percurso": [
+      {
+        "lat": -22.937923019279573,
+        "lng": -43.19048027693241,
+        "rua": "Rua Cardoso Junior (início)"
+      },
+      {
+        "lat": -22.937941571142762,
+        "lng": -43.1903729734258,
+        "rua": "Rua Cardoso Junior"
+      },
+      {
+        "lat": -22.937941571142762,
+        "lng": -43.1903729734258,
+        "rua": "Rua Cardoso Junior"
+      },
+      {
+        "lat": -22.937941571142762,
+        "lng": -43.1903729734258,
+        "rua": "Rua Cardoso Junior (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "GRÊMIO RECREATIVO BLOCO CARNAVALESCO ARRASTÃO DA BARRA DE GUARATIBA",
+    "bairro": "BARRA DE GUARATIBA",
+    "percurso": [
+      {
+        "lat": -23.062306782948216,
+        "lng": -43.565034929228034,
+        "rua": "Travessa da Vendinha (início)"
+      },
+      {
+        "lat": -23.06211499544408,
+        "lng": -43.564691687524764,
+        "rua": "Travessa da Vendinha"
+      },
+      {
+        "lat": -23.06211499544408,
+        "lng": -43.564691687524764,
+        "rua": "Travessa da Vendinha"
+      },
+      {
+        "lat": -23.061964881460337,
+        "lng": -43.56432654691659,
+        "rua": "Travessa da Vendinha (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BANDA DO PERU PELADO",
+    "bairro": "COPACABANA             ",
+    "percurso": [
+      {
+        "lat": -22.984586473676487,
+        "lng": -43.18951093959589,
+        "rua": "Avenida Atlantica (início)"
+      },
+      {
+        "lat": -22.98537218086363,
+        "lng": -43.189240635346366,
+        "rua": "Avenida Atlantica"
+      },
+      {
+        "lat": -22.98537218086363,
+        "lng": -43.189240635346366,
+        "rua": "Avenida Atlantica"
+      },
+      {
+        "lat": -22.98537218086363,
+        "lng": -43.189240635346366,
+        "rua": "Avenida Atlantica"
+      },
+      {
+        "lat": -22.98537218086363,
+        "lng": -43.189240635346366,
+        "rua": "Avenida Atlantica (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CACHORRO CANSADO",
+    "bairro": "FLAMENGO               ",
+    "percurso": [
+      {
+        "lat": -22.93332863211791,
+        "lng": -43.177356696402974,
+        "rua": "Praça Jose de Alencar (início)"
+      },
+      {
+        "lat": -22.933208973259312,
+        "lng": -43.17725378353838,
+        "rua": "Praça Jose de Alencar"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CULTURAL PEGADA DE MALANDRO ",
+    "bairro": "BANGU",
+    "percurso": [
+      {
+        "lat": -22.87168726094468,
+        "lng": -43.45062011046006,
+        "rua": "Rua Figueiredo Camargo (início)"
+      },
+      {
+        "lat": -22.871681685065315,
+        "lng": -43.45080757778578,
+        "rua": "Rua Figueiredo Camargo"
+      },
+      {
+        "lat": -22.871681685065315,
+        "lng": -43.45080757778578,
+        "rua": "Rua Figueiredo Camargo"
+      },
+      {
+        "lat": -22.871681685065315,
+        "lng": -43.45080757778578,
+        "rua": "Rua Figueiredo Camargo (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DO LIMÃO DE JARDIM AMÉRICA DO RIO DE JANEIRO",
+    "bairro": "JARDIM AMÉRICA",
+    "percurso": [
+      {
+        "lat": -22.811781700812904,
+        "lng": -43.32182123696083,
+        "rua": "Rua Cristiano Machado"
+      },
+      {
+        "lat": -22.80928803057779,
+        "lng": -43.32130166034139,
+        "rua": "Rua Georges Bizet"
+      },
+      {
+        "lat": -22.805033043934028,
+        "lng": -43.3222914645161,
+        "rua": "Rua Franz Liszt"
+      },
+      {
+        "lat": -22.807362482538355,
+        "lng": -43.32175315582726,
+        "rua": "Rua Debussy"
+      },
+      {
+        "lat": -22.807362482538355,
+        "lng": -43.32175315582726,
+        "rua": "Rua Debussy (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO MULHERES DA VILA",
+    "bairro": "VILA ISABEL",
+    "percurso": [
+      {
+        "lat": -22.937717769781916,
+        "lng": -43.583518063916685,
+        "rua": "Rua Seis de Setembro (início)"
+      },
+      {
+        "lat": -22.937713221686035,
+        "lng": -43.58333333390962,
+        "rua": "Rua Seis de Setembro"
+      },
+      {
+        "lat": -22.937713221686035,
+        "lng": -43.58333333390962,
+        "rua": "Rua Seis de Setembro"
+      },
+      {
+        "lat": -22.937704079131088,
+        "lng": -43.583193533056715,
+        "rua": "Rua Seis de Setembro (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BANDA DO RECREIO",
+    "bairro": "RECREIO DOS BANDEIRANTES",
+    "percurso": [
+      {
+        "lat": -23.02486606060584,
+        "lng": -43.457332086657665,
+        "rua": "Avenida Lúcio Costa (início)"
+      },
+      {
+        "lat": -23.024917585472323,
+        "lng": -43.45748627544882,
+        "rua": "Avenida Lúcio Costa"
+      },
+      {
+        "lat": -23.024917585472323,
+        "lng": -43.45748627544882,
+        "rua": "Avenida Lúcio Costa"
+      },
+      {
+        "lat": -23.024925647767425,
+        "lng": -43.457510289788324,
+        "rua": "Avenida Lúcio Costa (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "SE ME DER, EU COMO!",
+    "bairro": "RIO COMPRIDO",
+    "percurso": [
+      {
+        "lat": -22.891075851879986,
+        "lng": -43.55674492423218,
+        "rua": "Rua Soldado Isidro Matoso"
+      },
+      {
+        "lat": -22.895649181299728,
+        "lng": -43.35650038687278,
+        "rua": "Rua Barão"
+      },
+      {
+        "lat": -22.91291123380178,
+        "lng": -43.21266108994207,
+        "rua": "Rua Pereira de Almeida"
+      },
+      {
+        "lat": -22.891075851879986,
+        "lng": -43.55674492423218,
+        "rua": "Rua Soldado Isidro Matoso"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BAGUNÇA MEU CORETO",
+    "bairro": "FLAMENGO               ",
+    "percurso": [
+      {
+        "lat": -22.92072003762551,
+        "lng": -43.55469072239052,
+        "rua": "Rua São Salvador da Baixa do Sapateiro (início)"
+      },
+      {
+        "lat": -22.92075025410731,
+        "lng": -43.55469079087782,
+        "rua": "Rua São Salvador da Baixa do Sapateiro"
+      },
+      {
+        "lat": -22.935580827274656,
+        "lng": -43.18118444044917,
+        "rua": "Rua Ipiranga"
+      },
+      {
+        "lat": -22.934032885027232,
+        "lng": -43.17627002600439,
+        "rua": "Rua Paissandu"
+      },
+      {
+        "lat": -22.92075025410731,
+        "lng": -43.55469079087782,
+        "rua": "Rua São Salvador da Baixa do Sapateiro"
+      },
+      {
+        "lat": -22.92110394657778,
+        "lng": -43.55477920385872,
+        "rua": "Rua São Salvador da Baixa do Sapateiro (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "G.R.B.C.PERU DO MÉIER ",
+    "bairro": "MÉIER",
+    "percurso": [
+      {
+        "lat": -22.902313511438354,
+        "lng": -43.281022330821244,
+        "rua": "Rua Manuela Barbosa (início)"
+      },
+      {
+        "lat": -22.902245935623398,
+        "lng": -43.28106022813221,
+        "rua": "Rua Manuela Barbosa"
+      },
+      {
+        "lat": -22.90433746412339,
+        "lng": -43.286693078980065,
+        "rua": "Rua Dias da Cruz"
+      },
+      {
+        "lat": -22.902245935623398,
+        "lng": -43.28106022813221,
+        "rua": "Rua Manuela Barbosa"
+      },
+      {
+        "lat": -22.901856423338916,
+        "lng": -43.28147954114877,
+        "rua": "Rua Manuela Barbosa (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BANDA DE IPANEMA",
+    "bairro": "IPANEMA",
+    "percurso": [
+      {
+        "lat": -22.985981406174144,
+        "lng": -43.196796910216364,
+        "rua": "Rua Gomes Carneiro (início)"
+      },
+      {
+        "lat": -22.985692749289214,
+        "lng": -43.19643576818547,
+        "rua": "Rua Gomes Carneiro"
+      },
+      {
+        "lat": -22.982635244366737,
+        "lng": -43.204871484110356,
+        "rua": "Rua Joana Angélica"
+      },
+      {
+        "lat": -22.984669729617597,
+        "lng": -43.196898400812124,
+        "rua": "Rua Jangadeiros"
+      },
+      {
+        "lat": -22.984669729617597,
+        "lng": -43.196898400812124,
+        "rua": "Rua Jangadeiros (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "CLUBE DO SAMBA",
+    "bairro": "COPACABANA             ",
+    "percurso": [
+      {
+        "lat": -22.984586473676487,
+        "lng": -43.18951093959589,
+        "rua": "Avenida Atlantica (início)"
+      },
+      {
+        "lat": -22.98537218086363,
+        "lng": -43.189240635346366,
+        "rua": "Avenida Atlantica"
+      },
+      {
+        "lat": -22.98537218086363,
+        "lng": -43.189240635346366,
+        "rua": "Avenida Atlantica"
+      },
+      {
+        "lat": -22.98537218086363,
+        "lng": -43.189240635346366,
+        "rua": "Avenida Atlantica"
+      },
+      {
+        "lat": -22.98537218086363,
+        "lng": -43.189240635346366,
+        "rua": "Avenida Atlantica"
+      },
+      {
+        "lat": -22.98537218086363,
+        "lng": -43.189240635346366,
+        "rua": "Avenida Atlantica (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "LARGO DO MACHADO, MAS NÃO LARGO DO COPO",
+    "bairro": "CATETE                 ",
+    "percurso": [
+      {
+        "lat": -22.980424835757407,
+        "lng": -43.668691222287706,
+        "rua": "Rua Gabriel Militão Machado (início)"
+      },
+      {
+        "lat": -22.980090536291602,
+        "lng": -43.66929497084106,
+        "rua": "Rua Gabriel Militão Machado"
+      },
+      {
+        "lat": -22.920505055687947,
+        "lng": -43.17671575111583,
+        "rua": "Rua do Catete"
+      },
+      {
+        "lat": -22.929860159221246,
+        "lng": -43.17951152629248,
+        "rua": "Rua Bento Lisboa"
+      },
+      {
+        "lat": -22.920505055687947,
+        "lng": -43.17671575111583,
+        "rua": "Rua do Catete"
+      },
+      {
+        "lat": -22.980090536291602,
+        "lng": -43.66929497084106,
+        "rua": "Rua Gabriel Militão Machado"
+      },
+      {
+        "lat": -22.980090536291602,
+        "lng": -43.66929497084106,
+        "rua": "Rua Gabriel Militão Machado (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO BATUKE DE BATOM",
+    "bairro": "ZUMBI",
+    "percurso": [
+      {
+        "lat": -22.819508781171635,
+        "lng": -43.17576949184125,
+        "rua": "Praia do Zumbi (início)"
+      },
+      {
+        "lat": -22.819872042006846,
+        "lng": -43.175766502273206,
+        "rua": "Praia do Zumbi"
+      },
+      {
+        "lat": -22.825546083936853,
+        "lng": -43.16946302371691,
+        "rua": "Praça Iaia Garcia"
+      },
+      {
+        "lat": -22.824955448069154,
+        "lng": -43.16989212520543,
+        "rua": "Praça Iaia Garcia (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "GREMIO RECREATIVO BLOCO CARNAVALESCO EMBALO DE SANTA TERESA",
+    "bairro": "SANTA TERESA",
+    "percurso": [
+      {
+        "lat": -22.922634973849696,
+        "lng": -43.18799662506133,
+        "rua": "Rua Felício dos Santos"
+      },
+      {
+        "lat": -22.921133844248065,
+        "lng": -43.18712555441817,
+        "rua": "Rua Paschoal Carlos Magno"
+      },
+      {
+        "lat": -22.921133844248065,
+        "lng": -43.18712555441817,
+        "rua": "Rua Paschoal Carlos Magno (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO BONECAS DESLUMBRADAS DE OLARIA",
+    "bairro": "OLARIA                 ",
+    "percurso": [
+      {
+        "lat": -22.853737864241463,
+        "lng": -43.27386672337814,
+        "rua": "Rua João Rego"
+      },
+      {
+        "lat": -22.84902661247054,
+        "lng": -43.27287610674231,
+        "rua": "Rua Paranapanema"
+      },
+      {
+        "lat": -22.847952043122856,
+        "lng": -43.268487208930885,
+        "rua": "Rua Delfim Carlos"
+      },
+      {
+        "lat": -22.848409680726355,
+        "lng": -43.267836076134664,
+        "rua": "Praça Belmonte"
+      },
+      {
+        "lat": -22.847952043122856,
+        "lng": -43.268487208930885,
+        "rua": "Rua Teotônio de Brito"
+      },
+      {
+        "lat": -22.853737864241463,
+        "lng": -43.27386672337814,
+        "rua": "Rua João Rego"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "CATA LATAS DO GRAJAÚ",
+    "bairro": "GRAJAÚ",
+    "percurso": [
+      {
+        "lat": -22.923653979584884,
+        "lng": -43.25831400857686,
+        "rua": "Rua Sá Viana (início)"
+      },
+      {
+        "lat": -22.9238499283272,
+        "lng": -43.258427021764064,
+        "rua": "Rua Sá Viana"
+      },
+      {
+        "lat": -22.928510670652503,
+        "lng": -43.25726156398797,
+        "rua": "Rua Rosa e Silva"
+      },
+      {
+        "lat": -22.92519142709288,
+        "lng": -43.25812761627848,
+        "rua": "Rua Campinas"
+      },
+      {
+        "lat": -22.924521547428455,
+        "lng": -43.25728666486989,
+        "rua": "Rua Uberaba"
+      },
+      {
+        "lat": -22.927083407206574,
+        "lng": -43.25708934902984,
+        "rua": "Rua Botucatu"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO AMIGOS DA MOCIDADE",
+    "bairro": "BANGU",
+    "percurso": [
+      {
+        "lat": -22.87168726094468,
+        "lng": -43.45062011046006,
+        "rua": "Rua Figueiredo Camargo (início)"
+      },
+      {
+        "lat": -22.871681685065315,
+        "lng": -43.45080757778578,
+        "rua": "Rua Figueiredo Camargo"
+      },
+      {
+        "lat": -22.871681685065315,
+        "lng": -43.45080757778578,
+        "rua": "Rua Figueiredo Camargo"
+      },
+      {
+        "lat": -22.871681685065315,
+        "lng": -43.45080757778578,
+        "rua": "Rua Figueiredo Camargo (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "FERVO DA LUD",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.90405412076334,
+        "lng": -43.17458588890834,
+        "rua": "Rua Primeiro de Março (início)"
+      },
+      {
+        "lat": -22.903509625829088,
+        "lng": -43.1750133941202,
+        "rua": "Rua Primeiro de Março"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "COROINHA",
+    "bairro": "PEDRA DE GUARATIBA     ",
+    "percurso": [
+      {
+        "lat": -23.005344101814753,
+        "lng": -43.63532257484122,
+        "rua": "Rua Barros Alarcão (início)"
+      },
+      {
+        "lat": -23.00541818285842,
+        "lng": -43.63511791705321,
+        "rua": "Rua Barros Alarcão"
+      },
+      {
+        "lat": -23.00541818285842,
+        "lng": -43.63511791705321,
+        "rua": "Rua Barros Alarcão"
+      },
+      {
+        "lat": -23.005608195686044,
+        "lng": -43.634797194467424,
+        "rua": "Rua Barros Alarcão (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DOS PRIMOS",
+    "bairro": "PAQUETÁ                ",
+    "percurso": [
+      {
+        "lat": -22.762193228768172,
+        "lng": -43.107223793002404,
+        "rua": "Rua Furquim Werneck"
+      },
+      {
+        "lat": -22.762162335856672,
+        "lng": -43.107207762213456,
+        "rua": "Rua Furquim Werneck (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "CHEIRO NA TESTA",
+    "bairro": "SANTA TERESA",
+    "percurso": [
+      {
+        "lat": -22.921041749713353,
+        "lng": -43.18738005302657,
+        "rua": "Rua Paschoal Carlos Magno (início)"
+      },
+      {
+        "lat": -22.921133844248065,
+        "lng": -43.18712555441817,
+        "rua": "Rua Paschoal Carlos Magno"
+      },
+      {
+        "lat": -22.921115126919943,
+        "lng": -43.18925211157716,
+        "rua": "Rua Monte Alegre"
+      },
+      {
+        "lat": -22.920999250345243,
+        "lng": -43.189607044911625,
+        "rua": "Rua Aurea"
+      },
+      {
+        "lat": -22.920675829187527,
+        "lng": -43.18964283239596,
+        "rua": "Rua Aurea (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DO LIMÃO DO PICARETA",
+    "bairro": "HONÓRIO GURGEL",
+    "percurso": [
+      {
+        "lat": -22.855487042923578,
+        "lng": -43.35776187933478,
+        "rua": "Rua Jurubaiba (início)"
+      },
+      {
+        "lat": -22.854732916102513,
+        "lng": -43.35812603636796,
+        "rua": "Rua Jurubaiba"
+      },
+      {
+        "lat": -22.854732916102513,
+        "lng": -43.35812603636796,
+        "rua": "Rua Jurubaiba"
+      },
+      {
+        "lat": -22.854732916102513,
+        "lng": -43.35812603636796,
+        "rua": "Rua Jurubaiba"
+      },
+      {
+        "lat": -22.853994572891306,
+        "lng": -43.35847927956032,
+        "rua": "Rua Nuassu"
+      },
+      {
+        "lat": -22.853994572891306,
+        "lng": -43.35847927956032,
+        "rua": "Rua Nuassu (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO SAMBA DE CABOCLO",
+    "bairro": "PADRE MIGUEL",
+    "percurso": [
+      {
+        "lat": -22.87168726094468,
+        "lng": -43.45062011046006,
+        "rua": "Rua Figueiredo Camargo (início)"
+      },
+      {
+        "lat": -22.871681685065315,
+        "lng": -43.45080757778578,
+        "rua": "Rua Figueiredo Camargo"
+      },
+      {
+        "lat": -22.880047902190796,
+        "lng": -43.42213936470195,
+        "rua": "Rua Tiapira"
+      },
+      {
+        "lat": -22.87953651109605,
+        "lng": -43.42061811743237,
+        "rua": "Rua Tiapira (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BANDA DA SAENS PENA",
+    "bairro": "TIJUCA",
+    "percurso": [
+      {
+        "lat": -22.922486529016414,
+        "lng": -43.23022680032668,
+        "rua": "Rua Pareto"
+      },
+      {
+        "lat": -22.913388286240174,
+        "lng": -43.61117070301709,
+        "rua": "Rua Bom Pastor"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "VAGALUME O VERDE",
+    "bairro": "JARDIM BOTÂNICO        ",
+    "percurso": [
+      {
+        "lat": -22.965346280794563,
+        "lng": -43.22759068744621,
+        "rua": "Rua Pacheco Leão (início)"
+      },
+      {
+        "lat": -22.9654117882729,
+        "lng": -43.22705287961067,
+        "rua": "Rua Pacheco Leão"
+      },
+      {
+        "lat": -22.963607559302122,
+        "lng": -43.216896235584706,
+        "rua": "Rua Jardim Botânico"
+      },
+      {
+        "lat": -22.963607559302122,
+        "lng": -43.216896235584706,
+        "rua": "Rua Jardim Botânico (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DAS CARMELITAS (DESFILE)",
+    "bairro": "SANTA TERESA",
+    "percurso": [
+      {
+        "lat": -22.88764564976142,
+        "lng": -43.4642120590018,
+        "rua": "Rua dos Curvelos (início)"
+      },
+      {
+        "lat": -22.88796371447378,
+        "lng": -43.46409059958921,
+        "rua": "Rua dos Curvelos"
+      },
+      {
+        "lat": -22.91621719998406,
+        "lng": -43.18113505519679,
+        "rua": "Rua Joaquim Murtinho"
+      },
+      {
+        "lat": -22.91621719998406,
+        "lng": -43.18113505519679,
+        "rua": "Rua Joaquim Murtinho (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "ASSOCIAÇÃO BLOCO CARNAVALESCO CORNOS E SIMPATIZANTES",
+    "bairro": "MANGUINHOS             ",
+    "percurso": [
+      {
+        "lat": -22.883094989668116,
+        "lng": -43.25425989157517,
+        "rua": "Avenida dos Democráticos (início)"
+      },
+      {
+        "lat": -22.88279487699177,
+        "lng": -43.254051901659146,
+        "rua": "Avenida dos Democráticos"
+      },
+      {
+        "lat": -22.88279487699177,
+        "lng": -43.254051901659146,
+        "rua": "Avenida dos Democráticos"
+      },
+      {
+        "lat": -22.88238139332653,
+        "lng": -43.25378264494726,
+        "rua": "Avenida dos Democráticos (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO TRIBO CACUIA",
+    "bairro": "CACUIA",
+    "percurso": [
+      {
+        "lat": -22.811062085772264,
+        "lng": -43.18357430397369,
+        "rua": "Estrada da Cacuia"
+      },
+      {
+        "lat": -22.811062085772264,
+        "lng": -43.18357430397369,
+        "rua": "Estrada da Cacuia (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "RIO MARACATU",
+    "bairro": "LAPA",
+    "percurso": [
+      {
+        "lat": -22.91262628271958,
+        "lng": -43.184564261427504,
+        "rua": "Rua do Rezende (início)"
+      },
+      {
+        "lat": -22.912260118224108,
+        "lng": -43.183417171528205,
+        "rua": "Rua do Rezende"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO TUDO NOSSO",
+    "bairro": "ENGENHO DE DENTRO",
+    "percurso": [
+      {
+        "lat": -22.894192589193157,
+        "lng": -43.29700101212615,
+        "rua": "Rua Bento Gonçalves"
+      },
+      {
+        "lat": -22.891436212041288,
+        "lng": -43.29548771015965,
+        "rua": "Rua Benicio de Abreu"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "CAMISA 7",
+    "bairro": "MARACANÃ",
+    "percurso": [
+      {
+        "lat": -22.910257584613664,
+        "lng": -43.220958705889565,
+        "rua": "Avenida Maracanã (início)"
+      },
+      {
+        "lat": -22.910349144525796,
+        "lng": -43.22094771784908,
+        "rua": "Avenida Maracanã"
+      },
+      {
+        "lat": -22.937713221686035,
+        "lng": -43.58333333390962,
+        "rua": "Rua Seis de Setembro"
+      },
+      {
+        "lat": -22.937713221686035,
+        "lng": -43.58333333390962,
+        "rua": "Rua Seis de Setembro"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO GURI DA MERCK",
+    "bairro": "TAQUARA",
+    "percurso": [
+      {
+        "lat": -22.93490811951201,
+        "lng": -43.368897508326334,
+        "rua": "Rua Jose Perigault"
+      },
+      {
+        "lat": -22.935022012957894,
+        "lng": -43.37165929520885,
+        "rua": "Rua Carlos Palut"
+      },
+      {
+        "lat": -22.934890725853553,
+        "lng": -43.37131805131217,
+        "rua": "Rua Carlos Palut (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "GREMIO RECREATIVO CHAVE DE OURO",
+    "bairro": "ENGENHO DE DENTRO",
+    "percurso": [
+      {
+        "lat": -22.900136352481947,
+        "lng": -43.299032268461865,
+        "rua": "Rua Ana Leonidia (início)"
+      },
+      {
+        "lat": -22.899976826340794,
+        "lng": -43.29961885630541,
+        "rua": "Rua Ana Leonidia"
+      },
+      {
+        "lat": -22.899976826340794,
+        "lng": -43.29961885630541,
+        "rua": "Rua Ana Leonidia"
+      },
+      {
+        "lat": -22.899762445567863,
+        "lng": -43.30040851921318,
+        "rua": "Rua Ana Leonidia (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO MULHERES RODADAS",
+    "bairro": "CATETE                 ",
+    "percurso": [
+      {
+        "lat": -22.980424835757407,
+        "lng": -43.668691222287706,
+        "rua": "Rua Gabriel Militão Machado (início)"
+      },
+      {
+        "lat": -22.980090536291602,
+        "lng": -43.66929497084106,
+        "rua": "Rua Gabriel Militão Machado"
+      },
+      {
+        "lat": -22.933208973259312,
+        "lng": -43.17725378353838,
+        "rua": "Praça Jose de Alencar"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "CORDÃO DO ME ENTERRA NA QUARTA ",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.912835319787256,
+        "lng": -43.17469600956981,
+        "rua": "Avenida Augusto Severo (início)"
+      },
+      {
+        "lat": -22.91294231161966,
+        "lng": -43.17487511410484,
+        "rua": "Avenida Augusto Severo"
+      },
+      {
+        "lat": -22.919395849945438,
+        "lng": -43.17597566263895,
+        "rua": "Avenida Augusto Severo"
+      },
+      {
+        "lat": -22.919805896247734,
+        "lng": -43.17644230415781,
+        "rua": "Praça Edson Cortes"
+      },
+      {
+        "lat": -22.918715163850464,
+        "lng": -43.17668052678845,
+        "rua": "Praça Edson Cortes (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "PLANTA NA MENTE ",
+    "bairro": "LAPA",
+    "percurso": [
+      {
+        "lat": -22.910653567472405,
+        "lng": -43.177635298817435,
+        "rua": "Rua Evaristo da Veiga"
+      },
+      {
+        "lat": -22.907690910857823,
+        "lng": -43.180764569285856,
+        "rua": "Avenida República do Paraguai"
+      },
+      {
+        "lat": -22.90745033338656,
+        "lng": -43.18103993774249,
+        "rua": "Rua Gustavo de Lacerda"
+      },
+      {
+        "lat": -22.906393550318274,
+        "lng": -43.17866350951788,
+        "rua": "Rua da Carioca"
+      },
+      {
+        "lat": -22.906393550318274,
+        "lng": -43.17866350951788,
+        "rua": "Rua da Carioca"
+      },
+      {
+        "lat": -22.906393550318274,
+        "lng": -43.17866350951788,
+        "rua": "Rua da Carioca (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "CARAXUÉ",
+    "bairro": "PAQUETÁ                ",
+    "percurso": [
+      {
+        "lat": -22.752941495635888,
+        "lng": -43.10540703322237,
+        "rua": "Travessa Cerqueira (início)"
+      },
+      {
+        "lat": -22.752891123819037,
+        "lng": -43.105360135272555,
+        "rua": "Travessa Cerqueira"
+      },
+      {
+        "lat": -22.75169576150848,
+        "lng": -43.10727179645489,
+        "rua": "Rua Feliciana Borges"
+      },
+      {
+        "lat": -22.88160505884395,
+        "lng": -43.50523365724369,
+        "rua": "Rua Roquemond"
+      },
+      {
+        "lat": -22.88163087961658,
+        "lng": -43.50541157291455,
+        "rua": "Rua Roquemond (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BERÇO DO SAMBA",
+    "bairro": "LAPA",
+    "percurso": [
+      {
+        "lat": -22.91376732349997,
+        "lng": -43.17868994946627,
+        "rua": "Avenida Mem de Sá (início)"
+      },
+      {
+        "lat": -22.91342741635037,
+        "lng": -43.179847411170336,
+        "rua": "Avenida Mem de Sá"
+      },
+      {
+        "lat": -22.913490665437106,
+        "lng": -43.178759639309966,
+        "rua": "Avenida República do Paraguai"
+      },
+      {
+        "lat": -22.91342741635037,
+        "lng": -43.179847411170336,
+        "rua": "Avenida Mem de Sá"
+      },
+      {
+        "lat": -22.91227871113881,
+        "lng": -43.18328220457946,
+        "rua": "Avenida Gomes Freire"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "ASSOCIAÇÃO CARNAVALESCA BLOCO SEPULTA CARNAVAL",
+    "bairro": "ENGENHO DE DENTRO",
+    "percurso": [
+      {
+        "lat": -22.900136352481947,
+        "lng": -43.299032268461865,
+        "rua": "Rua Ana Leonidia (início)"
+      },
+      {
+        "lat": -22.899976826340794,
+        "lng": -43.29961885630541,
+        "rua": "Rua Ana Leonidia"
+      },
+      {
+        "lat": -22.904401294575276,
+        "lng": -43.29811260515986,
+        "rua": "Rua Borja Reis"
+      },
+      {
+        "lat": -22.90403060389255,
+        "lng": -43.29724138907161,
+        "rua": "Rua Adolfo Bergamini"
+      },
+      {
+        "lat": -22.898908061485685,
+        "lng": -43.298493046825335,
+        "rua": "Rua Pernambuco"
+      },
+      {
+        "lat": -22.899976826340794,
+        "lng": -43.29961885630541,
+        "rua": "Rua Ana Leonidia"
+      },
+      {
+        "lat": -22.899762445567863,
+        "lng": -43.30040851921318,
+        "rua": "Rua Ana Leonidia (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO DA ANITTA",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.90405412076334,
+        "lng": -43.17458588890834,
+        "rua": "Rua Primeiro de Março (início)"
+      },
+      {
+        "lat": -22.903509625829088,
+        "lng": -43.1750133941202,
+        "rua": "Rua Primeiro de Março"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "ALEGRIA DA REPÚBLICA ( MOVIMENTO CULTURAL ALEGRIA DA REPÚBLICA DO RIO",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.910116238507694,
+        "lng": -43.185456685359256,
+        "rua": "Rua dos Inválidos (início)"
+      },
+      {
+        "lat": -22.91003526422979,
+        "lng": -43.185088482806755,
+        "rua": "Rua dos Inválidos"
+      },
+      {
+        "lat": -22.911772735949388,
+        "lng": -43.1921611026468,
+        "rua": "Rua do Senado"
+      },
+      {
+        "lat": -22.910684037247204,
+        "lng": -43.18708355306886,
+        "rua": "Rua Ubaldino do Amaral"
+      },
+      {
+        "lat": -22.912655312924763,
+        "lng": -43.19033262422667,
+        "rua": "Avenida Henrique Valadares"
+      },
+      {
+        "lat": -22.91003526422979,
+        "lng": -43.185088482806755,
+        "rua": "Rua dos Inválidos"
+      },
+      {
+        "lat": -22.909840359066497,
+        "lng": -43.18451682290698,
+        "rua": "Rua dos Inválidos (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "G.R.B.C SÓ CACHAÇA",
+    "bairro": "SANTO CRISTO",
+    "percurso": [
+      {
+        "lat": -22.90516049944061,
+        "lng": -43.20218792046699,
+        "rua": "Rua Guapi (início)"
+      },
+      {
+        "lat": -22.904522629064765,
+        "lng": -43.202598324618805,
+        "rua": "Rua Guapi"
+      },
+      {
+        "lat": -22.90505083024826,
+        "lng": -43.20197696567067,
+        "rua": "Rua Nabuco de Freitas"
+      },
+      {
+        "lat": -22.887792273418462,
+        "lng": -43.548778610197424,
+        "rua": "Rua América Dourada"
+      },
+      {
+        "lat": -22.887792273418462,
+        "lng": -43.548778610197424,
+        "rua": "Rua América Dourada"
+      },
+      {
+        "lat": -22.887792273418462,
+        "lng": -43.548778610197424,
+        "rua": "Rua América Dourada"
+      },
+      {
+        "lat": -22.887855422526986,
+        "lng": -43.549104582526454,
+        "rua": "Rua América Dourada (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO PELA SACO",
+    "bairro": "BOTAFOGO               ",
+    "percurso": [
+      {
+        "lat": -22.950398123197402,
+        "lng": -43.19284990565055,
+        "rua": "Praça Tião Belo (início)"
+      },
+      {
+        "lat": -22.95030979604353,
+        "lng": -43.1927777533215,
+        "rua": "Praça Tião Belo"
+      },
+      {
+        "lat": -22.877870278084735,
+        "lng": -43.448606105244295,
+        "rua": "Rua Professor Clemente Ferreira"
+      },
+      {
+        "lat": -22.955483707544815,
+        "lng": -43.19244162797272,
+        "rua": "Rua Real Grandeza"
+      },
+      {
+        "lat": -22.955301284864635,
+        "lng": -43.19527952652172,
+        "rua": "Rua Voluntários da Pátria"
+      },
+      {
+        "lat": -22.99315673065131,
+        "lng": -43.594386357353414,
+        "rua": "Estrada da Matriz"
+      },
+      {
+        "lat": -22.877870278084735,
+        "lng": -43.448606105244295,
+        "rua": "Rua Professor Clemente Ferreira"
+      },
+      {
+        "lat": -22.877872909446136,
+        "lng": -43.44862791551829,
+        "rua": "Rua Professor Clemente Ferreira (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO VEM COMIGO CACHAÇADA",
+    "bairro": "ZUMBI",
+    "percurso": [
+      {
+        "lat": -22.819508781171635,
+        "lng": -43.17576949184125,
+        "rua": "Praia do Zumbi (início)"
+      },
+      {
+        "lat": -22.819872042006846,
+        "lng": -43.175766502273206,
+        "rua": "Praia do Zumbi"
+      },
+      {
+        "lat": -22.82386662605791,
+        "lng": -43.17077145506427,
+        "rua": "Rua Paramopama"
+      },
+      {
+        "lat": -22.82386662605791,
+        "lng": -43.17077145506427,
+        "rua": "Rua Paramopama"
+      },
+      {
+        "lat": -22.824937035111642,
+        "lng": -43.17001969330784,
+        "rua": "Rua Paramopama (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO SEM SAÍDA",
+    "bairro": "BOTAFOGO               ",
+    "percurso": [
+      {
+        "lat": -22.95069906983948,
+        "lng": -43.176066755953244,
+        "rua": "Avenida Pasteur"
+      },
+      {
+        "lat": -22.951047863377074,
+        "lng": -43.17633754155758,
+        "rua": "Rua Bartolomeu Portela"
+      },
+      {
+        "lat": -22.95069906983948,
+        "lng": -43.176066755953244,
+        "rua": "Rua Bartolomeu Portela (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "GRÊMIO RECREATIVO BLOCO CARNAVALESCO AMIGOS DA JOAQUIM MÉIER",
+    "bairro": "MÉIER",
+    "percurso": [
+      {
+        "lat": -22.90497303425305,
+        "lng": -43.28012737567157,
+        "rua": "Rua Guaju (início)"
+      },
+      {
+        "lat": -22.904606786974437,
+        "lng": -43.280428938284984,
+        "rua": "Rua Guaju"
+      },
+      {
+        "lat": -22.902925604765844,
+        "lng": -43.28177568116149,
+        "rua": "Rua Oliveira"
+      },
+      {
+        "lat": -22.90433746412339,
+        "lng": -43.286693078980065,
+        "rua": "Rua Dias da Cruz"
+      },
+      {
+        "lat": -22.90433746412339,
+        "lng": -43.286693078980065,
+        "rua": "Rua Dias da Cruz"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CULTURAL 7 DE PAUS",
+    "bairro": "VILA ISABEL",
+    "percurso": [
+      {
+        "lat": -22.937717769781916,
+        "lng": -43.583518063916685,
+        "rua": "Rua Seis de Setembro (início)"
+      },
+      {
+        "lat": -22.937713221686035,
+        "lng": -43.58333333390962,
+        "rua": "Rua Seis de Setembro"
+      },
+      {
+        "lat": -22.937713221686035,
+        "lng": -43.58333333390962,
+        "rua": "Rua Seis de Setembro"
+      },
+      {
+        "lat": -22.937704079131088,
+        "lng": -43.583193533056715,
+        "rua": "Rua Seis de Setembro (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO CARNAVALESCO UNIÃO DOS BLOCOS DA ILHA DO GOVERNADOR",
+    "bairro": "RIBEIRA",
+    "percurso": [
+      {
+        "lat": -22.823011541326338,
+        "lng": -43.17139320393093,
+        "rua": "Rua Fernandes da Fonseca (início)"
+      },
+      {
+        "lat": -22.82294008658527,
+        "lng": -43.17115519366744,
+        "rua": "Rua Fernandes da Fonseca"
+      },
+      {
+        "lat": -22.82294008658527,
+        "lng": -43.17115519366744,
+        "rua": "Rua Fernandes da Fonseca"
+      },
+      {
+        "lat": -22.82386662605791,
+        "lng": -43.17077145506427,
+        "rua": "Rua Paramopama"
+      },
+      {
+        "lat": -22.82386662605791,
+        "lng": -43.17077145506427,
+        "rua": "Rua Paramopama"
+      },
+      {
+        "lat": -22.825546083936853,
+        "lng": -43.16946302371691,
+        "rua": "Praça Iaia Garcia"
+      },
+      {
+        "lat": -22.825184186295452,
+        "lng": -43.17128448712755,
+        "rua": "Rua Maldonado"
+      },
+      {
+        "lat": -22.825092328943217,
+        "lng": -43.170936860721454,
+        "rua": "Rua Maldonado (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "LIGA DE BLOCOS E BANDAS DA ZONA PORTUARIA",
+    "bairro": "GAMBOA",
+    "percurso": [
+      {
+        "lat": -22.897229503592474,
+        "lng": -43.189533708821415,
+        "rua": "Rua Sacadura Cabral (início)"
+      },
+      {
+        "lat": -22.897285618750423,
+        "lng": -43.18973211523215,
+        "rua": "Rua Sacadura Cabral"
+      },
+      {
+        "lat": -22.897545695016515,
+        "lng": -43.1838316491677,
+        "rua": "Rua Sacadura Cabral"
+      },
+      {
+        "lat": -22.897545695016515,
+        "lng": -43.1838316491677,
+        "rua": "Rua Sacadura Cabral (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "CONDOMÍNIO HABITACIONAL BARANGAL ",
+    "bairro": "IPANEMA",
+    "percurso": [
+      {
+        "lat": -22.987853453745032,
+        "lng": -43.1944857850032,
+        "rua": "Avenida Vieira Souto (início)"
+      },
+      {
+        "lat": -22.987370450122075,
+        "lng": -43.196096796061674,
+        "rua": "Avenida Vieira Souto"
+      },
+      {
+        "lat": -22.987370450122075,
+        "lng": -43.196096796061674,
+        "rua": "Avenida Vieira Souto"
+      },
+      {
+        "lat": -22.853894763510898,
+        "lng": -43.56413241116306,
+        "rua": "Rua N"
+      },
+      {
+        "lat": -22.987370450122075,
+        "lng": -43.196096796061674,
+        "rua": "Avenida Vieira Souto"
+      },
+      {
+        "lat": -22.987370450122075,
+        "lng": -43.196096796061674,
+        "rua": "Avenida Vieira Souto (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO BONDE DA FOLIA",
+    "bairro": "SANTA TERESA",
+    "percurso": [
+      {
+        "lat": -22.920303279417862,
+        "lng": -43.18702712705754,
+        "rua": "Rua Fonseca Guimarães (início)"
+      },
+      {
+        "lat": -22.919552058439873,
+        "lng": -43.187218350694785,
+        "rua": "Rua Fonseca Guimarães"
+      },
+      {
+        "lat": -22.921133844248065,
+        "lng": -43.18712555441817,
+        "rua": "Rua Paschoal Carlos Magno"
+      },
+      {
+        "lat": -22.917791078236906,
+        "lng": -43.18119603128016,
+        "rua": "Rua Dias de Barros"
+      },
+      {
+        "lat": -22.91621719998406,
+        "lng": -43.18113505519679,
+        "rua": "Rua Joaquim Murtinho"
+      },
+      {
+        "lat": -22.91621719998406,
+        "lng": -43.18113505519679,
+        "rua": "Rua Joaquim Murtinho (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "FILHOS DA PUC",
+    "bairro": "LEBLON",
+    "percurso": [
+      {
+        "lat": -22.98841764539611,
+        "lng": -43.227621503811434,
+        "rua": "Avenida Delfim Moreira (início)"
+      },
+      {
+        "lat": -22.9884742319736,
+        "lng": -43.22774766260756,
+        "rua": "Avenida Delfim Moreira"
+      },
+      {
+        "lat": -22.9884742319736,
+        "lng": -43.22774766260756,
+        "rua": "Avenida Delfim Moreira"
+      },
+      {
+        "lat": -22.9884742319736,
+        "lng": -43.22774766260756,
+        "rua": "Avenida Delfim Moreira (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "QUEM VAI VAI, QUEM NÃO VAI NÃO CAGUETA!",
+    "bairro": "JARDIM GUANABARA       ",
+    "percurso": [
+      {
+        "lat": -22.818642096029695,
+        "lng": -43.200405915351276,
+        "rua": "Praça Jerusalém (início)"
+      },
+      {
+        "lat": -22.818830996638976,
+        "lng": -43.201195906778075,
+        "rua": "Praça Jerusalém"
+      },
+      {
+        "lat": -22.818830996638976,
+        "lng": -43.201195906778075,
+        "rua": "Praça Jerusalém"
+      },
+      {
+        "lat": -22.818830996638976,
+        "lng": -43.201195906778075,
+        "rua": "Praça Jerusalém"
+      },
+      {
+        "lat": -22.818830996638976,
+        "lng": -43.201195906778075,
+        "rua": "Praça Jerusalém (fim)"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "BLOCO BALBÚRDIA DE REALENGO",
+    "bairro": "REALENGO",
+    "percurso": [
+      {
+        "lat": -22.881473364210684,
+        "lng": -43.42810332268207,
+        "rua": "Rua do Espadarte (início)"
+      },
+      {
+        "lat": -22.881626826846215,
+        "lng": -43.428218156425785,
+        "rua": "Rua do Espadarte"
+      },
+      {
+        "lat": -22.881626826846215,
+        "lng": -43.428218156425785,
+        "rua": "Rua do Espadarte"
+      }
+    ]
+  },
+  {
+    "nomeBloco": "MONOBLOCO",
+    "bairro": "CENTRO",
+    "percurso": [
+      {
+        "lat": -22.90405412076334,
+        "lng": -43.17458588890834,
+        "rua": "Rua Primeiro de Março (início)"
+      },
+      {
+        "lat": -22.903509625829088,
+        "lng": -43.1750133941202,
+        "rua": "Rua Primeiro de Março"
+      }
+    ]
+  }
+]

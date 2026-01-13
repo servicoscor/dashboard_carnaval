@@ -1,0 +1,1 @@
+export { BlocoDetailPanel } from './BlocoDetailPanel';
