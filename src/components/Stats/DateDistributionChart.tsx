@@ -4,9 +4,11 @@ import { formatarDataCurta } from '../../utils/formatters';
 
 interface DateDistributionChartProps {
   blocos: Bloco[];
+  dataSelecionada?: string;
+  onSelectData?: (data: string | null) => void;
 }
 
-export function DateDistributionChart({ blocos }: DateDistributionChartProps) {
+export function DateDistributionChart({ blocos, dataSelecionada, onSelectData }: DateDistributionChartProps) {
   const distribuicao = useMemo(() => {
     const contagem: Record<string, number> = {};
 
@@ -37,24 +39,38 @@ export function DateDistributionChart({ blocos }: DateDistributionChartProps) {
         Distribuicao por Data
       </h3>
       <div className="flex items-end gap-1 h-16 overflow-x-auto pb-1">
-        {distribuicao.map((item) => (
-          <div
-            key={item.data}
-            className="flex flex-col items-center gap-1 min-w-[32px]"
-          >
+        {distribuicao.map((item) => {
+          const isSelected = dataSelecionada === item.data;
+          return (
             <div
-              className="w-6 bg-gradient-to-t from-cor-accent-orange to-cor-accent-pink rounded-t transition-all hover:opacity-80"
-              style={{
-                height: `${(item.count / maxCount) * 48}px`,
-                minHeight: '4px',
+              key={item.data}
+              className="flex flex-col items-center gap-1 min-w-[32px] cursor-pointer group"
+              onClick={() => {
+                if (onSelectData) {
+                  onSelectData(isSelected ? null : item.data);
+                }
               }}
-              title={`${item.label}: ${item.count} blocos`}
-            />
-            <span className="text-[9px] text-white/40 rotate-45 origin-left whitespace-nowrap">
-              {item.label}
-            </span>
-          </div>
-        ))}
+            >
+              <div
+                className={`w-6 rounded-t transition-all ${
+                  isSelected
+                    ? 'bg-gradient-to-t from-cor-accent-green to-cor-accent-green ring-2 ring-cor-accent-green ring-offset-1 ring-offset-cor-bg-secondary'
+                    : 'bg-gradient-to-t from-cor-accent-orange to-cor-accent-pink group-hover:from-cor-accent-orange/80 group-hover:to-cor-accent-pink/80'
+                }`}
+                style={{
+                  height: `${(item.count / maxCount) * 48}px`,
+                  minHeight: '4px',
+                }}
+                title={`${item.label}: ${item.count} blocos - Clique para filtrar`}
+              />
+              <span className={`text-[9px] rotate-45 origin-left whitespace-nowrap transition-colors ${
+                isSelected ? 'text-cor-accent-green font-semibold' : 'text-white/40 group-hover:text-white/60'
+              }`}>
+                {item.label}
+              </span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

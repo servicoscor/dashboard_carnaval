@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import type { Camera, Bloco, PontoPercurso } from '../types/bloco';
+import type { Camera, Bloco } from '../types/bloco';
 
 const CAMERAS_API = 'https://aplicativo.cocr.com.br/cameras_api';
 const RAIO_PROXIMIDADE_METROS = 300; // Aumentado para 300m para melhor cobertura
@@ -20,16 +20,6 @@ function calcularDistancia(lat1: number, lng1: number, lat2: number, lng2: numbe
 // Verifica se a câmera está próxima de um ponto
 function cameraProximaDePonto(camera: Camera, lat: number, lng: number, raio: number): boolean {
   return calcularDistancia(camera.lat, camera.lng, lat, lng) <= raio;
-}
-
-// Verifica se a câmera está próxima de um percurso (linha)
-function cameraProximaDePercurso(camera: Camera, percurso: PontoPercurso[], raio: number): boolean {
-  for (const ponto of percurso) {
-    if (cameraProximaDePonto(camera, ponto.lat, ponto.lng, raio)) {
-      return true;
-    }
-  }
-  return false;
 }
 
 // Parser da API de câmeras

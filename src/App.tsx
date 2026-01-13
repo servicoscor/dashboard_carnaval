@@ -28,8 +28,8 @@ function App() {
   const [tourIndex, setTourIndex] = useState(0);
   const [tourBloco, setTourBloco] = useState<Bloco | null>(null);
   const [tempoRestante, setTempoRestante] = useState(TOUR_DURATION_SECONDS);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const countdownRef = useRef<NodeJS.Timeout | null>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const countdownRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Filtrar câmeras próximas ao bloco selecionado (raio de 300m)
   const camerasProximas = useCamerasProximas(todasCameras, blocoSelecionado, 300);
@@ -41,6 +41,14 @@ function App() {
   const handleCloseDetail = useCallback(() => {
     setBlocoSelecionado(null);
   }, []);
+
+  // Selecionar data pelo gráfico de distribuição
+  const handleSelectData = useCallback((data: string | null) => {
+    setFiltros(prev => ({
+      ...prev,
+      data: data || 'todos'
+    }));
+  }, [setFiltros]);
 
   // Limpar timers do tour
   const limparTimers = useCallback(() => {
@@ -203,7 +211,11 @@ function App() {
 
       {/* Footer com grafico de distribuicao */}
       <div className="flex-shrink-0">
-        <DateDistributionChart blocos={blocosFiltrados} />
+        <DateDistributionChart
+          blocos={blocos}
+          dataSelecionada={filtros.data !== 'todos' ? filtros.data : undefined}
+          onSelectData={handleSelectData}
+        />
       </div>
     </div>
   );
