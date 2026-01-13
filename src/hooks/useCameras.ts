@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import type { Camera, Bloco, PontoPercurso } from '../types/bloco';
 
 const CAMERAS_API = 'https://aplicativo.cocr.com.br/cameras_api';
-const RAIO_PROXIMIDADE_METROS = 100;
+const RAIO_PROXIMIDADE_METROS = 300; // Aumentado para 300m para melhor cobertura
 
 // Função para calcular distância entre dois pontos em metros (Haversine)
 function calcularDistancia(lat1: number, lng1: number, lat2: number, lng2: number): number {
@@ -48,7 +48,7 @@ function parseCamerasCSV(csv: string): Camera[] {
       // Ignorar câmeras com coordenadas inválidas
       if (!isNaN(lat) && !isNaN(lng) && lat !== 0 && lng !== 0 &&
           lat >= -90 && lat <= 90 && lng >= -180 && lng <= 180 &&
-          // Filtrar para região do Rio de Janeiro
+          // Filtrar para região do Rio de Janeiro (ampliado para cobrir toda a cidade)
           lat >= -23.1 && lat <= -22.7 && lng >= -43.8 && lng <= -43.1) {
         cameras.push({
           id: codigo,
@@ -106,23 +106,37 @@ export function useCamerasProximas(
     }
 
     const camerasProximas: Camera[] = [];
+    const idsAdicionados = new Set<string>();
 
-    for (const camera of todasCameras) {
-      // Verificar se está próxima do ponto central do bloco
-      if (cameraProximaDePonto(camera, blocoSelecionado.lat, blocoSelecionado.lng, raioMetros)) {
-        camerasProximas.push(camera);
-        continue;
+    // Coletar todos os pontos relevantes do bloco
+    const pontosDoBloco: { lat: number; lng: number }[] = [];
+
+    // 1. Ponto central do bloco (sempre presente)
+    pontosDoBloco.push({ lat: blocoSelecionado.lat, lng: blocoSelecionado.lng });
+
+    // 2. Pontos do percurso (se existir)
+    if (blocoSelecionado.percurso && blocoSelecionado.percurso.length > 0) {
+      for (const ponto of blocoSelecionado.percurso) {
+        pontosDoBloco.push({ lat: ponto.lat, lng: ponto.lng });
       }
+    }
 
-      // Se o bloco tem percurso, verificar proximidade do trajeto
-      if (blocoSelecionado.percurso && blocoSelecionado.percurso.length > 0) {
-        if (cameraProximaDePercurso(camera, blocoSelecionado.percurso, raioMetros)) {
+    // Verificar cada câmera contra todos os pontos do bloco
+    for (const camera of todasCameras) {
+      // Evitar duplicatas
+      if (idsAdicionados.has(camera.id)) continue;
+
+      // Verificar se está próxima de algum ponto do bloco
+      for (const ponto of pontosDoBloco) {
+        if (cameraProximaDePonto(camera, ponto.lat, ponto.lng, raioMetros)) {
           camerasProximas.push(camera);
+          idsAdicionados.add(camera.id);
+          break;
         }
       }
     }
 
-    console.log(`Câmeras próximas de "${blocoSelecionado.nome}": ${camerasProximas.length}`);
+    console.log(`Câmeras próximas de "${blocoSelecionado.nome}": ${camerasProximas.length} (raio: ${raioMetros}m, pontos verificados: ${pontosDoBloco.length})`);
     return camerasProximas;
   }, [todasCameras, blocoSelecionado, raioMetros]);
 }

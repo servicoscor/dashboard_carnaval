@@ -21,8 +21,8 @@ function App() {
 
   const [blocoSelecionado, setBlocoSelecionado] = useState<Bloco | null>(null);
 
-  // Filtrar câmeras próximas ao bloco selecionado (raio de 100m)
-  const camerasProximas = useCamerasProximas(todasCameras, blocoSelecionado, 100);
+  // Filtrar câmeras próximas ao bloco selecionado (raio de 300m)
+  const camerasProximas = useCamerasProximas(todasCameras, blocoSelecionado, 300);
 
   const handleSelectBloco = useCallback((bloco: Bloco) => {
     setBlocoSelecionado(bloco);

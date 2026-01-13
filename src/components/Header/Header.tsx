@@ -28,7 +28,7 @@ export function Header({ estatisticas, totalBlocosOriginal }: HeaderProps) {
             Carnaval Rio 2026
           </h1>
           <p className="text-xs text-white/50">
-            Dashboard de Blocos - JARVIS Municipal
+            Dashboard de Blocos
           </p>
         </div>
 

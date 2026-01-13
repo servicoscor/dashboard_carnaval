@@ -66,7 +66,7 @@ export function MapLegend() {
             <span className="w-4 h-4 rounded-full flex-shrink-0 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%)' }}>
               <span className="text-[8px]">📹</span>
             </span>
-            <span>Camera proxima (100m)</span>
+            <span>Camera proxima (300m)</span>
           </div>
         </div>
       </div>
