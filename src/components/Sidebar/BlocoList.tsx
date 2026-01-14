@@ -53,31 +53,36 @@ export function BlocoList({ blocos, blocoSelecionado, onSelectBloco }: BlocoList
   }
 
   return (
-    <div className="space-y-4">
-      {gruposPorData.map((grupo) => (
-        <div key={grupo.data}>
-          {/* Header do grupo (data) */}
-          <div className="sticky top-0 bg-cor-bg-secondary/95 backdrop-blur-sm py-2 px-1 -mx-1 z-10 border-b border-white/10">
+    <div className="space-y-6 pb-4">
+      {gruposPorData.map((grupo, grupoIndex) => (
+        <div key={grupo.data} className="scroll-mt-2">
+          {/* Header do grupo (data) - sticky melhorado */}
+          <div className="sticky top-0 bg-gradient-to-b from-cor-bg-secondary via-cor-bg-secondary to-cor-bg-secondary/95 backdrop-blur-sm py-2.5 px-2 -mx-2 z-20 border-b-2 border-cor-accent-orange/30 mb-3 shadow-lg">
             <div className="flex items-center justify-between">
-              <div>
-                <span className="text-xs font-bold text-cor-accent-orange">
-                  {formatarDataCurta(grupo.data)}
-                </span>
-                <span className="text-xs text-white/50 ml-2 capitalize">
-                  {formatarDiaSemana(grupo.data)}
-                </span>
+              <div className="flex items-center gap-2">
+                <div className="w-1 h-8 bg-cor-accent-orange rounded-full shadow-sm" />
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-bold text-cor-accent-orange">
+                      {formatarDataCurta(grupo.data)}
+                    </span>
+                    <span className="text-xs text-white/60 capitalize">
+                      {formatarDiaSemana(grupo.data)}
+                    </span>
+                  </div>
+                  {grupo.dataRelativa && (
+                    <p className="text-[10px] text-white/50 mt-0.5">{grupo.dataRelativa}</p>
+                  )}
+                </div>
               </div>
-              <span className="text-[10px] text-white/40 bg-white/5 px-2 py-0.5 rounded">
-                {grupo.blocos.length} blocos
+              <span className="text-[11px] text-white/70 bg-cor-accent-orange/20 px-2.5 py-1 rounded-full font-semibold border border-cor-accent-orange/30">
+                {grupo.blocos.length}
               </span>
             </div>
-            {grupo.dataRelativa && (
-              <p className="text-[10px] text-white/40 mt-0.5">{grupo.dataRelativa}</p>
-            )}
           </div>
 
           {/* Lista de blocos do grupo */}
-          <div className="space-y-2 mt-2">
+          <div className="space-y-2.5">
             {grupo.blocos.map((bloco) => (
               <BlocoCard
                 key={bloco.id}
@@ -87,6 +92,11 @@ export function BlocoList({ blocos, blocoSelecionado, onSelectBloco }: BlocoList
               />
             ))}
           </div>
+
+          {/* Separador entre grupos - exceto no último */}
+          {grupoIndex < gruposPorData.length - 1 && (
+            <div className="mt-6 border-t border-white/5" />
+          )}
         </div>
       ))}
     </div>
@@ -105,37 +115,44 @@ function BlocoCard({ bloco, isSelected, onSelect }: BlocoCardProps) {
   return (
     <button
       onClick={onSelect}
-      className={`w-full text-left p-3 rounded-lg transition-all ${
+      className={`w-full text-left p-3 rounded-lg transition-all duration-200 ${
         isSelected
-          ? 'bg-white/10 ring-2 ring-cor-accent-orange'
-          : 'bg-white/5 hover:bg-white/10'
+          ? 'bg-gradient-to-r from-white/15 to-white/10 ring-2 ring-cor-accent-orange shadow-lg scale-[1.02]'
+          : 'bg-white/5 hover:bg-white/10 hover:scale-[1.01] active:scale-[0.99]'
       }`}
     >
       <div className="flex items-start gap-3">
         {/* Indicador de cor da subprefeitura */}
         <div
-          className="w-1 h-full min-h-[40px] rounded-full flex-shrink-0"
-          style={{ backgroundColor: cor }}
+          className={`w-1.5 h-full min-h-[50px] rounded-full flex-shrink-0 transition-all ${
+            isSelected ? 'shadow-lg' : ''
+          }`}
+          style={{
+            backgroundColor: cor,
+            boxShadow: isSelected ? `0 0 8px ${cor}` : 'none'
+          }}
         />
 
         <div className="flex-1 min-w-0">
           {/* Nome do bloco */}
-          <h4 className="text-sm font-medium text-white truncate pr-2">
+          <h4 className={`text-sm font-medium truncate pr-2 transition-colors ${
+            isSelected ? 'text-white' : 'text-white/90'
+          }`}>
             {bloco.nome}
           </h4>
 
           {/* Info secundária */}
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1.5 text-[11px] text-white/60">
-            <span className="flex items-center gap-1">
-              <MapPin size={10} />
-              {bloco.bairro}
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2 text-[11px] text-white/60">
+            <span className="flex items-center gap-1.5">
+              <MapPin size={11} />
+              <span className="truncate max-w-[100px]">{bloco.bairro}</span>
             </span>
-            <span className="flex items-center gap-1">
-              <Clock size={10} />
+            <span className="flex items-center gap-1.5">
+              <Clock size={11} />
               {formatarHora(bloco.horaInicio)}
             </span>
-            <span className="flex items-center gap-1">
-              <Users size={10} />
+            <span className="flex items-center gap-1.5">
+              <Users size={11} />
               {formatarNumero(bloco.publicoEstimado)}
             </span>
           </div>
@@ -143,7 +160,7 @@ function BlocoCard({ bloco, isSelected, onSelect }: BlocoCardProps) {
           {/* Badge se tem percurso */}
           {bloco.temPercurso && (
             <div className="mt-2">
-              <span className="inline-flex items-center gap-1 text-[10px] text-cor-accent-green bg-cor-accent-green/10 px-2 py-0.5 rounded">
+              <span className="inline-flex items-center gap-1 text-[10px] text-cor-accent-green bg-cor-accent-green/15 border border-cor-accent-green/20 px-2 py-1 rounded-md font-medium">
                 <Route size={10} />
                 Com deslocamento
               </span>

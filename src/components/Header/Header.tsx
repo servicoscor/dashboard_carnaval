@@ -44,63 +44,69 @@ export function Header({
   const isFiltered = estatisticas.totalBlocos !== totalBlocosOriginal;
   const [legendaVisivel, setLegendaVisivel] = useState(false);
 
-  // Versão Mobile
+  // Versão Mobile - Layout em duas linhas
   if (isMobile) {
     return (
-      <header className="bg-cor-bg-secondary border-b border-white/10 px-3 py-2">
-        <div className="flex items-center justify-between gap-2">
-          {/* Menu hamburger */}
+      <header className="bg-cor-bg-secondary border-b border-white/10">
+        {/* Primeira linha - Logo, Menu e Alertas */}
+        <div className="flex items-center justify-between px-3 py-2 border-b border-white/5">
           <button
             onClick={onMenuClick}
-            className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+            className="p-1.5 hover:bg-white/10 rounded-lg transition-colors flex-shrink-0"
             aria-label="Abrir menu"
           >
-            <Menu size={24} className="text-white" />
+            <Menu size={20} className="text-white" />
           </button>
 
-          {/* Logo menor */}
           <img
             src="/data/RIOPREFEITURA COR horizontal monocromatica branco.png"
             alt="COR"
-            className="h-7 w-auto"
+            className="h-6 w-auto"
           />
 
-          {/* Stats compactos - só números */}
-          <div className="flex items-center gap-2">
-            <CompactStat icon={<MapPin size={12} />} value={estatisticas.totalBlocos} color="orange" />
-            <CompactStat icon={<Users size={12} />} value={formatarNumero(estatisticas.publicoTotal)} color="green" />
-          </div>
-
-          {/* Tour compacto */}
-          {!tourState.ativo ? (
-            <button
-              onClick={onTourStart}
-              disabled={estatisticas.totalBlocos === 0}
-              className="p-2 bg-cor-accent-green/20 text-cor-accent-green border border-cor-accent-green/30 rounded-lg disabled:opacity-50"
-              title="Tour"
-            >
-              <Play size={16} />
-            </button>
-          ) : (
-            <div className="flex items-center gap-1 px-2 py-1 bg-cor-accent-green/10 border border-cor-accent-green/30 rounded-lg">
-              <div className="w-2 h-2 bg-cor-accent-green rounded-full animate-pulse" />
-              <span className="text-xs text-white/70 font-mono">{tourState.tempoRestante}s</span>
-              <button onClick={onTourNext} className="p-1 hover:bg-white/10 rounded">
-                <SkipForward size={12} className="text-white/70" />
-              </button>
-              <button onClick={onTourStop} className="p-1 hover:bg-cor-accent-pink/20 rounded">
-                <Square size={12} className="text-cor-accent-pink" />
-              </button>
-            </div>
-          )}
-
-          {/* Alertas Badge */}
           {onAlertasClick && (
             <AlertaBadge
               count={alertasCount}
               hasHighPriority={alertasHighPriority}
               onClick={onAlertasClick}
             />
+          )}
+        </div>
+
+        {/* Segunda linha - Stats e Tour */}
+        <div className="flex items-center justify-between px-3 py-1.5 gap-2">
+          <div className="flex items-center gap-3 flex-1 min-w-0">
+            <div className="flex items-center gap-1 text-cor-accent-orange">
+              <MapPin size={12} />
+              <span className="text-xs font-bold">{estatisticas.totalBlocos}</span>
+            </div>
+            <div className="flex items-center gap-1 text-cor-accent-green">
+              <Users size={12} />
+              <span className="text-xs font-bold">{formatarNumero(estatisticas.publicoTotal)}</span>
+            </div>
+          </div>
+
+          {!tourState.ativo ? (
+            <button
+              onClick={onTourStart}
+              disabled={estatisticas.totalBlocos === 0}
+              className="flex items-center gap-1 px-2 py-1 bg-cor-accent-green/20 text-cor-accent-green border border-cor-accent-green/30 rounded-lg disabled:opacity-50 text-xs font-medium flex-shrink-0"
+              title="Tour"
+            >
+              <Play size={14} />
+              Tour
+            </button>
+          ) : (
+            <div className="flex items-center gap-1 px-2 py-1 bg-cor-accent-green/10 border border-cor-accent-green/30 rounded-lg flex-shrink-0">
+              <div className="w-1.5 h-1.5 bg-cor-accent-green rounded-full animate-pulse" />
+              <span className="text-[10px] text-white/70 font-mono">{tourState.tempoRestante}s</span>
+              <button onClick={onTourNext} className="p-0.5 hover:bg-white/10 rounded">
+                <SkipForward size={12} className="text-white/70" />
+              </button>
+              <button onClick={onTourStop} className="p-0.5 hover:bg-cor-accent-pink/20 rounded">
+                <Square size={12} className="text-cor-accent-pink" />
+              </button>
+            </div>
           )}
         </div>
       </header>
@@ -362,25 +368,3 @@ function StatPill({ icon, label, value, subValue, color }: StatPillProps) {
   );
 }
 
-// Componente compacto para mobile - só ícone e valor
-interface CompactStatProps {
-  icon: React.ReactNode;
-  value: string | number;
-  color: 'orange' | 'green' | 'purple' | 'pink';
-}
-
-function CompactStat({ icon, value, color }: CompactStatProps) {
-  const colorClasses = {
-    orange: 'text-cor-accent-orange',
-    green: 'text-cor-accent-green',
-    purple: 'text-cor-accent-purple',
-    pink: 'text-cor-accent-pink',
-  };
-
-  return (
-    <div className={`flex items-center gap-1 ${colorClasses[color]}`}>
-      {icon}
-      <span className="text-xs font-bold">{value}</span>
-    </div>
-  );
-}

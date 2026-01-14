@@ -17,41 +17,43 @@ export function BlocoDetailPanel({ bloco, onClose, isMobile = false }: BlocoDeta
 
   // Classes condicionais para mobile (bottom sheet) vs desktop (side panel)
   const containerClasses = isMobile
-    ? 'fixed bottom-0 left-0 right-0 z-[1000] bg-cor-bg-secondary/95 backdrop-blur-sm rounded-t-2xl border-t border-white/10 shadow-xl max-h-[60vh] overflow-hidden'
-    : 'absolute top-4 right-4 z-[1000] w-[340px] bg-cor-bg-secondary/95 backdrop-blur-sm rounded-xl border border-white/10 shadow-xl overflow-hidden';
+    ? 'fixed bottom-0 left-0 right-0 z-[1000] bg-cor-bg-secondary/98 backdrop-blur-lg rounded-t-3xl border-t-2 border-white/20 shadow-2xl max-h-[70vh] overflow-hidden'
+    : 'absolute top-4 right-4 z-[1000] w-[360px] bg-cor-bg-secondary/98 backdrop-blur-lg rounded-xl border border-white/10 shadow-2xl overflow-hidden';
 
   return (
     <div className={containerClasses}>
-      {/* Barra indicadora para mobile */}
+      {/* Barra indicadora para mobile - drag handle */}
       {isMobile && (
-        <div className="flex justify-center py-2 bg-cor-bg-secondary">
-          <div className="w-12 h-1 bg-white/30 rounded-full" />
+        <div className="flex justify-center py-3 bg-cor-bg-secondary border-b border-white/5">
+          <div className="w-12 h-1.5 bg-white/40 rounded-full" />
         </div>
       )}
 
-      {/* Header colorido */}
+      {/* Header colorido com gradiente */}
       <div
-        className="px-4 py-3 relative"
-        style={{ backgroundColor: `${cor}20` }}
+        className="px-4 py-4 relative border-b border-white/10"
+        style={{
+          background: `linear-gradient(135deg, ${cor}25 0%, ${cor}10 100%)`
+        }}
       >
         <div
-          className="absolute left-0 top-0 bottom-0 w-1"
-          style={{ backgroundColor: cor }}
+          className="absolute left-0 top-0 bottom-0 w-1.5 rounded-r-full"
+          style={{ backgroundColor: cor, boxShadow: `0 0 10px ${cor}` }}
         />
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 text-white/50 hover:text-white transition-colors"
+          className="absolute top-4 right-4 p-1 text-white/50 hover:text-white hover:bg-white/10 rounded-lg transition-all"
         >
           <X size={18} />
         </button>
-        <h3 className="text-base font-bold text-white pr-8 leading-tight">
+        <h3 className="text-base font-bold text-white pr-10 leading-tight">
           {bloco.nome}
         </h3>
-        <p className="text-xs text-white/60 mt-1">{bloco.subprefeitura}</p>
+        <p className="text-xs text-white/70 mt-1.5 font-medium">{bloco.subprefeitura}</p>
       </div>
 
-      {/* Conteudo */}
-      <div className={`p-4 space-y-4 overflow-y-auto ${isMobile ? 'max-h-[calc(60vh-100px)]' : 'max-h-[calc(100vh-200px)]'}`}>
+      {/* Conteudo scrollável com custom scrollbar */}
+      <div className={`p-4 space-y-4 overflow-y-auto custom-scrollbar ${isMobile ? 'max-h-[calc(70vh-120px)]' : 'max-h-[calc(100vh-200px)]'}`}>
         {/* Data e Horario */}
         <div className="grid grid-cols-2 gap-3">
           <InfoItem

@@ -92,20 +92,25 @@ export function Sidebar({
         )}
       </div>
 
-      {/* Lista de blocos - área scrollável */}
-      <div
-        className="flex-1 p-4"
-        style={{
-          overflowY: 'auto',
-          overflowX: 'hidden',
-          minHeight: 0,
-        }}
-      >
-        <BlocoList
-          blocos={blocos}
-          blocoSelecionado={blocoSelecionado}
-          onSelectBloco={onSelectBloco}
-        />
+      {/* Lista de blocos - área scrollável com indicadores visuais */}
+      <div className="flex-1 relative overflow-hidden">
+        {/* Gradiente fade top - indica que há conteúdo acima */}
+        <div className="absolute top-0 left-0 right-0 h-6 bg-gradient-to-b from-cor-bg-secondary via-cor-bg-secondary/80 to-transparent pointer-events-none z-10" />
+
+        {/* Área scrollável com custom scrollbar */}
+        <div
+          className="h-full p-4 pt-2 pb-2 overflow-y-auto overflow-x-hidden custom-scrollbar"
+          style={{ minHeight: 0 }}
+        >
+          <BlocoList
+            blocos={blocos}
+            blocoSelecionado={blocoSelecionado}
+            onSelectBloco={onSelectBloco}
+          />
+        </div>
+
+        {/* Gradiente fade bottom - indica que há conteúdo abaixo */}
+        <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-cor-bg-secondary via-cor-bg-secondary/80 to-transparent pointer-events-none z-10" />
       </div>
     </>
   );
