@@ -3,7 +3,7 @@ import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { MapView } from './components/Map';
 import { BlocoDetailPanel } from './components/BlocoDetail';
-import { DateDistributionChart } from './components/Stats';
+import { DateSidebar } from './components/Stats';
 import { AlertasPanel } from './components/Alertas';
 import { useBlocos, useFilters, useCameras, useCamerasProximas, useResponsive, useAlertas } from './hooks';
 import type { Bloco } from './types/bloco';
@@ -24,6 +24,7 @@ function App() {
 
   const { isMobile } = useResponsive();
   const [sidebarOpen, setSidebarOpen] = useState(!isMobile); // Aberto por padrão no desktop
+  const [dateSidebarOpen, setDateSidebarOpen] = useState(!isMobile); // Sidebar de datas aberto no desktop
   const [blocoSelecionado, setBlocoSelecionado] = useState<Bloco | null>(null);
   const [alertasPanelOpen, setAlertasPanelOpen] = useState(false);
   const [somAtivado, setSomAtivado] = useState(true);
@@ -225,31 +226,66 @@ function App() {
 
         {/* Map Area */}
         <main className="flex-1 relative min-w-0 flex flex-col">
-          <div className="flex-1 relative">
-            <MapView
-              blocos={blocosFiltrados}
-              blocoSelecionado={blocoSelecionado}
-              onSelectBloco={handleSelectBloco}
-              camerasProximas={camerasProximas}
-            />
+          {isMobile ? (
+            <>
+              {/* Layout Mobile - Mapa com gráfico no rodapé */}
+              <div className="flex-1 relative">
+                <MapView
+                  blocos={blocosFiltrados}
+                  blocoSelecionado={blocoSelecionado}
+                  onSelectBloco={handleSelectBloco}
+                  camerasProximas={camerasProximas}
+                />
 
-            {/* Painel de detalhes do bloco - Bottom Sheet em mobile */}
-            <BlocoDetailPanel
-              bloco={blocoSelecionado}
-              onClose={handleCloseDetail}
-              isMobile={isMobile}
-            />
-          </div>
+                {/* Painel de detalhes do bloco - Bottom Sheet em mobile */}
+                <BlocoDetailPanel
+                  bloco={blocoSelecionado}
+                  onClose={handleCloseDetail}
+                  isMobile={isMobile}
+                />
+              </div>
 
-          {/* Gráfico de distribuição - dentro do main, abaixo do mapa */}
-          <div className="flex-shrink-0">
-            <DateDistributionChart
-              blocos={blocos}
-              dataSelecionada={filtros.data !== 'todos' ? filtros.data : undefined}
-              onSelectData={handleSelectData}
-            />
-          </div>
+              {/* Gráfico de distribuição mobile - no rodapé */}
+              <div className="flex-shrink-0">
+                <DateSidebar
+                  blocos={blocos}
+                  dataSelecionada={filtros.data !== 'todos' ? filtros.data : undefined}
+                  onSelectData={handleSelectData}
+                  isMobile={true}
+                />
+              </div>
+            </>
+          ) : (
+            /* Layout Desktop - Apenas o mapa */
+            <div className="flex-1 relative">
+              <MapView
+                blocos={blocosFiltrados}
+                blocoSelecionado={blocoSelecionado}
+                onSelectBloco={handleSelectBloco}
+                camerasProximas={camerasProximas}
+              />
+
+              {/* Painel de detalhes do bloco */}
+              <BlocoDetailPanel
+                bloco={blocoSelecionado}
+                onClose={handleCloseDetail}
+                isMobile={false}
+              />
+            </div>
+          )}
         </main>
+
+        {/* Sidebar de datas (apenas desktop) */}
+        {!isMobile && (
+          <DateSidebar
+            blocos={blocos}
+            dataSelecionada={filtros.data !== 'todos' ? filtros.data : undefined}
+            onSelectData={handleSelectData}
+            isOpen={dateSidebarOpen}
+            onClose={() => setDateSidebarOpen(!dateSidebarOpen)}
+            isMobile={false}
+          />
+        )}
       </div>
 
       {/* Painel de Alertas */}

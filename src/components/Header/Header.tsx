@@ -44,68 +44,67 @@ export function Header({
   const isFiltered = estatisticas.totalBlocos !== totalBlocosOriginal;
   const [legendaVisivel, setLegendaVisivel] = useState(false);
 
-  // Versão Mobile - Layout em duas linhas
+  // Versão Mobile - Compacto em uma linha
   if (isMobile) {
     return (
       <header className="bg-cor-bg-secondary border-b border-white/10">
-        {/* Primeira linha - Logo, Menu e Alertas */}
-        <div className="flex items-center justify-between px-3 py-2 border-b border-white/5">
+        <div className="flex items-center justify-between px-2 py-1.5 gap-1">
+          {/* Menu */}
           <button
             onClick={onMenuClick}
-            className="p-1.5 hover:bg-white/10 rounded-lg transition-colors flex-shrink-0"
+            className="p-1 hover:bg-white/10 rounded transition-colors flex-shrink-0"
             aria-label="Abrir menu"
           >
-            <Menu size={20} className="text-white" />
+            <Menu size={18} className="text-white" />
           </button>
 
+          {/* Logo compacto */}
           <img
             src="/data/RIOPREFEITURA COR horizontal monocromatica branco.png"
             alt="COR"
-            className="h-6 w-auto"
+            className="h-4 w-auto flex-shrink-0"
           />
 
-          {onAlertasClick && (
-            <AlertaBadge
-              count={alertasCount}
-              hasHighPriority={alertasHighPriority}
-              onClick={onAlertasClick}
-            />
-          )}
-        </div>
-
-        {/* Segunda linha - Stats e Tour */}
-        <div className="flex items-center justify-between px-3 py-1.5 gap-2">
-          <div className="flex items-center gap-3 flex-1 min-w-0">
-            <div className="flex items-center gap-1 text-cor-accent-orange">
-              <MapPin size={12} />
-              <span className="text-xs font-bold">{estatisticas.totalBlocos}</span>
+          {/* Stats compactos */}
+          <div className="flex items-center gap-1.5 flex-shrink-0">
+            <div className="flex items-center gap-0.5 text-cor-accent-orange">
+              <MapPin size={10} />
+              <span className="text-[10px] font-bold">{estatisticas.totalBlocos}</span>
             </div>
-            <div className="flex items-center gap-1 text-cor-accent-green">
-              <Users size={12} />
-              <span className="text-xs font-bold">{formatarNumero(estatisticas.publicoTotal)}</span>
+            <div className="flex items-center gap-0.5 text-cor-accent-green">
+              <Users size={10} />
+              <span className="text-[10px] font-bold">{formatarNumero(estatisticas.publicoTotal)}</span>
             </div>
           </div>
 
+          {/* Tour compacto */}
           {!tourState.ativo ? (
             <button
               onClick={onTourStart}
               disabled={estatisticas.totalBlocos === 0}
-              className="flex items-center gap-1 px-2 py-1 bg-cor-accent-green/20 text-cor-accent-green border border-cor-accent-green/30 rounded-lg disabled:opacity-50 text-xs font-medium flex-shrink-0"
+              className="p-1 bg-cor-accent-green/20 text-cor-accent-green border border-cor-accent-green/30 rounded disabled:opacity-50 flex-shrink-0"
               title="Tour"
             >
-              <Play size={14} />
-              Tour
+              <Play size={12} />
             </button>
           ) : (
-            <div className="flex items-center gap-1 px-2 py-1 bg-cor-accent-green/10 border border-cor-accent-green/30 rounded-lg flex-shrink-0">
-              <div className="w-1.5 h-1.5 bg-cor-accent-green rounded-full animate-pulse" />
-              <span className="text-[10px] text-white/70 font-mono">{tourState.tempoRestante}s</span>
-              <button onClick={onTourNext} className="p-0.5 hover:bg-white/10 rounded">
-                <SkipForward size={12} className="text-white/70" />
+            <div className="flex items-center gap-0.5 px-1 py-0.5 bg-cor-accent-green/10 border border-cor-accent-green/30 rounded flex-shrink-0">
+              <div className="w-1 h-1 bg-cor-accent-green rounded-full animate-pulse" />
+              <span className="text-[9px] text-white/70 font-mono">{tourState.tempoRestante}s</span>
+              <button onClick={onTourStop} className="p-0.5">
+                <Square size={10} className="text-cor-accent-pink" />
               </button>
-              <button onClick={onTourStop} className="p-0.5 hover:bg-cor-accent-pink/20 rounded">
-                <Square size={12} className="text-cor-accent-pink" />
-              </button>
+            </div>
+          )}
+
+          {/* Alertas */}
+          {onAlertasClick && (
+            <div className="flex-shrink-0">
+              <AlertaBadge
+                count={alertasCount}
+                hasHighPriority={alertasHighPriority}
+                onClick={onAlertasClick}
+              />
             </div>
           )}
         </div>
