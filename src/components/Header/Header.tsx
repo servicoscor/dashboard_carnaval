@@ -48,7 +48,7 @@ export function Header({
   if (isMobile) {
     return (
       <header className="bg-cor-bg-secondary border-b border-white/10">
-        <div className="flex items-center justify-between px-2 py-1.5 gap-1">
+        <div className="flex items-center gap-1 px-2 py-1.5">
           {/* Menu */}
           <button
             onClick={onMenuClick}
@@ -58,12 +58,15 @@ export function Header({
             <Menu size={18} className="text-white" />
           </button>
 
-          {/* Logo compacto */}
-          <img
-            src="/data/RIOPREFEITURA COR horizontal monocromatica branco.png"
-            alt="COR"
-            className="h-4 w-auto flex-shrink-0"
-          />
+          {/* Logo + Titulo compacto */}
+          <div className="flex-1 flex items-center justify-center gap-1.5 min-w-0">
+            <img
+              src="/data/RIOPREFEITURA COR horizontal monocromatica branco.png"
+              alt="COR"
+              className="h-4 w-auto flex-shrink-0"
+            />
+            <span className="text-xs font-bold text-white whitespace-nowrap">Carnaval 2026</span>
+          </div>
 
           {/* Stats compactos */}
           <div className="flex items-center gap-1.5 flex-shrink-0">
@@ -76,26 +79,6 @@ export function Header({
               <span className="text-[10px] font-bold">{formatarNumero(estatisticas.publicoTotal)}</span>
             </div>
           </div>
-
-          {/* Tour compacto */}
-          {!tourState.ativo ? (
-            <button
-              onClick={onTourStart}
-              disabled={estatisticas.totalBlocos === 0}
-              className="p-1 bg-cor-accent-green/20 text-cor-accent-green border border-cor-accent-green/30 rounded disabled:opacity-50 flex-shrink-0"
-              title="Tour"
-            >
-              <Play size={12} />
-            </button>
-          ) : (
-            <div className="flex items-center gap-0.5 px-1 py-0.5 bg-cor-accent-green/10 border border-cor-accent-green/30 rounded flex-shrink-0">
-              <div className="w-1 h-1 bg-cor-accent-green rounded-full animate-pulse" />
-              <span className="text-[9px] text-white/70 font-mono">{tourState.tempoRestante}s</span>
-              <button onClick={onTourStop} className="p-0.5">
-                <Square size={10} className="text-cor-accent-pink" />
-              </button>
-            </div>
-          )}
 
           {/* Alertas */}
           {onAlertasClick && (
@@ -114,54 +97,54 @@ export function Header({
 
   // Versão Desktop
   return (
-    <header className="bg-cor-bg-secondary border-b border-white/10 relative">
+    <header className="bg-cor-bg-secondary border-b border-white/10">
       {/* Linha principal do header */}
-      <div className="px-6 py-3 flex items-center justify-between">
+      <div className="px-4 py-3 flex items-center gap-4">
         {/* Logo COR - Esquerda */}
-        <div className="flex items-center gap-3 flex-shrink-0">
+        <div className="flex items-center gap-2 flex-shrink-0">
           <img
             src="/data/RIOPREFEITURA COR horizontal monocromatica branco.png"
             alt="COR - Centro de Operacoes Rio"
-            className="h-10 w-auto"
+            className="h-8 w-auto"
           />
           {/* Botão Legenda */}
           <button
             onClick={() => setLegendaVisivel(!legendaVisivel)}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border transition-colors ${
+            className={`flex items-center gap-1 px-2 py-1 rounded border transition-colors ${
               legendaVisivel
                 ? 'bg-white/10 border-white/20 text-white'
                 : 'bg-transparent border-white/10 text-white/60 hover:bg-white/5 hover:text-white/80'
             }`}
             title={legendaVisivel ? 'Ocultar legenda' : 'Mostrar legenda'}
           >
-            <Info size={14} />
-            <span className="text-xs font-medium">Legenda</span>
-            {legendaVisivel ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+            <Info size={12} />
+            <span className="text-[10px] font-medium hidden xl:inline">Legenda</span>
+            {legendaVisivel ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
           </button>
 
           {/* Botão Timeline */}
           <Link
             to="/timeline"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/10 text-white/60 hover:bg-white/5 hover:text-white/80 transition-colors"
+            className="flex items-center gap-1 px-2 py-1 rounded border border-white/10 text-white/60 hover:bg-white/5 hover:text-white/80 transition-colors"
             title="Ver timeline dos blocos"
           >
-            <Calendar size={14} />
-            <span className="text-xs font-medium">Timeline</span>
+            <Calendar size={12} />
+            <span className="text-[10px] font-medium hidden xl:inline">Timeline</span>
           </Link>
         </div>
 
         {/* Titulo Central */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-          <h1 className="text-2xl font-bold text-white tracking-wide">
+        <div className="flex-1 flex flex-col items-center justify-center min-w-0 mx-2">
+          <h1 className="text-lg lg:text-xl font-bold text-white tracking-wide whitespace-nowrap">
             Carnaval Rio 2026
           </h1>
-          <p className="text-xs text-white/50">
+          <p className="text-[9px] text-white/50 hidden sm:block">
             Dashboard de Blocos
           </p>
         </div>
 
         {/* Stats Pills + Tour - Direita */}
-        <div className="flex items-center gap-3 flex-shrink-0">
+        <div className="flex items-center gap-2 flex-shrink-0">
           <StatPill
             icon={<MapPin size={14} />}
             label="Blocos"
