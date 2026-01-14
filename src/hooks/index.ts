@@ -3,3 +3,4 @@ export { useFilters } from './useFilters';
 export { useCameras, useCamerasProximas } from './useCameras';
 export { useResponsive } from './useResponsive';
 export { useAlertas } from './useAlertas';
+export { usePercursosKMZ, usePercursoBloco } from './usePercursosKMZ';

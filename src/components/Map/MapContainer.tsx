@@ -2,10 +2,11 @@ import { MapContainer as LeafletMapContainer, TileLayer, useMap } from 'react-le
 import { useEffect, useState } from 'react';
 import type { Bloco, Camera } from '../../types/bloco';
 import { BlocoMarker } from './BlocoMarker';
-import { BlocoRoute } from './BlocoRoute';
+import { BlocoRouteKMZ } from './BlocoRouteKMZ';
 import { CameraMarker } from './CameraMarker';
 import { CameraPlayer } from './CameraPlayer';
 import { RIO_CENTER, DEFAULT_ZOOM, TILE_LAYERS, TILE_ATTRIBUTION } from '../../utils/constants';
+import { usePercursosKMZ } from '../../hooks/usePercursosKMZ';
 import 'leaflet/dist/leaflet.css';
 
 interface MapContainerProps {
@@ -63,6 +64,7 @@ function MapController({ blocoSelecionado }: { blocoSelecionado: Bloco | null })
 
 export function MapView({ blocos, blocoSelecionado, onSelectBloco, camerasProximas = [] }: MapContainerProps) {
   const [cameraAberta, setCameraAberta] = useState<Camera | null>(null);
+  const percursosKMZ = usePercursosKMZ();
 
   const handleCameraClick = (camera: Camera) => {
     setCameraAberta(camera);
@@ -88,11 +90,12 @@ export function MapView({ blocos, blocoSelecionado, onSelectBloco, camerasProxim
         <MapResizeHandler />
         <MapController blocoSelecionado={blocoSelecionado} />
 
-        {/* Renderizar rota do bloco selecionado (se houver) */}
+        {/* Renderizar rota do bloco selecionado (se houver) - com suporte a KMZ */}
         {blocoSelecionado && (
-          <BlocoRoute
+          <BlocoRouteKMZ
             bloco={blocoSelecionado}
             isSelected={true}
+            percursosKMZ={percursosKMZ}
           />
         )}
 
