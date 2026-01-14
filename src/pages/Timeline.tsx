@@ -1,8 +1,9 @@
 import { useMemo, useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ZoomIn, ZoomOut, Calendar } from 'lucide-react';
+import { ArrowLeft, ZoomIn, ZoomOut, Calendar, FileDown, Loader2 } from 'lucide-react';
 import { useBlocos } from '../hooks';
 import { getCorSubprefeitura } from '../data/coordenadasBairros';
+import { exportTimelinePDF } from '../utils/exportPDF';
 import type { Bloco } from '../types/bloco';
 
 // Configurações do timeline
@@ -209,9 +210,26 @@ export function Timeline() {
   const { blocos, loading } = useBlocos();
   const [zoom, setZoom] = useState(1);
   const [expandedDays, setExpandedDays] = useState<Set<string>>(new Set());
+  const [isExporting, setIsExporting] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const hourWidth = HOUR_WIDTH_BASE * zoom;
+
+  // Função para exportar PDF
+  const handleExportPDF = async () => {
+    setIsExporting(true);
+    try {
+      await exportTimelinePDF({
+        blocos,
+        filename: 'carnaval-rio-2026-timeline',
+        title: 'Carnaval Rio 2026 - Timeline dos Blocos',
+      });
+    } catch (error) {
+      console.error('Erro ao exportar PDF:', error);
+    } finally {
+      setIsExporting(false);
+    }
+  };
 
   // Agrupar blocos por data
   const blocosPorData = useMemo(() => {
@@ -311,6 +329,22 @@ export function Timeline() {
 
             <div className="w-px h-8 bg-white/10" />
 
+            {/* Exportar PDF */}
+            <button
+              onClick={handleExportPDF}
+              disabled={isExporting}
+              className="flex items-center gap-2 px-3 py-1.5 bg-cor-accent-orange hover:bg-cor-accent-orange/80 text-white text-xs font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isExporting ? (
+                <Loader2 size={14} className="animate-spin" />
+              ) : (
+                <FileDown size={14} />
+              )}
+              {isExporting ? 'Gerando...' : 'Exportar PDF'}
+            </button>
+
+            <div className="w-px h-8 bg-white/10" />
+
             {/* Zoom */}
             <div className="flex items-center gap-2 bg-white/5 rounded-lg px-2 py-1">
               <button
@@ -336,7 +370,7 @@ export function Timeline() {
       </header>
 
       {/* Conteúdo */}
-      <div ref={containerRef} className="flex-1 overflow-y-auto">
+      <div ref={containerRef} id="timeline-content" className="flex-1 overflow-y-auto">
         {blocosPorData.map(({ data, blocos: blocosData }) => (
           <TimelineDay
             key={data}

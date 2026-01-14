@@ -4,6 +4,7 @@ import { Music, Users, Route, MapPin, Play, Square, SkipForward, Menu, Info, Che
 import type { Bloco, Estatisticas } from '../../types/bloco';
 import { formatarNumero } from '../../utils/formatters';
 import { coresSubprefeitura } from '../../data/coordenadasBairros';
+import { AlertaBadge } from '../Alertas';
 
 interface TourState {
   ativo: boolean;
@@ -22,6 +23,9 @@ interface HeaderProps {
   onTourNext: () => void;
   isMobile?: boolean;
   onMenuClick?: () => void;
+  alertasCount?: number;
+  alertasHighPriority?: boolean;
+  onAlertasClick?: () => void;
 }
 
 export function Header({
@@ -33,6 +37,9 @@ export function Header({
   onTourNext,
   isMobile = false,
   onMenuClick,
+  alertasCount = 0,
+  alertasHighPriority = false,
+  onAlertasClick,
 }: HeaderProps) {
   const isFiltered = estatisticas.totalBlocos !== totalBlocosOriginal;
   const [legendaVisivel, setLegendaVisivel] = useState(false);
@@ -85,6 +92,15 @@ export function Header({
                 <Square size={12} className="text-cor-accent-pink" />
               </button>
             </div>
+          )}
+
+          {/* Alertas Badge */}
+          {onAlertasClick && (
+            <AlertaBadge
+              count={alertasCount}
+              hasHighPriority={alertasHighPriority}
+              onClick={onAlertasClick}
+            />
           )}
         </div>
       </header>
@@ -219,6 +235,15 @@ export function Header({
                 <Square size={14} className="text-cor-accent-pink" />
               </button>
             </div>
+          )}
+
+          {/* Alertas Badge */}
+          {onAlertasClick && (
+            <AlertaBadge
+              count={alertasCount}
+              hasHighPriority={alertasHighPriority}
+              onClick={onAlertasClick}
+            />
           )}
         </div>
       </div>

@@ -4,7 +4,8 @@ import { Sidebar } from './components/Sidebar';
 import { MapView } from './components/Map';
 import { BlocoDetailPanel } from './components/BlocoDetail';
 import { DateDistributionChart } from './components/Stats';
-import { useBlocos, useFilters, useCameras, useCamerasProximas, useResponsive } from './hooks';
+import { AlertasPanel } from './components/Alertas';
+import { useBlocos, useFilters, useCameras, useCamerasProximas, useResponsive, useAlertas } from './hooks';
 import type { Bloco } from './types/bloco';
 import { Loader2, AlertCircle, RefreshCw } from 'lucide-react';
 
@@ -24,6 +25,23 @@ function App() {
   const { isMobile } = useResponsive();
   const [sidebarOpen, setSidebarOpen] = useState(!isMobile); // Aberto por padrão no desktop
   const [blocoSelecionado, setBlocoSelecionado] = useState<Bloco | null>(null);
+  const [alertasPanelOpen, setAlertasPanelOpen] = useState(false);
+  const [somAtivado, setSomAtivado] = useState(true);
+
+  // Sistema de Alertas
+  const {
+    alertasPendentes,
+    confirmarAlerta,
+    confirmarTodos,
+    totalPendentes,
+    hasHighPriority,
+    audioRef,
+  } = useAlertas(blocos, {
+    minutosAntecedencia: 15,
+    somAtivado,
+    thresholdPublicoAlta: 50000,
+    thresholdPublicoMedia: 10000,
+  });
 
   // Estado do Tour
   const [tourAtivo, setTourAtivo] = useState(false);
@@ -165,6 +183,9 @@ function App() {
           onTourNext={handleTourNext}
           isMobile={isMobile}
           onMenuClick={() => setSidebarOpen(true)}
+          alertasCount={totalPendentes}
+          alertasHighPriority={hasHighPriority}
+          onAlertasClick={() => setAlertasPanelOpen(true)}
         />
       </div>
 
@@ -230,6 +251,30 @@ function App() {
           </div>
         </main>
       </div>
+
+      {/* Painel de Alertas */}
+      {alertasPanelOpen && (
+        <AlertasPanel
+          alertas={alertasPendentes}
+          onConfirmar={confirmarAlerta}
+          onConfirmarTodos={confirmarTodos}
+          onClose={() => setAlertasPanelOpen(false)}
+          onVerNoMapa={(blocoId) => {
+            const bloco = blocos.find(b => b.id === blocoId);
+            if (bloco) {
+              setBlocoSelecionado(bloco);
+            }
+            setAlertasPanelOpen(false);
+          }}
+          somAtivado={somAtivado}
+          onToggleSom={() => setSomAtivado(prev => !prev)}
+        />
+      )}
+
+      {/* Som de alerta */}
+      <audio ref={audioRef} preload="auto">
+        <source src="data:audio/wav;base64,UklGRigAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAAAAA==" type="audio/wav" />
+      </audio>
     </div>
   );
 }
