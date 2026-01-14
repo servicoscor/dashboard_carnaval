@@ -1,5 +1,5 @@
-import { useMemo } from 'react';
-import { Calendar, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useMemo, useState } from 'react';
+import { Calendar, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 import type { Bloco } from '../../types/bloco';
 import { formatarDataCurta, formatarDiaSemana } from '../../utils/formatters';
 
@@ -20,6 +20,20 @@ export function BlocosByDate({
   onClose,
   isMobile = false
 }: BlocosByDateProps) {
+  const [expandedDates, setExpandedDates] = useState<Set<string>>(new Set());
+
+  const toggleDate = (data: string) => {
+    setExpandedDates(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(data)) {
+        newSet.delete(data);
+      } else {
+        newSet.add(data);
+      }
+      return newSet;
+    });
+  };
+
   const blocosPorData = useMemo(() => {
     const agrupados: Record<string, Bloco[]> = {};
 
@@ -73,82 +87,96 @@ export function BlocosByDate({
         </div>
 
         {/* Lista de datas com blocos - scrollável */}
-        <div className="flex-1 overflow-y-auto overflow-x-hidden custom-scrollbar">
-          {blocosPorData.map(({ data, label, diaSemana, blocos }) => (
-            <div key={data} className="border-b border-white/5">
-              {/* Header da data */}
-              <div className="sticky top-0 bg-cor-bg-tertiary/95 backdrop-blur-sm px-4 py-2 border-b border-white/10 z-10">
-                <div className="flex items-baseline justify-between">
-                  <div>
-                    <div className="text-sm font-bold text-cor-accent-orange">
-                      {label}
+        <div className="flex-1 overflow-y-auto overflow-x-hidden custom-scrollbar p-2">
+          {blocosPorData.map(({ data, label, diaSemana, blocos }) => {
+            const isExpanded = expandedDates.has(data);
+
+            return (
+              <div key={data} className="mb-2">
+                {/* Header da data - Clicável */}
+                <button
+                  onClick={() => toggleDate(data)}
+                  className="w-full bg-cor-bg-tertiary hover:bg-cor-bg-tertiary/80 rounded-lg px-3 py-2.5 border border-white/10 transition-all duration-200"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className={`transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}>
+                        <ChevronDown size={14} className="text-cor-accent-orange" />
+                      </div>
+                      <div className="text-left">
+                        <div className="text-sm font-bold text-cor-accent-orange">
+                          {label}
+                        </div>
+                        <div className="text-[10px] text-white/50 capitalize">
+                          {diaSemana}
+                        </div>
+                      </div>
                     </div>
-                    <div className="text-[10px] text-white/50 capitalize">
-                      {diaSemana}
+                    <div className="text-xs text-white/70 font-medium">
+                      {blocos.length}
                     </div>
                   </div>
-                  <div className="text-xs text-white/70">
-                    {blocos.length} {blocos.length === 1 ? 'bloco' : 'blocos'}
+                </button>
+
+                {/* Lista de blocos - Expansível */}
+                {isExpanded && (
+                  <div className="mt-1 space-y-1">
+                    {blocos.map((bloco) => {
+                      const isSelected = blocoSelecionado?.id === bloco.id;
+
+                      return (
+                        <button
+                          key={bloco.id}
+                          onClick={() => onSelectBloco?.(bloco)}
+                          className={`w-full px-3 py-2.5 text-left transition-all duration-200 rounded-lg border ${
+                            isSelected
+                              ? 'bg-cor-accent-orange/20 border-cor-accent-orange'
+                              : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'
+                          }`}
+                        >
+                          {/* Nome do bloco */}
+                          <div className={`text-xs font-medium mb-1 line-clamp-2 ${
+                            isSelected ? 'text-cor-accent-orange' : 'text-white'
+                          }`}>
+                            {bloco.nome}
+                          </div>
+
+                          {/* Informações */}
+                          <div className="flex items-center gap-1.5 text-[9px] text-white/50">
+                            {bloco.horaInicio && (
+                              <span>{bloco.horaInicio}</span>
+                            )}
+                            {bloco.subprefeitura && (
+                              <>
+                                <span>•</span>
+                                <span className="truncate">{bloco.subprefeitura}</span>
+                              </>
+                            )}
+                          </div>
+
+                          {/* Tipo e Público */}
+                          <div className="flex items-center gap-1.5 mt-1">
+                            <span className={`text-[8px] px-1 py-0.5 rounded ${
+                              bloco.formaApresentacao === 'COM DESLOCAMENTO'
+                                ? 'bg-purple-500/20 text-purple-300'
+                                : 'bg-pink-500/20 text-pink-300'
+                            }`}>
+                              {bloco.formaApresentacao === 'COM DESLOCAMENTO' ? 'Desloc.' : 'Conc.'}
+                            </span>
+                            {bloco.publicoEstimado && (
+                              <span className="text-[8px] text-white/40">
+                                {bloco.publicoEstimado.toLocaleString()}
+                              </span>
+                            )}
+                          </div>
+                        </button>
+                      );
+                    })}
                   </div>
-                </div>
+                )}
               </div>
-
-              {/* Lista de blocos */}
-              <div className="divide-y divide-white/5">
-                {blocos.map((bloco) => {
-                  const isSelected = blocoSelecionado?.id === bloco.id;
-
-                  return (
-                    <button
-                      key={bloco.id}
-                      onClick={() => onSelectBloco?.(bloco)}
-                      className={`w-full px-4 py-3 text-left transition-all duration-200 ${
-                        isSelected
-                          ? 'bg-cor-accent-orange/20 border-l-2 border-cor-accent-orange'
-                          : 'hover:bg-white/5 border-l-2 border-transparent'
-                      }`}
-                    >
-                      {/* Nome do bloco */}
-                      <div className={`text-sm font-medium mb-1 line-clamp-2 ${
-                        isSelected ? 'text-cor-accent-orange' : 'text-white'
-                      }`}>
-                        {bloco.nome}
-                      </div>
-
-                      {/* Informações */}
-                      <div className="flex items-center gap-2 text-[10px] text-white/50">
-                        {bloco.horaInicio && (
-                          <span>{bloco.horaInicio}</span>
-                        )}
-                        {bloco.subprefeitura && (
-                          <>
-                            <span>•</span>
-                            <span>{bloco.subprefeitura}</span>
-                          </>
-                        )}
-                      </div>
-
-                      {/* Tipo e Público */}
-                      <div className="flex items-center gap-2 mt-1">
-                        <span className={`text-[9px] px-1.5 py-0.5 rounded ${
-                          bloco.formaApresentacao === 'COM DESLOCAMENTO'
-                            ? 'bg-purple-500/20 text-purple-300'
-                            : 'bg-pink-500/20 text-pink-300'
-                        }`}>
-                          {bloco.formaApresentacao === 'COM DESLOCAMENTO' ? 'Deslocamento' : 'Concentração'}
-                        </span>
-                        {bloco.publicoEstimado && (
-                          <span className="text-[9px] text-white/40">
-                            {bloco.publicoEstimado.toLocaleString()} pessoas
-                          </span>
-                        )}
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </aside>
 

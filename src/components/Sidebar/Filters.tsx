@@ -81,13 +81,6 @@ export function Filters({
           ))}
         </select>
       </div>
-
-      {/* Info sobre percursos */}
-      <div className="pt-2 border-t border-white/10">
-        <p className="text-xs text-white/50 text-center">
-          Clique em um bloco para ver seu percurso no mapa
-        </p>
-      </div>
     </div>
   );
 }
