@@ -4,7 +4,7 @@ import { Sidebar } from './components/Sidebar';
 import { MapView } from './components/Map';
 import { BlocoDetailPanel } from './components/BlocoDetail';
 import { DateDistributionChart } from './components/Stats';
-import { useBlocos, useFilters, useCameras, useCamerasProximas } from './hooks';
+import { useBlocos, useFilters, useCameras, useCamerasProximas, useResponsive } from './hooks';
 import type { Bloco } from './types/bloco';
 import { Loader2, AlertCircle, RefreshCw } from 'lucide-react';
 
@@ -21,6 +21,8 @@ function App() {
     datasDisponiveis,
   } = useFilters(blocos);
 
+  const { isMobile } = useResponsive();
+  const [sidebarOpen, setSidebarOpen] = useState(!isMobile); // Aberto por padrão no desktop
   const [blocoSelecionado, setBlocoSelecionado] = useState<Bloco | null>(null);
 
   // Estado do Tour
@@ -36,7 +38,10 @@ function App() {
 
   const handleSelectBloco = useCallback((bloco: Bloco) => {
     setBlocoSelecionado(bloco);
-  }, []);
+    if (isMobile) {
+      setSidebarOpen(false);
+    }
+  }, [isMobile]);
 
   const handleCloseDetail = useCallback(() => {
     setBlocoSelecionado(null);
@@ -158,6 +163,8 @@ function App() {
           onTourStart={handleTourStart}
           onTourStop={handleTourStop}
           onTourNext={handleTourNext}
+          isMobile={isMobile}
+          onMenuClick={() => setSidebarOpen(true)}
         />
       </div>
 
@@ -181,8 +188,8 @@ function App() {
       )}
 
       {/* Main Content - flex-1 com min-h-0 para permitir scroll */}
-      <div className="flex-1 flex overflow-hidden min-h-0">
-        {/* Sidebar */}
+      <div className="flex-1 flex overflow-hidden min-h-0 relative">
+        {/* Sidebar - Drawer em mobile, colapsável em desktop */}
         <Sidebar
           blocos={blocosFiltrados}
           blocoSelecionado={blocoSelecionado}
@@ -190,32 +197,38 @@ function App() {
           filtros={filtros}
           onFiltrosChange={setFiltros}
           datasDisponiveis={datasDisponiveis}
+          isMobile={isMobile}
+          isOpen={sidebarOpen}
+          onClose={() => setSidebarOpen(prev => isMobile ? false : !prev)}
         />
 
         {/* Map Area */}
-        <main className="flex-1 relative min-w-0">
-          <MapView
-            blocos={blocosFiltrados}
-            blocoSelecionado={blocoSelecionado}
-            onSelectBloco={handleSelectBloco}
-            camerasProximas={camerasProximas}
-          />
+        <main className="flex-1 relative min-w-0 flex flex-col">
+          <div className="flex-1 relative">
+            <MapView
+              blocos={blocosFiltrados}
+              blocoSelecionado={blocoSelecionado}
+              onSelectBloco={handleSelectBloco}
+              camerasProximas={camerasProximas}
+            />
 
-          {/* Painel de detalhes do bloco */}
-          <BlocoDetailPanel
-            bloco={blocoSelecionado}
-            onClose={handleCloseDetail}
-          />
+            {/* Painel de detalhes do bloco - Bottom Sheet em mobile */}
+            <BlocoDetailPanel
+              bloco={blocoSelecionado}
+              onClose={handleCloseDetail}
+              isMobile={isMobile}
+            />
+          </div>
+
+          {/* Gráfico de distribuição - dentro do main, abaixo do mapa */}
+          <div className="flex-shrink-0">
+            <DateDistributionChart
+              blocos={blocos}
+              dataSelecionada={filtros.data !== 'todos' ? filtros.data : undefined}
+              onSelectData={handleSelectData}
+            />
+          </div>
         </main>
-      </div>
-
-      {/* Footer com grafico de distribuicao */}
-      <div className="flex-shrink-0">
-        <DateDistributionChart
-          blocos={blocos}
-          dataSelecionada={filtros.data !== 'todos' ? filtros.data : undefined}
-          onSelectData={handleSelectData}
-        />
       </div>
     </div>
   );

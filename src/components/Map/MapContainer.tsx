@@ -5,7 +5,6 @@ import { BlocoMarker } from './BlocoMarker';
 import { BlocoRoute } from './BlocoRoute';
 import { CameraMarker } from './CameraMarker';
 import { CameraPlayer } from './CameraPlayer';
-import { MapLegend } from './MapLegend';
 import { RIO_CENTER, DEFAULT_ZOOM, TILE_LAYERS, TILE_ATTRIBUTION } from '../../utils/constants';
 import 'leaflet/dist/leaflet.css';
 
@@ -14,6 +13,37 @@ interface MapContainerProps {
   blocoSelecionado: Bloco | null;
   onSelectBloco: (bloco: Bloco) => void;
   camerasProximas?: Camera[];
+}
+
+// Componente para invalidar o tamanho do mapa quando o container redimensiona
+function MapResizeHandler() {
+  const map = useMap();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setTimeout(() => {
+        map.invalidateSize();
+      }, 50);
+    };
+
+    // Criar ResizeObserver para detectar mudanças no container
+    const container = map.getContainer();
+    const resizeObserver = new ResizeObserver(handleResize);
+    resizeObserver.observe(container);
+
+    // Também ouvir eventos de resize da janela
+    window.addEventListener('resize', handleResize);
+
+    // Invalidar tamanho inicial após montagem
+    handleResize();
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [map]);
+
+  return null;
 }
 
 // Componente para controlar o mapa programaticamente
@@ -55,6 +85,7 @@ export function MapView({ blocos, blocoSelecionado, onSelectBloco, camerasProxim
           url={TILE_LAYERS.dark}
         />
 
+        <MapResizeHandler />
         <MapController blocoSelecionado={blocoSelecionado} />
 
         {/* Renderizar rota do bloco selecionado (se houver) */}
@@ -84,8 +115,6 @@ export function MapView({ blocos, blocoSelecionado, onSelectBloco, camerasProxim
           />
         ))}
       </LeafletMapContainer>
-
-      <MapLegend />
 
       {/* Player de câmera flutuante */}
       {cameraAberta && (

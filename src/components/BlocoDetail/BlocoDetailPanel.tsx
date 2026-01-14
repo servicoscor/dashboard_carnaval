@@ -6,16 +6,29 @@ import { getCorSubprefeitura } from '../../data/coordenadasBairros';
 interface BlocoDetailPanelProps {
   bloco: Bloco | null;
   onClose: () => void;
+  isMobile?: boolean;
 }
 
-export function BlocoDetailPanel({ bloco, onClose }: BlocoDetailPanelProps) {
+export function BlocoDetailPanel({ bloco, onClose, isMobile = false }: BlocoDetailPanelProps) {
   if (!bloco) return null;
 
   const cor = getCorSubprefeitura(bloco.subprefeitura);
   const pontosPercurso = extrairPontosPercurso(bloco.percursoDetalhado);
 
+  // Classes condicionais para mobile (bottom sheet) vs desktop (side panel)
+  const containerClasses = isMobile
+    ? 'fixed bottom-0 left-0 right-0 z-[1000] bg-cor-bg-secondary/95 backdrop-blur-sm rounded-t-2xl border-t border-white/10 shadow-xl max-h-[60vh] overflow-hidden'
+    : 'absolute top-4 right-4 z-[1000] w-[340px] bg-cor-bg-secondary/95 backdrop-blur-sm rounded-xl border border-white/10 shadow-xl overflow-hidden';
+
   return (
-    <div className="absolute top-4 right-4 z-[1000] w-[340px] bg-cor-bg-secondary/95 backdrop-blur-sm rounded-xl border border-white/10 shadow-xl overflow-hidden">
+    <div className={containerClasses}>
+      {/* Barra indicadora para mobile */}
+      {isMobile && (
+        <div className="flex justify-center py-2 bg-cor-bg-secondary">
+          <div className="w-12 h-1 bg-white/30 rounded-full" />
+        </div>
+      )}
+
       {/* Header colorido */}
       <div
         className="px-4 py-3 relative"
@@ -38,7 +51,7 @@ export function BlocoDetailPanel({ bloco, onClose }: BlocoDetailPanelProps) {
       </div>
 
       {/* Conteudo */}
-      <div className="p-4 space-y-4 max-h-[calc(100vh-200px)] overflow-y-auto">
+      <div className={`p-4 space-y-4 overflow-y-auto ${isMobile ? 'max-h-[calc(60vh-100px)]' : 'max-h-[calc(100vh-200px)]'}`}>
         {/* Data e Horario */}
         <div className="grid grid-cols-2 gap-3">
           <InfoItem

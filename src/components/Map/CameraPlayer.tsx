@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { X, Maximize2, Minimize2, Move } from 'lucide-react';
 import type { Camera } from '../../types/bloco';
+import { useResponsive } from '../../hooks';
 
 interface CameraPlayerProps {
   camera: Camera;
@@ -23,6 +24,7 @@ const DEFAULT_WIDTH = 480;
 const DEFAULT_HEIGHT = 360;
 
 export function CameraPlayer({ camera, onClose }: CameraPlayerProps) {
+  const { isMobile } = useResponsive();
   const [position, setPosition] = useState<Position>({ x: 20, y: 20 });
   const [size, setSize] = useState<Size>({ width: DEFAULT_WIDTH, height: DEFAULT_HEIGHT });
   const [isMaximized, setIsMaximized] = useState(false);
@@ -134,6 +136,44 @@ export function CameraPlayer({ camera, onClose }: CameraPlayerProps) {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
 
+  // Versão Mobile - Fullscreen simplificado
+  if (isMobile) {
+    return (
+      <div className="fixed inset-0 z-[2000] bg-black flex flex-col">
+        {/* Header Mobile */}
+        <div className="h-12 bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-between px-3 flex-shrink-0">
+          <div className="flex items-center gap-2 text-white">
+            <span className="font-semibold text-sm truncate">
+              📹 {camera.nome}
+            </span>
+          </div>
+          <button
+            onClick={onClose}
+            className="p-2 hover:bg-red-500/80 rounded transition-colors"
+          >
+            <X size={20} className="text-white" />
+          </button>
+        </div>
+
+        {/* Video Container Mobile */}
+        <div className="flex-1 relative bg-black flex items-center justify-center">
+          <img
+            src={streamUrl}
+            alt={`Camera ${camera.nome}`}
+            className="w-full h-auto max-h-full object-contain"
+          />
+
+          {/* Live indicator */}
+          <div className="absolute top-2 left-2 flex items-center gap-1.5 bg-red-600 px-2 py-1 rounded text-xs text-white font-semibold">
+            <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
+            AO VIVO
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Versão Desktop - Flutuante com drag
   return (
     <div
       ref={playerRef}
