@@ -18,11 +18,14 @@ interface PercursoGerado {
 // Função para normalizar nomes para comparação
 function normalizarNome(nome: string): string {
   return nome
+    .replace(/&amp;/gi, '&')           // Entidade HTML &amp; -> & (ANTES de toUpperCase)
     .toUpperCase()
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/&/g, 'E')
-    .replace(/\s+/g, ' ')
+    .replace(/[\u0300-\u036f]/g, '')  // Remove acentos
+    .replace(/&/g, 'E')                // & -> E
+    .replace(/[.,!?()]/g, '')          // Remove pontuação
+    .replace(/-/g, ' ')                // Hífen -> espaço
+    .replace(/\s+/g, ' ')              // Múltiplos espaços -> um
     .trim();
 }
 
