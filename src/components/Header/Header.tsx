@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Music, Users, Route, MapPin, Play, Square, SkipForward, Menu, Info, ChevronDown, ChevronUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Music, Users, Route, MapPin, Play, Square, SkipForward, Menu, Info, ChevronDown, ChevronUp, Calendar } from 'lucide-react';
 import type { Bloco, Estatisticas } from '../../types/bloco';
 import { formatarNumero } from '../../utils/formatters';
 import { coresSubprefeitura } from '../../data/coordenadasBairros';
@@ -116,6 +117,16 @@ export function Header({
             <span className="text-xs font-medium">Legenda</span>
             {legendaVisivel ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
           </button>
+
+          {/* Botão Timeline */}
+          <Link
+            to="/timeline"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/10 text-white/60 hover:bg-white/5 hover:text-white/80 transition-colors"
+            title="Ver timeline dos blocos"
+          >
+            <Calendar size={14} />
+            <span className="text-xs font-medium">Timeline</span>
+          </Link>
         </div>
 
         {/* Titulo Central */}

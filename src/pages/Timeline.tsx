@@ -1,0 +1,364 @@
+import { useMemo, useRef, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowLeft, ZoomIn, ZoomOut, Calendar } from 'lucide-react';
+import { useBlocos } from '../hooks';
+import { getCorSubprefeitura } from '../data/coordenadasBairros';
+import type { Bloco } from '../types/bloco';
+
+// Configurações do timeline
+const HOUR_WIDTH_BASE = 60; // Largura base de 1 hora em pixels
+const ROW_HEIGHT = 32;
+
+interface TimelineBarProps {
+  bloco: Bloco;
+  startHour: number;
+  durationHours: number;
+  hourWidth: number;
+  rowIndex: number;
+}
+
+function TimelineBar({ bloco, startHour, durationHours, hourWidth, rowIndex }: TimelineBarProps) {
+  const cor = getCorSubprefeitura(bloco.subprefeitura);
+  const left = startHour * hourWidth;
+  const width = Math.max(durationHours * hourWidth, hourWidth * 0.5); // Mínimo de 30min visual
+  const top = rowIndex * ROW_HEIGHT;
+
+  return (
+    <div
+      className="absolute rounded transition-all hover:brightness-110 hover:z-10 cursor-pointer group"
+      style={{
+        left: `${left}px`,
+        width: `${width}px`,
+        top: `${top}px`,
+        height: `${ROW_HEIGHT - 4}px`,
+        backgroundColor: cor,
+      }}
+      title={`${bloco.nome}\n${bloco.horaInicio} - ${bloco.horaTermino}\n${bloco.subprefeitura}`}
+    >
+      <div className="px-2 py-1 h-full flex items-center overflow-hidden">
+        <span className="text-[10px] text-white font-medium truncate drop-shadow-sm">
+          {bloco.nome}
+        </span>
+      </div>
+
+      {/* Tooltip no hover */}
+      <div className="absolute left-0 top-full mt-1 z-50 hidden group-hover:block">
+        <div className="bg-cor-bg-secondary border border-white/20 rounded-lg p-2 shadow-xl min-w-[200px]">
+          <p className="text-xs font-semibold text-white">{bloco.nome}</p>
+          <p className="text-[10px] text-white/60 mt-1">{bloco.subprefeitura}</p>
+          <p className="text-[10px] text-white/60">{bloco.horaInicio} - {bloco.horaTermino}</p>
+          {bloco.localConcentracao && (
+            <p className="text-[10px] text-white/50 mt-1 truncate">{bloco.localConcentracao}</p>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function TimelineDay({
+  data,
+  blocos,
+  hourWidth,
+  isExpanded,
+  onToggle
+}: {
+  data: string;
+  blocos: Bloco[];
+  hourWidth: number;
+  isExpanded: boolean;
+  onToggle: () => void;
+}) {
+  // Ordenar blocos por horário de início
+  const blocosOrdenados = useMemo(() => {
+    return [...blocos].sort((a, b) => {
+      const horaA = a.horaInicio?.split(':').map(Number) || [0, 0];
+      const horaB = b.horaInicio?.split(':').map(Number) || [0, 0];
+      return (horaA[0] * 60 + horaA[1]) - (horaB[0] * 60 + horaB[1]);
+    });
+  }, [blocos]);
+
+  // Calcular posições das barras (evitando sobreposição)
+  const barrasPositionadas = useMemo(() => {
+    const rows: { endHour: number }[] = [];
+
+    return blocosOrdenados.map(bloco => {
+      const [startH, startM] = (bloco.horaInicio || '00:00').split(':').map(Number);
+      const [endH, endM] = (bloco.horaTermino || '23:59').split(':').map(Number);
+
+      const startHour = startH + startM / 60;
+      let endHour = endH + endM / 60;
+
+      // Se horário fim é menor que início, assumir que vai até meia-noite ou +2h
+      if (endHour < startHour) {
+        endHour = Math.min(startHour + 2, 24);
+      }
+
+      const durationHours = Math.max(endHour - startHour, 0.5);
+
+      // Encontrar a primeira linha disponível
+      let rowIndex = 0;
+      for (let i = 0; i < rows.length; i++) {
+        if (rows[i].endHour <= startHour) {
+          rowIndex = i;
+          break;
+        }
+        rowIndex = i + 1;
+      }
+
+      // Atualizar ou adicionar linha
+      if (rowIndex < rows.length) {
+        rows[rowIndex].endHour = endHour;
+      } else {
+        rows.push({ endHour });
+      }
+
+      return { bloco, startHour, durationHours, rowIndex };
+    });
+  }, [blocosOrdenados]);
+
+  const maxRows = Math.max(...barrasPositionadas.map(b => b.rowIndex + 1), 1);
+  const contentHeight = maxRows * ROW_HEIGHT;
+
+  // Formatar data
+  const dataFormatada = new Date(data + 'T12:00:00').toLocaleDateString('pt-BR', {
+    weekday: 'long',
+    day: '2-digit',
+    month: '2-digit',
+  });
+
+  // Largura total (24 horas)
+  const totalWidth = 24 * hourWidth;
+
+  return (
+    <div className="border-b border-white/10">
+      {/* Header do dia - clicável para expandir */}
+      <button
+        onClick={onToggle}
+        className="w-full flex items-center gap-3 px-4 py-3 bg-cor-bg-secondary hover:bg-cor-bg-tertiary transition-colors text-left"
+      >
+        <Calendar size={16} className="text-cor-accent-orange" />
+        <span className="text-sm font-semibold text-white capitalize">{dataFormatada}</span>
+        <span className="text-xs text-white/50 bg-white/10 px-2 py-0.5 rounded">
+          {blocos.length} blocos
+        </span>
+        <span className={`ml-auto text-white/50 transition-transform ${isExpanded ? 'rotate-180' : ''}`}>
+          ▼
+        </span>
+      </button>
+
+      {/* Conteúdo expandido */}
+      {isExpanded && (
+        <div className="relative overflow-x-auto bg-cor-bg-primary/30">
+          {/* Header de horas */}
+          <div
+            className="sticky top-0 z-10 flex border-b border-white/10 bg-cor-bg-secondary/95 backdrop-blur-sm"
+            style={{ width: `${totalWidth}px`, minWidth: '100%' }}
+          >
+            {Array.from({ length: 24 }, (_, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 text-center py-2 border-r border-white/5"
+                style={{ width: `${hourWidth}px` }}
+              >
+                <span className="text-[10px] text-white/50">
+                  {i.toString().padStart(2, '0')}:00
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Área das barras */}
+          <div
+            className="relative"
+            style={{
+              width: `${totalWidth}px`,
+              minWidth: '100%',
+              height: `${contentHeight}px`,
+              minHeight: '40px'
+            }}
+          >
+            {/* Linhas de grade */}
+            {Array.from({ length: 24 }, (_, i) => (
+              <div
+                key={i}
+                className="absolute top-0 bottom-0 border-r border-white/5"
+                style={{ left: `${i * hourWidth}px` }}
+              />
+            ))}
+
+            {/* Barras dos blocos */}
+            {barrasPositionadas.map(({ bloco, startHour, durationHours, rowIndex }) => (
+              <TimelineBar
+                key={bloco.id}
+                bloco={bloco}
+                startHour={startHour}
+                durationHours={durationHours}
+                hourWidth={hourWidth}
+                rowIndex={rowIndex}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export function Timeline() {
+  const { blocos, loading } = useBlocos();
+  const [zoom, setZoom] = useState(1);
+  const [expandedDays, setExpandedDays] = useState<Set<string>>(new Set());
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const hourWidth = HOUR_WIDTH_BASE * zoom;
+
+  // Agrupar blocos por data
+  const blocosPorData = useMemo(() => {
+    const grupos: Record<string, Bloco[]> = {};
+
+    blocos.forEach(bloco => {
+      if (bloco.data) {
+        if (!grupos[bloco.data]) {
+          grupos[bloco.data] = [];
+        }
+        grupos[bloco.data].push(bloco);
+      }
+    });
+
+    // Ordenar por data
+    return Object.entries(grupos)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([data, blocosData]) => ({ data, blocos: blocosData }));
+  }, [blocos]);
+
+  // Expandir primeiro dia por padrão
+  useEffect(() => {
+    if (blocosPorData.length > 0 && expandedDays.size === 0) {
+      setExpandedDays(new Set([blocosPorData[0].data]));
+    }
+  }, [blocosPorData]);
+
+  const toggleDay = (data: string) => {
+    setExpandedDays(prev => {
+      const next = new Set(prev);
+      if (next.has(data)) {
+        next.delete(data);
+      } else {
+        next.add(data);
+      }
+      return next;
+    });
+  };
+
+  const expandAll = () => {
+    setExpandedDays(new Set(blocosPorData.map(g => g.data)));
+  };
+
+  const collapseAll = () => {
+    setExpandedDays(new Set());
+  };
+
+  if (loading) {
+    return (
+      <div className="h-screen w-screen bg-cor-bg-primary flex items-center justify-center">
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-12 h-12 border-4 border-cor-accent-orange border-t-transparent rounded-full animate-spin" />
+          <p className="text-white/70">Carregando timeline...</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="h-screen w-screen bg-cor-bg-primary flex flex-col overflow-hidden">
+      {/* Header */}
+      <header className="flex-shrink-0 bg-cor-bg-secondary border-b border-white/10 px-6 py-4">
+        <div className="flex items-center justify-between">
+          {/* Esquerda - Voltar e título */}
+          <div className="flex items-center gap-4">
+            <Link
+              to="/"
+              className="flex items-center gap-2 px-3 py-2 rounded-lg border border-white/10 text-white/70 hover:bg-white/5 hover:text-white transition-colors"
+            >
+              <ArrowLeft size={18} />
+              <span className="text-sm">Voltar</span>
+            </Link>
+
+            <div>
+              <h1 className="text-xl font-bold text-white">Timeline dos Blocos</h1>
+              <p className="text-xs text-white/50">Carnaval Rio 2026 - {blocos.length} blocos em {blocosPorData.length} dias</p>
+            </div>
+          </div>
+
+          {/* Direita - Controles */}
+          <div className="flex items-center gap-3">
+            {/* Expandir/Colapsar */}
+            <div className="flex items-center gap-1">
+              <button
+                onClick={expandAll}
+                className="px-3 py-1.5 text-xs text-white/70 hover:text-white hover:bg-white/10 rounded transition-colors"
+              >
+                Expandir todos
+              </button>
+              <button
+                onClick={collapseAll}
+                className="px-3 py-1.5 text-xs text-white/70 hover:text-white hover:bg-white/10 rounded transition-colors"
+              >
+                Colapsar todos
+              </button>
+            </div>
+
+            <div className="w-px h-8 bg-white/10" />
+
+            {/* Zoom */}
+            <div className="flex items-center gap-2 bg-white/5 rounded-lg px-2 py-1">
+              <button
+                onClick={() => setZoom(z => Math.max(0.5, z - 0.25))}
+                className="p-1.5 hover:bg-white/10 rounded transition-colors"
+                title="Diminuir zoom"
+              >
+                <ZoomOut size={18} className="text-white/70" />
+              </button>
+              <span className="text-xs text-white/60 w-12 text-center">
+                {Math.round(zoom * 100)}%
+              </span>
+              <button
+                onClick={() => setZoom(z => Math.min(2, z + 0.25))}
+                className="p-1.5 hover:bg-white/10 rounded transition-colors"
+                title="Aumentar zoom"
+              >
+                <ZoomIn size={18} className="text-white/70" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Conteúdo */}
+      <div ref={containerRef} className="flex-1 overflow-y-auto">
+        {blocosPorData.map(({ data, blocos: blocosData }) => (
+          <TimelineDay
+            key={data}
+            data={data}
+            blocos={blocosData}
+            hourWidth={hourWidth}
+            isExpanded={expandedDays.has(data)}
+            onToggle={() => toggleDay(data)}
+          />
+        ))}
+      </div>
+
+      {/* Legenda */}
+      <div className="flex-shrink-0 bg-cor-bg-secondary border-t border-white/10 px-6 py-2">
+        <div className="flex items-center gap-6 text-[10px] text-white/50">
+          <span>As cores representam as subprefeituras</span>
+          <span>|</span>
+          <span>Passe o mouse sobre um bloco para ver detalhes</span>
+          <span>|</span>
+          <span>Use o zoom para ajustar a visualização</span>
+        </div>
+      </div>
+    </div>
+  );
+}
