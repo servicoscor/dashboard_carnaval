@@ -4,12 +4,15 @@ import { carregarBlocosExcel } from '../utils/parseExcel';
 import { dadosMock } from '../data/mockData';
 
 const EXCEL_URL = '/data/PLANILHACOMPLETABLOCOS2026.xlsx';
-const PERCURSOS_URL = '/data/percursos-blocos.json';
+const PERCURSOS_KMZ_URL = '/data/percursos-blocos-kmz.json'; // Rotas reais do KMZ (prioridade)
+const PERCURSOS_GEOCODED_URL = '/data/percursos-blocos.json'; // Rotas geocodificadas (fallback)
 
 interface PercursoGerado {
   nomeBloco: string;
-  bairro: string;
+  bairro?: string;
   percurso: PontoPercurso[];
+  distanciaMetros?: number;
+  fonte?: string;
 }
 
 // Função para normalizar nomes para comparação
@@ -18,31 +21,58 @@ function normalizarNome(nome: string): string {
     .toUpperCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
+    .replace(/&/g, 'E')
     .replace(/\s+/g, ' ')
     .trim();
 }
 
-// Função para carregar percursos gerados pelo script
-async function carregarPercursos(): Promise<Map<string, PontoPercurso[]>> {
+// Função para carregar percursos de uma URL
+async function carregarPercursosDeURL(url: string): Promise<Map<string, PontoPercurso[]>> {
   const mapa = new Map<string, PontoPercurso[]>();
 
   try {
-    const response = await fetch(PERCURSOS_URL);
+    const response = await fetch(url);
     if (!response.ok) return mapa;
 
     const percursos: PercursoGerado[] = await response.json();
 
     for (const p of percursos) {
       const nomeNorm = normalizarNome(p.nomeBloco);
-      mapa.set(nomeNorm, p.percurso);
+      if (p.percurso && p.percurso.length >= 2) {
+        mapa.set(nomeNorm, p.percurso);
+      }
     }
-
-    console.log(`Percursos carregados: ${mapa.size} blocos com rotas reais`);
   } catch (err) {
-    console.log('Percursos pré-gerados não encontrados');
+    // Silencioso - arquivo pode não existir
   }
 
   return mapa;
+}
+
+// Função para carregar percursos (KMZ tem prioridade sobre geocodificado)
+async function carregarPercursos(): Promise<Map<string, PontoPercurso[]>> {
+  // Carregar ambas as fontes em paralelo
+  const [percursosKMZ, percursosGeocoded] = await Promise.all([
+    carregarPercursosDeURL(PERCURSOS_KMZ_URL),
+    carregarPercursosDeURL(PERCURSOS_GEOCODED_URL),
+  ]);
+
+  // Mesclar: KMZ tem prioridade
+  const mapaMesclado = new Map<string, PontoPercurso[]>();
+
+  // Primeiro adicionar geocodificados
+  for (const [nome, percurso] of percursosGeocoded) {
+    mapaMesclado.set(nome, percurso);
+  }
+
+  // Sobrescrever com KMZ (prioridade)
+  for (const [nome, percurso] of percursosKMZ) {
+    mapaMesclado.set(nome, percurso);
+  }
+
+  console.log(`Percursos carregados: ${percursosKMZ.size} do KMZ, ${percursosGeocoded.size} geocodificados, ${mapaMesclado.size} total`);
+
+  return mapaMesclado;
 }
 
 export function useBlocos() {
