@@ -1,7 +1,6 @@
 import * as XLSX from 'xlsx';
-import type { Bloco, PontoPercurso } from '../types/bloco';
+import type { Bloco } from '../types/bloco';
 import { getCoordenadasBairro } from '../data/coordenadasBairros';
-import { extrairPontosPercurso } from './formatters';
 
 function parseExcelDate(value: unknown): string {
   if (!value) return '';
@@ -51,26 +50,6 @@ function parseHora(value: unknown): string {
   return '';
 }
 
-function gerarPercurso(pontos: string[], bairro: string): PontoPercurso[] {
-  const [baseLat, baseLng] = getCoordenadasBairro(bairro);
-
-  if (pontos.length === 0) return [];
-
-  // Gerar pontos do percurso com pequenas variações lineares
-  return pontos.map((endereco, i) => {
-    const progress = pontos.length > 1 ? i / (pontos.length - 1) : 0;
-    // Variação linear do percurso (simula uma rua)
-    const latOffset = (progress - 0.5) * 0.008 + (Math.random() - 0.5) * 0.001;
-    const lngOffset = (progress - 0.5) * 0.008 + (Math.random() - 0.5) * 0.001;
-
-    return {
-      lat: baseLat + latOffset,
-      lng: baseLng + lngOffset,
-      endereco,
-    };
-  });
-}
-
 // Função para encontrar valor em objeto independente de case e acentos
 function getValueFromRow(row: Record<string, unknown>, possibleKeys: string[]): unknown {
   const rowKeys = Object.keys(row);
@@ -107,7 +86,6 @@ export async function carregarBlocosExcel(url: string): Promise<Bloco[]> {
     return (data as Record<string, unknown>[]).map((row, index) => {
       const bairro = String(getValueFromRow(row, ['Bairro']) || '').toUpperCase();
       const percursoDetalhado = String(getValueFromRow(row, ['Percurso Detalhado', 'Percurso']) || '');
-      const pontosPercurso = extrairPontosPercurso(percursoDetalhado);
 
       // Buscar forma de apresentação com diferentes nomes possíveis
       const formaApresentacaoRaw = String(
@@ -118,24 +96,8 @@ export async function carregarBlocosExcel(url: string): Promise<Bloco[]> {
         ? 'COM DESLOCAMENTO'
         : 'PARADO';
 
-      // Gerar percurso para blocos com deslocamento (mesmo sem pontos detalhados)
-      const temPercurso = formaApresentacao === 'COM DESLOCAMENTO';
+      // Coordenadas do bairro (percurso vem do KMZ separadamente)
       const [lat, lng] = getCoordenadasBairro(bairro);
-
-      // Se tem pontos detalhados, usa eles; senão, gera um percurso básico
-      let percurso: PontoPercurso[] = [];
-      if (temPercurso) {
-        if (pontosPercurso.length > 0) {
-          percurso = gerarPercurso(pontosPercurso, bairro);
-        } else {
-          // Gerar percurso básico de 3 pontos
-          percurso = [
-            { lat: lat - 0.003, lng: lng - 0.003, endereco: 'Início' },
-            { lat: lat, lng: lng, endereco: 'Meio' },
-            { lat: lat + 0.003, lng: lng + 0.003, endereco: 'Fim' },
-          ];
-        }
-      }
 
       return {
         id: Number(getValueFromRow(row, ['Nº', 'N', 'ID', 'Numero'])) || index + 1,
@@ -156,8 +118,8 @@ export async function carregarBlocosExcel(url: string): Promise<Bloco[]> {
         situacao: String(getValueFromRow(row, ['Situação do desfile', 'Situacao do desfile', 'Situação', 'Status']) || ''),
         lat,
         lng,
-        temPercurso,
-        percurso,
+        temPercurso: formaApresentacao === 'COM DESLOCAMENTO',
+        percurso: [], // Percurso será carregado do KMZ
       } as Bloco;
     });
   } catch (error) {

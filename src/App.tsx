@@ -26,6 +26,7 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(!isMobile); // Aberto por padrão no desktop
   const [blocosByDateOpen, setBlocosByDateOpen] = useState(!isMobile); // Sidebar de blocos por data aberto no desktop
   const [blocoSelecionado, setBlocoSelecionado] = useState<Bloco | null>(null);
+  const [detailPanelOpen, setDetailPanelOpen] = useState(false);
   const [alertasPanelOpen, setAlertasPanelOpen] = useState(false);
   const [somAtivado, setSomAtivado] = useState(true);
 
@@ -57,13 +58,15 @@ function App() {
 
   const handleSelectBloco = useCallback((bloco: Bloco) => {
     setBlocoSelecionado(bloco);
+    setDetailPanelOpen(true);
     if (isMobile) {
       setSidebarOpen(false);
     }
   }, [isMobile]);
 
+  // Fechar apenas o painel de detalhes, mantendo o bloco selecionado (e o percurso visível)
   const handleCloseDetail = useCallback(() => {
-    setBlocoSelecionado(null);
+    setDetailPanelOpen(false);
   }, []);
 
 
@@ -88,6 +91,7 @@ function App() {
     setTourIndex(0);
     setTourBloco(blocosFiltrados[0]);
     setBlocoSelecionado(blocosFiltrados[0]);
+    setDetailPanelOpen(true);
     setTempoRestante(TOUR_DURATION_SECONDS);
   }, [blocosFiltrados, limparTimers]);
 
@@ -108,6 +112,7 @@ function App() {
     setTourIndex(nextIndex);
     setTourBloco(blocosFiltrados[nextIndex]);
     setBlocoSelecionado(blocosFiltrados[nextIndex]);
+    setDetailPanelOpen(true);
     setTempoRestante(TOUR_DURATION_SECONDS);
   }, [tourAtivo, tourIndex, blocosFiltrados, limparTimers]);
 
@@ -229,6 +234,7 @@ function App() {
           {/* Painel de detalhes do bloco */}
           <BlocoDetailPanel
             bloco={blocoSelecionado}
+            isOpen={detailPanelOpen}
             onClose={handleCloseDetail}
             isMobile={isMobile}
           />
@@ -258,6 +264,7 @@ function App() {
             const bloco = blocos.find(b => b.id === blocoId);
             if (bloco) {
               setBlocoSelecionado(bloco);
+              setDetailPanelOpen(true);
             }
             setAlertasPanelOpen(false);
           }}

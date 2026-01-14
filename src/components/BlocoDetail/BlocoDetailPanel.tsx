@@ -7,10 +7,11 @@ interface BlocoDetailPanelProps {
   bloco: Bloco | null;
   onClose: () => void;
   isMobile?: boolean;
+  isOpen?: boolean;
 }
 
-export function BlocoDetailPanel({ bloco, onClose, isMobile = false }: BlocoDetailPanelProps) {
-  if (!bloco) return null;
+export function BlocoDetailPanel({ bloco, onClose, isMobile = false, isOpen = true }: BlocoDetailPanelProps) {
+  if (!bloco || !isOpen) return null;
 
   const cor = getCorSubprefeitura(bloco.subprefeitura);
   const pontosPercurso = extrairPontosPercurso(bloco.percursoDetalhado);

@@ -14,6 +14,15 @@ export function useAlertas(blocos: Bloco[], config: AlertaConfig = DEFAULT_ALERT
   const [alertasConfirmados, setAlertasConfirmados] = useState<Set<string>>(new Set());
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
+  // Extrair valores primitivos do config para evitar loop infinito
+  // (o objeto config pode ser recriado a cada render)
+  const {
+    minutosAntecedencia,
+    somAtivado,
+    thresholdPublicoAlta,
+    thresholdPublicoMedia,
+  } = config;
+
   // Carregar confirmados do localStorage
   useEffect(() => {
     const hoje = new Date().toDateString();
@@ -47,7 +56,7 @@ export function useAlertas(blocos: Bloco[], config: AlertaConfig = DEFAULT_ALERT
         const alertaId = `${bloco.id}-${hoje}-inicio`;
 
         // Se está dentro da janela de alerta e não foi confirmado
-        if (diffMinutos > 0 && diffMinutos <= config.minutosAntecedencia) {
+        if (diffMinutos > 0 && diffMinutos <= minutosAntecedencia) {
           if (!alertasConfirmados.has(alertaId)) {
             novosAlertas.push({
               id: alertaId,
@@ -55,7 +64,7 @@ export function useAlertas(blocos: Bloco[], config: AlertaConfig = DEFAULT_ALERT
               bloco,
               tipo: 'inicio',
               minutosRestantes: diffMinutos,
-              prioridade: calcularPrioridade(bloco.publicoEstimado || 0, config),
+              prioridade: calcularPrioridade(bloco.publicoEstimado || 0, { thresholdPublicoAlta, thresholdPublicoMedia } as AlertaConfig),
               timestamp: new Date(),
               confirmado: false,
             });
@@ -71,7 +80,7 @@ export function useAlertas(blocos: Bloco[], config: AlertaConfig = DEFAULT_ALERT
           const diffConcentracao = Math.floor((concentracaoBloco.getTime() - agora.getTime()) / 60000);
           const alertaConcId = `${bloco.id}-${hoje}-concentracao`;
 
-          if (diffConcentracao > 0 && diffConcentracao <= config.minutosAntecedencia) {
+          if (diffConcentracao > 0 && diffConcentracao <= minutosAntecedencia) {
             if (!alertasConfirmados.has(alertaConcId)) {
               novosAlertas.push({
                 id: alertaConcId,
@@ -79,7 +88,7 @@ export function useAlertas(blocos: Bloco[], config: AlertaConfig = DEFAULT_ALERT
                 bloco,
                 tipo: 'concentracao',
                 minutosRestantes: diffConcentracao,
-                prioridade: calcularPrioridade(bloco.publicoEstimado || 0, config),
+                prioridade: calcularPrioridade(bloco.publicoEstimado || 0, { thresholdPublicoAlta, thresholdPublicoMedia } as AlertaConfig),
                 timestamp: new Date(),
                 confirmado: false,
               });
@@ -100,7 +109,7 @@ export function useAlertas(blocos: Bloco[], config: AlertaConfig = DEFAULT_ALERT
       setAlertas(novosAlertas);
 
       // Tocar som se há alertas novos de alta prioridade
-      if (config.somAtivado && novosAlertas.some(a => a.prioridade === 'alta')) {
+      if (somAtivado && novosAlertas.some(a => a.prioridade === 'alta')) {
         audioRef.current?.play().catch(() => {
           // Ignore autoplay errors
         });
@@ -111,7 +120,7 @@ export function useAlertas(blocos: Bloco[], config: AlertaConfig = DEFAULT_ALERT
     const interval = setInterval(checkAlertas, 60000); // A cada minuto
 
     return () => clearInterval(interval);
-  }, [blocos, config, alertasConfirmados]);
+  }, [blocos, alertasConfirmados, minutosAntecedencia, somAtivado, thresholdPublicoAlta, thresholdPublicoMedia]);
 
   const confirmarAlerta = useCallback((alertaId: string) => {
     setAlertasConfirmados(prev => {

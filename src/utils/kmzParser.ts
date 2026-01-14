@@ -2,23 +2,42 @@ import JSZip from 'jszip';
 import { kml } from '@tmcw/togeojson';
 import type { FeatureCollection, Feature, LineString, MultiLineString, Point, Position } from 'geojson';
 
-export interface PercursoKMZ {
-  id: string;
-  nome: string;
-  coordenadas: [number, number][]; // [lat, lng]
-  pontoInicio: [number, number];
-  pontoFim: [number, number];
-  distanciaMetros: number;
-  cor?: string;
+export interface PontoPercurso {
+  lat: number;
+  lng: number;
+  rua?: string;
 }
 
-export interface IndicePercursos {
-  blocos: {
-    id: number;
-    nome: string;
-    arquivo: string;
-  }[];
-  ultimaAtualizacao: string;
+export interface PercursoBlocoKMZ {
+  nomeOriginal: string;
+  nomeNormalizado: string;
+  percurso: PontoPercurso[];
+  pontoConcentracao?: PontoPercurso;
+  distanciaMetros: number;
+}
+
+export interface ResultadoCarregamentoKMZ {
+  percursos: Map<string, PercursoBlocoKMZ>;
+  totalBlocos: number;
+  blocosComPercurso: number;
+  blocosComPontoConcentracao: number;
+}
+
+/**
+ * Normaliza nome do bloco para comparação
+ * Remove acentos, converte para maiúsculas, trata caracteres especiais
+ */
+export function normalizarNomeBloco(nome: string): string {
+  return nome
+    .replace(/&amp;/gi, '&')           // Entidade HTML &amp; -> &
+    .toUpperCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')   // Remove acentos
+    .replace(/&/g, 'E')                 // & -> E
+    .replace(/[.,!?()'"]/g, '')         // Remove pontuação
+    .replace(/-/g, ' ')                 // Hífen -> espaço
+    .replace(/\s+/g, ' ')               // Múltiplos espaços -> um
+    .trim();
 }
 
 /**
@@ -27,7 +46,6 @@ export interface IndicePercursos {
 export async function extrairKMLdeKMZ(kmzData: ArrayBuffer): Promise<string> {
   const zip = await JSZip.loadAsync(kmzData);
 
-  // KMZ geralmente contém um arquivo doc.kml ou outro .kml
   const kmlFile = Object.keys(zip.files).find(name =>
     name.endsWith('.kml') && !name.startsWith('__MACOSX')
   );
@@ -54,10 +72,13 @@ export function kmlParaGeoJSON(kmlString: string): FeatureCollection {
 }
 
 /**
- * Extrai coordenadas de uma Feature GeoJSON (LineString ou MultiLineString)
+ * Extrai coordenadas de uma Feature GeoJSON
+ * Retorna array de [lat, lng]
  */
 function extrairCoordenadasDeFeature(feature: Feature): [number, number][] {
   const coords: [number, number][] = [];
+
+  if (!feature.geometry) return coords;
 
   if (feature.geometry.type === 'LineString') {
     const geom = feature.geometry as LineString;
@@ -83,7 +104,7 @@ function extrairCoordenadasDeFeature(feature: Feature): [number, number][] {
 /**
  * Calcula a distância em metros entre duas coordenadas usando a fórmula de Haversine
  */
-function calcularDistancia(lat1: number, lng1: number, lat2: number, lng2: number): number {
+function calcularDistanciaHaversine(lat1: number, lng1: number, lat2: number, lng2: number): number {
   const R = 6371000; // Raio da Terra em metros
   const dLat = (lat2 - lat1) * Math.PI / 180;
   const dLng = (lng2 - lng1) * Math.PI / 180;
@@ -101,7 +122,7 @@ function calcularDistancia(lat1: number, lng1: number, lat2: number, lng2: numbe
 function calcularDistanciaTotal(coordenadas: [number, number][]): number {
   let total = 0;
   for (let i = 1; i < coordenadas.length; i++) {
-    total += calcularDistancia(
+    total += calcularDistanciaHaversine(
       coordenadas[i - 1][0],
       coordenadas[i - 1][1],
       coordenadas[i][0],
@@ -112,55 +133,12 @@ function calcularDistanciaTotal(coordenadas: [number, number][]): number {
 }
 
 /**
- * Processa um arquivo KMZ e retorna os dados do percurso
+ * Processa o KMZ único contendo todos os blocos
+ * Retorna um Map com nome normalizado -> dados do percurso
  */
-export async function processarKMZ(
-  kmzData: ArrayBuffer,
-  id: string,
-  nome: string
-): Promise<PercursoKMZ | null> {
-  try {
-    const kmlContent = await extrairKMLdeKMZ(kmzData);
-    const geojson = kmlParaGeoJSON(kmlContent);
+export async function carregarPercursosDoKMZ(url: string): Promise<ResultadoCarregamentoKMZ> {
+  const percursos = new Map<string, PercursoBlocoKMZ>();
 
-    // Extrair todas as coordenadas de todas as features
-    const todasCoordenadas: [number, number][] = [];
-    let cor: string | undefined;
-
-    for (const feature of geojson.features) {
-      const coords = extrairCoordenadasDeFeature(feature);
-      todasCoordenadas.push(...coords);
-
-      // Tentar extrair cor do estilo se disponível
-      if (feature.properties?.stroke) {
-        cor = feature.properties.stroke;
-      }
-    }
-
-    if (todasCoordenadas.length < 2) {
-      console.warn(`KMZ "${nome}" não contém coordenadas suficientes`);
-      return null;
-    }
-
-    return {
-      id,
-      nome,
-      coordenadas: todasCoordenadas,
-      pontoInicio: todasCoordenadas[0],
-      pontoFim: todasCoordenadas[todasCoordenadas.length - 1],
-      distanciaMetros: calcularDistanciaTotal(todasCoordenadas),
-      cor,
-    };
-  } catch (error) {
-    console.error(`Erro ao processar KMZ "${nome}":`, error);
-    return null;
-  }
-}
-
-/**
- * Carrega e processa um arquivo KMZ de uma URL
- */
-export async function carregarKMZ(url: string, id: string, nome: string): Promise<PercursoKMZ | null> {
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -168,32 +146,86 @@ export async function carregarKMZ(url: string, id: string, nome: string): Promis
     }
 
     const arrayBuffer = await response.arrayBuffer();
-    return processarKMZ(arrayBuffer, id, nome);
-  } catch (error) {
-    console.error(`Erro ao carregar KMZ de ${url}:`, error);
-    return null;
-  }
-}
+    const kmlContent = await extrairKMLdeKMZ(arrayBuffer);
+    const geojson = kmlParaGeoJSON(kmlContent);
 
-/**
- * Carrega o índice de percursos disponíveis
- */
-export async function carregarIndicePercursos(url: string = '/data/percursos/index.json'): Promise<IndicePercursos | null> {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      return null;
+    // Agrupar features por nome do bloco
+    const featuresPorBloco = new Map<string, Feature[]>();
+
+    for (const feature of geojson.features) {
+      const nome = feature.properties?.name || '';
+      if (!nome) continue;
+
+      if (!featuresPorBloco.has(nome)) {
+        featuresPorBloco.set(nome, []);
+      }
+      featuresPorBloco.get(nome)!.push(feature);
     }
-    return response.json();
+
+    // Processar cada bloco
+    for (const [nomeOriginal, features] of featuresPorBloco.entries()) {
+      const nomeNormalizado = normalizarNomeBloco(nomeOriginal);
+
+      let percursoCoords: [number, number][] = [];
+      let pontoConcentracao: PontoPercurso | undefined;
+
+      for (const feature of features) {
+        if (!feature.geometry) continue;
+
+        if (feature.geometry.type === 'LineString' || feature.geometry.type === 'MultiLineString') {
+          // É o percurso (linha)
+          const coords = extrairCoordenadasDeFeature(feature);
+          if (coords.length > percursoCoords.length) {
+            percursoCoords = coords;
+          }
+        } else if (feature.geometry.type === 'Point') {
+          // É o ponto de concentração
+          const coords = extrairCoordenadasDeFeature(feature);
+          if (coords.length > 0) {
+            pontoConcentracao = { lat: coords[0][0], lng: coords[0][1] };
+          }
+        }
+      }
+
+      // Só adicionar se tiver percurso válido
+      if (percursoCoords.length >= 2) {
+        const percurso: PontoPercurso[] = percursoCoords.map((coord, index) => ({
+          lat: coord[0],
+          lng: coord[1],
+          rua: index === 0 ? 'Início' : index === percursoCoords.length - 1 ? 'Fim' : undefined
+        }));
+
+        percursos.set(nomeNormalizado, {
+          nomeOriginal,
+          nomeNormalizado,
+          percurso,
+          pontoConcentracao,
+          distanciaMetros: calcularDistanciaTotal(percursoCoords)
+        });
+      }
+    }
+
+    console.log(`KMZ carregado: ${percursos.size} percursos extraídos de ${featuresPorBloco.size} blocos`);
+
+    return {
+      percursos,
+      totalBlocos: featuresPorBloco.size,
+      blocosComPercurso: percursos.size,
+      blocosComPontoConcentracao: Array.from(percursos.values()).filter(p => p.pontoConcentracao).length
+    };
   } catch (error) {
-    console.error('Erro ao carregar índice de percursos:', error);
-    return null;
+    console.error('Erro ao carregar percursos do KMZ:', error);
+    return {
+      percursos,
+      totalBlocos: 0,
+      blocosComPercurso: 0,
+      blocosComPontoConcentracao: 0
+    };
   }
 }
 
 /**
- * Simplifica um array de coordenadas reduzindo o número de pontos
- * usando o algoritmo de Douglas-Peucker simplificado
+ * Simplifica um array de coordenadas usando Douglas-Peucker
  */
 export function simplificarCoordenadas(
   coordenadas: [number, number][],
@@ -201,7 +233,6 @@ export function simplificarCoordenadas(
 ): [number, number][] {
   if (coordenadas.length <= 2) return coordenadas;
 
-  // Encontrar o ponto mais distante da linha entre o primeiro e último ponto
   let maxDist = 0;
   let maxIndex = 0;
 
@@ -217,7 +248,6 @@ export function simplificarCoordenadas(
     }
   }
 
-  // Se a distância máxima é maior que a tolerância, recursivamente simplificar
   if (maxDist > tolerancia) {
     const left = simplificarCoordenadas(coordenadas.slice(0, maxIndex + 1), tolerancia);
     const right = simplificarCoordenadas(coordenadas.slice(maxIndex), tolerancia);
