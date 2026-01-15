@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ZoomIn, ZoomOut, Calendar, FileDown, Loader2 } from 'lucide-react';
+import { ArrowLeft, ZoomIn, ZoomOut, Calendar, FileDown, Loader2, Clock } from 'lucide-react';
 import { useBlocos } from '../hooks';
 import { getCorSubprefeitura } from '../data/coordenadasBairros';
 import { exportTimelinePDF } from '../utils/exportPDF';
@@ -9,6 +9,23 @@ import type { Bloco } from '../types/bloco';
 // Configurações do timeline
 const HOUR_WIDTH_BASE = 60; // Largura base de 1 hora em pixels
 const ROW_HEIGHT = 32;
+
+// Hook para obter horário de Brasília
+function useBrasiliaTime() {
+  const [now, setNow] = useState(() => {
+    return new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' }));
+  });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setNow(new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' })));
+    }, 60000); // Atualiza a cada minuto
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return now;
+}
 
 interface TimelineBarProps {
   bloco: Bloco;
@@ -62,14 +79,23 @@ function TimelineDay({
   blocos,
   hourWidth,
   isExpanded,
-  onToggle
+  onToggle,
+  currentTime
 }: {
   data: string;
   blocos: Bloco[];
   hourWidth: number;
   isExpanded: boolean;
   onToggle: () => void;
+  currentTime: Date;
 }) {
+  // Verificar se é o dia atual
+  const hoje = currentTime.toISOString().split('T')[0];
+  const isToday = data === hoje;
+
+  // Calcular posição da linha do horário atual
+  const currentHour = currentTime.getHours() + currentTime.getMinutes() / 60;
+  const currentTimeLeft = currentHour * hourWidth;
   // Ordenar blocos por horário de início
   const blocosOrdenados = useMemo(() => {
     return [...blocos].sort((a, b) => {
@@ -199,6 +225,23 @@ function TimelineDay({
                 rowIndex={rowIndex}
               />
             ))}
+
+            {/* Linha do horário atual (apenas no dia de hoje) */}
+            {isToday && (
+              <div
+                className="absolute top-0 bottom-0 z-20 pointer-events-none"
+                style={{ left: `${currentTimeLeft}px` }}
+              >
+                {/* Linha vermelha */}
+                <div className="absolute top-0 bottom-0 w-0.5 bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.5)]" />
+                {/* Indicador do horário no topo */}
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded whitespace-nowrap">
+                  {currentTime.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
+                </div>
+                {/* Triângulo apontando para baixo */}
+                <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[5px] border-r-[5px] border-t-[6px] border-l-transparent border-r-transparent border-t-red-500" />
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -212,6 +255,7 @@ export function Timeline() {
   const [expandedDays, setExpandedDays] = useState<Set<string>>(new Set());
   const [isExporting, setIsExporting] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const currentTime = useBrasiliaTime();
 
   const hourWidth = HOUR_WIDTH_BASE * zoom;
 
@@ -311,6 +355,17 @@ export function Timeline() {
 
           {/* Direita - Controles */}
           <div className="flex items-center gap-3">
+            {/* Horário de Brasília */}
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-red-500/20 border border-red-500/30 rounded-lg">
+              <Clock size={14} className="text-red-400" />
+              <span className="text-sm font-bold text-red-400">
+                {currentTime.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
+              </span>
+              <span className="text-[10px] text-red-400/70">Brasília</span>
+            </div>
+
+            <div className="w-px h-8 bg-white/10" />
+
             {/* Expandir/Colapsar */}
             <div className="flex items-center gap-1">
               <button
@@ -379,6 +434,7 @@ export function Timeline() {
             hourWidth={hourWidth}
             isExpanded={expandedDays.has(data)}
             onToggle={() => toggleDay(data)}
+            currentTime={currentTime}
           />
         ))}
       </div>
