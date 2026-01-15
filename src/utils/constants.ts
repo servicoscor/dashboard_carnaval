@@ -1,7 +1,8 @@
 // Constantes do projeto
 
-export const RIO_CENTER: [number, number] = [-22.9068, -43.1729];
-export const DEFAULT_ZOOM = 12;
+// Centro ajustado para mostrar toda a região metropolitana do Rio
+export const RIO_CENTER: [number, number] = [-22.85, -43.35];
+export const DEFAULT_ZOOM = 10;
 
 export const SUBPREFEITURAS = [
   'CENTRO',
