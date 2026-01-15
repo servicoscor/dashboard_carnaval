@@ -44,52 +44,45 @@ export function Header({
   const isFiltered = estatisticas.totalBlocos !== totalBlocosOriginal;
   const [legendaVisivel, setLegendaVisivel] = useState(false);
 
-  // Versão Mobile - Compacto em uma linha
+  // Versão Mobile - Compacto com elementos bem distribuídos
   if (isMobile) {
     return (
-      <header className="bg-cor-bg-secondary border-b border-white/10">
-        <div className="flex items-center gap-1 px-2 py-1.5">
-          {/* Menu */}
+      <header className="bg-cor-bg-secondary border-b border-white/10" style={{ zIndex: 100 }}>
+        {/* Safe area para notch no topo */}
+        <div className="pt-[env(safe-area-inset-top)]" />
+        <div className="flex items-center justify-between px-2 py-2 min-h-[56px]">
+          {/* Menu com Filtros - touch target 44px */}
           <button
             onClick={onMenuClick}
-            className="p-1 hover:bg-white/10 rounded transition-colors flex-shrink-0"
-            aria-label="Abrir menu"
+            className="flex items-center gap-2 px-3 py-2 bg-cor-accent-orange/20 hover:bg-cor-accent-orange/30 rounded-lg transition-colors flex-shrink-0 touch-manipulation min-h-[44px]"
+            aria-label="Abrir menu de filtros"
           >
-            <Menu size={18} className="text-white" />
+            <Menu size={20} className="text-cor-accent-orange" />
+            <span className="text-sm font-semibold text-cor-accent-orange">Filtros</span>
           </button>
 
-          {/* Logo + Titulo compacto */}
-          <div className="flex-1 flex items-center justify-center gap-1.5 min-w-0">
-            <img
-              src="/data/RIOPREFEITURA COR horizontal monocromatica branco.png"
-              alt="COR"
-              className="h-4 w-auto flex-shrink-0"
-            />
-            <span className="text-xs font-bold text-white whitespace-nowrap">Carnaval 2026</span>
-          </div>
+          {/* Título centralizado */}
+          <h1 className="text-sm font-bold text-white truncate mx-2">Carnaval 2026</h1>
 
-          {/* Stats compactos */}
-          <div className="flex items-center gap-1.5 flex-shrink-0">
-            <div className="flex items-center gap-0.5 text-cor-accent-orange">
-              <MapPin size={10} />
-              <span className="text-[10px] font-bold">{estatisticas.totalBlocos}</span>
+          {/* Stats compactos à direita */}
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <div className="flex items-center gap-1 text-cor-accent-orange">
+              <MapPin size={14} />
+              <span className="text-xs font-bold">{estatisticas.totalBlocos}</span>
             </div>
-            <div className="flex items-center gap-0.5 text-cor-accent-green">
-              <Users size={10} />
-              <span className="text-[10px] font-bold">{formatarNumero(estatisticas.publicoTotal)}</span>
+            <div className="flex items-center gap-1 text-cor-accent-green">
+              <Users size={14} />
+              <span className="text-xs font-bold">{formatarNumero(estatisticas.publicoTotal)}</span>
             </div>
-          </div>
-
-          {/* Alertas */}
-          {onAlertasClick && (
-            <div className="flex-shrink-0">
+            {/* Alertas - touch target adequado */}
+            {onAlertasClick && (
               <AlertaBadge
                 count={alertasCount}
                 hasHighPriority={alertasHighPriority}
                 onClick={onAlertasClick}
               />
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </header>
     );

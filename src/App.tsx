@@ -23,8 +23,19 @@ function App() {
   } = useFilters(blocos);
 
   const { isMobile } = useResponsive();
-  const [sidebarOpen, setSidebarOpen] = useState(!isMobile); // Aberto por padrão no desktop
-  const [blocosByDateOpen, setBlocosByDateOpen] = useState(!isMobile); // Sidebar de blocos por data aberto no desktop
+  const [sidebarOpen, setSidebarOpen] = useState(false); // Começa fechado, abre após detectar desktop
+  const [blocosByDateOpen, setBlocosByDateOpen] = useState(false); // Começa fechado
+
+  // Sincronizar estado inicial da sidebar quando isMobile muda
+  useEffect(() => {
+    // Abrir sidebar automaticamente no desktop
+    if (!isMobile) {
+      setSidebarOpen(true);
+      setBlocosByDateOpen(true);
+    } else {
+      setSidebarOpen(false);
+    }
+  }, [isMobile]);
   const [blocoSelecionado, setBlocoSelecionado] = useState<Bloco | null>(null);
   const [detailPanelOpen, setDetailPanelOpen] = useState(false);
   const [alertasPanelOpen, setAlertasPanelOpen] = useState(false);

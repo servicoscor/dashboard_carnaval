@@ -17,22 +17,23 @@ export function BlocoDetailPanel({ bloco, onClose, isMobile = false, isOpen = tr
   const pontosPercurso = extrairPontosPercurso(bloco.percursoDetalhado);
 
   // Classes condicionais para mobile (bottom sheet) vs desktop (side panel)
+  // Mobile: altura máxima 60vh em landscape, 75vh em portrait
   const containerClasses = isMobile
-    ? 'fixed bottom-0 left-0 right-0 z-[1000] bg-cor-bg-secondary/98 backdrop-blur-lg rounded-t-3xl border-t-2 border-white/20 shadow-2xl max-h-[70vh] overflow-hidden'
-    : 'absolute top-4 right-4 z-[1000] w-[360px] bg-cor-bg-secondary/98 backdrop-blur-lg rounded-xl border border-white/10 shadow-2xl overflow-hidden';
+    ? 'fixed bottom-0 left-0 right-0 z-[1000] bg-cor-bg-secondary/98 backdrop-blur-lg rounded-t-3xl border-t-2 border-white/20 shadow-2xl max-h-[75vh] landscape:max-h-[85vh] overflow-hidden safe-area-bottom'
+    : 'absolute top-4 right-4 z-[1000] w-[320px] lg:w-[360px] bg-cor-bg-secondary/98 backdrop-blur-lg rounded-xl border border-white/10 shadow-2xl overflow-hidden max-h-[calc(100vh-120px)]';
 
   return (
     <div className={containerClasses}>
       {/* Barra indicadora para mobile - drag handle */}
       {isMobile && (
-        <div className="flex justify-center py-3 bg-cor-bg-secondary border-b border-white/5">
-          <div className="w-12 h-1.5 bg-white/40 rounded-full" />
+        <div className="flex justify-center py-2 bg-cor-bg-secondary border-b border-white/5">
+          <div className="w-10 h-1 bg-white/40 rounded-full" />
         </div>
       )}
 
       {/* Header colorido com gradiente */}
       <div
-        className="px-4 py-4 relative border-b border-white/10"
+        className="px-4 py-3 sm:py-4 relative border-b border-white/10"
         style={{
           background: `linear-gradient(135deg, ${cor}25 0%, ${cor}10 100%)`
         }}
@@ -43,28 +44,29 @@ export function BlocoDetailPanel({ bloco, onClose, isMobile = false, isOpen = tr
         />
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-1 text-white/50 hover:text-white hover:bg-white/10 rounded-lg transition-all"
+          className="absolute top-2 right-2 p-2 text-white/50 hover:text-white hover:bg-white/10 rounded-lg transition-all touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center"
+          aria-label="Fechar detalhes"
         >
-          <X size={18} />
+          <X size={20} />
         </button>
-        <h3 className="text-base font-bold text-white pr-10 leading-tight">
+        <h3 className="text-base sm:text-lg font-bold text-white pr-12 leading-tight">
           {bloco.nome}
         </h3>
-        <p className="text-xs text-white/70 mt-1.5 font-medium">{bloco.subprefeitura}</p>
+        <p className="text-sm text-white/70 mt-1 font-medium">{bloco.subprefeitura}</p>
       </div>
 
       {/* Conteudo scrollável com custom scrollbar */}
-      <div className={`p-4 space-y-4 overflow-y-auto custom-scrollbar ${isMobile ? 'max-h-[calc(70vh-120px)]' : 'max-h-[calc(100vh-200px)]'}`}>
+      <div className={`p-3 sm:p-4 space-y-3 sm:space-y-4 overflow-y-auto custom-scrollbar ${isMobile ? 'max-h-[calc(75vh-100px)] landscape:max-h-[calc(85vh-100px)]' : 'max-h-[calc(100vh-200px)]'}`}>
         {/* Data e Horario */}
         <div className="grid grid-cols-2 gap-3">
           <InfoItem
-            icon={<Clock size={14} />}
+            icon={<Clock size={16} />}
             label="Data"
             value={formatarData(bloco.data)}
           />
           <InfoItem
-            icon={<Clock size={14} />}
-            label="Horario"
+            icon={<Clock size={16} />}
+            label="Horário"
             value={`${formatarHora(bloco.horaInicio)} - ${formatarHora(bloco.horaTermino)}`}
           />
         </div>
@@ -72,13 +74,13 @@ export function BlocoDetailPanel({ bloco, onClose, isMobile = false, isOpen = tr
         {/* Local e Publico */}
         <div className="grid grid-cols-2 gap-3">
           <InfoItem
-            icon={<MapPin size={14} />}
+            icon={<MapPin size={16} />}
             label="Bairro"
             value={bloco.bairro}
           />
           <InfoItem
-            icon={<Users size={14} />}
-            label="Publico Estimado"
+            icon={<Users size={16} />}
+            label="Público Estimado"
             value={`${formatarNumero(bloco.publicoEstimado)} pessoas`}
             highlight
           />
@@ -87,37 +89,37 @@ export function BlocoDetailPanel({ bloco, onClose, isMobile = false, isOpen = tr
         {/* Estrutura */}
         {bloco.estrutura && (
           <InfoItem
-            icon={<Music size={14} />}
+            icon={<Music size={16} />}
             label="Estrutura"
             value={bloco.estrutura}
           />
         )}
 
         {/* Tipo de apresentacao */}
-        <div className={`flex items-center gap-2 px-3 py-2 rounded-lg ${
+        <div className={`flex items-center gap-2 px-3 py-2.5 rounded-lg ${
           bloco.temPercurso
             ? 'bg-cor-accent-green/10 border border-cor-accent-green/20'
             : 'bg-white/5 border border-white/10'
         }`}>
-          <Route size={14} className={bloco.temPercurso ? 'text-cor-accent-green' : 'text-white/50'} />
-          <span className={`text-sm ${bloco.temPercurso ? 'text-cor-accent-green' : 'text-white/70'}`}>
+          <Route size={16} className={bloco.temPercurso ? 'text-cor-accent-green' : 'text-white/50'} />
+          <span className={`text-sm sm:text-base ${bloco.temPercurso ? 'text-cor-accent-green' : 'text-white/70'}`}>
             {bloco.formaApresentacao}
           </span>
         </div>
 
         {/* Local de Concentracao */}
         {bloco.localConcentracao && (
-          <div className="space-y-1">
-            <div className="flex items-center gap-2 text-xs text-white/50 uppercase tracking-wide">
-              <Navigation size={12} />
-              Concentracao
+          <div className="space-y-1.5">
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-white/50 uppercase tracking-wide">
+              <Navigation size={14} />
+              Concentração
             </div>
-            <p className="text-sm text-white/80 bg-white/5 px-3 py-2 rounded-lg">
+            <p className="text-sm sm:text-base text-white/80 bg-white/5 px-3 py-2.5 rounded-lg">
               {bloco.localConcentracao}
             </p>
             {bloco.horaConcentracao && (
-              <p className="text-xs text-white/50">
-                Horario: {formatarHora(bloco.horaConcentracao)}
+              <p className="text-xs sm:text-sm text-white/50">
+                Horário: {formatarHora(bloco.horaConcentracao)}
               </p>
             )}
           </div>
@@ -125,12 +127,12 @@ export function BlocoDetailPanel({ bloco, onClose, isMobile = false, isOpen = tr
 
         {/* Local de Dispersao */}
         {bloco.localDispersao && (
-          <div className="space-y-1">
-            <div className="flex items-center gap-2 text-xs text-white/50 uppercase tracking-wide">
-              <Flag size={12} />
-              Dispersao
+          <div className="space-y-1.5">
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-white/50 uppercase tracking-wide">
+              <Flag size={14} />
+              Dispersão
             </div>
-            <p className="text-sm text-white/80 bg-white/5 px-3 py-2 rounded-lg">
+            <p className="text-sm sm:text-base text-white/80 bg-white/5 px-3 py-2.5 rounded-lg">
               {bloco.localDispersao}
             </p>
           </div>
@@ -139,17 +141,17 @@ export function BlocoDetailPanel({ bloco, onClose, isMobile = false, isOpen = tr
         {/* Percurso Detalhado */}
         {pontosPercurso.length > 0 && (
           <div className="space-y-2">
-            <div className="flex items-center gap-2 text-xs text-white/50 uppercase tracking-wide">
-              <Route size={12} />
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-white/50 uppercase tracking-wide">
+              <Route size={14} />
               Percurso ({pontosPercurso.length} pontos)
             </div>
-            <div className="space-y-1 pl-2 border-l-2 border-white/10">
+            <div className="space-y-1.5 pl-3 border-l-2 border-white/10">
               {pontosPercurso.map((ponto, index) => (
                 <div key={index} className="flex items-start gap-2">
-                  <span className="text-[10px] text-white/30 w-4 text-right flex-shrink-0">
+                  <span className="text-xs text-white/30 w-5 text-right flex-shrink-0">
                     {index + 1}.
                   </span>
-                  <p className="text-xs text-white/70">{ponto}</p>
+                  <p className="text-sm text-white/70">{ponto}</p>
                 </div>
               ))}
             </div>
@@ -159,7 +161,7 @@ export function BlocoDetailPanel({ bloco, onClose, isMobile = false, isOpen = tr
         {/* Status */}
         {bloco.situacao && (
           <div className="pt-2 border-t border-white/10">
-            <span className="text-[10px] text-white/40 uppercase tracking-wide">
+            <span className="text-xs text-white/40 uppercase tracking-wide">
               Status: {bloco.situacao}
             </span>
           </div>
@@ -179,11 +181,11 @@ interface InfoItemProps {
 function InfoItem({ icon, label, value, highlight }: InfoItemProps) {
   return (
     <div className="space-y-1">
-      <div className="flex items-center gap-1.5 text-[10px] text-white/50 uppercase tracking-wide">
+      <div className="flex items-center gap-1.5 text-xs text-white/50 uppercase tracking-wide">
         {icon}
         {label}
       </div>
-      <p className={`text-sm ${highlight ? 'text-cor-accent-orange font-medium' : 'text-white/80'}`}>
+      <p className={`text-sm sm:text-base ${highlight ? 'text-cor-accent-orange font-medium' : 'text-white/80'}`}>
         {value}
       </p>
     </div>

@@ -66,18 +66,18 @@ export function BlocosByDate({
 
   return (
     <>
-      {/* Sidebar direito */}
+      {/* Sidebar direito - largura responsiva */}
       <aside
         className={`flex-shrink-0 flex flex-col bg-cor-bg-secondary transition-all duration-300 ease-in-out overflow-hidden border-l border-white/10 ${
-          isOpen ? 'w-[320px]' : 'w-0'
+          isOpen ? 'w-[260px] lg:w-[300px] xl:w-[320px]' : 'w-0'
         }`}
         style={{ height: '100%', maxHeight: '100%' }}
       >
         {/* Header */}
-        <div className="flex-shrink-0 p-4 border-b border-white/10">
+        <div className="flex-shrink-0 p-3 lg:p-4 border-b border-white/10">
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-semibold text-white flex items-center gap-2">
-              <Calendar size={14} />
+              <Calendar size={16} />
               Blocos por Data
             </h3>
             <span className="text-xs text-white/50">
@@ -128,21 +128,21 @@ export function BlocosByDate({
                         <button
                           key={bloco.id}
                           onClick={() => onSelectBloco?.(bloco)}
-                          className={`w-full px-3 py-2.5 text-left transition-all duration-200 rounded-lg border ${
+                          className={`w-full px-3 py-2.5 text-left transition-all duration-200 rounded-lg border touch-manipulation ${
                             isSelected
                               ? 'bg-cor-accent-orange/20 border-cor-accent-orange'
                               : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'
                           }`}
                         >
                           {/* Nome do bloco */}
-                          <div className={`text-xs font-medium mb-1 line-clamp-2 ${
+                          <div className={`text-sm font-medium mb-1 line-clamp-2 ${
                             isSelected ? 'text-cor-accent-orange' : 'text-white'
                           }`}>
                             {bloco.nome}
                           </div>
 
                           {/* Informações */}
-                          <div className="flex items-center gap-1.5 text-[9px] text-white/50">
+                          <div className="flex items-center gap-1.5 text-xs text-white/50">
                             {bloco.horaInicio && (
                               <span>{bloco.horaInicio}</span>
                             )}
@@ -156,7 +156,7 @@ export function BlocosByDate({
 
                           {/* Tipo e Público */}
                           <div className="flex items-center gap-1.5 mt-1">
-                            <span className={`text-[8px] px-1 py-0.5 rounded ${
+                            <span className={`text-[10px] px-1.5 py-0.5 rounded ${
                               bloco.formaApresentacao === 'COM DESLOCAMENTO'
                                 ? 'bg-purple-500/20 text-purple-300'
                                 : 'bg-pink-500/20 text-pink-300'
@@ -164,7 +164,7 @@ export function BlocosByDate({
                               {bloco.formaApresentacao === 'COM DESLOCAMENTO' ? 'Desloc.' : 'Conc.'}
                             </span>
                             {bloco.publicoEstimado && (
-                              <span className="text-[8px] text-white/40">
+                              <span className="text-[10px] text-white/40">
                                 {bloco.publicoEstimado.toLocaleString()}
                               </span>
                             )}
@@ -180,20 +180,20 @@ export function BlocosByDate({
         </div>
       </aside>
 
-      {/* Botão toggle flutuante */}
+      {/* Botão toggle flutuante - responsivo */}
       <button
         onClick={onClose}
-        className={`absolute z-[500] top-1/2 -translate-y-1/2 h-12 flex items-center justify-center transition-all duration-300 rounded-l-md ${
+        className={`absolute z-[500] top-1/2 -translate-y-1/2 h-14 flex items-center justify-center transition-all duration-300 rounded-l-md touch-manipulation ${
           isOpen
-            ? 'right-[320px] w-5 bg-cor-bg-secondary/90 hover:bg-cor-bg-secondary border-l border-white/10'
-            : 'right-0 w-6 bg-cor-bg-secondary hover:bg-cor-bg-tertiary shadow-md border-l border-white/10'
+            ? 'right-[260px] lg:right-[300px] xl:right-[320px] w-6 bg-cor-bg-secondary/90 hover:bg-cor-bg-secondary border-l border-white/10'
+            : 'right-0 w-8 bg-cor-bg-secondary hover:bg-cor-bg-tertiary shadow-md border-l border-white/10'
         }`}
         title={isOpen ? 'Ocultar lista de blocos' : 'Mostrar lista de blocos'}
       >
         {isOpen ? (
-          <ChevronRight size={16} className="text-white/70" />
+          <ChevronRight size={18} className="text-white/70" />
         ) : (
-          <ChevronLeft size={16} className="text-white/70" />
+          <ChevronLeft size={18} className="text-white/70" />
         )}
       </button>
     </>
