@@ -26,6 +26,7 @@ export const TIPOS_APRESENTACAO = {
 export const TILE_LAYERS = {
   dark: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
   light: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+  voyager: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', // Estilo Google Maps
   osm: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 };
 

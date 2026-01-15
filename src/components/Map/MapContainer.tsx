@@ -1,5 +1,6 @@
 import { MapContainer as LeafletMapContainer, TileLayer, useMap } from 'react-leaflet';
 import { useEffect, useState } from 'react';
+import { Sun, Moon } from 'lucide-react';
 import type { Bloco, Camera } from '../../types/bloco';
 import { BlocoMarker } from './BlocoMarker';
 import { BlocoRoute } from './BlocoRoute';
@@ -7,6 +8,8 @@ import { CameraMarker } from './CameraMarker';
 import { CameraPlayer } from './CameraPlayer';
 import { RIO_CENTER, DEFAULT_ZOOM, TILE_LAYERS, TILE_ATTRIBUTION } from '../../utils/constants';
 import 'leaflet/dist/leaflet.css';
+
+type MapTheme = 'light' | 'dark';
 
 interface MapContainerProps {
   blocos: Bloco[];
@@ -63,6 +66,7 @@ function MapController({ blocoSelecionado }: { blocoSelecionado: Bloco | null })
 
 export function MapView({ blocos, blocoSelecionado, onSelectBloco, camerasProximas = [] }: MapContainerProps) {
   const [cameraAberta, setCameraAberta] = useState<Camera | null>(null);
+  const [mapTheme, setMapTheme] = useState<MapTheme>('light');
 
   const handleCameraClick = (camera: Camera) => {
     setCameraAberta(camera);
@@ -72,8 +76,28 @@ export function MapView({ blocos, blocoSelecionado, onSelectBloco, camerasProxim
     setCameraAberta(null);
   };
 
+  const toggleTheme = () => {
+    setMapTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
+
+  // Usar voyager (estilo Google Maps) para tema claro
+  const tileUrl = mapTheme === 'light' ? TILE_LAYERS.voyager : TILE_LAYERS.dark;
+
   return (
     <div className="relative w-full h-full">
+      {/* Botão de toggle do tema */}
+      <button
+        onClick={toggleTheme}
+        className={`absolute top-3 right-3 z-[1000] p-2.5 rounded-lg shadow-lg transition-all duration-200 ${
+          mapTheme === 'light'
+            ? 'bg-white hover:bg-gray-100 text-gray-700 border border-gray-200'
+            : 'bg-cor-bg-secondary hover:bg-cor-bg-tertiary text-white border border-white/10'
+        }`}
+        title={mapTheme === 'light' ? 'Mudar para mapa escuro' : 'Mudar para mapa claro'}
+      >
+        {mapTheme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+      </button>
+
       <LeafletMapContainer
         center={RIO_CENTER}
         zoom={DEFAULT_ZOOM}
@@ -82,7 +106,8 @@ export function MapView({ blocos, blocoSelecionado, onSelectBloco, camerasProxim
       >
         <TileLayer
           attribution={TILE_ATTRIBUTION}
-          url={TILE_LAYERS.dark}
+          url={tileUrl}
+          key={mapTheme}
         />
 
         <MapResizeHandler />
