@@ -1,6 +1,6 @@
-import { useMemo, useRef, useState, useEffect } from 'react';
+import { useMemo, useRef, useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ZoomIn, ZoomOut, Calendar, FileDown, Loader2, Clock } from 'lucide-react';
+import { ArrowLeft, ZoomIn, ZoomOut, Calendar, FileDown, Loader2, Clock, Play, Pause } from 'lucide-react';
 import { useBlocos } from '../hooks';
 import { getCorSubprefeitura } from '../data/coordenadasBairros';
 import { exportTimelinePDF } from '../utils/exportPDF';
@@ -19,7 +19,7 @@ function useBrasiliaTime() {
   useEffect(() => {
     const interval = setInterval(() => {
       setNow(new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' })));
-    }, 60000); // Atualiza a cada minuto
+    }, 1000); // Atualiza a cada segundo para o modo esteira
 
     return () => clearInterval(interval);
   }, []);
@@ -74,28 +74,31 @@ function TimelineBar({ bloco, startHour, durationHours, hourWidth, rowIndex }: T
   );
 }
 
-function TimelineDay({
-  data,
-  blocos,
-  hourWidth,
-  isExpanded,
-  onToggle,
-  currentTime
-}: {
+interface TimelineDayProps {
   data: string;
   blocos: Bloco[];
   hourWidth: number;
   isExpanded: boolean;
   onToggle: () => void;
   currentTime: Date;
-}) {
-  // Verificar se é o dia atual
-  const hoje = currentTime.toISOString().split('T')[0];
-  const isToday = data === hoje;
+  showTimeLine: boolean;
+  onScrollRef?: (el: HTMLDivElement | null) => void;
+}
 
+function TimelineDay({
+  data,
+  blocos,
+  hourWidth,
+  isExpanded,
+  onToggle,
+  currentTime,
+  showTimeLine,
+  onScrollRef
+}: TimelineDayProps) {
   // Calcular posição da linha do horário atual
-  const currentHour = currentTime.getHours() + currentTime.getMinutes() / 60;
+  const currentHour = currentTime.getHours() + currentTime.getMinutes() / 60 + currentTime.getSeconds() / 3600;
   const currentTimeLeft = currentHour * hourWidth;
+
   // Ordenar blocos por horário de início
   const blocosOrdenados = useMemo(() => {
     return [...blocos].sort((a, b) => {
@@ -176,7 +179,10 @@ function TimelineDay({
 
       {/* Conteúdo expandido */}
       {isExpanded && (
-        <div className="relative overflow-x-auto bg-cor-bg-primary/30">
+        <div
+          ref={onScrollRef}
+          className="relative overflow-x-auto bg-cor-bg-primary/30 scroll-smooth"
+        >
           {/* Header de horas */}
           <div
             className="sticky top-0 z-10 flex border-b border-white/10 bg-cor-bg-secondary/95 backdrop-blur-sm"
@@ -226,8 +232,8 @@ function TimelineDay({
               />
             ))}
 
-            {/* Linha do horário atual (apenas no dia de hoje) */}
-            {isToday && (
+            {/* Linha do horário atual */}
+            {showTimeLine && (
               <div
                 className="absolute top-0 bottom-0 z-20 pointer-events-none"
                 style={{ left: `${currentTimeLeft}px` }}
@@ -254,10 +260,36 @@ export function Timeline() {
   const [zoom, setZoom] = useState(1);
   const [expandedDays, setExpandedDays] = useState<Set<string>>(new Set());
   const [isExporting, setIsExporting] = useState(false);
+  const [autoScroll, setAutoScroll] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const scrollRefs = useRef<Map<string, HTMLDivElement>>(new Map());
   const currentTime = useBrasiliaTime();
 
   const hourWidth = HOUR_WIDTH_BASE * zoom;
+
+  // Função para registrar ref de scroll de cada dia
+  const setScrollRef = useCallback((data: string, el: HTMLDivElement | null) => {
+    if (el) {
+      scrollRefs.current.set(data, el);
+    } else {
+      scrollRefs.current.delete(data);
+    }
+  }, []);
+
+  // Auto-scroll para manter a linha do tempo visível
+  useEffect(() => {
+    if (!autoScroll) return;
+
+    const currentHour = currentTime.getHours() + currentTime.getMinutes() / 60 + currentTime.getSeconds() / 3600;
+    const scrollPosition = currentHour * hourWidth - 200; // 200px de margem à esquerda
+
+    // Fazer scroll em todos os dias expandidos
+    scrollRefs.current.forEach((el) => {
+      if (el) {
+        el.scrollLeft = Math.max(0, scrollPosition);
+      }
+    });
+  }, [autoScroll, currentTime, hourWidth]);
 
   // Função para exportar PDF
   const handleExportPDF = async () => {
@@ -321,6 +353,18 @@ export function Timeline() {
     setExpandedDays(new Set());
   };
 
+  // Ir para o horário atual (centralizar)
+  const goToNow = useCallback(() => {
+    const currentHour = currentTime.getHours() + currentTime.getMinutes() / 60;
+    const scrollPosition = currentHour * hourWidth - 200;
+
+    scrollRefs.current.forEach((el) => {
+      if (el) {
+        el.scrollTo({ left: Math.max(0, scrollPosition), behavior: 'smooth' });
+      }
+    });
+  }, [currentTime, hourWidth]);
+
   if (loading) {
     return (
       <div className="h-screen w-screen bg-cor-bg-primary flex items-center justify-center">
@@ -359,10 +403,38 @@ export function Timeline() {
             <div className="flex items-center gap-2 px-3 py-1.5 bg-red-500/20 border border-red-500/30 rounded-lg">
               <Clock size={14} className="text-red-400" />
               <span className="text-sm font-bold text-red-400">
-                {currentTime.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
+                {currentTime.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
               </span>
               <span className="text-[10px] text-red-400/70">Brasília</span>
             </div>
+
+            <div className="w-px h-8 bg-white/10" />
+
+            {/* Modo Esteira */}
+            <button
+              onClick={() => setAutoScroll(!autoScroll)}
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg transition-colors ${
+                autoScroll
+                  ? 'bg-green-500/20 border border-green-500/30 text-green-400'
+                  : 'bg-white/5 border border-white/10 text-white/70 hover:bg-white/10'
+              }`}
+              title={autoScroll ? 'Desativar modo esteira' : 'Ativar modo esteira'}
+            >
+              {autoScroll ? <Pause size={14} /> : <Play size={14} />}
+              <span className="text-xs font-medium">
+                {autoScroll ? 'Esteira ON' : 'Esteira OFF'}
+              </span>
+            </button>
+
+            {/* Ir para agora */}
+            <button
+              onClick={goToNow}
+              className="flex items-center gap-2 px-3 py-1.5 bg-red-500/20 border border-red-500/30 text-red-400 rounded-lg hover:bg-red-500/30 transition-colors"
+              title="Ir para o horário atual"
+            >
+              <Clock size={14} />
+              <span className="text-xs font-medium">Ir para Agora</span>
+            </button>
 
             <div className="w-px h-8 bg-white/10" />
 
@@ -435,6 +507,8 @@ export function Timeline() {
             isExpanded={expandedDays.has(data)}
             onToggle={() => toggleDay(data)}
             currentTime={currentTime}
+            showTimeLine={true}
+            onScrollRef={(el) => setScrollRef(data, el)}
           />
         ))}
       </div>
@@ -447,6 +521,8 @@ export function Timeline() {
           <span>Passe o mouse sobre um bloco para ver detalhes</span>
           <span>|</span>
           <span>Use o zoom para ajustar a visualização</span>
+          <span>|</span>
+          <span className="text-red-400">Linha vermelha = horário atual de Brasília</span>
         </div>
       </div>
     </div>
