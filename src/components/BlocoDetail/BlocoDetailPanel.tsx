@@ -18,15 +18,16 @@ export function BlocoDetailPanel({ bloco, onClose, isMobile = false, isOpen = tr
 
   // Classes condicionais para mobile (bottom sheet) vs desktop (side panel)
   // Mobile: altura máxima 60vh em landscape, 75vh em portrait
+  // Usando fundo sólido escuro para garantir visibilidade em qualquer tema de mapa
   const containerClasses = isMobile
-    ? 'fixed bottom-0 left-0 right-0 z-[1000] bg-cor-bg-secondary/98 backdrop-blur-lg rounded-t-3xl border-t-2 border-white/20 shadow-2xl max-h-[75vh] landscape:max-h-[85vh] overflow-hidden safe-area-bottom'
-    : 'absolute top-4 right-4 z-[1000] w-[320px] lg:w-[360px] bg-cor-bg-secondary/98 backdrop-blur-lg rounded-xl border border-white/10 shadow-2xl overflow-hidden max-h-[calc(100vh-120px)]';
+    ? 'fixed bottom-0 left-0 right-0 z-[1000] bg-[#1a1f2e] rounded-t-3xl border-t-2 border-white/20 shadow-2xl max-h-[75vh] landscape:max-h-[85vh] overflow-hidden safe-area-bottom'
+    : 'absolute top-4 right-4 z-[1000] w-[320px] lg:w-[360px] bg-[#1a1f2e] rounded-xl border border-white/20 shadow-2xl overflow-hidden max-h-[calc(100vh-120px)]';
 
   return (
     <div className={containerClasses}>
       {/* Barra indicadora para mobile - drag handle */}
       {isMobile && (
-        <div className="flex justify-center py-2 bg-cor-bg-secondary border-b border-white/5">
+        <div className="flex justify-center py-2 bg-[#1a1f2e] border-b border-white/5">
           <div className="w-10 h-1 bg-white/40 rounded-full" />
         </div>
       )}

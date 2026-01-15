@@ -52,7 +52,13 @@ export function BlocoMarker({ bloco, isSelected, onSelect }: BlocoMarkerProps) {
   const radius = getMarkerRadius(bloco.publicoEstimado);
 
   const popupContent = (
-    <div style={{ minWidth: '240px', padding: '4px' }}>
+    <div style={{
+      minWidth: '240px',
+      padding: '12px',
+      backgroundColor: '#1a1f2e',
+      borderRadius: '8px',
+      margin: '-14px -20px -14px -20px'
+    }}>
       <h3 style={{
         fontWeight: 'bold',
         fontSize: '14px',
