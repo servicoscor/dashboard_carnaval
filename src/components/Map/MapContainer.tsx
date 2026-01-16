@@ -1,5 +1,6 @@
 import { MapContainer as LeafletMapContainer, TileLayer, useMap } from 'react-leaflet';
 import { useEffect, useState } from 'react';
+import L from 'leaflet';
 import { Sun, Moon } from 'lucide-react';
 import type { Bloco, Camera } from '../../types/bloco';
 import type { RotaInfo } from '../../types/rota';
@@ -56,16 +57,35 @@ function MapResizeHandler() {
 }
 
 // Componente para controlar o mapa programaticamente
-function MapController({ blocoSelecionado }: { blocoSelecionado: Bloco | null }) {
+function MapController({ blocoSelecionado, rotaAtiva }: { blocoSelecionado: Bloco | null; rotaAtiva: RotaInfo | null }) {
   const map = useMap();
 
   useEffect(() => {
+    // Se tiver rota ativa, enquadrar a rota no mapa
+    if (rotaAtiva && rotaAtiva.polyline.length > 0) {
+      const bounds = L.latLngBounds(
+        rotaAtiva.polyline.map(p => [p.lat, p.lng] as [number, number])
+      );
+      // Adicionar origem e destino aos bounds para garantir que apareçam
+      bounds.extend([rotaAtiva.origem.lat, rotaAtiva.origem.lng]);
+      bounds.extend([rotaAtiva.destino.lat, rotaAtiva.destino.lng]);
+
+      map.fitBounds(bounds, {
+        padding: [50, 50],
+        maxZoom: 15,
+        animate: true,
+        duration: 1
+      });
+      return;
+    }
+
+    // Se não tiver rota, focar no bloco selecionado
     if (blocoSelecionado) {
       map.flyTo([blocoSelecionado.lat, blocoSelecionado.lng], 16, {
         duration: 1.5,
       });
     }
-  }, [blocoSelecionado, map]);
+  }, [blocoSelecionado, rotaAtiva, map]);
 
   return null;
 }
@@ -125,7 +145,7 @@ export function MapView({
         />
 
         <MapResizeHandler />
-        <MapController blocoSelecionado={blocoSelecionado} />
+        <MapController blocoSelecionado={blocoSelecionado} rotaAtiva={rotaAtiva} />
 
         {/* Renderizar rota do bloco selecionado (percurso do KMZ já está carregado no bloco) */}
         {blocoSelecionado && (
