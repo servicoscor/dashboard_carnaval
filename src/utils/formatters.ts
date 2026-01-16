@@ -63,3 +63,33 @@ export function abreviarNome(nome: string, maxLength: number = 30): string {
   if (nome.length <= maxLength) return nome;
   return nome.substring(0, maxLength - 3) + '...';
 }
+
+// Obter horário atual de Brasília
+export function getBrasiliaTime(): Date {
+  return new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' }));
+}
+
+// Verificar se um bloco já terminou baseado no horário de Brasília
+export function blocoTerminou(data: string, horaTermino: string): boolean {
+  if (!data || !horaTermino) return false;
+
+  const now = getBrasiliaTime();
+  const hoje = now.toISOString().split('T')[0]; // YYYY-MM-DD
+
+  // Se a data do bloco é anterior a hoje, já terminou
+  if (data < hoje) return true;
+
+  // Se a data do bloco é posterior a hoje, ainda não terminou
+  if (data > hoje) return false;
+
+  // Se é hoje, verificar o horário
+  const [horaFim, minFim] = horaTermino.split(':').map(Number);
+  const horaAtual = now.getHours();
+  const minAtual = now.getMinutes();
+
+  // Se passou do horário de término
+  if (horaAtual > horaFim) return true;
+  if (horaAtual === horaFim && minAtual >= minFim) return true;
+
+  return false;
+}
