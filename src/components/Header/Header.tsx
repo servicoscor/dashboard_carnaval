@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Music, Users, Route, MapPin, Play, Square, SkipForward, Menu, Info, ChevronDown, ChevronUp, Calendar } from 'lucide-react';
+import { Music, Users, Route, MapPin, Play, Square, SkipForward, Menu, Info, ChevronDown, ChevronUp, Calendar, PartyPopper } from 'lucide-react';
 import type { Bloco, Estatisticas } from '../../types/bloco';
 import { formatarNumero } from '../../utils/formatters';
 import { CORES_ESTAGIO } from '../../utils/constants';
@@ -136,10 +136,11 @@ export function Header({
 
         {/* Titulo Central */}
         <div className="flex-1 flex flex-col items-center justify-center min-w-0 mx-2">
-          <h1 className="text-lg lg:text-xl font-bold text-white tracking-wide whitespace-nowrap">
-            Carnaval Rio 2026
+          <h1 className="flex items-center gap-2 text-lg lg:text-xl font-bold text-white tracking-wide whitespace-nowrap">
+            <PartyPopper size={22} className="text-cor-accent-orange" />
+            CARNAVAL RIO 2026
           </h1>
-          <p className="text-[9px] text-white/50 hidden sm:block">
+          <p className="text-[9px] text-white/50 hidden sm:block uppercase tracking-wider">
             Dashboard de Blocos
           </p>
         </div>
