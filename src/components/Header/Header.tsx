@@ -143,27 +143,27 @@ export function Header({
         {/* Stats Pills + Tour - Direita */}
         <div className="flex items-center gap-2 flex-shrink-0">
           <StatPill
-            icon={<MapPin size={14} />}
+            icon={<MapPin size={18} />}
             label="Blocos"
             value={estatisticas.totalBlocos}
             subValue={isFiltered ? `de ${totalBlocosOriginal}` : undefined}
             color="orange"
           />
           <StatPill
-            icon={<Users size={14} />}
+            icon={<Users size={18} />}
             label="Publico"
             value={formatarNumero(estatisticas.publicoTotal)}
             color="green"
           />
           <StatPill
-            icon={<Route size={14} />}
+            icon={<Route size={18} />}
             label="Deslocamento"
             value={estatisticas.comDeslocamento}
             subValue={`${Math.round((estatisticas.comDeslocamento / (estatisticas.totalBlocos || 1)) * 100)}%`}
             color="purple"
           />
           <StatPill
-            icon={<Music size={14} />}
+            icon={<Music size={18} />}
             label="Parados"
             value={estatisticas.parados}
             subValue={`${Math.round((estatisticas.parados / (estatisticas.totalBlocos || 1)) * 100)}%`}
@@ -332,14 +332,14 @@ function StatPill({ icon, label, value, subValue, color }: StatPillProps) {
   };
 
   return (
-    <div className={`flex items-center gap-2 px-3 py-2 rounded-lg border ${colorClasses[color]}`}>
+    <div className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg border ${colorClasses[color]}`}>
       {icon}
       <div className="flex flex-col">
-        <span className="text-[10px] uppercase tracking-wide opacity-70">{label}</span>
-        <div className="flex items-baseline gap-1">
-          <span className="text-sm font-bold">{value}</span>
+        <span className="text-xs uppercase tracking-wide opacity-80 font-medium">{label}</span>
+        <div className="flex items-baseline gap-1.5">
+          <span className="text-lg font-bold">{value}</span>
           {subValue && (
-            <span className="text-[10px] opacity-60">{subValue}</span>
+            <span className="text-xs opacity-70">{subValue}</span>
           )}
         </div>
       </div>
