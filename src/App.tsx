@@ -5,7 +5,7 @@ import { MapView } from './components/Map';
 import { BlocoDetailPanel } from './components/BlocoDetail';
 import { BlocosByDate } from './components/Sidebar';
 import { AlertasPanel } from './components/Alertas';
-import { useBlocos, useFilters, useCameras, useCamerasProximas, useResponsive, useAlertas } from './hooks';
+import { useBlocos, useFilters, useCameras, useCamerasProximas, useResponsive, useAlertas, useGeolocation, useWazeAlerts, useRota } from './hooks';
 import type { Bloco } from './types/bloco';
 import { Loader2, AlertCircle, RefreshCw } from 'lucide-react';
 
@@ -66,6 +66,20 @@ function App() {
 
   // Filtrar câmeras próximas ao bloco selecionado (raio de 300m)
   const camerasProximas = useCamerasProximas(todasCameras, blocoSelecionado, 300);
+
+  // Sistema de Rotas e Waze
+  const geolocalizacao = useGeolocation();
+  const { alertas: alertasWaze } = useWazeAlerts(true);
+  const {
+    origem: origemRota,
+    rotaAtiva,
+    carregando: carregandoRota,
+    erro: erroRota,
+    definirOrigemGPS,
+    calcularRotaParaBloco,
+    limparRota
+  } = useRota(alertasWaze);
+  const [mostrarAlertasWaze] = useState(true); // Sempre mostrar alertas quando há rota
 
   const handleSelectBloco = useCallback((bloco: Bloco) => {
     setBlocoSelecionado(bloco);
@@ -231,6 +245,21 @@ function App() {
           isMobile={isMobile}
           isOpen={sidebarOpen}
           onClose={() => setSidebarOpen(prev => isMobile ? false : !prev)}
+          rotasConfig={{
+            origem: origemRota,
+            rotaAtiva,
+            carregando: carregandoRota,
+            erro: erroRota,
+            geolocalizacao: {
+              coordenadas: geolocalizacao.coordenadas,
+              erro: geolocalizacao.erro,
+              carregando: geolocalizacao.carregando
+            },
+            onObterLocalizacao: geolocalizacao.obterLocalizacao,
+            onCalcularRota: calcularRotaParaBloco,
+            onLimparRota: limparRota,
+            onDefinirOrigemGPS: definirOrigemGPS
+          }}
         />
 
         {/* Map Area */}
@@ -240,6 +269,9 @@ function App() {
             blocoSelecionado={blocoSelecionado}
             onSelectBloco={handleSelectBloco}
             camerasProximas={camerasProximas}
+            rotaAtiva={rotaAtiva}
+            alertasWaze={alertasWaze}
+            mostrarAlertasWaze={mostrarAlertasWaze}
           />
 
           {/* Painel de detalhes do bloco */}

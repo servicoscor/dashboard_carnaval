@@ -2,10 +2,13 @@ import { MapContainer as LeafletMapContainer, TileLayer, useMap } from 'react-le
 import { useEffect, useState } from 'react';
 import { Sun, Moon } from 'lucide-react';
 import type { Bloco, Camera } from '../../types/bloco';
+import type { RotaInfo } from '../../types/rota';
+import type { WazeAlert } from '../../types/waze';
 import { BlocoMarker } from './BlocoMarker';
 import { BlocoRoute } from './BlocoRoute';
 import { CameraMarker } from './CameraMarker';
 import { CameraPlayer } from './CameraPlayer';
+import { RotaPolyline, WazeAlertMarker } from '../Rotas';
 import { RIO_CENTER, DEFAULT_ZOOM, TILE_LAYERS, TILE_ATTRIBUTION } from '../../utils/constants';
 import 'leaflet/dist/leaflet.css';
 
@@ -16,6 +19,9 @@ interface MapContainerProps {
   blocoSelecionado: Bloco | null;
   onSelectBloco: (bloco: Bloco) => void;
   camerasProximas?: Camera[];
+  rotaAtiva?: RotaInfo | null;
+  alertasWaze?: WazeAlert[];
+  mostrarAlertasWaze?: boolean;
 }
 
 // Componente para invalidar o tamanho do mapa quando o container redimensiona
@@ -64,7 +70,15 @@ function MapController({ blocoSelecionado }: { blocoSelecionado: Bloco | null })
   return null;
 }
 
-export function MapView({ blocos, blocoSelecionado, onSelectBloco, camerasProximas = [] }: MapContainerProps) {
+export function MapView({
+  blocos,
+  blocoSelecionado,
+  onSelectBloco,
+  camerasProximas = [],
+  rotaAtiva = null,
+  alertasWaze = [],
+  mostrarAlertasWaze = false
+}: MapContainerProps) {
   const [cameraAberta, setCameraAberta] = useState<Camera | null>(null);
   const [mapTheme, setMapTheme] = useState<MapTheme>('light');
 
@@ -138,6 +152,21 @@ export function MapView({ blocos, blocoSelecionado, onSelectBloco, camerasProxim
             isSelected={blocoSelecionado?.id === bloco.id}
             onSelect={onSelectBloco}
           />
+        ))}
+
+        {/* Renderizar rota calculada (usuário -> bloco) */}
+        {rotaAtiva && (
+          <RotaPolyline rota={rotaAtiva} />
+        )}
+
+        {/* Renderizar alertas do Waze na rota */}
+        {mostrarAlertasWaze && rotaAtiva && rotaAtiva.alertasNaRota.map((alerta) => (
+          <WazeAlertMarker key={alerta.uuid} alerta={alerta} />
+        ))}
+
+        {/* Renderizar todos os alertas do Waze (quando não houver rota) */}
+        {mostrarAlertasWaze && !rotaAtiva && alertasWaze.map((alerta) => (
+          <WazeAlertMarker key={alerta.uuid} alerta={alerta} />
         ))}
       </LeafletMapContainer>
 

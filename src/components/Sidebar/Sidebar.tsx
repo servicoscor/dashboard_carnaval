@@ -1,9 +1,27 @@
 import { useState, useMemo } from 'react';
-import { X, ChevronDown, ChevronUp, ChevronLeft, ChevronRight, Filter, Calendar } from 'lucide-react';
+import { X, ChevronDown, ChevronUp, ChevronLeft, ChevronRight, Filter, Calendar, Navigation } from 'lucide-react';
 import type { Bloco, Filtros } from '../../types/bloco';
+import type { RotaInfo, OrigemUsuario, Coordenada } from '../../types/rota';
 import { SearchInput } from './SearchInput';
 import { Filters } from './Filters';
+import { RotasPanel } from '../Rotas';
 import { formatarDataCurta, formatarDiaSemana } from '../../utils/formatters';
+
+interface RotasPanelConfig {
+  origem: OrigemUsuario | null;
+  rotaAtiva: RotaInfo | null;
+  carregando: boolean;
+  erro: string | null;
+  geolocalizacao: {
+    coordenadas: Coordenada | null;
+    erro: string | null;
+    carregando: boolean;
+  };
+  onObterLocalizacao: () => void;
+  onCalcularRota: (bloco: Bloco) => Promise<RotaInfo | null>;
+  onLimparRota: () => void;
+  onDefinirOrigemGPS: (coordenadas: Coordenada) => void;
+}
 
 interface SidebarProps {
   blocos: Bloco[];
@@ -15,6 +33,7 @@ interface SidebarProps {
   isMobile?: boolean;
   isOpen?: boolean;
   onClose?: () => void;
+  rotasConfig?: RotasPanelConfig;
 }
 
 export function Sidebar(props: SidebarProps) {
@@ -28,9 +47,11 @@ export function Sidebar(props: SidebarProps) {
     isMobile = false,
     isOpen = false,
     onClose,
+    rotasConfig,
   } = props;
   const [filtrosVisiveis, setFiltrosVisiveis] = useState(true);
   const [blocosVisiveis, setBlocosVisiveis] = useState(true);
+  const [rotasVisiveis, setRotasVisiveis] = useState(true);
   const [expandedDates, setExpandedDates] = useState<Set<string>>(new Set());
 
   // Agrupar blocos por data para exibição
@@ -163,6 +184,50 @@ export function Sidebar(props: SidebarProps) {
                 </div>
               )}
             </div>
+
+            {/* Seção de Rotas */}
+            {rotasConfig && (
+              <div className="border-b border-white/10">
+                <button
+                  onClick={() => setRotasVisiveis(!rotasVisiveis)}
+                  className="w-full flex items-center justify-between px-4 py-3 hover:bg-white/5 transition-colors touch-manipulation min-h-[48px]"
+                >
+                  <div className="flex items-center gap-2">
+                    <Navigation size={18} className="text-cor-accent-blue" />
+                    <span className="text-sm font-semibold text-white uppercase tracking-wide">
+                      Traçar Rota
+                    </span>
+                    {rotasConfig.rotaAtiva && (
+                      <span className="w-2.5 h-2.5 rounded-full bg-cor-accent-blue animate-pulse" />
+                    )}
+                  </div>
+                  {rotasVisiveis ? (
+                    <ChevronUp size={20} className="text-white/50" />
+                  ) : (
+                    <ChevronDown size={20} className="text-white/50" />
+                  )}
+                </button>
+
+                {rotasVisiveis && (
+                  <div className="px-4 pb-4">
+                    <RotasPanel
+                      origem={rotasConfig.origem}
+                      rotaAtiva={rotasConfig.rotaAtiva}
+                      carregando={rotasConfig.carregando}
+                      erro={rotasConfig.erro}
+                      geolocalizacao={rotasConfig.geolocalizacao}
+                      onObterLocalizacao={rotasConfig.onObterLocalizacao}
+                      onCalcularRota={rotasConfig.onCalcularRota}
+                      onLimparRota={rotasConfig.onLimparRota}
+                      onDefinirOrigemGPS={rotasConfig.onDefinirOrigemGPS}
+                      blocos={blocos}
+                      isMobile={isMobile}
+                      embedded={true}
+                    />
+                  </div>
+                )}
+              </div>
+            )}
 
             {/* Seção de Blocos por Data */}
             {blocosPorData.length > 0 && (
@@ -343,6 +408,49 @@ export function Sidebar(props: SidebarProps) {
             </div>
           )}
         </div>
+
+        {/* Seção de Rotas - Desktop */}
+        {rotasConfig && (
+          <div className="flex-shrink-0 border-b border-white/10">
+            <button
+              onClick={() => setRotasVisiveis(!rotasVisiveis)}
+              className="w-full flex items-center justify-between px-3 sm:px-4 py-3 hover:bg-white/5 transition-colors touch-manipulation min-h-[44px]"
+            >
+              <div className="flex items-center gap-2">
+                <Navigation size={16} className="text-cor-accent-blue" />
+                <span className="text-sm font-medium text-white/70 uppercase tracking-wide">
+                  Traçar Rota
+                </span>
+                {rotasConfig.rotaAtiva && (
+                  <span className="w-2.5 h-2.5 rounded-full bg-cor-accent-blue animate-pulse" />
+                )}
+              </div>
+              {rotasVisiveis ? (
+                <ChevronUp size={20} className="text-white/50" />
+              ) : (
+                <ChevronDown size={20} className="text-white/50" />
+              )}
+            </button>
+
+            {rotasVisiveis && (
+              <div className="px-3 sm:px-4 pb-3 sm:pb-4">
+                <RotasPanel
+                  origem={rotasConfig.origem}
+                  rotaAtiva={rotasConfig.rotaAtiva}
+                  carregando={rotasConfig.carregando}
+                  erro={rotasConfig.erro}
+                  geolocalizacao={rotasConfig.geolocalizacao}
+                  onObterLocalizacao={rotasConfig.onObterLocalizacao}
+                  onCalcularRota={rotasConfig.onCalcularRota}
+                  onLimparRota={rotasConfig.onLimparRota}
+                  onDefinirOrigemGPS={rotasConfig.onDefinirOrigemGPS}
+                  blocos={blocos}
+                  isMobile={false}
+                />
+              </div>
+            )}
+          </div>
+        )}
       </aside>
 
       {/* Botão toggle para desktop */}

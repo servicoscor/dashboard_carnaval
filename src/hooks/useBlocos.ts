@@ -3,6 +3,44 @@ import type { Bloco, PontoPercurso } from '../types/bloco';
 import { carregarBlocosExcel } from '../utils/parseExcel';
 import { carregarPercursosDoKMZ, normalizarNomeBloco, type PercursoBlocoKMZ } from '../utils/kmzParser';
 import { dadosMock } from '../data/mockData';
+import { getBrasiliaTime } from '../utils/formatters';
+
+// Bloco fake para teste de rotas (apenas em desenvolvimento)
+function criarBlocoTesteHoje(): Bloco {
+  const hoje = getBrasiliaTime();
+  // Formatar data manualmente para evitar conversão UTC do toISOString()
+  const ano = hoje.getFullYear();
+  const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+  const dia = String(hoje.getDate()).padStart(2, '0');
+  const hojeStr = `${ano}-${mes}-${dia}`; // YYYY-MM-DD
+
+  return {
+    id: 99999,
+    nome: '[TESTE] Bloco do Desenvolvedor',
+    data: hojeStr,
+    dataRelativa: 'Hoje',
+    bairro: 'Centro',
+    subprefeitura: 'CENTRO',
+    publicoEstimado: 1000,
+    localConcentracao: 'Praça XV de Novembro',
+    horaConcentracao: '14:00',
+    horaInicio: '15:00',
+    horaTermino: '22:00',
+    percursoDetalhado: 'Praça XV | Av. Rio Branco | Cinelândia',
+    localDispersao: 'Cinelândia',
+    formaApresentacao: 'COM DESLOCAMENTO',
+    estrutura: 'Trio elétrico',
+    situacao: 'APROVADO',
+    lat: -22.9027,
+    lng: -43.1778,
+    temPercurso: true,
+    percurso: [
+      { lat: -22.9027, lng: -43.1778, rua: 'Praça XV' },
+      { lat: -22.9035, lng: -43.1765, rua: 'Av. Rio Branco' },
+      { lat: -22.9100, lng: -43.1755, rua: 'Cinelândia' }
+    ]
+  };
+}
 
 const EXCEL_URL = '/data/PLANILHACOMPLETABLOCOS2026.xlsx';
 const KMZ_URL = '/data/percursos/kmz/Carnaval 2026 - Blocos.kmz';
@@ -124,18 +162,25 @@ export function useBlocos() {
 
         console.log(`Blocos associados com percursos KMZ: ${blocosAssociados}/${blocosExcel.length}`);
 
-        setBlocos(blocosComPercursos);
+        // Adicionar bloco de teste para hoje (apenas em desenvolvimento)
+        const blocoTeste = criarBlocoTesteHoje();
+        const blocosComTeste = [blocoTeste, ...blocosComPercursos];
+
+        setBlocos(blocosComTeste);
         setUsandoMock(false);
       } else {
         // Se nao conseguiu carregar o Excel, usar dados mock
         console.log('Usando dados mock (Excel nao encontrado)');
-        setBlocos(dadosMock);
+        // Adicionar bloco de teste para hoje
+        const blocoTeste = criarBlocoTesteHoje();
+        setBlocos([blocoTeste, ...dadosMock]);
         setUsandoMock(true);
       }
     } catch (err) {
       console.error('Erro ao carregar dados:', err);
       // Em caso de erro, usar dados mock
-      setBlocos(dadosMock);
+      const blocoTeste = criarBlocoTesteHoje();
+      setBlocos([blocoTeste, ...dadosMock]);
       setUsandoMock(true);
       setError('Arquivo Excel nao encontrado. Usando dados de demonstracao.');
     } finally {
