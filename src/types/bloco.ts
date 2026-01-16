@@ -20,6 +20,7 @@ export interface Bloco {
   dataRelativa: string;
   bairro: string;
   subprefeitura: string;
+  regiao: string; // Zona: ZONA SUL, ZONA NORTE, ZONA OESTE, CENTRO, etc.
   publicoEstimado: number;
   localConcentracao: string;
   horaConcentracao: string;
@@ -38,6 +39,7 @@ export interface Bloco {
 
 export interface Filtros {
   data: string;
+  zona: string;
   subprefeitura: string;
   tipo: 'todos' | 'deslocamento' | 'parado';
   busca: string;

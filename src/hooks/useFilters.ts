@@ -1,8 +1,10 @@
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import type { Bloco, Filtros, Estatisticas } from '../types/bloco';
+import { getBrasiliaTime } from '../utils/formatters';
 
 const FILTROS_INICIAIS: Filtros = {
-  data: 'todos',
+  data: 'hoje', // Mudado de 'todos' para 'hoje' como default
+  zona: 'todos',
   subprefeitura: 'todos',
   tipo: 'todos',
   busca: '',
@@ -10,6 +12,15 @@ const FILTROS_INICIAIS: Filtros = {
 
 export function useFilters(blocos: Bloco[]) {
   const [filtros, setFiltros] = useState<Filtros>(FILTROS_INICIAIS);
+
+  // Obter data de hoje no formato YYYY-MM-DD
+  const hojeStr = useMemo(() => {
+    const hoje = getBrasiliaTime();
+    const ano = hoje.getFullYear();
+    const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+    const dia = String(hoje.getDate()).padStart(2, '0');
+    return `${ano}-${mes}-${dia}`;
+  }, []);
 
   // Extrair datas unicas disponiveis
   const datasDisponiveis = useMemo(() => {
@@ -22,12 +33,38 @@ export function useFilters(blocos: Bloco[]) {
     return Array.from(datas).sort();
   }, [blocos]);
 
+  // Verificar se há blocos hoje
+  const temBlocosHoje = useMemo(() => {
+    return blocos.some(b => b.data === hojeStr);
+  }, [blocos, hojeStr]);
+
+  // Se não houver blocos hoje, mudar para "todos"
+  useEffect(() => {
+    if (filtros.data === 'hoje' && !temBlocosHoje && blocos.length > 0) {
+      setFiltros(prev => ({ ...prev, data: 'todos' }));
+    }
+  }, [temBlocosHoje, filtros.data, blocos.length]);
+
   // Filtrar blocos
   const blocosFiltrados = useMemo(() => {
     return blocos.filter((bloco) => {
       // Filtro por data
-      if (filtros.data !== 'todos' && bloco.data !== filtros.data) {
+      if (filtros.data === 'hoje') {
+        // Mostrar apenas blocos de hoje
+        if (bloco.data !== hojeStr) {
+          return false;
+        }
+      } else if (filtros.data !== 'todos' && bloco.data !== filtros.data) {
         return false;
+      }
+
+      // Filtro por zona (região)
+      if (filtros.zona !== 'todos') {
+        const zonaBloco = bloco.regiao?.toUpperCase() || '';
+        const zonaFiltro = filtros.zona.toUpperCase();
+        if (!zonaBloco.includes(zonaFiltro)) {
+          return false;
+        }
       }
 
       // Filtro por subprefeitura
@@ -56,7 +93,7 @@ export function useFilters(blocos: Bloco[]) {
 
       return true;
     });
-  }, [blocos, filtros]);
+  }, [blocos, filtros, hojeStr]);
 
   // Calcular estatisticas dos blocos filtrados
   const estatisticas = useMemo<Estatisticas>(() => {
@@ -79,5 +116,7 @@ export function useFilters(blocos: Bloco[]) {
     estatisticas,
     datasDisponiveis,
     resetFiltros,
+    hojeStr, // Exportar para uso em componentes
+    temBlocosHoje, // Exportar para uso em componentes
   };
 }

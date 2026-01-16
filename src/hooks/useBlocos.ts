@@ -24,6 +24,7 @@ function criarBlocoTesteHoje(): Bloco {
     dataRelativa: 'Hoje',
     bairro: 'Centro',
     subprefeitura: 'CENTRO',
+    regiao: 'CENTRO',
     publicoEstimado: 1000,
     localConcentracao: 'Praça XV de Novembro',
     horaConcentracao: '14:00',

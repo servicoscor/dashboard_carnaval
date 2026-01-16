@@ -93,3 +93,52 @@ export function blocoTerminou(data: string, horaTermino: string): boolean {
 
   return false;
 }
+
+// Verificar se um bloco está acontecendo agora (em andamento)
+export function blocoEmAndamento(data: string, horaInicio: string, horaTermino: string): boolean {
+  if (!data || !horaInicio || !horaTermino) return false;
+
+  const now = getBrasiliaTime();
+  const hoje = now.toISOString().split('T')[0]; // YYYY-MM-DD
+
+  // Só pode estar em andamento se for hoje
+  if (data !== hoje) return false;
+
+  const [horaIni, minIni] = horaInicio.split(':').map(Number);
+  const [horaFim, minFim] = horaTermino.split(':').map(Number);
+  const horaAtual = now.getHours();
+  const minAtual = now.getMinutes();
+
+  // Verificar se está entre o início e o término
+  const aposInicio = horaAtual > horaIni || (horaAtual === horaIni && minAtual >= minIni);
+  const antesTermino = horaAtual < horaFim || (horaAtual === horaFim && minAtual < minFim);
+
+  return aposInicio && antesTermino;
+}
+
+// Verificar se um bloco é de hoje
+export function blocoHoje(data: string): boolean {
+  if (!data) return false;
+  const now = getBrasiliaTime();
+  const hoje = now.toISOString().split('T')[0]; // YYYY-MM-DD
+  return data === hoje;
+}
+
+// Verificar se um bloco está prestes a iniciar (dentro de X minutos)
+export function blocoIniciando(data: string, horaInicio: string, minutosTolerancia: number = 1): boolean {
+  if (!data || !horaInicio) return false;
+
+  const now = getBrasiliaTime();
+  const hoje = now.toISOString().split('T')[0];
+
+  if (data !== hoje) return false;
+
+  const [hora, minuto] = horaInicio.split(':').map(Number);
+  const inicioBloco = new Date(now);
+  inicioBloco.setHours(hora, minuto, 0, 0);
+
+  const diffMinutos = (inicioBloco.getTime() - now.getTime()) / 60000;
+
+  // Retorna true se o bloco vai iniciar nos próximos X minutos (ou acabou de iniciar há menos de 1 minuto)
+  return diffMinutos >= -1 && diffMinutos <= minutosTolerancia;
+}

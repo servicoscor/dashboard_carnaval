@@ -241,10 +241,58 @@ select {
 
 /* Marcadores customizados do Leaflet */
 .custom-square-marker,
+.custom-pulsing-marker,
 .route-start-marker,
 .route-end-marker {
   background: transparent !important;
   border: none !important;
+}
+
+/* Animações para blocos em andamento */
+@keyframes pulse-marker {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-badge {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.7;
+  }
+}
+
+.bloco-em-andamento {
+  animation: pulse-marker 1.5s ease-in-out infinite;
 }
 
 /* Remover estilo default do Leaflet para div icons */

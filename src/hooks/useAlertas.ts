@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import type { Bloco } from '../types/bloco';
 import type { AlertaBloco, AlertaConfig, AlertaPrioridade } from '../types/alerta';
 import { DEFAULT_ALERTA_CONFIG } from '../types/alerta';
+import { blocoIniciando, getBrasiliaTime } from '../utils/formatters';
 
 function calcularPrioridade(publico: number, config: AlertaConfig): AlertaPrioridade {
   if (publico >= config.thresholdPublicoAlta) return 'alta';
@@ -12,6 +13,8 @@ function calcularPrioridade(publico: number, config: AlertaConfig): AlertaPriori
 export function useAlertas(blocos: Bloco[], config: AlertaConfig = DEFAULT_ALERTA_CONFIG) {
   const [alertas, setAlertas] = useState<AlertaBloco[]>([]);
   const [alertasConfirmados, setAlertasConfirmados] = useState<Set<string>>(new Set());
+  const [blocoIniciandoPopup, setBlocoIniciandoPopup] = useState<Bloco | null>(null);
+  const [popupsExibidos, setPopupsExibidos] = useState<Set<string>>(new Set());
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Extrair valores primitivos do config para evitar loop infinito
@@ -34,12 +37,21 @@ export function useAlertas(blocos: Bloco[], config: AlertaConfig = DEFAULT_ALERT
         // Ignore parse errors
       }
     }
+    // Carregar popups já exibidos
+    const savedPopups = localStorage.getItem('popups-exibidos-' + hoje);
+    if (savedPopups) {
+      try {
+        setPopupsExibidos(new Set(JSON.parse(savedPopups)));
+      } catch {
+        // Ignore parse errors
+      }
+    }
   }, []);
 
   // Verificar blocos a cada minuto
   useEffect(() => {
     const checkAlertas = () => {
-      const agora = new Date();
+      const agora = getBrasiliaTime();
       const hoje = agora.toISOString().split('T')[0]; // "2026-02-14"
 
       const blocosHoje = blocos.filter(b => b.data === hoje);
@@ -122,6 +134,37 @@ export function useAlertas(blocos: Bloco[], config: AlertaConfig = DEFAULT_ALERT
     return () => clearInterval(interval);
   }, [blocos, alertasConfirmados, minutosAntecedencia, somAtivado, thresholdPublicoAlta, thresholdPublicoMedia]);
 
+  // Verificar blocos que estão iniciando AGORA (para popup)
+  useEffect(() => {
+    const checkBlocosIniciando = () => {
+      const hoje = getBrasiliaTime().toISOString().split('T')[0];
+
+      for (const bloco of blocos) {
+        if (!bloco.data || !bloco.horaInicio) continue;
+
+        const popupId = `popup-${bloco.id}-${hoje}`;
+
+        // Se o bloco está iniciando agora e o popup ainda não foi exibido
+        if (blocoIniciando(bloco.data, bloco.horaInicio, 1) && !popupsExibidos.has(popupId)) {
+          setBlocoIniciandoPopup(bloco);
+
+          // Tocar som de alerta
+          if (somAtivado) {
+            audioRef.current?.play().catch(() => {
+              // Ignore autoplay errors
+            });
+          }
+          break; // Mostrar apenas um popup por vez
+        }
+      }
+    };
+
+    checkBlocosIniciando();
+    const interval = setInterval(checkBlocosIniciando, 30000); // A cada 30 segundos
+
+    return () => clearInterval(interval);
+  }, [blocos, popupsExibidos, somAtivado]);
+
   const confirmarAlerta = useCallback((alertaId: string) => {
     setAlertasConfirmados(prev => {
       const newSet = new Set(prev);
@@ -148,6 +191,26 @@ export function useAlertas(blocos: Bloco[], config: AlertaConfig = DEFAULT_ALERT
     });
   }, [alertas]);
 
+  // Confirmar popup de bloco iniciando
+  const confirmarPopupInicio = useCallback(() => {
+    if (blocoIniciandoPopup) {
+      const hoje = getBrasiliaTime().toISOString().split('T')[0];
+      const popupId = `popup-${blocoIniciandoPopup.id}-${hoje}`;
+
+      setPopupsExibidos(prev => {
+        const newSet = new Set(prev);
+        newSet.add(popupId);
+        localStorage.setItem(
+          'popups-exibidos-' + new Date().toDateString(),
+          JSON.stringify([...newSet])
+        );
+        return newSet;
+      });
+
+      setBlocoIniciandoPopup(null);
+    }
+  }, [blocoIniciandoPopup]);
+
   const alertasPendentes = alertas.filter(a => !alertasConfirmados.has(a.id));
   const hasHighPriority = alertasPendentes.some(a => a.prioridade === 'alta');
 
@@ -159,5 +222,8 @@ export function useAlertas(blocos: Bloco[], config: AlertaConfig = DEFAULT_ALERT
     totalPendentes: alertasPendentes.length,
     hasHighPriority,
     audioRef,
+    // Novo: popup de bloco iniciando
+    blocoIniciandoPopup,
+    confirmarPopupInicio,
   };
 }

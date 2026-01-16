@@ -100,6 +100,7 @@ function converterBloco(blocoAPI: BlocoAPI): Bloco {
     dataRelativa: blocoAPI.DataRelativa,
     bairro: blocoAPI.Bairro,
     subprefeitura: blocoAPI.Subprefeitura,
+    regiao: blocoAPI.Regiao || '', // Zona: ZONA SUL, ZONA NORTE, etc.
     publicoEstimado: blocoAPI.PublicoEstimado || 0,
     localConcentracao: blocoAPI.LocalConcentracao,
     horaConcentracao: blocoAPI.Concentracao,

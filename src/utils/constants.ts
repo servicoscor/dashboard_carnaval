@@ -4,6 +4,13 @@
 export const RIO_CENTER: [number, number] = [-22.92, -43.40];
 export const DEFAULT_ZOOM = 11;
 
+export const ZONAS = [
+  'ZONA SUL',
+  'ZONA NORTE',
+  'ZONA OESTE',
+  'CENTRO',
+] as const;
+
 export const SUBPREFEITURAS = [
   'CENTRO',
   'ZONA SUL',

@@ -4,7 +4,7 @@ import { Sidebar } from './components/Sidebar';
 import { MapView } from './components/Map';
 import { BlocoDetailPanel } from './components/BlocoDetail';
 import { BlocosByDate } from './components/Sidebar';
-import { AlertasPanel } from './components/Alertas';
+import { AlertasPanel, BlocoIniciadoPopup } from './components/Alertas';
 import { useBlocos, useFilters, useCameras, useCamerasProximas, useResponsive, useAlertas, useGeolocation, useWazeAlerts, useRota } from './hooks';
 import type { Bloco } from './types/bloco';
 import { Loader2, AlertCircle, RefreshCw } from 'lucide-react';
@@ -49,6 +49,8 @@ function App() {
     totalPendentes,
     hasHighPriority,
     audioRef,
+    blocoIniciandoPopup,
+    confirmarPopupInicio,
   } = useAlertas(blocos, {
     minutosAntecedencia: 15,
     somAtivado,
@@ -313,6 +315,19 @@ function App() {
           }}
           somAtivado={somAtivado}
           onToggleSom={() => setSomAtivado(prev => !prev)}
+        />
+      )}
+
+      {/* Popup de Bloco Iniciando */}
+      {blocoIniciandoPopup && (
+        <BlocoIniciadoPopup
+          bloco={blocoIniciandoPopup}
+          onConfirmar={confirmarPopupInicio}
+          onVerNoMapa={() => {
+            setBlocoSelecionado(blocoIniciandoPopup);
+            setDetailPanelOpen(true);
+            confirmarPopupInicio();
+          }}
         />
       )}
 

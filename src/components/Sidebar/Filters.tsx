@@ -1,6 +1,6 @@
-import { Calendar, MapPinned, Route } from 'lucide-react';
+import { Calendar, MapPinned, Route, Map } from 'lucide-react';
 import type { Filtros } from '../../types/bloco';
-import { SUBPREFEITURAS, TIPOS_APRESENTACAO } from '../../utils/constants';
+import { ZONAS, SUBPREFEITURAS, TIPOS_APRESENTACAO } from '../../utils/constants';
 
 interface FiltersProps {
   filtros: Filtros;
@@ -30,6 +30,7 @@ export function Filters({
           onChange={(e) => updateFiltro('data', e.target.value)}
           className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cor-accent-orange/50 focus:border-cor-accent-orange/50 transition-all cursor-pointer appearance-none"
         >
+          <option value="hoje" className="bg-cor-bg-secondary">Hoje</option>
           <option value="todos" className="bg-cor-bg-secondary">Todas as datas</option>
           {datasDisponiveis.map((data) => (
             <option key={data} value={data} className="bg-cor-bg-secondary">
@@ -38,6 +39,26 @@ export function Filters({
                 day: '2-digit',
                 month: '2-digit',
               })}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Filtro por Zona */}
+      <div>
+        <label className="flex items-center gap-2 text-xs font-medium text-white/70 mb-1.5 uppercase tracking-wide">
+          <Map size={12} />
+          Zona
+        </label>
+        <select
+          value={filtros.zona}
+          onChange={(e) => updateFiltro('zona', e.target.value)}
+          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cor-accent-orange/50 focus:border-cor-accent-orange/50 transition-all cursor-pointer appearance-none"
+        >
+          <option value="todos" className="bg-cor-bg-secondary">Todas</option>
+          {ZONAS.map((zona) => (
+            <option key={zona} value={zona} className="bg-cor-bg-secondary">
+              {zona}
             </option>
           ))}
         </select>

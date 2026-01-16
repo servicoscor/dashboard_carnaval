@@ -50,6 +50,23 @@ function parseHora(value: unknown): string {
   return '';
 }
 
+// Mapeamento de subprefeitura para zona
+function getZonaFromSubprefeitura(subprefeitura: string): string {
+  const map: Record<string, string> = {
+    'CENTRO': 'CENTRO',
+    'ZONA SUL': 'ZONA SUL',
+    'GRANDE TIJUCA': 'ZONA NORTE',
+    'ZONA NORTE': 'ZONA NORTE',
+    'ILHAS': 'ZONA NORTE',
+    'ZONA OESTE 1': 'ZONA OESTE',
+    'ZONA OESTE 2': 'ZONA OESTE',
+    'ZONA OESTE 3': 'ZONA OESTE',
+    'BARRA, RECREIO E VARGENS': 'ZONA OESTE',
+    'JACAREPAGUÁ': 'ZONA OESTE',
+  };
+  return map[subprefeitura.toUpperCase()] || 'CENTRO';
+}
+
 // Função para encontrar valor em objeto independente de case e acentos
 function getValueFromRow(row: Record<string, unknown>, possibleKeys: string[]): unknown {
   const rowKeys = Object.keys(row);
@@ -98,6 +115,7 @@ export async function carregarBlocosExcel(url: string): Promise<Bloco[]> {
 
       // Coordenadas do bairro (percurso vem do KMZ separadamente)
       const [lat, lng] = getCoordenadasBairro(bairro);
+      const subprefeitura = String(getValueFromRow(row, ['Subprefeitura']) || '').toUpperCase();
 
       return {
         id: Number(getValueFromRow(row, ['Nº', 'N', 'ID', 'Numero'])) || index + 1,
@@ -105,7 +123,8 @@ export async function carregarBlocosExcel(url: string): Promise<Bloco[]> {
         data: parseExcelDate(getValueFromRow(row, ['Data do Desfile', 'Data'])),
         dataRelativa: String(getValueFromRow(row, ['Data Relativa']) || ''),
         bairro,
-        subprefeitura: String(getValueFromRow(row, ['Subprefeitura']) || '').toUpperCase(),
+        subprefeitura,
+        regiao: getZonaFromSubprefeitura(subprefeitura),
         publicoEstimado: Number(getValueFromRow(row, ['Público Estimado', 'Publico Estimado', 'Publico'])) || 0,
         localConcentracao: String(getValueFromRow(row, ['Local da Concentração', 'Local da Concentracao', 'Concentração']) || ''),
         horaConcentracao: parseHora(getValueFromRow(row, ['Concentração', 'Concentracao', 'Hr. Concentração'])),

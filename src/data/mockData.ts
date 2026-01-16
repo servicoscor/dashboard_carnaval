@@ -47,6 +47,20 @@ const distribuicaoSubprefeituras: Record<string, number> = {
   'ZONA OESTE 2': 2,
 };
 
+// Mapeamento de subprefeitura para zona
+const subprefeituraParaZona: Record<string, string> = {
+  'CENTRO': 'CENTRO',
+  'ZONA SUL': 'ZONA SUL',
+  'GRANDE TIJUCA': 'ZONA NORTE',
+  'ZONA NORTE': 'ZONA NORTE',
+  'ILHAS': 'ZONA NORTE',
+  'ZONA OESTE 1': 'ZONA OESTE',
+  'ZONA OESTE 2': 'ZONA OESTE',
+  'ZONA OESTE 3': 'ZONA OESTE',
+  'BARRA, RECREIO E VARGENS': 'ZONA OESTE',
+  'JACAREPAGUÁ': 'ZONA OESTE',
+};
+
 // Datas do carnaval 2026
 const datasCarnaval = [
   { data: '2026-01-17', relativa: 'PRÉ-CARNAVAL' },
@@ -191,6 +205,7 @@ function gerarDadosMock(): Bloco[] {
         dataRelativa: dataInfo.relativa,
         bairro,
         subprefeitura,
+        regiao: subprefeituraParaZona[subprefeitura] || 'CENTRO',
         publicoEstimado,
         localConcentracao: `${(ruasPorBairro[bairro] || ruasPorBairro['DEFAULT'])[0]}, ${Math.floor(Math.random() * 500) + 1} - ${bairro}`,
         horaConcentracao: gerarHora(horaInicio - 1),
@@ -219,6 +234,7 @@ function gerarDadosMock(): Bloco[] {
     bolaPreta.publicoEstimado = 700000;
     bolaPreta.bairro = 'CENTRO';
     bolaPreta.subprefeitura = 'CENTRO';
+    bolaPreta.regiao = 'CENTRO';
     bolaPreta.data = '2026-02-14';
     bolaPreta.dataRelativa = 'SÁBADO DE CARNAVAL';
     const [lat, lng] = getCoordenadasBairro('CENTRO');
