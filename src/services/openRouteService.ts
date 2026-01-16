@@ -1,27 +1,33 @@
 import type { Coordenada } from '../types/rota';
 
-const ORS_API_KEY = import.meta.env.VITE_ORS_API_KEY || '5b3ce3597851110001cf6248a1234567890abcdef';
-const ORS_BASE_URL = 'https://api.openrouteservice.org/v2/directions/driving-car';
+// Usando OSRM (Open Source Routing Machine) - gratuito, sem API key
+const OSRM_BASE_URL = 'https://router.project-osrm.org/route/v1/driving';
 
-interface ORSResponse {
-  features: [{
-    properties: {
-      summary: {
-        distance: number; // metros
-        duration: number; // segundos
-      };
-      segments: [{
-        steps: [{
-          instruction: string;
-          distance: number;
-          type: number;
-        }];
-      }];
-    };
-    geometry: {
-      coordinates: [number, number][]; // [lng, lat]
-    };
-  }];
+interface OSRMStep {
+  maneuver: {
+    instruction: string;
+    type: string;
+  };
+  distance: number;
+  name: string;
+}
+
+interface OSRMLeg {
+  steps: OSRMStep[];
+}
+
+interface OSRMRoute {
+  distance: number; // metros
+  duration: number; // segundos
+  geometry: {
+    coordinates: [number, number][]; // [lng, lat]
+  };
+  legs: OSRMLeg[];
+}
+
+interface OSRMResponse {
+  code: string;
+  routes: OSRMRoute[];
 }
 
 export async function calcularRota(
@@ -33,7 +39,8 @@ export async function calcularRota(
   polyline: Coordenada[];
   instrucoes: { texto: string; distancia: number; tipo: string }[];
 }> {
-  const url = `${ORS_BASE_URL}?api_key=${ORS_API_KEY}&start=${origem.lng},${origem.lat}&end=${destino.lng},${destino.lat}`;
+  // OSRM usa formato: /route/v1/driving/{lng1},{lat1};{lng2},{lat2}
+  const url = `${OSRM_BASE_URL}/${origem.lng},${origem.lat};${destino.lng},${destino.lat}?overview=full&geometries=geojson&steps=true`;
 
   const response = await fetch(url);
 
@@ -41,23 +48,28 @@ export async function calcularRota(
     throw new Error(`Erro ao calcular rota: ${response.status}`);
   }
 
-  const data: ORSResponse = await response.json();
-  const feature = data.features[0];
+  const data: OSRMResponse = await response.json();
 
-  const polyline = feature.geometry.coordinates.map(([lng, lat]) => ({
+  if (data.code !== 'Ok' || !data.routes || data.routes.length === 0) {
+    throw new Error('Não foi possível calcular a rota');
+  }
+
+  const route = data.routes[0];
+
+  const polyline = route.geometry.coordinates.map(([lng, lat]) => ({
     lat,
     lng
   }));
 
-  const instrucoes = feature.properties.segments[0]?.steps.map(step => ({
-    texto: step.instruction,
+  const instrucoes = route.legs[0]?.steps.map(step => ({
+    texto: step.maneuver.instruction || `Siga por ${step.name}`,
     distancia: step.distance,
-    tipo: String(step.type)
+    tipo: step.maneuver.type
   })) || [];
 
   return {
-    distanciaKm: feature.properties.summary.distance / 1000,
-    duracaoMinutos: feature.properties.summary.duration / 60,
+    distanciaKm: route.distance / 1000,
+    duracaoMinutos: route.duration / 60,
     polyline,
     instrucoes
   };
