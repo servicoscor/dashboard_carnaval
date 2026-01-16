@@ -2,8 +2,11 @@ import { useState, useEffect, useCallback } from 'react';
 import type { Bloco, PontoPercurso } from '../types/bloco';
 import { carregarBlocosExcel } from '../utils/parseExcel';
 import { carregarPercursosDoKMZ, normalizarNomeBloco, type PercursoBlocoKMZ } from '../utils/kmzParser';
+import { carregarBlocosAPI } from '../services/blocosApiService';
 import { dadosMock } from '../data/mockData';
 import { getBrasiliaTime } from '../utils/formatters';
+
+type FonteDados = 'api' | 'excel' | 'mock';
 
 // Bloco fake para teste de rotas (apenas em desenvolvimento)
 function criarBlocoTesteHoje(): Bloco {
@@ -103,90 +106,112 @@ export function useBlocos() {
   const [blocos, setBlocos] = useState<Bloco[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [usandoMock, setUsandoMock] = useState(false);
+  const [fonteDados, setFonteDados] = useState<FonteDados>('api');
   const [estatisticasKMZ, setEstatisticasKMZ] = useState<{
     totalBlocos: number;
     blocosComPercurso: number;
     blocosAssociados: number;
   } | null>(null);
 
+  // Função auxiliar para associar percursos KMZ aos blocos
+  const associarPercursosKMZ = useCallback((
+    blocosBase: Bloco[],
+    resultadoKMZ: { percursos: Map<string, PercursoBlocoKMZ>; totalBlocos: number; blocosComPercurso: number }
+  ) => {
+    let blocosAssociados = 0;
+
+    const blocosComPercursos = blocosBase.map(bloco => {
+      const percursoKMZ = buscarPercursoKMZ(bloco.nome, resultadoKMZ.percursos);
+
+      if (percursoKMZ && percursoKMZ.percurso.length >= 2) {
+        blocosAssociados++;
+
+        const percurso: PontoPercurso[] = percursoKMZ.percurso.map(p => ({
+          lat: p.lat,
+          lng: p.lng,
+          rua: p.rua
+        }));
+
+        const lat = percursoKMZ.pontoConcentracao?.lat ?? bloco.lat;
+        const lng = percursoKMZ.pontoConcentracao?.lng ?? bloco.lng;
+
+        return { ...bloco, percurso, lat, lng, temPercurso: true };
+      }
+
+      return bloco;
+    });
+
+    setEstatisticasKMZ({
+      totalBlocos: resultadoKMZ.totalBlocos,
+      blocosComPercurso: resultadoKMZ.blocosComPercurso,
+      blocosAssociados
+    });
+
+    console.log(`[KMZ] Blocos associados: ${blocosAssociados}/${blocosBase.length}`);
+    return blocosComPercursos;
+  }, []);
+
   const carregarDados = useCallback(async () => {
     setLoading(true);
     setError(null);
 
+    // Carregar KMZ em paralelo (será usado para qualquer fonte de dados)
+    const kmzPromise = carregarPercursosDoKMZ(KMZ_URL).catch(err => {
+      console.warn('[KMZ] Erro ao carregar:', err);
+      return { percursos: new Map<string, PercursoBlocoKMZ>(), totalBlocos: 0, blocosComPercurso: 0 };
+    });
+
+    // 1. TENTAR CARREGAR DA API (apenas blocos autorizados)
     try {
-      // Carregar blocos do Excel e percursos do KMZ em paralelo
-      const [blocosExcel, resultadoKMZ] = await Promise.all([
-        carregarBlocosExcel(EXCEL_URL),
-        carregarPercursosDoKMZ(KMZ_URL)
-      ]);
+      console.log('[DADOS] Tentando carregar da API...');
+      const blocosAPI = await carregarBlocosAPI();
 
-      if (blocosExcel.length > 0) {
-        let blocosAssociados = 0;
+      if (blocosAPI.length > 0) {
+        const resultadoKMZ = await kmzPromise;
+        const blocosComPercursos = associarPercursosKMZ(blocosAPI, resultadoKMZ);
 
-        // Associar percursos aos blocos usando matching flexível
-        const blocosComPercursos = blocosExcel.map(bloco => {
-          const percursoKMZ = buscarPercursoKMZ(bloco.nome, resultadoKMZ.percursos);
-
-          if (percursoKMZ && percursoKMZ.percurso.length >= 2) {
-            blocosAssociados++;
-
-            // Converter PontoPercurso do KMZ para o formato esperado
-            const percurso: PontoPercurso[] = percursoKMZ.percurso.map(p => ({
-              lat: p.lat,
-              lng: p.lng,
-              rua: p.rua
-            }));
-
-            // Se tem ponto de concentração do KMZ, usar coordenadas dele
-            const lat = percursoKMZ.pontoConcentracao?.lat ?? bloco.lat;
-            const lng = percursoKMZ.pontoConcentracao?.lng ?? bloco.lng;
-
-            return {
-              ...bloco,
-              percurso,
-              lat,
-              lng,
-              temPercurso: true
-            };
-          }
-
-          return bloco;
-        });
-
-        setEstatisticasKMZ({
-          totalBlocos: resultadoKMZ.totalBlocos,
-          blocosComPercurso: resultadoKMZ.blocosComPercurso,
-          blocosAssociados
-        });
-
-        console.log(`Blocos associados com percursos KMZ: ${blocosAssociados}/${blocosExcel.length}`);
-
-        // Adicionar bloco de teste para hoje (apenas em desenvolvimento)
+        // Adicionar bloco de teste
         const blocoTeste = criarBlocoTesteHoje();
-        const blocosComTeste = [blocoTeste, ...blocosComPercursos];
-
-        setBlocos(blocosComTeste);
-        setUsandoMock(false);
-      } else {
-        // Se nao conseguiu carregar o Excel, usar dados mock
-        console.log('Usando dados mock (Excel nao encontrado)');
-        // Adicionar bloco de teste para hoje
-        const blocoTeste = criarBlocoTesteHoje();
-        setBlocos([blocoTeste, ...dadosMock]);
-        setUsandoMock(true);
+        setBlocos([blocoTeste, ...blocosComPercursos]);
+        setFonteDados('api');
+        setLoading(false);
+        console.log(`[DADOS] API: ${blocosAPI.length} blocos autorizados carregados`);
+        return;
       }
     } catch (err) {
-      console.error('Erro ao carregar dados:', err);
-      // Em caso de erro, usar dados mock
-      const blocoTeste = criarBlocoTesteHoje();
-      setBlocos([blocoTeste, ...dadosMock]);
-      setUsandoMock(true);
-      setError('Arquivo Excel nao encontrado. Usando dados de demonstracao.');
-    } finally {
-      setLoading(false);
+      console.warn('[DADOS] Falha na API, tentando Excel...', err);
     }
-  }, []);
+
+    // 2. FALLBACK: TENTAR CARREGAR DO EXCEL
+    try {
+      console.log('[DADOS] Tentando carregar do Excel...');
+      const blocosExcel = await carregarBlocosExcel(EXCEL_URL);
+
+      if (blocosExcel.length > 0) {
+        const resultadoKMZ = await kmzPromise;
+        const blocosComPercursos = associarPercursosKMZ(blocosExcel, resultadoKMZ);
+
+        // Adicionar bloco de teste
+        const blocoTeste = criarBlocoTesteHoje();
+        setBlocos([blocoTeste, ...blocosComPercursos]);
+        setFonteDados('excel');
+        setError('API indisponível. Usando dados do Excel.');
+        setLoading(false);
+        console.log(`[DADOS] Excel: ${blocosExcel.length} blocos carregados`);
+        return;
+      }
+    } catch (err) {
+      console.warn('[DADOS] Falha no Excel, usando mock...', err);
+    }
+
+    // 3. FALLBACK FINAL: USAR DADOS MOCK
+    console.log('[DADOS] Usando dados mock...');
+    const blocoTeste = criarBlocoTesteHoje();
+    setBlocos([blocoTeste, ...dadosMock]);
+    setFonteDados('mock');
+    setError('API e Excel indisponíveis. Usando dados de demonstração.');
+    setLoading(false);
+  }, [associarPercursosKMZ]);
 
   useEffect(() => {
     carregarDados();
@@ -196,7 +221,8 @@ export function useBlocos() {
     blocos,
     loading,
     error,
-    usandoMock,
+    fonteDados,
+    usandoMock: fonteDados === 'mock', // Compatibilidade
     estatisticasKMZ,
     recarregar: carregarDados,
   };
