@@ -56,7 +56,9 @@ export function Header({
             <img
               src="/data/RIOPREFEITURA COR horizontal monocromatica branco.png"
               alt="COR"
-              className="h-6 w-auto"
+              className="h-6 w-auto cursor-pointer"
+              onClick={() => window.location.reload()}
+              title="Recarregar página"
             />
             <button
               onClick={onMenuClick}
@@ -102,31 +104,33 @@ export function Header({
           <img
             src="/data/RIOPREFEITURA COR horizontal monocromatica branco.png"
             alt="COR - Centro de Operacoes Rio"
-            className="h-8 w-auto"
+            className="h-8 w-auto cursor-pointer hover:opacity-80 transition-opacity"
+            onClick={() => window.location.reload()}
+            title="Recarregar página"
           />
           {/* Botão Legenda */}
           <button
             onClick={() => setLegendaVisivel(!legendaVisivel)}
-            className={`flex items-center gap-1 px-2 py-1 rounded border transition-colors ${
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg border transition-colors ${
               legendaVisivel
-                ? 'bg-white/10 border-white/20 text-white'
-                : 'bg-transparent border-white/10 text-white/60 hover:bg-white/5 hover:text-white/80'
+                ? 'bg-white/20 border-white/30 text-white'
+                : 'bg-white/10 border-white/20 text-white/80 hover:bg-white/15 hover:text-white'
             }`}
             title={legendaVisivel ? 'Ocultar legenda' : 'Mostrar legenda'}
           >
-            <Info size={12} />
-            <span className="text-[10px] font-medium hidden xl:inline">Legenda</span>
-            {legendaVisivel ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
+            <Info size={16} />
+            <span className="text-xs font-semibold">Legenda</span>
+            {legendaVisivel ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
           </button>
 
           {/* Botão Timeline */}
           <Link
             to="/timeline"
-            className="flex items-center gap-1 px-2 py-1 rounded border border-white/10 text-white/60 hover:bg-white/5 hover:text-white/80 transition-colors"
+            className="flex items-center gap-2 px-3 py-2 rounded-lg border bg-white/10 border-white/20 text-white/80 hover:bg-white/15 hover:text-white transition-colors"
             title="Ver timeline dos blocos"
           >
-            <Calendar size={12} />
-            <span className="text-[10px] font-medium hidden xl:inline">Timeline</span>
+            <Calendar size={16} />
+            <span className="text-xs font-semibold">Timeline</span>
           </Link>
         </div>
 
