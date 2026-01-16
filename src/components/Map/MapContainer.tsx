@@ -85,17 +85,17 @@ export function MapView({ blocos, blocoSelecionado, onSelectBloco, camerasProxim
 
   return (
     <div className="relative w-full h-full">
-      {/* Botão de toggle do tema */}
+      {/* Botão de toggle do tema - abaixo dos controles de zoom */}
       <button
         onClick={toggleTheme}
-        className={`absolute top-3 right-3 z-[1000] p-2.5 rounded-lg shadow-lg transition-all duration-200 ${
+        className={`absolute top-[100px] sm:top-[80px] left-2.5 z-[1001] p-3 rounded-lg shadow-lg transition-all duration-200 touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center ${
           mapTheme === 'light'
             ? 'bg-white hover:bg-gray-100 text-gray-700 border border-gray-200'
-            : 'bg-cor-bg-secondary hover:bg-cor-bg-tertiary text-white border border-white/10'
+            : 'bg-[#1a1f2e] hover:bg-[#2a3142] text-white border border-white/20'
         }`}
         title={mapTheme === 'light' ? 'Mudar para mapa escuro' : 'Mudar para mapa claro'}
       >
-        {mapTheme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+        {mapTheme === 'light' ? <Moon size={22} /> : <Sun size={22} />}
       </button>
 
       <LeafletMapContainer
