@@ -38,12 +38,12 @@ export function AlertasPanel({
     <>
       {/* Overlay */}
       <div
-        className="fixed inset-0 bg-black/60 z-40"
+        className="fixed inset-0 bg-black/60 z-[1500]"
         onClick={onClose}
       />
 
       {/* Painel - responsivo: full width em mobile pequeno, max-w-md em telas maiores */}
-      <div className="fixed right-0 top-0 bottom-0 w-full sm:max-w-md bg-cor-bg-primary z-50 flex flex-col shadow-2xl safe-area-inset">
+      <div className="fixed right-0 top-0 bottom-0 w-full sm:max-w-md bg-cor-bg-primary z-[1600] flex flex-col shadow-2xl safe-area-inset">
         {/* Header */}
         <div className="flex-shrink-0 bg-cor-bg-secondary border-b border-white/10 p-3 sm:p-4">
           <div className="flex items-center justify-between mb-3">
