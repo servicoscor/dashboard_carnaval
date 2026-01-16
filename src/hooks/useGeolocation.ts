@@ -26,15 +26,6 @@ export function useGeolocation() {
       return;
     }
 
-    // Verificar se está em contexto seguro (HTTPS) - necessário para GPS em mobile
-    if (window.isSecureContext === false) {
-      setState(prev => ({
-        ...prev,
-        erro: 'GPS requer conexão segura (HTTPS)'
-      }));
-      return;
-    }
-
     setState(prev => ({ ...prev, carregando: true, erro: null }));
     tentativasRef.current = 0;
 

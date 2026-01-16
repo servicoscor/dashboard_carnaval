@@ -213,11 +213,11 @@ export function RotasPanel({
 
       {/* Lista de blocos de hoje */}
       {blocosHoje.length > 0 ? (
-        <div className="space-y-2">
+        <div>
           <p className="text-xs text-white/50 mb-2">
             Blocos de hoje ({blocosHoje.length}):
           </p>
-          <div className={`space-y-2 overflow-y-auto ${isMobile ? 'max-h-48' : 'max-h-64'}`}>
+          <div className="space-y-2">
             {blocosHoje.map((bloco) => (
               <button
                 key={bloco.id}
@@ -230,24 +230,24 @@ export function RotasPanel({
                 }`}
               >
                 <div className="flex items-start gap-2">
-                  <span className="text-lg">🎭</span>
+                  <span className="text-lg flex-shrink-0">🎭</span>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold text-white truncate">
+                    <p className="text-sm font-semibold text-white">
                       {bloco.nome}
                     </p>
-                    <div className="flex items-center gap-3 mt-1">
+                    <div className="flex items-center gap-2 mt-1 flex-wrap">
                       <div className="flex items-center gap-1">
-                        <MapPin size={10} className="text-white/40" />
+                        <MapPin size={10} className="text-white/40 flex-shrink-0" />
                         <span className="text-[10px] text-white/50">{bloco.bairro}</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <Clock size={10} className="text-white/40" />
+                        <Clock size={10} className="text-white/40 flex-shrink-0" />
                         <span className="text-[10px] text-white/50">
                           {formatarHora(bloco.horaInicio)}
                         </span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <Users size={10} className="text-white/40" />
+                        <Users size={10} className="text-white/40 flex-shrink-0" />
                         <span className="text-[10px] text-white/50">
                           {bloco.publicoEstimado.toLocaleString('pt-BR')}
                         </span>
@@ -255,9 +255,9 @@ export function RotasPanel({
                     </div>
                   </div>
                   {blocoSelecionadoId === bloco.id && carregando ? (
-                    <Loader2 size={16} className="text-cor-accent-orange animate-spin" />
+                    <Loader2 size={16} className="text-cor-accent-orange animate-spin flex-shrink-0" />
                   ) : (
-                    <RouteIcon size={16} className="text-white/30" />
+                    <RouteIcon size={16} className="text-white/30 flex-shrink-0" />
                   )}
                 </div>
               </button>
