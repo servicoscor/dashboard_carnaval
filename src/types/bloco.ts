@@ -42,6 +42,7 @@ export interface Filtros {
   zona: string;
   subprefeitura: string;
   tipo: 'todos' | 'deslocamento' | 'parado';
+  publico: string;
   busca: string;
 }
 

@@ -2,7 +2,7 @@ import { useMemo, useRef, useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ZoomIn, ZoomOut, Calendar, FileDown, Loader2, Clock, Play, Pause, Menu, ChevronLeft, ChevronRight, Filter } from 'lucide-react';
 import { useBlocos, useFilters } from '../hooks';
-import { getCorSubprefeitura } from '../data/coordenadasBairros';
+import { getCorEstagio, CORES_ESTAGIO } from '../utils/constants';
 import { exportTimelinePDF } from '../utils/exportPDF';
 import { SearchInput } from '../components/Sidebar/SearchInput';
 import { Filters } from '../components/Sidebar/Filters';
@@ -38,7 +38,7 @@ interface TimelineBarProps {
 }
 
 function TimelineBar({ bloco, startHour, durationHours, hourWidth, rowIndex }: TimelineBarProps) {
-  const cor = getCorSubprefeitura(bloco.subprefeitura);
+  const { cor } = getCorEstagio(bloco.publicoEstimado);
   const left = startHour * hourWidth;
   const width = Math.max(durationHours * hourWidth, hourWidth * 0.5); // Mínimo de 30min visual
   const top = rowIndex * ROW_HEIGHT;
@@ -400,8 +400,17 @@ export function Timeline() {
       {/* Header */}
       <header className="flex-shrink-0 bg-cor-bg-secondary border-b border-white/10 px-4 py-3">
         <div className="flex items-center justify-between">
-          {/* Esquerda - Menu, Voltar e título */}
+          {/* Esquerda - Logo, Menu, Voltar e título */}
           <div className="flex items-center gap-3">
+            {/* Logo COR */}
+            <img
+              src="/data/RIOPREFEITURA COR horizontal monocromatica branco.png"
+              alt="COR - Centro de Operações Rio"
+              className="h-8 w-auto cursor-pointer hover:opacity-80 transition-opacity"
+              onClick={() => window.location.reload()}
+              title="Recarregar página"
+            />
+
             {/* Botão Toggle Sidebar */}
             <button
               onClick={() => setSidebarAberta(!sidebarAberta)}
@@ -620,14 +629,21 @@ export function Timeline() {
         </div>
       </div>
 
-      {/* Legenda */}
+      {/* Legenda de Estágios */}
       <div className="flex-shrink-0 bg-cor-bg-secondary border-t border-white/10 px-6 py-2">
-        <div className="flex items-center gap-6 text-[10px] text-white/50">
-          <span>As cores representam as subprefeituras</span>
-          <span>|</span>
-          <span>Passe o mouse sobre um bloco para ver detalhes</span>
-          <span>|</span>
-          <span>Use o zoom para ajustar a visualização</span>
+        <div className="flex items-center gap-4 text-[10px] text-white/50 flex-wrap">
+          <span className="font-semibold text-white/70">Público:</span>
+          {Object.entries(CORES_ESTAGIO).map(([key, { cor, min, max }]) => (
+            <div key={key} className="flex items-center gap-1.5">
+              <span
+                className="w-3 h-3 rounded"
+                style={{ backgroundColor: cor }}
+              />
+              <span>
+                {min === 0 ? `Até ${max.toLocaleString()}` : max === Infinity ? `Acima de ${(min - 1).toLocaleString()}` : `${min.toLocaleString()} - ${max.toLocaleString()}`}
+              </span>
+            </div>
+          ))}
           <span>|</span>
           <span className="text-red-400">Linha vermelha = horário atual de Brasília</span>
         </div>

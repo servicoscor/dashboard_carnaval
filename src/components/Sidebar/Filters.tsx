@@ -1,6 +1,6 @@
-import { Calendar, MapPinned, Route, Map } from 'lucide-react';
+import { Calendar, MapPinned, Route, Map, Users } from 'lucide-react';
 import type { Filtros } from '../../types/bloco';
-import { ZONAS, SUBPREFEITURAS, TIPOS_APRESENTACAO } from '../../utils/constants';
+import { ZONAS, SUBPREFEITURAS, TIPOS_APRESENTACAO, FAIXAS_PUBLICO } from '../../utils/constants';
 
 interface FiltersProps {
   filtros: Filtros;
@@ -98,6 +98,25 @@ export function Filters({
           {Object.entries(TIPOS_APRESENTACAO).map(([key, label]) => (
             <option key={key} value={key} className="bg-cor-bg-secondary">
               {label}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Filtro por Publico */}
+      <div>
+        <label className="flex items-center gap-2 text-xs font-medium text-white/70 mb-1.5 uppercase tracking-wide">
+          <Users size={12} />
+          Publico Estimado
+        </label>
+        <select
+          value={filtros.publico}
+          onChange={(e) => updateFiltro('publico', e.target.value)}
+          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cor-accent-orange/50 focus:border-cor-accent-orange/50 transition-all cursor-pointer appearance-none"
+        >
+          {Object.entries(FAIXAS_PUBLICO).map(([key, faixa]) => (
+            <option key={key} value={key} className="bg-cor-bg-secondary">
+              {faixa.label}
             </option>
           ))}
         </select>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Music, Users, Route, MapPin, Play, Square, SkipForward, Menu, Info, ChevronDown, ChevronUp, Calendar } from 'lucide-react';
 import type { Bloco, Estatisticas } from '../../types/bloco';
 import { formatarNumero } from '../../utils/formatters';
-import { coresSubprefeitura } from '../../data/coordenadasBairros';
+import { CORES_ESTAGIO } from '../../utils/constants';
 import { AlertaBadge } from '../Alertas';
 
 interface TourState {
@@ -241,19 +241,21 @@ export function Header({
       {legendaVisivel && (
         <div className="px-6 py-3 border-t border-white/10 bg-cor-bg-primary/50">
           <div className="flex flex-wrap items-start gap-8">
-            {/* Subprefeituras */}
+            {/* Estágios por Público */}
             <div>
               <h4 className="text-xs font-semibold text-white/70 uppercase tracking-wide mb-2">
-                Subprefeituras
+                Estágios (Público)
               </h4>
-              <div className="grid grid-cols-2 gap-x-4 gap-y-1">
-                {Object.entries(coresSubprefeitura).map(([nome, cor]) => (
-                  <div key={nome} className="flex items-center gap-2">
+              <div className="space-y-1">
+                {Object.entries(CORES_ESTAGIO).map(([key, { cor, label, min, max }]) => (
+                  <div key={key} className="flex items-center gap-2">
                     <span
                       className="w-3 h-3 rounded-full flex-shrink-0"
                       style={{ backgroundColor: cor }}
                     />
-                    <span className="text-[11px] text-white/60 truncate max-w-[120px]">{nome}</span>
+                    <span className="text-[11px] text-white/60">
+                      {label}: {min === 0 ? `Até ${max.toLocaleString()}` : max === Infinity ? `Acima de ${(min - 1).toLocaleString()}` : `${min.toLocaleString()} - ${max.toLocaleString()}`}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -266,11 +268,11 @@ export function Header({
               </h4>
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-cor-accent-orange flex-shrink-0" />
+                  <span className="w-3 h-3 rounded-full bg-white/50 flex-shrink-0" />
                   <span className="text-[11px] text-white/60">Com deslocamento (círculo)</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded bg-cor-accent-pink flex-shrink-0" />
+                  <span className="w-3 h-3 rounded bg-white/50 flex-shrink-0" />
                   <span className="text-[11px] text-white/60">Parado (quadrado)</span>
                 </div>
               </div>
@@ -310,7 +312,7 @@ export function Header({
 
             {/* Nota */}
             <div className="text-[10px] text-white/40 italic self-end">
-              Tamanho do marcador = público estimado
+              Cor = estágio por público | Tamanho = público estimado
             </div>
           </div>
         </div>

@@ -1,12 +1,14 @@
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import type { Bloco, Filtros, Estatisticas } from '../types/bloco';
 import { getBrasiliaTime } from '../utils/formatters';
+import { FAIXAS_PUBLICO, type FaixaPublico } from '../utils/constants';
 
 const FILTROS_INICIAIS: Filtros = {
   data: 'hoje', // Mudado de 'todos' para 'hoje' como default
   zona: 'todos',
   subprefeitura: 'todos',
   tipo: 'todos',
+  publico: 'todos',
   busca: '',
 };
 
@@ -78,6 +80,17 @@ export function useFilters(blocos: Bloco[]) {
       }
       if (filtros.tipo === 'parado' && bloco.formaApresentacao !== 'PARADO') {
         return false;
+      }
+
+      // Filtro por faixa de público
+      if (filtros.publico !== 'todos') {
+        const faixa = FAIXAS_PUBLICO[filtros.publico as FaixaPublico];
+        if (faixa) {
+          const publico = bloco.publicoEstimado || 0;
+          if (publico < faixa.min || publico > faixa.max) {
+            return false;
+          }
+        }
       }
 
       // Filtro por busca

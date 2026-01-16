@@ -1,8 +1,7 @@
 import { CircleMarker, Popup, Marker } from 'react-leaflet';
 import L from 'leaflet';
 import type { Bloco } from '../../types/bloco';
-import { getCorSubprefeitura } from '../../data/coordenadasBairros';
-import { getMarkerRadius } from '../../utils/constants';
+import { getMarkerRadius, getCorEstagio } from '../../utils/constants';
 import { formatarNumero, formatarHora, blocoTerminou, blocoEmAndamento } from '../../utils/formatters';
 
 interface BlocoMarkerProps {
@@ -118,7 +117,7 @@ function createPulsingCircleIcon(cor: string, isSelected: boolean, radius: numbe
 }
 
 export function BlocoMarker({ bloco, isSelected, onSelect }: BlocoMarkerProps) {
-  const cor = getCorSubprefeitura(bloco.subprefeitura);
+  const { cor } = getCorEstagio(bloco.publicoEstimado);
   const radius = getMarkerRadius(bloco.publicoEstimado);
   const encerrado = blocoTerminou(bloco.data, bloco.horaTermino);
   const emAndamento = blocoEmAndamento(bloco.data, bloco.horaInicio, bloco.horaTermino);
