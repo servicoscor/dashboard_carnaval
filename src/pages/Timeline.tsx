@@ -1,9 +1,11 @@
 import { useMemo, useRef, useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ZoomIn, ZoomOut, Calendar, FileDown, Loader2, Clock, Play, Pause } from 'lucide-react';
-import { useBlocos } from '../hooks';
+import { ArrowLeft, ZoomIn, ZoomOut, Calendar, FileDown, Loader2, Clock, Play, Pause, Menu, ChevronLeft, ChevronRight, Filter } from 'lucide-react';
+import { useBlocos, useFilters } from '../hooks';
 import { getCorSubprefeitura } from '../data/coordenadasBairros';
 import { exportTimelinePDF } from '../utils/exportPDF';
+import { SearchInput } from '../components/Sidebar/SearchInput';
+import { Filters } from '../components/Sidebar/Filters';
 import type { Bloco } from '../types/bloco';
 
 // Configurações do timeline
@@ -256,16 +258,33 @@ function TimelineDay({
 }
 
 export function Timeline() {
-  const { blocos, loading } = useBlocos();
+  const { blocos: todosBlocos, loading } = useBlocos();
   const [zoom, setZoom] = useState(1);
   const [expandedDays, setExpandedDays] = useState<Set<string>>(new Set());
   const [isExporting, setIsExporting] = useState(false);
   const [autoScroll, setAutoScroll] = useState(false);
+  const [sidebarAberta, setSidebarAberta] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollRefs = useRef<Map<string, HTMLDivElement>>(new Map());
   const currentTime = useBrasiliaTime();
 
+  // Extrair datas disponíveis dos blocos
+  const datasDisponiveis = useMemo(() => {
+    const datas = new Set<string>();
+    todosBlocos.forEach(b => {
+      if (b.data) datas.add(b.data);
+    });
+    return Array.from(datas).sort();
+  }, [todosBlocos]);
+
+  // Usar hook de filtros
+  const { filtros, setFiltros, blocosFiltrados } = useFilters(todosBlocos);
+  const blocos = blocosFiltrados;
+
   const hourWidth = HOUR_WIDTH_BASE * zoom;
+
+  // Verifica se há filtros ativos
+  const temFiltrosAtivos = filtros.busca !== '' || filtros.data !== 'todos' || filtros.subprefeitura !== 'todos' || filtros.tipo !== 'todos';
 
   // Função para registrar ref de scroll de cada dia
   const setScrollRef = useCallback((data: string, el: HTMLDivElement | null) => {
@@ -379,21 +398,36 @@ export function Timeline() {
   return (
     <div className="h-screen w-screen bg-cor-bg-primary flex flex-col overflow-hidden">
       {/* Header */}
-      <header className="flex-shrink-0 bg-cor-bg-secondary border-b border-white/10 px-6 py-4">
+      <header className="flex-shrink-0 bg-cor-bg-secondary border-b border-white/10 px-4 py-3">
         <div className="flex items-center justify-between">
-          {/* Esquerda - Voltar e título */}
-          <div className="flex items-center gap-4">
+          {/* Esquerda - Menu, Voltar e título */}
+          <div className="flex items-center gap-3">
+            {/* Botão Toggle Sidebar */}
+            <button
+              onClick={() => setSidebarAberta(!sidebarAberta)}
+              className="flex items-center gap-1.5 px-2.5 py-2 bg-cor-accent-orange/20 hover:bg-cor-accent-orange/30 rounded-lg transition-colors"
+              title={sidebarAberta ? 'Ocultar filtros' : 'Mostrar filtros'}
+            >
+              <Menu size={18} className="text-cor-accent-orange" />
+              <span className="text-xs font-semibold text-cor-accent-orange hidden sm:inline">Filtros</span>
+              {temFiltrosAtivos && (
+                <span className="w-2 h-2 rounded-full bg-cor-accent-orange animate-pulse" />
+              )}
+            </button>
+
             <Link
               to="/"
               className="flex items-center gap-2 px-3 py-2 rounded-lg border border-white/10 text-white/70 hover:bg-white/5 hover:text-white transition-colors"
             >
               <ArrowLeft size={18} />
-              <span className="text-sm">Voltar</span>
+              <span className="text-sm hidden sm:inline">Voltar</span>
             </Link>
 
             <div>
-              <h1 className="text-xl font-bold text-white">Timeline dos Blocos</h1>
-              <p className="text-xs text-white/50">Carnaval Rio 2026 - {blocos.length} blocos em {blocosPorData.length} dias</p>
+              <h1 className="text-lg font-bold text-white">Timeline dos Blocos</h1>
+              <p className="text-xs text-white/50">
+                {temFiltrosAtivos ? `${blocos.length} de ${todosBlocos.length} blocos` : `${blocos.length} blocos`} em {blocosPorData.length} dias
+              </p>
             </div>
           </div>
 
@@ -496,21 +530,94 @@ export function Timeline() {
         </div>
       </header>
 
-      {/* Conteúdo */}
-      <div ref={containerRef} id="timeline-content" className="flex-1 overflow-y-auto">
-        {blocosPorData.map(({ data, blocos: blocosData }) => (
-          <TimelineDay
-            key={data}
-            data={data}
-            blocos={blocosData}
-            hourWidth={hourWidth}
-            isExpanded={expandedDays.has(data)}
-            onToggle={() => toggleDay(data)}
-            currentTime={currentTime}
-            showTimeLine={true}
-            onScrollRef={(el) => setScrollRef(data, el)}
-          />
-        ))}
+      {/* Container principal com sidebar */}
+      <div className="flex-1 flex overflow-hidden relative">
+        {/* Sidebar de Filtros */}
+        <aside
+          className={`flex-shrink-0 flex flex-col bg-cor-bg-secondary border-r border-white/10 transition-all duration-300 ease-in-out overflow-hidden ${
+            sidebarAberta ? 'w-[280px]' : 'w-0'
+          }`}
+        >
+          <div className="flex-1 overflow-y-auto p-4">
+            {/* Busca */}
+            <div className="mb-4">
+              <SearchInput
+                value={filtros.busca}
+                onChange={(busca) => setFiltros({ ...filtros, busca })}
+                placeholder="Buscar bloco..."
+              />
+            </div>
+
+            {/* Filtros */}
+            <div className="mb-4">
+              <div className="flex items-center gap-2 mb-3">
+                <Filter size={16} className="text-cor-accent-orange" />
+                <span className="text-sm font-semibold text-white uppercase tracking-wide">Filtros</span>
+                {temFiltrosAtivos && (
+                  <span className="w-2 h-2 rounded-full bg-cor-accent-orange animate-pulse" />
+                )}
+              </div>
+              <Filters
+                filtros={filtros}
+                onFiltrosChange={setFiltros}
+                datasDisponiveis={datasDisponiveis}
+              />
+            </div>
+
+            {/* Estatísticas */}
+            <div className="mt-6 p-3 bg-white/5 rounded-lg">
+              <h4 className="text-xs font-semibold text-white/70 uppercase mb-2">Estatísticas</h4>
+              <div className="space-y-1 text-xs text-white/60">
+                <p>Total: <span className="text-white font-medium">{blocos.length}</span> blocos</p>
+                <p>Dias: <span className="text-white font-medium">{blocosPorData.length}</span></p>
+                {temFiltrosAtivos && (
+                  <p className="text-cor-accent-orange">Filtro ativo</p>
+                )}
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        {/* Botão toggle lateral */}
+        <button
+          onClick={() => setSidebarAberta(!sidebarAberta)}
+          className={`absolute z-10 top-1/2 -translate-y-1/2 h-12 flex items-center justify-center transition-all duration-300 rounded-r-md bg-cor-bg-secondary/90 hover:bg-cor-bg-secondary border border-l-0 border-white/10 ${
+            sidebarAberta ? 'left-[280px] w-5' : 'left-0 w-6'
+          }`}
+          title={sidebarAberta ? 'Ocultar filtros' : 'Mostrar filtros'}
+        >
+          {sidebarAberta ? (
+            <ChevronLeft size={16} className="text-white/70" />
+          ) : (
+            <ChevronRight size={16} className="text-white/70" />
+          )}
+        </button>
+
+        {/* Conteúdo do Timeline */}
+        <div ref={containerRef} id="timeline-content" className="flex-1 overflow-y-auto">
+          {blocosPorData.map(({ data, blocos: blocosData }) => (
+            <TimelineDay
+              key={data}
+              data={data}
+              blocos={blocosData}
+              hourWidth={hourWidth}
+              isExpanded={expandedDays.has(data)}
+              onToggle={() => toggleDay(data)}
+              currentTime={currentTime}
+              showTimeLine={true}
+              onScrollRef={(el) => setScrollRef(data, el)}
+            />
+          ))}
+
+          {/* Mensagem quando não há blocos */}
+          {blocosPorData.length === 0 && (
+            <div className="flex flex-col items-center justify-center h-full text-white/50 p-8">
+              <Calendar size={48} className="mb-4 opacity-50" />
+              <p className="text-lg font-medium">Nenhum bloco encontrado</p>
+              <p className="text-sm mt-1">Tente ajustar os filtros</p>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Legenda */}
