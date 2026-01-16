@@ -359,7 +359,7 @@ export function Sidebar(props: SidebarProps) {
   return (
     <>
       <aside
-        className={`flex-shrink-0 flex flex-col bg-cor-bg-secondary transition-all duration-300 ease-in-out overflow-hidden ${
+        className={`flex-shrink-0 flex flex-col bg-cor-bg-secondary transition-all duration-300 ease-in-out overflow-y-auto overflow-x-hidden ${
           isOpen ? 'w-[280px] lg:w-[320px] xl:w-[360px] shadow-[4px_0_24px_rgba(0,0,0,0.3)]' : 'w-0'
         }`}
         style={{ height: '100%', maxHeight: '100%' }}

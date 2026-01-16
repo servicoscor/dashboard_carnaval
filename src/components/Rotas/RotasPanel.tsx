@@ -217,7 +217,7 @@ export function RotasPanel({
           <p className="text-xs text-white/50 mb-2">
             Blocos de hoje ({blocosHoje.length}):
           </p>
-          <div className="space-y-2 max-h-[200px] overflow-y-auto pb-1 pr-1">
+          <div className="space-y-2 max-h-[30vh] overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
             {blocosHoje.map((bloco) => (
               <button
                 key={bloco.id}
