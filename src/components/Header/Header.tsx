@@ -51,18 +51,22 @@ export function Header({
         {/* Safe area para notch no topo */}
         <div className="pt-[env(safe-area-inset-top)]" />
         <div className="flex items-center justify-between px-2 py-2 min-h-[56px]">
-          {/* Menu com Filtros - touch target 44px */}
-          <button
-            onClick={onMenuClick}
-            className="flex items-center gap-2 px-3 py-2 bg-cor-accent-orange/20 hover:bg-cor-accent-orange/30 rounded-lg transition-colors flex-shrink-0 touch-manipulation min-h-[44px]"
-            aria-label="Abrir menu de filtros"
-          >
-            <Menu size={20} className="text-cor-accent-orange" />
-            <span className="text-sm font-semibold text-cor-accent-orange">Filtros</span>
-          </button>
-
-          {/* Título centralizado */}
-          <h1 className="text-sm font-bold text-white truncate mx-2">Carnaval 2026</h1>
+          {/* Logo COR + Menu Filtros */}
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <img
+              src="/data/RIOPREFEITURA COR horizontal monocromatica branco.png"
+              alt="COR"
+              className="h-6 w-auto"
+            />
+            <button
+              onClick={onMenuClick}
+              className="flex items-center gap-1.5 px-2.5 py-1.5 bg-cor-accent-orange/20 hover:bg-cor-accent-orange/30 rounded-lg transition-colors touch-manipulation min-h-[44px]"
+              aria-label="Abrir menu de filtros"
+            >
+              <Menu size={18} className="text-cor-accent-orange" />
+              <span className="text-xs font-semibold text-cor-accent-orange">Filtros</span>
+            </button>
+          </div>
 
           {/* Stats compactos à direita */}
           <div className="flex items-center gap-2 flex-shrink-0">
