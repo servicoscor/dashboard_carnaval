@@ -303,7 +303,7 @@ export function Sidebar(props: SidebarProps) {
                                         : 'bg-white/5 border-white/10 active:bg-white/15'
                                     }`}
                                   >
-                                    <div className={`text-sm font-medium mb-1 ${
+                                    <div className={`text-sm font-medium mb-1 break-words leading-tight ${
                                       isSelected ? 'text-cor-accent-orange' : 'text-white'
                                     }`}>
                                       {bloco.nome}
@@ -346,8 +346,8 @@ export function Sidebar(props: SidebarProps) {
               </div>
             )}
 
-            {/* Espaçamento no final */}
-            <div className="h-4" />
+            {/* Espaçamento no final para garantir scroll completo */}
+            <div className="h-24 flex-shrink-0" />
             </div>
           </div>
         </aside>
