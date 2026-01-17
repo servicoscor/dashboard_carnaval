@@ -5,13 +5,18 @@
 
 import type { Bloco } from '../types/bloco';
 
-const API_URL = 'https://jeap.rio.rj.gov.br/BLO/wsBlocoDeRua.rule?sys=BLO&id=blocosderua&ano=2026';
+// API COR - retorna todos os blocos cadastrados
+const API_URL = 'https://jeap.rio.rj.gov.br/BLO/wsBlocoDeRuaTodos.rule?sys=BLO&id=CORRIO';
 
 // Situações que indicam bloco AUTORIZADO
 // SituacaoBloco: "ATIVO" = cadastro ativo/válido
-// SituacaoDesfile: "APROVADO", "DEFERIDO", etc. = desfile autorizado
+// SituacaoDesfile: blocos com cadastro efetivado ou aprovados
 const SITUACOES_BLOCO_AUTORIZADAS = ['ATIVO'];
-const SITUACOES_DESFILE_AUTORIZADAS = ['APROVADO', 'DEFERIDO', 'AUTORIZADO', 'LICENCIADO'];
+const SITUACOES_DESFILE_AUTORIZADAS = ['CADASTRO EFETIVADO', 'APROVADO', 'DEFERIDO', 'AUTORIZADO', 'LICENCIADO'];
+
+// Situações que indicam bloco NÃO autorizado (exclusão explícita)
+// Apenas cancelados são excluídos - blocos ATIVOS com cadastro pendente ainda aparecem
+const SITUACOES_EXCLUIDAS = ['CANCELADO PELO ORGANIZADOR'];
 
 // Interface do bloco retornado pela API
 interface BlocoAPI {
@@ -63,16 +68,21 @@ function converterData(dataStr: string): string {
 /**
  * Verifica se o bloco está autorizado baseado na situação
  * - SituacaoBloco "ATIVO" = cadastro válido
- * - SituacaoDesfile "APROVADO" = desfile aprovado (quando disponível)
+ * - SituacaoDesfile "CADASTRO EFETIVADO" ou "APROVADO" = desfile autorizado
+ * - Exclui blocos cancelados ou com cadastro não efetivado
  */
 function blocoAutorizado(bloco: BlocoAPI): boolean {
   const situacaoDesfile = bloco.SituacaoDesfile?.toUpperCase() || '';
   const situacaoBloco = bloco.SituacaoBloco?.toUpperCase() || '';
 
+  // Excluir blocos explicitamente cancelados ou não efetivados
+  const excluido = SITUACOES_EXCLUIDAS.some(s => situacaoDesfile.includes(s));
+  if (excluido) return false;
+
   // Bloco com cadastro ATIVO é considerado autorizado
   const blocoAtivo = SITUACOES_BLOCO_AUTORIZADAS.some(s => situacaoBloco.includes(s));
 
-  // OU se o desfile foi explicitamente aprovado
+  // OU se o desfile foi explicitamente aprovado/efetivado
   const desfileAprovado = SITUACOES_DESFILE_AUTORIZADAS.some(s => situacaoDesfile.includes(s));
 
   return blocoAtivo || desfileAprovado;
