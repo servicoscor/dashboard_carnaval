@@ -111,7 +111,7 @@ export function Header({
           {/* Botão Legenda */}
           <button
             onClick={() => setLegendaVisivel(!legendaVisivel)}
-            className={`flex items-center gap-2 px-3 py-2 rounded-lg border transition-colors ${
+            className={`flex items-center gap-1 lg:gap-2 px-2 lg:px-3 py-2 rounded-lg border transition-colors ${
               legendaVisivel
                 ? 'bg-white/20 border-white/30 text-white'
                 : 'bg-white/10 border-white/20 text-white/80 hover:bg-white/15 hover:text-white'
@@ -119,61 +119,68 @@ export function Header({
             title={legendaVisivel ? 'Ocultar legenda' : 'Mostrar legenda'}
           >
             <Info size={16} />
-            <span className="text-xs font-semibold">Legenda</span>
+            <span className="hidden lg:inline text-xs font-semibold">Legenda</span>
             {legendaVisivel ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
           </button>
 
           {/* Botão Timeline */}
           <Link
             to="/timeline"
-            className="flex items-center gap-2 px-3 py-2 rounded-lg border bg-white/10 border-white/20 text-white/80 hover:bg-white/15 hover:text-white transition-colors"
+            className="flex items-center gap-1 lg:gap-2 px-2 lg:px-3 py-2 rounded-lg border bg-white/10 border-white/20 text-white/80 hover:bg-white/15 hover:text-white transition-colors"
             title="Ver timeline dos blocos"
           >
             <Calendar size={16} />
-            <span className="text-xs font-semibold">Timeline</span>
+            <span className="hidden lg:inline text-xs font-semibold">Timeline</span>
           </Link>
         </div>
 
         {/* Titulo Central */}
-        <div className="flex-1 flex flex-col items-center justify-center min-w-0 mx-2">
-          <h1 className="flex items-center gap-2 text-lg lg:text-xl font-bold text-white tracking-wide whitespace-nowrap">
-            <PartyPopper size={22} className="text-cor-accent-orange" />
+        <div className="flex-1 flex flex-col items-center justify-center min-w-0 mx-1 lg:mx-2">
+          <h1 className="flex items-center gap-1 lg:gap-2 text-sm lg:text-xl font-bold text-white tracking-wide whitespace-nowrap">
+            <PartyPopper size={18} className="lg:w-[22px] lg:h-[22px] text-cor-accent-orange" />
             CARNAVAL RIO 2026
           </h1>
-          <p className="text-[9px] text-white/50 hidden sm:block uppercase tracking-wider">
+          <p className="text-[9px] text-white/50 hidden lg:block uppercase tracking-wider">
             Dashboard de Blocos
           </p>
         </div>
 
         {/* Stats Pills + Tour - Direita */}
-        <div className="flex items-center gap-2 flex-shrink-0">
+        <div className="flex items-center gap-1 lg:gap-2 flex-shrink-0">
           <StatPill
-            icon={<MapPin size={22} />}
+            icon={<MapPin size={18} className="lg:w-[22px] lg:h-[22px]" />}
             label="Blocos"
             value={estatisticas.totalBlocos}
             subValue={isFiltered ? `de ${totalBlocosOriginal}` : undefined}
             color="orange"
+            compact
           />
           <StatPill
-            icon={<Users size={22} />}
+            icon={<Users size={18} className="lg:w-[22px] lg:h-[22px]" />}
             label="Publico"
             value={formatarNumero(estatisticas.publicoTotal)}
             color="green"
+            compact
           />
-          <StatPill
-            icon={<Route size={22} />}
-            label="Deslocamento"
-            value={estatisticas.comDeslocamento}
-            subValue={`${Math.round((estatisticas.comDeslocamento / (estatisticas.totalBlocos || 1)) * 100)}%`}
-            color="purple"
-          />
-          <StatPill
-            icon={<Music size={22} />}
-            label="Parados"
-            value={estatisticas.parados}
-            subValue={`${Math.round((estatisticas.parados / (estatisticas.totalBlocos || 1)) * 100)}%`}
-            color="pink"
-          />
+          {/* Mostrar apenas em telas grandes (lg+) */}
+          <div className="hidden lg:block">
+            <StatPill
+              icon={<Route size={22} />}
+              label="Deslocamento"
+              value={estatisticas.comDeslocamento}
+              subValue={`${Math.round((estatisticas.comDeslocamento / (estatisticas.totalBlocos || 1)) * 100)}%`}
+              color="purple"
+            />
+          </div>
+          <div className="hidden lg:block">
+            <StatPill
+              icon={<Music size={22} />}
+              label="Parados"
+              value={estatisticas.parados}
+              subValue={`${Math.round((estatisticas.parados / (estatisticas.totalBlocos || 1)) * 100)}%`}
+              color="pink"
+            />
+          </div>
 
           {/* Separador */}
           <div className="w-px h-10 bg-white/10" />
@@ -183,11 +190,11 @@ export function Header({
             <button
               onClick={onTourStart}
               disabled={estatisticas.totalBlocos === 0}
-              className="flex items-center gap-2 px-4 py-2 bg-cor-accent-green/20 text-cor-accent-green border border-cor-accent-green/30 rounded-lg hover:bg-cor-accent-green/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex items-center gap-1 lg:gap-2 px-2 lg:px-4 py-2 bg-cor-accent-green/20 text-cor-accent-green border border-cor-accent-green/30 rounded-lg hover:bg-cor-accent-green/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               title="Iniciar tour automático pelos blocos"
             >
               <Play size={16} />
-              <span className="font-semibold text-sm">Tour</span>
+              <span className="hidden lg:inline font-semibold text-sm">Tour</span>
             </button>
           ) : (
             <div className="flex items-center gap-2 px-3 py-1.5 bg-cor-accent-green/10 border border-cor-accent-green/30 rounded-lg">
@@ -328,15 +335,34 @@ interface StatPillProps {
   value: string | number;
   subValue?: string;
   color: 'orange' | 'green' | 'purple' | 'pink';
+  compact?: boolean;
 }
 
-function StatPill({ icon, label, value, subValue, color }: StatPillProps) {
+function StatPill({ icon, label, value, subValue, color, compact = false }: StatPillProps) {
   const colorClasses = {
     orange: 'bg-cor-accent-orange/10 text-cor-accent-orange border-cor-accent-orange/20',
     green: 'bg-cor-accent-green/10 text-cor-accent-green border-cor-accent-green/20',
     purple: 'bg-cor-accent-purple/10 text-cor-accent-purple border-cor-accent-purple/20',
     pink: 'bg-cor-accent-pink/10 text-cor-accent-pink border-cor-accent-pink/20',
   };
+
+  // Versão compacta para tablet (apenas ícone + valor)
+  if (compact) {
+    return (
+      <div className={`flex items-center gap-1.5 lg:gap-3 px-2 lg:px-4 py-1.5 lg:py-2.5 rounded-lg border ${colorClasses[color]}`}>
+        {icon}
+        <div className="flex flex-col">
+          <span className="hidden lg:block text-sm uppercase tracking-wide opacity-90 font-semibold">{label}</span>
+          <div className="flex items-baseline gap-1">
+            <span className="text-base lg:text-xl font-extrabold">{value}</span>
+            {subValue && (
+              <span className="hidden lg:inline text-sm opacity-80 font-medium">{subValue}</span>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={`flex items-center gap-3 px-4 py-2.5 rounded-lg border ${colorClasses[color]}`}>

@@ -468,6 +468,7 @@ export function Sidebar(props: SidebarProps) {
                   onDefinirOrigemGPS={rotasConfig.onDefinirOrigemGPS}
                   blocos={blocos}
                   isMobile={false}
+                  embedded={true}
                 />
               </div>
             )}
