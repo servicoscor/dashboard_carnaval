@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import { X, ChevronDown, ChevronUp, ChevronLeft, ChevronRight, Filter, Calendar, Navigation } from 'lucide-react';
 import type { Bloco, Filtros } from '../../types/bloco';
 import type { RotaInfo, OrigemUsuario, Coordenada } from '../../types/rota';
@@ -53,6 +53,27 @@ export function Sidebar(props: SidebarProps) {
   const [blocosVisiveis, setBlocosVisiveis] = useState(true);
   const [rotasVisiveis, setRotasVisiveis] = useState(true);
   const [expandedDates, setExpandedDates] = useState<Set<string>>(new Set());
+
+  // Refs para scroll automático ao selecionar data
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const blocosSectionRef = useRef<HTMLDivElement>(null);
+  const prevDataRef = useRef<string>(filtros.data);
+
+  // Scroll automático para seção de blocos quando mudar o filtro de data
+  useEffect(() => {
+    if (filtros.data !== prevDataRef.current && filtros.data !== 'todos') {
+      // Garantir que a seção de blocos esteja visível
+      setBlocosVisiveis(true);
+
+      // Scroll para a seção de blocos após um pequeno delay
+      setTimeout(() => {
+        if (blocosSectionRef.current && scrollContainerRef.current) {
+          blocosSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+    prevDataRef.current = filtros.data;
+  }, [filtros.data]);
 
   // Agrupar blocos por data para exibição
   const blocosPorData = useMemo(() => {
@@ -149,6 +170,7 @@ export function Sidebar(props: SidebarProps) {
 
             {/* Conteúdo scrollável */}
             <div
+              ref={scrollContainerRef}
               className="flex-1 overflow-y-auto overscroll-contain"
               style={{ minHeight: 0 }}
             >
@@ -231,7 +253,7 @@ export function Sidebar(props: SidebarProps) {
 
             {/* Seção de Blocos por Data */}
             {blocosPorData.length > 0 && (
-              <div className="border-b border-white/10">
+              <div ref={blocosSectionRef} className="border-b border-white/10">
                 <button
                   onClick={() => setBlocosVisiveis(!blocosVisiveis)}
                   className="w-full flex items-center justify-between px-4 py-3 hover:bg-white/5 transition-colors touch-manipulation min-h-[48px]"

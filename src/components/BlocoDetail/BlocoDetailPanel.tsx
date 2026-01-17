@@ -19,9 +19,10 @@ export function BlocoDetailPanel({ bloco, onClose, isMobile = false, isOpen = tr
   // Classes condicionais para mobile (bottom sheet) vs desktop (side panel)
   // Mobile: altura máxima 60vh em landscape, 75vh em portrait
   // Usando fundo sólido escuro para garantir visibilidade em qualquer tema de mapa
+  // z-[1100] para ficar acima dos controles do mapa (zoom, tema, etc)
   const containerClasses = isMobile
-    ? 'fixed bottom-0 left-0 right-0 z-[1000] bg-[#1a1f2e] rounded-t-3xl border-t-2 border-white/20 shadow-2xl max-h-[75vh] landscape:max-h-[85vh] overflow-hidden safe-area-bottom'
-    : 'absolute top-4 right-4 z-[1000] w-[320px] lg:w-[360px] bg-[#1a1f2e] rounded-xl border border-white/20 shadow-2xl overflow-hidden max-h-[calc(100vh-120px)]';
+    ? 'fixed bottom-0 left-0 right-0 z-[1100] bg-[#1a1f2e] rounded-t-3xl border-t-2 border-white/20 shadow-2xl max-h-[75vh] landscape:max-h-[85vh] overflow-hidden safe-area-bottom'
+    : 'absolute top-4 right-4 z-[1100] w-[320px] lg:w-[360px] bg-[#1a1f2e] rounded-xl border border-white/20 shadow-2xl overflow-hidden max-h-[calc(100vh-120px)]';
 
   return (
     <div className={containerClasses}>
