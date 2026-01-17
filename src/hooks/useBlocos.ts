@@ -4,47 +4,8 @@ import { carregarBlocosExcel } from '../utils/parseExcel';
 import { carregarPercursosDoKMZ, normalizarNomeBloco, type PercursoBlocoKMZ } from '../utils/kmzParser';
 import { carregarBlocosAPI } from '../services/blocosApiService';
 import { dadosMock } from '../data/mockData';
-import { getBrasiliaTime } from '../utils/formatters';
 
 type FonteDados = 'api' | 'excel' | 'mock';
-
-// Bloco fake para teste de rotas (apenas em desenvolvimento)
-function criarBlocoTesteHoje(): Bloco {
-  const hoje = getBrasiliaTime();
-  // Formatar data manualmente para evitar conversão UTC do toISOString()
-  const ano = hoje.getFullYear();
-  const mes = String(hoje.getMonth() + 1).padStart(2, '0');
-  const dia = String(hoje.getDate()).padStart(2, '0');
-  const hojeStr = `${ano}-${mes}-${dia}`; // YYYY-MM-DD
-
-  return {
-    id: 99999,
-    nome: '[TESTE] Bloco do Desenvolvedor',
-    data: hojeStr,
-    dataRelativa: 'Hoje',
-    bairro: 'Centro',
-    subprefeitura: 'CENTRO',
-    regiao: 'CENTRO',
-    publicoEstimado: 1000,
-    localConcentracao: 'Praça XV de Novembro',
-    horaConcentracao: '14:00',
-    horaInicio: '15:00',
-    horaTermino: '22:00',
-    percursoDetalhado: 'Praça XV | Av. Rio Branco | Cinelândia',
-    localDispersao: 'Cinelândia',
-    formaApresentacao: 'COM DESLOCAMENTO',
-    estrutura: 'Trio elétrico',
-    situacao: 'APROVADO',
-    lat: -22.9027,
-    lng: -43.1778,
-    temPercurso: true,
-    percurso: [
-      { lat: -22.9027, lng: -43.1778, rua: 'Praça XV' },
-      { lat: -22.9035, lng: -43.1765, rua: 'Av. Rio Branco' },
-      { lat: -22.9100, lng: -43.1755, rua: 'Cinelândia' }
-    ]
-  };
-}
 
 const EXCEL_URL = '/data/PLANILHACOMPLETABLOCOS2026.xlsx';
 const KMZ_URL = '/data/percursos/kmz/Carnaval 2026 - Blocos.kmz';
@@ -171,9 +132,7 @@ export function useBlocos() {
         const resultadoKMZ = await kmzPromise;
         const blocosComPercursos = associarPercursosKMZ(blocosAPI, resultadoKMZ);
 
-        // Adicionar bloco de teste
-        const blocoTeste = criarBlocoTesteHoje();
-        setBlocos([blocoTeste, ...blocosComPercursos]);
+        setBlocos(blocosComPercursos);
         setFonteDados('api');
         setLoading(false);
         console.log(`[DADOS] API: ${blocosAPI.length} blocos autorizados carregados`);
@@ -192,9 +151,7 @@ export function useBlocos() {
         const resultadoKMZ = await kmzPromise;
         const blocosComPercursos = associarPercursosKMZ(blocosExcel, resultadoKMZ);
 
-        // Adicionar bloco de teste
-        const blocoTeste = criarBlocoTesteHoje();
-        setBlocos([blocoTeste, ...blocosComPercursos]);
+        setBlocos(blocosComPercursos);
         setFonteDados('excel');
         setError('API indisponível. Usando dados do Excel.');
         setLoading(false);
@@ -207,8 +164,7 @@ export function useBlocos() {
 
     // 3. FALLBACK FINAL: USAR DADOS MOCK
     console.log('[DADOS] Usando dados mock...');
-    const blocoTeste = criarBlocoTesteHoje();
-    setBlocos([blocoTeste, ...dadosMock]);
+    setBlocos(dadosMock);
     setFonteDados('mock');
     setError('API e Excel indisponíveis. Usando dados de demonstração.');
     setLoading(false);

@@ -1,20 +1,10 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { Navigation, X, Loader2, AlertTriangle, Clock, Route as RouteIcon, LocateFixed, MapPin, Users } from 'lucide-react';
 import type { Bloco } from '../../types/bloco';
 import type { RotaInfo, OrigemUsuario, Coordenada } from '../../types/rota';
 import { formatarDuracao, formatarDistanciaKm } from '../../utils/geoUtils';
 import { getAlertaIcone, getAlertaLabel } from '../../services/wazeService';
-import { getBrasiliaTime } from '../../utils/formatters';
 import { formatarHora } from '../../utils/formatters';
-
-// Obter data de hoje no formato YYYY-MM-DD (horário de Brasília)
-function getHojeStr(): string {
-  const agora = getBrasiliaTime();
-  const ano = agora.getFullYear();
-  const mes = String(agora.getMonth() + 1).padStart(2, '0');
-  const dia = String(agora.getDate()).padStart(2, '0');
-  return `${ano}-${mes}-${dia}`;
-}
 
 interface RotasPanelProps {
   origem: OrigemUsuario | null;
@@ -50,12 +40,6 @@ export function RotasPanel({
   embedded = false
 }: RotasPanelProps) {
   const [blocoSelecionadoId, setBlocoSelecionadoId] = useState<number | null>(null);
-
-  // Filtrar apenas blocos de hoje
-  const blocosHoje = useMemo(() => {
-    const hojeStr = getHojeStr();
-    return blocos.filter(b => b.data === hojeStr);
-  }, [blocos]);
 
   // Quando coordenadas GPS chegarem e não tivermos origem, definir
   if (geolocalizacao.coordenadas && !origem && !geolocalizacao.carregando) {
@@ -211,14 +195,14 @@ export function RotasPanel({
         )}
       </div>
 
-      {/* Lista de blocos de hoje */}
-      {blocosHoje.length > 0 ? (
+      {/* Lista de blocos filtrados */}
+      {blocos.length > 0 ? (
         <div>
           <p className="text-xs text-white/50 mb-2">
-            Blocos de hoje ({blocosHoje.length}):
+            Blocos disponíveis ({blocos.length}):
           </p>
           <div className="space-y-2 max-h-[30vh] overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
-            {blocosHoje.map((bloco) => (
+            {blocos.map((bloco) => (
               <button
                 key={bloco.id}
                 onClick={() => handleSelecionarBloco(bloco)}
@@ -266,7 +250,7 @@ export function RotasPanel({
         </div>
       ) : (
         <div className="text-center py-6">
-          <p className="text-sm text-white/50">Nenhum bloco hoje</p>
+          <p className="text-sm text-white/50">Nenhum bloco na data selecionada</p>
           <p className="text-xs text-white/30 mt-1">
             Selecione outra data no filtro para ver os blocos
           </p>
