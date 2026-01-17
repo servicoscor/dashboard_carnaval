@@ -10,7 +10,7 @@ import { BlocoRoute } from './BlocoRoute';
 import { CameraMarker } from './CameraMarker';
 import { CameraPlayer } from './CameraPlayer';
 import { RotaPolyline, WazeAlertMarker } from '../Rotas';
-import { RIO_CENTER, DEFAULT_ZOOM, TILE_LAYERS, TILE_ATTRIBUTION } from '../../utils/constants';
+import { RIO_CENTER, DEFAULT_ZOOM, DEFAULT_ZOOM_MOBILE, TILE_LAYERS, TILE_ATTRIBUTION } from '../../utils/constants';
 import 'leaflet/dist/leaflet.css';
 
 type MapTheme = 'light' | 'dark';
@@ -102,6 +102,10 @@ export function MapView({
   const [cameraAberta, setCameraAberta] = useState<Camera | null>(null);
   const [mapTheme, setMapTheme] = useState<MapTheme>('light');
 
+  // Detectar se é mobile para ajustar zoom inicial
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const initialZoom = isMobile ? DEFAULT_ZOOM_MOBILE : DEFAULT_ZOOM;
+
   const handleCameraClick = (camera: Camera) => {
     setCameraAberta(camera);
   };
@@ -134,7 +138,7 @@ export function MapView({
 
       <LeafletMapContainer
         center={RIO_CENTER}
-        zoom={DEFAULT_ZOOM}
+        zoom={initialZoom}
         className="w-full h-full"
         zoomControl={true}
       >
