@@ -8,9 +8,17 @@ import type { Bloco } from '../types/bloco';
 // API COR - retorna todos os blocos cadastrados
 const API_URL = 'https://jeap.rio.rj.gov.br/BLO/wsBlocoDeRuaTodos.rule?sys=BLO&id=CORRIO';
 
-// Situações que indicam bloco com CADASTRO EFETIVADO
-// Apenas blocos com desfile efetivado serão exibidos no dashboard
-const SITUACOES_DESFILE_EFETIVADAS = ['CADASTRO EFETIVADO'];
+// Situações de bloco aceitas
+const SITUACOES_BLOCO_ACEITAS = ['ATIVO'];
+
+// Situações de desfile aceitas (para blocos ATIVOS)
+const SITUACOES_DESFILE_ACEITAS = [
+  'CADASTRO PRELIMINAR',
+  'CADASTRO NÃO EFETIVADO',
+  'CADASTRO PRELIMINAR UPLOAD',
+  'AUTORIZADO',
+  'CADASTRO EFETIVADO'
+];
 
 // Interface do bloco retornado pela API
 interface BlocoAPI {
@@ -60,12 +68,26 @@ function converterData(dataStr: string): string {
 }
 
 /**
- * Verifica se o bloco tem cadastro efetivado
- * Apenas blocos com SituacaoDesfile "CADASTRO EFETIVADO" serão exibidos
+ * Verifica se o bloco deve ser exibido no dashboard
+ * Critérios:
+ * - Bloco ATIVO com CADASTRO PRELIMINAR
+ * - Bloco ATIVO com CADASTRO NÃO EFETIVADO
+ * - Bloco com CADASTRO PRELIMINAR UPLOAD
+ * - Bloco AUTORIZADO
+ * - Bloco com CADASTRO EFETIVADO
  */
-function blocoEfetivado(bloco: BlocoAPI): boolean {
+function blocoAceito(bloco: BlocoAPI): boolean {
   const situacaoDesfile = bloco.SituacaoDesfile?.toUpperCase() || '';
-  return SITUACOES_DESFILE_EFETIVADAS.some(s => situacaoDesfile.includes(s));
+  const situacaoBloco = bloco.SituacaoBloco?.toUpperCase() || '';
+
+  // Verifica se o bloco é ATIVO
+  const blocoAtivo = SITUACOES_BLOCO_ACEITAS.some(s => situacaoBloco.includes(s));
+
+  // Verifica se a situação de desfile é aceita
+  const desfileAceito = SITUACOES_DESFILE_ACEITAS.some(s => situacaoDesfile.includes(s));
+
+  // Bloco deve ser ATIVO e ter situação de desfile aceita
+  return blocoAtivo && desfileAceito;
 }
 
 /**
@@ -111,7 +133,7 @@ function converterBloco(blocoAPI: BlocoAPI): Bloco {
 
 /**
  * Carrega blocos da API oficial
- * Retorna apenas blocos com CADASTRO EFETIVADO
+ * Retorna blocos ATIVOS com situações de desfile aceitas
  */
 export async function carregarBlocosAPI(): Promise<Bloco[]> {
   try {
@@ -136,16 +158,16 @@ export async function carregarBlocosAPI(): Promise<Bloco[]> {
 
     console.log(`[API] Total de blocos na API: ${data.dados.length}`);
 
-    // Filtrar apenas blocos com cadastro efetivado
-    const blocosEfetivados = data.dados.filter(blocoEfetivado);
-    console.log(`[API] Blocos efetivados: ${blocosEfetivados.length}`);
+    // Filtrar blocos aceitos
+    const blocosAceitos = data.dados.filter(blocoAceito);
+    console.log(`[API] Blocos aceitos: ${blocosAceitos.length}`);
 
     // Converter para formato interno
-    const blocos = blocosEfetivados.map(converterBloco);
+    const blocos = blocosAceitos.map(converterBloco);
 
     // Log das situações encontradas (para debug)
-    const situacoes = new Set(data.dados.map(b => b.SituacaoDesfile));
-    console.log('[API] Situações de desfile encontradas:', Array.from(situacoes));
+    const situacoes = new Set(data.dados.map(b => `${b.SituacaoBloco} | ${b.SituacaoDesfile}`));
+    console.log('[API] Situações encontradas:', Array.from(situacoes));
 
     return blocos;
   } catch (error) {
@@ -155,8 +177,11 @@ export async function carregarBlocosAPI(): Promise<Bloco[]> {
 }
 
 /**
- * Retorna lista de situações efetivadas (para referência)
+ * Retorna lista de situações aceitas (para referência)
  */
-export function getSituacoesEfetivadas(): string[] {
-  return [...SITUACOES_DESFILE_EFETIVADAS];
+export function getSituacoesAceitas(): { bloco: string[]; desfile: string[] } {
+  return {
+    bloco: [...SITUACOES_BLOCO_ACEITAS],
+    desfile: [...SITUACOES_DESFILE_ACEITAS]
+  };
 }
