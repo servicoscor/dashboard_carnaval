@@ -68,24 +68,25 @@ function converterData(dataStr: string): string {
 /**
  * Verifica se o bloco está autorizado baseado na situação
  * - SituacaoBloco "ATIVO" = cadastro válido
- * - SituacaoDesfile "CADASTRO EFETIVADO" ou "APROVADO" = desfile autorizado
- * - Exclui blocos cancelados ou com cadastro não efetivado
+ * - SituacaoDesfile "CADASTRO EFETIVADO" = desfile autorizado
+ * - Apenas blocos ATIVOS E com desfile EFETIVADO são mostrados
  */
 function blocoAutorizado(bloco: BlocoAPI): boolean {
   const situacaoDesfile = bloco.SituacaoDesfile?.toUpperCase() || '';
   const situacaoBloco = bloco.SituacaoBloco?.toUpperCase() || '';
 
-  // Excluir blocos explicitamente cancelados ou não efetivados
+  // Excluir blocos explicitamente cancelados
   const excluido = SITUACOES_EXCLUIDAS.some(s => situacaoDesfile.includes(s));
   if (excluido) return false;
 
-  // Bloco com cadastro ATIVO é considerado autorizado
+  // Bloco deve ser ATIVO
   const blocoAtivo = SITUACOES_BLOCO_AUTORIZADAS.some(s => situacaoBloco.includes(s));
 
-  // OU se o desfile foi explicitamente aprovado/efetivado
+  // E desfile deve estar aprovado/efetivado
   const desfileAprovado = SITUACOES_DESFILE_AUTORIZADAS.some(s => situacaoDesfile.includes(s));
 
-  return blocoAtivo || desfileAprovado;
+  // Ambas condições devem ser verdadeiras
+  return blocoAtivo && desfileAprovado;
 }
 
 /**
