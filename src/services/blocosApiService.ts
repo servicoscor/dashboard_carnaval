@@ -12,7 +12,7 @@ const API_URL = 'https://jeap.rio.rj.gov.br/BLO/wsBlocoDeRuaTodos.rule?sys=BLO&i
 // SituacaoBloco: "ATIVO" = cadastro ativo/válido
 // SituacaoDesfile: blocos com cadastro efetivado ou aprovados
 const SITUACOES_BLOCO_AUTORIZADAS = ['ATIVO'];
-const SITUACOES_DESFILE_AUTORIZADAS = ['CADASTRO EFETIVADO', 'APROVADO', 'DEFERIDO', 'AUTORIZADO', 'LICENCIADO'];
+const SITUACOES_DESFILE_AUTORIZADAS = ['CADASTRO EFETIVADO', 'CADASTRO PRELIMINAR', 'CADASTRO PRELIMINAR UPLOAD', 'APROVADO', 'DEFERIDO', 'AUTORIZADO', 'LICENCIADO'];
 
 // Situações que indicam bloco NÃO autorizado (exclusão explícita)
 // Apenas cancelados são excluídos - blocos ATIVOS com cadastro pendente ainda aparecem
